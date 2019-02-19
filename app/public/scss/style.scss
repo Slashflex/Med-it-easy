@@ -1,0 +1,760 @@
+@import 'variables';
+
+* {
+    list-style-type: none;
+}
+
+body {
+    background-color: $color1;
+}
+    
+/*=============================================
+=               Navigation Bar                =
+=============================================*/
+nav {
+    box-shadow: 0px 8px 15px $color4;
+    position: fixed;
+    height: auto;
+    //background-color: $colorD !important;
+    //background-image: linear-gradient(335deg, $color6, $color7);
+}
+
+.navbar-nav {
+    .nav-item {
+        .nav-link {
+            color: $color1;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+}
+
+.nav-link:hover,
+.nav-item:nth-child(1)>a:nth-child(1),
+.nav-link:focus,
+.separator {
+    color: $color3 !important;
+}
+
+.navbar-brand {
+    color: $color1 !important;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.fa.fa-navicon {
+    color: $color3 !important;
+}
+
+.navbar-light .navbar-toggler {
+    border-color: $color3 !important;
+}
+
+/*=============================================
+===       Section Button Back To Top        ===
+=============================================*/
+#buttonToTop {
+    display: inline-block;
+    background-color: $color3;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    box-shadow: 0px 5px 10px $color4;
+}
+
+#buttonToTop::before {
+    font-size: 2em;
+    line-height: 50px;
+    color: $color3;
+}
+
+#buttonToTop::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: $color2;
+}
+
+#buttonToTop:hover {
+    cursor: pointer;
+    background-color: $color1;
+    color: $color3;
+}
+
+#buttonToTop:active {
+    background-color: #555;
+}
+
+#buttonToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/*=====  End of Section Back To Top  =======*/
+/*========== End of Navigation Bar ==========*/
+
+/*=============================================
+=                    Header                   =
+=============================================*/
+.card {
+    box-shadow: 0px 8px 15px $color4;
+    background-color: $color2;
+}
+
+.btn-primary {
+    background-color: $color2;
+    color: $color3; //width: 35%;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    text-transform: uppercase;
+}
+
+.btn-primary:hover {
+    background-color: $color3;
+    color: $color2;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Pop-up Modal on click from User space link (top-right) */
+.modal-open .container-fluid {
+    /* blur effect on Modal pop */
+    filter: blur(15px);
+}
+
+.modal-content {
+    background-color: transparent;
+    border: none !important;
+    width: 50em;
+    margin: 0 auto;
+}
+
+.modal-dialog {
+    max-width: none !important;
+    border: initial;
+}
+
+.modal-footer {
+    border: none !important;
+}
+
+/*=============== End of Header =============*/
+
+/*=============================================
+=              Main Content Page              =
+=============================================*/
+#main {
+    min-height: 800px;
+    margin-top: 60px;
+}
+
+#placeholder {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Bloc "Notre concept" */
+.concept_height {
+    height: 100vh;
+    padding-top: 6rem;
+    background-color: rgb(215, 226, 222);
+    //background-image: linear-gradient(335deg, $color6, $color7);
+}
+
+/* Bloc "Notre solution" */
+.solution_height {
+    height: 100vh;
+    padding-top: 6rem;
+    //background-color: rgb(241, 239, 204);
+    background-image: linear-gradient(335deg, $color6, $color7);
+}
+
+/* Bloc "Notre Tarifs" */
+.pricing_height {
+    height: 100vh;
+    padding-top: 6rem;
+    background-color: rgb(215, 226, 222);
+}
+
+.mentions_legales {
+    margin-top: 100px;
+    margin-bottom: 50px;
+
+    .h2_title {
+        background-color: $color2;
+        padding: 10px 10px;
+        border-radius: 45px;
+        color: $color3;
+    }
+
+    p {
+        color: $color5;
+
+        a {
+            color: $color2;
+
+            strong {
+                text-decoration: underline;
+
+                a {
+                    color: $color2;
+                }
+            }
+        }
+    }
+}
+
+.h3_titles {
+    color: $color3;
+    text-decoration: underline;
+}
+
+#bg_word_swap {
+    background-color: $color3;
+    padding: 3px;
+    border-radius: 45px;
+    text-align: center;
+    width: 16rem;
+}
+
+#word_swap {
+    color: $color2;
+    margin-bottom: auto;
+}
+
+.h1-mb {
+    margin-bottom: -20px;
+}
+
+/*========  End of Main Content Page  =======*/
+
+/*=============================================
+=                   Footer                    =
+=============================================*/
+
+footer {
+    background-color: $color2; //min-height: 200px;
+    box-shadow: 0px -8px 15px $color4;
+}
+
+.bloc_gauche {
+
+    p {
+        color: $color1;
+        text-align: center;
+    }
+}
+
+/* Réseaux sociaux */
+
+.icon_color {
+    width: 20%;
+    background-color: $color2;
+    border-radius: 50%;
+}
+
+.btn-footer {
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 1rem;
+    color: $color2;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: $color3;
+    border-radius: 20px;
+}
+
+.btn-footer:hover {
+    text-decoration: none;
+    background-color: $color2; //font-size: 1rem;
+}
+
+/* Copyright */
+.navbar-brandFooter {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: $color1;
+}
+
+/* Mentions légales */
+.bloc_mid {
+    margin-top: 3%;
+}
+
+.bloc_mid a {
+    color: $color3;
+    text-decoration: none;
+}
+
+.bloc_mid a:hover {
+    color: $color1;
+}
+
+.fa-phone {
+    color: $color3;
+}
+
+.phone {
+    color: $color1;
+    margin-left: 10px;
+}
+
+.footer_height {
+    max-height: 80px;
+}
+
+.liens_utiles {
+    margin: auto;
+
+    a {
+        color: $color1;
+        font-weight: bold;
+    }
+}
+
+.liens_utiles ul li a:hover {
+    color: $color3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.space {
+    padding-left: 10px;
+}
+
+.bloc_reseaux {
+    margin-top: 20px;
+}
+
+.border-left {
+    border-left: 1px solid $color1;
+}
+
+.borderLeft {
+    border-left: 1px solid $color1;
+}
+
+#hr {
+    margin-top: 15px;
+    border: 1px solid $color1;
+    width: 100%;
+}
+
+/*==============  End of Footer =============*/
+
+
+/*=============================================
+=          Section Form inscription           =
+=============================================*/
+.header {
+    width: 30%;
+    margin: 125px auto 0px;
+    color: $color2;
+    background: $color3;
+    text-align: center;
+    border-bottom: none;
+    border-radius: 10px 10px 0px 0px;
+    padding: 20px;
+    box-shadow: 0px 8px 15px $color4;
+
+    h4 {
+        font-weight: bold;
+        display: inline-block;
+    }
+}
+
+/* Once connected, display Header (which contains user first and last name) */
+.header_connected {
+    width: 40%;
+    margin: 100px auto 20px;
+    color: $color2;
+    background: $color3;
+    text-align: center;
+    border: 1px solid #B0C4DE;
+    border-bottom: none;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0px 4px 10px $color4;
+}
+
+form {
+    box-shadow: 0px 8px 15px $color4;
+}
+
+form,
+.content {
+    width: 30%;
+    margin: 0px auto 60px auto;
+    padding: 20px;
+    background: $color2;
+    border-radius: 0px 0px 10px 10px;
+    background-color: $color2;
+    color: $color2;
+    font-weight: 500;
+}
+
+form p {
+    color: $color1;
+    margin: 0 auto;
+    text-align: center;
+}
+
+form a {
+    color: $color3;
+}
+
+form a:hover {
+    color: $color1;
+    text-decoration: none;
+}
+
+.fa-sign-in-alt {
+    padding-left: 5px;
+    color: $color1;
+}
+
+.fa-sign-in-alt:hover {
+    padding-left: 5px;
+    color: $color3;
+}
+
+.input-group {
+    margin: 10px 0px 10px 0px;
+}
+
+.input-group label {
+    display: block;
+    align-items: center;
+    margin: 3px auto;
+    color: $color1;
+}
+
+.input-group input {
+    height: 30px;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 45px;
+    border: 1px solid gray;
+}
+
+select {
+    border-radius: 45px;
+    width: 100%;
+    text-align: center;
+}
+
+option {
+    text-align: center;
+}
+
+.btn-form {
+    padding: 10px 20px;
+    font-size: 15px;
+    margin: 10px auto;
+    color: $color2;
+    font-weight: bold;
+    background: $color3;
+    border: none;
+    border-radius: 45px;
+}
+
+/* display errors messages on lack of inputs in register form */
+.error-message {
+    display: inline;
+    color: $color3;
+    display: none;
+}
+
+/* Radio button "se souvenir de moi" */
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: $color1;
+}
+
+/* On mouse-over, add a orange background color on radio button */
+.wrapper:hover input~.checkmark {
+    background-color: $color3;
+}
+
+/* When the checkbox is checked, add a blue background */
+.wrapper input:checked~.checkmark {
+    background-color: $color5;
+}
+
+/* The container */
+.wrapper {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    //font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.wrapper input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/*==== End of Section Form inscription ======*/
+
+
+
+
+/*=============================================
+=            Section Media Queries            =
+=============================================*/
+
+/* Extra Large screens */
+@media screen and (min-width: 1200px) and (max-width: 2000px) {
+    .reseaux {
+        width: 30%;
+        text-align: center;
+        margin: 0 auto;
+
+        a {
+            img {
+                text-align: 1;
+            }
+        }
+    }
+}
+
+/* Large screens */
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .reseaux {
+        width: 30%;
+        text-align: center;
+    }
+
+    .patientForm {
+        width: 40%;
+    }
+
+    .header {
+        width: 40%;
+    }
+}
+
+/* Medium screens */
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .reseaux {
+        width: 30%;
+        text-align: center;
+    }
+
+    .logo-part {
+        margin-bottom: 2%;
+    }
+
+    .patientForm {
+        width: 40%;
+    }
+
+    .header {
+        width: 40%;
+    }
+
+    .header_connected {
+        width: 50%;
+    }
+}
+
+/* Small screens */
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .bloc_gauche {
+        border: none;
+    }
+
+    .liens_utiles {
+        display: none;
+        /* cache les blocs liens utiles du footer */
+    }
+
+    .reseaux {
+        text-align: center;
+        width: 34%;
+    }
+
+    .space {
+        display: block;
+    }
+
+    .logo-part {
+        margin-bottom: 2%;
+    }
+
+    .card-deck .card {
+        margin-bottom: 21px;
+    }
+
+    .card-deck {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .patientForm {
+        width: 40%;
+    }
+
+    .header {
+        width: 40%;
+    }
+
+    .header_connected {
+        width: 70%;
+    }
+}
+
+/* Extra Small screens */
+@media screen and (max-width: 576px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .bloc_gauche {
+        border: none;
+    }
+
+    .liens_utiles {
+        display: none;
+        /* cache les blocs liens utiles du footer */
+    }
+
+    .reseaux {
+        width: 50%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .space {
+        display: block;
+    }
+
+    .logo-part {
+        margin-bottom: 2%;
+    }
+
+    .card-deck {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .patientForm {
+        width: 50%;
+    }
+
+    .header {
+        width: 50%;
+
+        h2 {
+            font-size: 1.4rem;
+        }
+    }
+
+    .header_connected {
+        margin-top: 150px;
+        width: 70%;
+    }
+}
+
+/*=====  End of Section Media Queries  ======*/
+
+
+
+/*=============================================
+=                   TESTS                     =
+=============================================*/
+pre {
+    background-color: $color3;
+    width: 50%;
+    border-radius: 45px;
+    margin-top: 100px;
+    padding: 20px 10px;
+    //font-weight: 600;
+    font-size: 1rem;
+    color: $color2;
+    text-align: center;
+}
+.displayErrors {
+    background-color: $color3;
+    width: 50%;
+    border-radius: 45px;
+    margin-top: 100px;
+    padding: 20px 10px;
+    //font-weight: 600;
+    font-size: 1rem;
+    color: $color2;
+    //text-align: center;
+}
+
+.btn-update {
+    background-color: $color2;
+    color: $color3;
+    border-radius: 45px;
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    width: 20%;
+    margin-top: 100px;
+}
+
+.btn-update:hover {
+    background-color: $color3;
+    color: $color2;
+    border-radius: 45px;
+    padding: 10px;
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 15px $color4;
+    font-weight: bold;
+    border: none;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+#btn-margin a {
+    line-height: 60px;
+}
+
+/*==============  End of TESTS  =============*/
