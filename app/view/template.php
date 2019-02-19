@@ -41,15 +41,15 @@
         </div>
     </nav>
 
-    <!-- Modal fait apparaître deux blocs => Espace patient et Espace Praticien,
-    qui redirigeront vers leurs pages dédiées de Création / Connexion de compte -->
+    <!-- Modal brings up two blocks => Patient user space and Doctor user space,
+    who will redirect to their dedicated Creation / Account Login pages -->
     <div class="modal closeModal" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <header class="container justify-content-center">
                     <div class="row card-deck">
-                        <!-- Bloc de gauche proposant a l'utilisateur de s'inscrire ou se connecter -->
+                        <!-- Left block offering the user to register or log in -->
                         <div class="card text-center" id="leftCard">
                             <img src="app\public\images\patient.png" class="card-img-top" alt="Lien vers l'espace de connexion du patient">
                                 <div class="card-body">
@@ -57,7 +57,7 @@
                                     <a href="index.php?action=connexionPatient" class="col-md-12 btn btn-primary">Connexion patient</a>
                                 </div>
                             </div>
-                            <!-- Bloc de droite proposant a l'utilisateur de s'inscrire ou se connecter -->
+                            <!-- Right block proposing to the user to register or to connect -->
                             <div class="card text-center" id="RightCard">
                                 <img src="app\public\images\docteur.png" class="card-img-top" alt="Lien vers l'espace de connexion du medecin">
                             <div class="card-body">
@@ -138,7 +138,7 @@
             </div>
         </div>
     </footer>
-    <!-- Bouton pour remonter le site jusqu'en haut de la page -->
+    <!-- Button to go back to the top of the page -->
     <a id="buttonToTop"></a>
 </body>
 
