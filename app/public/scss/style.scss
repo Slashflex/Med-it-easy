@@ -384,9 +384,9 @@ footer {
     color: $color2;
     background: $color3;
     text-align: center;
-    border: 1px solid #B0C4DE;
+    border-radius: 0 0 45px 45px;
     border-bottom: none;
-    border-radius: 20px;
+    //border-radius: 20px;
     padding: 10px;
     box-shadow: 0px 4px 10px $color4;
 }
@@ -794,7 +794,8 @@ a:nth-child(3),
 a:nth-child(4),
 a:nth-child(5),
 a:nth-child(6),
-a:nth-child(7) {
+a:nth-child(7),
+a:nth-child(8) {
     color: $color1;
 }
 
@@ -803,7 +804,8 @@ a:nth-child(3):hover,
 a:nth-child(4):hover,
 a:nth-child(5):hover,
 a:nth-child(6):hover,
-a:nth-child(7):hover {
+a:nth-child(7):hover,
+a:nth-child(8):hover {
     color: $color3;
 }
 
