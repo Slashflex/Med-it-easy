@@ -36,12 +36,12 @@ class App
                 elseif ($_GET['action'] == 'connexionPatient') {
                     require('app\view\connexionPatient.php');
                 } 
-                // Affichage de la view ConnectedPatient.php une fois le patient connecté
+                // Displaying the ConnectedPatient.php View Once the Patient Connected
                 elseif ($_GET['action'] == 'connectedPatient') {
-                    // Appel de la fonction passVerify depuis le controller
+                    // Calling the passVerify function from the controller
                     $this->controller->passVerify($_POST['password_1'], $_POST['email']);
                 } 
-                // Suppression du patient dans la BDD et sur le site (via sa page de profil)
+                // Deleting the patient in the DB and on the site (via his profile page)
                 elseif ($_GET['action'] == 'deletePatient') {
                     
                     if(isset($_SESSION['id']) && $_SESSION['id'] > 0) {
@@ -50,7 +50,7 @@ class App
                         require('app\view\confirmDeletePatient.php');
                     }
                 }
-                // Demande de confirmation au patient afin de supprimer son compte ou annuler l'action
+                // Confirmation request to the patient to delete his account or cancel the action
                 elseif ($_GET['action'] == 'confirmSuppression') 
                 { 
                     if (isset($_SESSION['id']) && $_SESSION['id'] > 0) 
@@ -66,8 +66,8 @@ class App
                         throw new Exception('Echec de la suppression de votre compte');
                     }
                 }
-                // Action du bouton "cancelSuppression" de la vue confirmDelete.php...
-                // ...permet le retour à la page du profil en cas d'annulation
+                // Action of button "cancelSuppression" from view (confirmDelete.php)...
+                // ...allows the return to the profile page in case of cancellation
                 elseif ($_GET['action'] == 'cancelSuppression') {
                     require('app\view\connectedPatient.php');
                 }
@@ -96,12 +96,12 @@ class App
                 elseif ($_GET['action'] == 'connexionPraticien') {
                     require('app\view\connexionPraticien.php');
                 } 
-                // Affichage de la vue ConnectedPraticien.php une fois le praticien connecté
+                // Displaying the ConnectedPraticien.php View Once the Doctor Connected
                 elseif ($_GET['action'] == 'connectedPraticien') {
-                    // Appel de la fonction passVerif depuis le controller
+                    // Calling the passVerify function from the controller
                     $this->controller->passVerif($_POST['password_1'], $_POST['praticienEmail']);
                 } 
-                // Suppression du praticien dans la BDD et sur le site (via sa page de profil)
+                // Delete doctor into DataBase (via his profil page (connectedPraticien.php))
                 elseif ($_GET['action'] == 'deletePraticien') {
                     
                     if(isset($_SESSION['id']) && $_SESSION['id'] > 0) {
@@ -110,7 +110,7 @@ class App
                         require('app\view\confirmDeletePraticien.php');
                     }
                 }
-                // Demande de confirmation au praticien afin de supprimer son compte ou annuler l'action
+                // Ask for confirmation to doctor if he's sure to delete his account or cancel action
                 elseif ($_GET['action'] == 'confirmSuppressionPraticien') 
                 { 
                     if (isset($_SESSION['id']) && $_SESSION['id'] > 0) 
@@ -126,7 +126,7 @@ class App
                         throw new Exception('Echec de la suppression de votre compte');
                     }
                 }
-                /*=========== End of Section Praticien =========*/
+                /*=========== End of Section Doctor =========*/
                 elseif ($_GET['action'] == 'mentionsLegales') {
                     require('app\view\mentionsLegales.php');
                 }
