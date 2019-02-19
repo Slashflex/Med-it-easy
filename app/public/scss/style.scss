@@ -728,51 +728,12 @@ pre {
     line-height: 60px;
 }
 
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 69px;
-    left: 0;
-    background-color: $color2;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 8px;
-    text-decoration: none;
-    font-size: 20px; //color: #818181;
-    text-align: center;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-#main1 {
-    transition: margin-left .5s;
-}
-
-#bloc_admin>div:nth-child(2)>span:nth-child(1) {
-    position: relative;
-    bottom: 188px;
-    padding-left: 20px;
-    left: -12px;
-}
+// #bloc_admin>div:nth-child(2)>span:nth-child(1) {
+//     position: relative;
+//     bottom: 188px;
+//     padding-left: 20px;
+//     left: -12px;
+// }
 
 #admin_toggler {
     color: $colorG;
