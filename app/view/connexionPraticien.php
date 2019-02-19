@@ -23,9 +23,9 @@
         <button type="submit" class="btn-form" id="send" name="registerPraticien">Connexion</button>
     </div>
     <div class="input-group">
-        <label class="wrapper">Se souvenir de moi
-            <input type="checkbox">
-            <span class="checkmark"></span>
+            <label class="wrapper"><a href="index.php?action=rememberMe">Se souvenir de moi
+                <input type="checkbox">
+                <span class="checkmark"></span></a>
         </label>
     </div>
     <p>
@@ -35,4 +35,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('app\view\template.php'); ?>
+<?php require('app\view\template.php');
