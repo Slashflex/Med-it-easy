@@ -163,7 +163,7 @@ nav {
 
 #main {
     min-height: 800px;
-    margin-top: 60px;
+    margin-top: 0;
 }
 
 #placeholder {
@@ -380,7 +380,7 @@ footer {
 
 .header_connected {
     width: 40%;
-    margin: 100px auto 20px;
+    margin: 69px auto 20px;
     color: $color2;
     background: $color3;
     text-align: center;
@@ -728,46 +728,6 @@ pre {
     line-height: 60px;
 }
 
-// #bloc_admin>div:nth-child(2)>span:nth-child(1) {
-//     position: relative;
-//     bottom: 188px;
-//     padding-left: 20px;
-//     left: -12px;
-// }
 
-#admin_toggler {
-    color: $colorG;
-    background-color: $color2;
-    padding: 10px;
-    padding-right: 12px;
-    border-radius: 0 0 25px 0;
-    text-align: center;
-    font-weight: bold;
-    width: 50%;
-}
-
-.closebtn {
-    color: $color3;
-}
-
-#mySidenav>a:nth-child(2),
-a:nth-child(3),
-a:nth-child(4),
-a:nth-child(5),
-a:nth-child(6),
-a:nth-child(7),
-a:nth-child(8) {
-    color: $color1;
-}
-
-#mySidenav>a:nth-child(2):hover,
-a:nth-child(3):hover,
-a:nth-child(4):hover,
-a:nth-child(5):hover,
-a:nth-child(6):hover,
-a:nth-child(7):hover,
-a:nth-child(8):hover {
-    color: $color3;
-}
 
 /*==============  End of TESTS  =============*/

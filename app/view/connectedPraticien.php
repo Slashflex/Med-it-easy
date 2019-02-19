@@ -7,20 +7,7 @@
 </div>
 <p class="text-center">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et gérer vos
     consultations.</p>
-<div id="bloc_admin">
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">Informations</a>
-        <a href="#">Actes</a>
-        <a href="index.php?action=rdvPraticien">Agenda</a>
-        <a href="#">Patientèle</a>
-        <a href="#">Tarifs</a>
-        <a href="#">Horaires</a>
-        <a href="index.php?action=deletePraticien">Supprimer mon compte</a>
-    </div>
-    <div id="main1">
-        <span id="admin_toggler" style="font-size:20px;cursor:pointer" onclick="openNav()"><i class="fas fa-tools"></i> Menu Admin</span>
-    </div>
+
     <div class="container">
 
 
