@@ -66,7 +66,7 @@ class App
                         throw new Exception('Echec de la suppression de votre compte');
                     }
                 }
-                // Action of button "cancelSuppression" from view (confirmDelete.php)...
+                // Action of button "cancelSuppression" from view (confirmDeletePatient.php)...
                 // ...allows the return to the profile page in case of cancellation
                 elseif ($_GET['action'] == 'cancelSuppression') {
                     require('app\view\connectedPatient.php');
@@ -125,6 +125,11 @@ class App
                     {
                         throw new Exception('Echec de la suppression de votre compte');
                     }
+                }
+                // Action of button "cancelSuppressionPraticien" from view (confirmDeletePraticien.php)...
+                // ...allows the return to the profile page in case of cancellation
+                elseif ($_GET['action'] == 'cancelSuppressionPraticien') {
+                    require('app\view\connectedPatient.php');
                 }
                 /*=========== End of Section Doctor =========*/
                 elseif ($_GET['action'] == 'mentionsLegales') {

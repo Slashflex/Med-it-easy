@@ -1,7 +1,7 @@
 <?php $title = 'Med It Easy | Accueil'; ?>
 
 <?php ob_start(); ?>
-<!-- Bloc "Notre concept" -->
+<!-- Block "Notre concept" -->
 <section id="JQueryAnchor1" class="container-fluid concept_height">
     <div class="container">
         <div class="row">
@@ -19,11 +19,11 @@
         </div>
     </div>
 </section>
-<!-- Bloc "Notre solution" -->
+<!-- Block "Notre solution" -->
 <section id="JQueryAnchor2" class="container-fluid solution_height">
     section 2
 </section>
-<!-- Bloc "Tarifs" -->
+<!-- Block "Tarifs" -->
 <section id="JQueryAnchor3" class="container-fluid pricing_height">
     section 3
 </section>

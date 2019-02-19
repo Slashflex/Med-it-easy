@@ -2,17 +2,22 @@
 
 <?php ob_start(); ?>
 
-<div class="container">
+<div class="container" id="bloc_admin">
     <div class="header_connected">
-        <h4>Bienvenue <?= ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['praticienNom']) . ' '; ?></h4>
+        <h4>Bienvenue Docteur <?= ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['praticienNom']) . ' '; ?>
+        </h4>
     </div>
     <p class="text-center">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et gérer vos
         consultations.</p>
-        <!-- <a href="index.php?action=suppresspraticien" class="btn-update">Prendre rendez-vous</a>
-        <a href="index.php?action=updatepraticien" class="btn-update">Mettre à jour mes informations</a> -->
-        <a href="index.php?action=deletePraticien" class="btn-update">Supprimer mon compte</a>
+    <div class="row">
+        <div class="text-center mt-3 mx-auto" id="btn-margin">
+            <a href="index.php?action=rdvPraticien" class="btn-update col-lg-4">Voir les rendez-vous</a><br>
+            <a href="index.php?action=updatePraticien" class="btn-update col-lg-4">Mise à jour du compte</a><br>
+            <a href="index.php?action=deletePraticien" class="btn-update col-lg-4">Supprimer mon compte</a>
+        </div>
+    </div>
 </div>
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require 'app\view\template.php'; ?>
+<?php require 'app\view\template.php';

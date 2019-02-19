@@ -6,7 +6,7 @@
     <h2>Inscription <br>praticien</h2>
 </div>
 
-<!-- Formulaire d'inscription du Praticien -->
+<!-- Doctor registration form -->
 <form class="patientForm" name="praticienForm" method="post" action="index.php?action=registerPraticien">
     <div class="input-group">
         <label for="prenom">Prenom</label>

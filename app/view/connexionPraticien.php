@@ -5,7 +5,7 @@
     <h2>Connexion <br>praticien</h2>
 </div>
 
-<!-- Formulaire d'inscription du Praticien -->
+<!-- Doctor connexion form -->
 <form class="patientForm" name="praticienForm" method="post" action="index.php?action=connectedPraticien">
 
     <div class="input-group">

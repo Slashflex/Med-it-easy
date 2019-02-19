@@ -5,7 +5,7 @@
     <h2>Connexion <br>patient</h2>
 </div>
 
-<!-- Formulaire d'inscription du Patient -->
+<!-- Patient connexion form -->
 <form class="patientForm" name="patientForm" method="post" action="index.php?action=connectedPatient">
 
     <div class="input-group">

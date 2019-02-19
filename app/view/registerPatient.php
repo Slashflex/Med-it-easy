@@ -6,7 +6,7 @@
     <h2>Inscription <br>patient</h2>
 </div>
 
-<!-- Formulaire d'inscription du Patient -->
+<!-- Patient registration form-->
 <form class="patientForm" name="patientForm" method="post" action="index.php?action=registerPatient">
     <span></span>
     <div class="input-group">
