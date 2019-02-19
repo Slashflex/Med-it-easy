@@ -784,7 +784,7 @@ pre {
 			transform: translateX(0);
 		}
 		~ #content {
-			transform: translateX(250px);
+			transform: translateX(200px);
 		}
 	}
 }
@@ -802,8 +802,9 @@ pre {
 	position: fixed;
 	top: 0;
 	left: 0;
-	transform: translateX(-200px);
+	transform: translateX(-220px);
     transition: transform .3s ease;
+    box-shadow: 9px 8px 15px $color4;
 }
 
 ul.menu > li > a {
@@ -814,7 +815,7 @@ ul.menu > li > a {
     font-weight: bold;
     z-index: 10000;
 	&:hover {
-		background-color: $color3;
+        background-color: $color3;
         color: $color2;
         z-index: 10000;
 	}

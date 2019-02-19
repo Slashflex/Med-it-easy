@@ -15,12 +15,12 @@
 </div>
 
 <nav id="test">
-    <ul class="menu">
-        <li><a href="#"><i class="far fa-calendar-alt fa-2x"></i> Link</a></li>
+    <ul class="menu mx-auto">
+        <li class="animated fadeInLeft delay-2s"><a href="#"><i class="far fa-calendar-alt fa-2x"></i> Agenda</a></li>
         <li><a href="#"><i class="fas fa-hand-holding-usd fa-2x"></i> Tarifs</a></li>
         <li><a href="#"><i class="fas fa-search fa-2x"></i> Recherche</a></li>
-        <li><a href="#"> Link</a></li>
-        <li><a href="#"> Link</a></li>
+        <li><a href="#"> Lien</a></li>
+        <li><a href="#"> Lien</a></li>
     </ul>
 </nav>
 
