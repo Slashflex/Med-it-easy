@@ -18,7 +18,7 @@
         <a href="#">Horaires</a>
         <a href="index.php?action=deletePraticien">Supprimer mon compte</a>
     </div>
-    <div id="main">
+    <div id="main1">
         <span id="admin_toggler" style="font-size:20px;cursor:pointer" onclick="openNav()"><i class="fas fa-tools"></i> Menu Admin</span>
     </div>
     <div class="container">
