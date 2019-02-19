@@ -1,8 +1,10 @@
 <?php $title = 'Med It Easy | Profil praticien'; ?>
 
 <?php ob_start(); ?>
+<div id="bloc_admin">
 
-<div class="container" id="bloc_admin">
+</div>
+<div class="container">
     <div class="header_connected">
         <h4>Bienvenue Docteur <?= ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['praticienNom']) . ' '; ?>
         </h4>
