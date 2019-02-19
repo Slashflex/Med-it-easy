@@ -1,5 +1,4 @@
 @import 'variables';
-
 * {
     list-style-type: none;
 }
@@ -7,15 +6,15 @@
 body {
     background-color: $color1;
 }
-    
+
 /*=============================================
 =               Navigation Bar                =
 =============================================*/
+
 nav {
     box-shadow: 0px 8px 15px $color4;
     position: fixed;
-    height: auto;
-    //background-color: $colorD !important;
+    height: auto; //background-color: $colorD !important;
     //background-image: linear-gradient(335deg, $color6, $color7);
 }
 
@@ -55,6 +54,7 @@ nav {
 /*=============================================
 ===       Section Button Back To Top        ===
 =============================================*/
+
 #buttonToTop {
     display: inline-block;
     background-color: $color3;
@@ -104,11 +104,13 @@ nav {
 }
 
 /*=====  End of Section Back To Top  =======*/
+
 /*========== End of Navigation Bar ==========*/
 
 /*=============================================
 =                    Header                   =
 =============================================*/
+
 .card {
     box-shadow: 0px 8px 15px $color4;
     background-color: $color2;
@@ -131,6 +133,7 @@ nav {
 }
 
 /* Pop-up Modal on click from User space link (top-right) */
+
 .modal-open .container-fluid {
     /* blur effect on Modal pop */
     filter: blur(15px);
@@ -157,9 +160,10 @@ nav {
 /*=============================================
 =              Main Content Page              =
 =============================================*/
+
 #main {
     min-height: 800px;
-    margin-top: 60px;
+    margin-top: 0;
 }
 
 #placeholder {
@@ -168,22 +172,23 @@ nav {
 }
 
 /* Bloc "Notre concept" */
+
 .concept_height {
     height: 100vh;
     padding-top: 6rem;
-    background-color: rgb(215, 226, 222);
-    //background-image: linear-gradient(335deg, $color6, $color7);
+    background-color: rgb(215, 226, 222); //background-image: linear-gradient(335deg, $color6, $color7);
 }
 
 /* Bloc "Notre solution" */
+
 .solution_height {
     height: 100vh;
-    padding-top: 6rem;
-    //background-color: rgb(241, 239, 204);
+    padding-top: 6rem; //background-color: rgb(241, 239, 204);
     background-image: linear-gradient(335deg, $color6, $color7);
 }
 
 /* Bloc "Notre Tarifs" */
+
 .pricing_height {
     height: 100vh;
     padding-top: 6rem;
@@ -193,23 +198,18 @@ nav {
 .mentions_legales {
     margin-top: 100px;
     margin-bottom: 50px;
-
     .h2_title {
         background-color: $color2;
         padding: 10px 10px;
         border-radius: 45px;
         color: $color3;
     }
-
     p {
         color: $color5;
-
         a {
             color: $color2;
-
             strong {
                 text-decoration: underline;
-
                 a {
                     color: $color2;
                 }
@@ -252,7 +252,6 @@ footer {
 }
 
 .bloc_gauche {
-
     p {
         color: $color1;
         text-align: center;
@@ -284,6 +283,7 @@ footer {
 }
 
 /* Copyright */
+
 .navbar-brandFooter {
     font-size: 0.9rem;
     font-weight: bold;
@@ -291,6 +291,7 @@ footer {
 }
 
 /* Mentions légales */
+
 .bloc_mid {
     margin-top: 3%;
 }
@@ -319,7 +320,6 @@ footer {
 
 .liens_utiles {
     margin: auto;
-
     a {
         color: $color1;
         font-weight: bold;
@@ -356,10 +356,10 @@ footer {
 
 /*==============  End of Footer =============*/
 
-
 /*=============================================
 =          Section Form inscription           =
 =============================================*/
+
 .header {
     width: 30%;
     margin: 125px auto 0px;
@@ -370,7 +370,6 @@ footer {
     border-radius: 10px 10px 0px 0px;
     padding: 20px;
     box-shadow: 0px 8px 15px $color4;
-
     h4 {
         font-weight: bold;
         display: inline-block;
@@ -378,15 +377,16 @@ footer {
 }
 
 /* Once connected, display Header (which contains user first and last name) */
+
 .header_connected {
     width: 40%;
-    margin: 100px auto 20px;
+    margin: 69px auto;
     color: $color2;
     background: $color3;
     text-align: center;
-    border: 1px solid #B0C4DE;
+    border-radius: 0 0 45px 45px;
     border-bottom: none;
-    border-radius: 20px;
+    //border-radius: 20px;
     padding: 10px;
     box-shadow: 0px 4px 10px $color4;
 }
@@ -474,6 +474,7 @@ option {
 }
 
 /* display errors messages on lack of inputs in register form */
+
 .error-message {
     display: inline;
     color: $color3;
@@ -481,7 +482,9 @@ option {
 }
 
 /* Radio button "se souvenir de moi" */
+
 /* Create a custom checkbox */
+
 .checkmark {
     position: absolute;
     top: 5px;
@@ -492,23 +495,25 @@ option {
 }
 
 /* On mouse-over, add a orange background color on radio button */
+
 .wrapper:hover input~.checkmark {
     background-color: $color3;
 }
 
 /* When the checkbox is checked, add a blue background */
+
 .wrapper input:checked~.checkmark {
     background-color: $color5;
 }
 
 /* The container */
+
 .wrapper {
     display: block;
     position: relative;
     padding-left: 35px;
     margin-bottom: 12px;
-    cursor: pointer;
-    //font-size: 22px;
+    cursor: pointer; //font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -516,6 +521,7 @@ option {
 }
 
 /* Hide the browser's default checkbox */
+
 .wrapper input {
     position: absolute;
     opacity: 0;
@@ -526,20 +532,17 @@ option {
 
 /*==== End of Section Form inscription ======*/
 
-
-
-
 /*=============================================
 =            Section Media Queries            =
 =============================================*/
 
 /* Extra Large screens */
+
 @media screen and (min-width: 1200px) and (max-width: 2000px) {
     .reseaux {
         width: 30%;
         text-align: center;
         margin: 0 auto;
-
         a {
             img {
                 text-align: 1;
@@ -549,145 +552,122 @@ option {
 }
 
 /* Large screens */
+
 @media screen and (min-width: 992px) and (max-width: 1200px) {
     .reseaux {
         width: 30%;
         text-align: center;
     }
-
     .patientForm {
         width: 40%;
     }
-
     .header {
         width: 40%;
     }
 }
 
 /* Medium screens */
+
 @media screen and (min-width: 768px) and (max-width: 992px) {
     .navbar-nav {
         text-align: center;
     }
-
     .reseaux {
         width: 30%;
         text-align: center;
     }
-
     .logo-part {
         margin-bottom: 2%;
     }
-
     .patientForm {
         width: 40%;
     }
-
     .header {
         width: 40%;
     }
-
     .header_connected {
         width: 50%;
     }
 }
 
 /* Small screens */
+
 @media screen and (min-width: 576px) and (max-width: 768px) {
     .navbar-nav {
         text-align: center;
     }
-
     .bloc_gauche {
         border: none;
     }
-
     .liens_utiles {
         display: none;
         /* cache les blocs liens utiles du footer */
     }
-
     .reseaux {
         text-align: center;
         width: 34%;
     }
-
     .space {
         display: block;
     }
-
     .logo-part {
         margin-bottom: 2%;
     }
-
     .card-deck .card {
         margin-bottom: 21px;
     }
-
     .card-deck {
         width: 90%;
         margin: 0 auto;
     }
-
     .patientForm {
         width: 40%;
     }
-
     .header {
         width: 40%;
     }
-
     .header_connected {
         width: 70%;
     }
 }
 
 /* Extra Small screens */
+
 @media screen and (max-width: 576px) {
     .navbar-nav {
         text-align: center;
     }
-
     .bloc_gauche {
         border: none;
     }
-
     .liens_utiles {
         display: none;
         /* cache les blocs liens utiles du footer */
     }
-
     .reseaux {
         width: 50%;
         text-align: center;
         margin: 0 auto;
     }
-
     .space {
         display: block;
     }
-
     .logo-part {
         margin-bottom: 2%;
     }
-
     .card-deck {
         width: 70%;
         margin: 0 auto;
     }
-
     .patientForm {
         width: 50%;
     }
-
     .header {
         width: 50%;
-
         h2 {
             font-size: 1.4rem;
         }
     }
-
     .header_connected {
         margin-top: 150px;
         width: 70%;
@@ -696,32 +676,29 @@ option {
 
 /*=====  End of Section Media Queries  ======*/
 
-
-
 /*=============================================
 =                   TESTS                     =
 =============================================*/
+
 pre {
     background-color: $color3;
     width: 50%;
     border-radius: 45px;
     margin-top: 100px;
-    padding: 20px 10px;
-    //font-weight: 600;
+    padding: 20px 10px; //font-weight: 600;
     font-size: 1rem;
     color: $color2;
     text-align: center;
 }
+
 .displayErrors {
     background-color: $color3;
     width: 50%;
     border-radius: 45px;
     margin-top: 100px;
-    padding: 20px 10px;
-    //font-weight: 600;
+    padding: 20px 10px; //font-weight: 600;
     font-size: 1rem;
-    color: $color2;
-    //text-align: center;
+    color: $color2; //text-align: center;
 }
 
 .btn-update {
@@ -747,23 +724,10 @@ pre {
     text-decoration: none;
 }
 
-
-
-
-
-
-
 #btn-margin a {
     line-height: 60px;
 }
 
 
 
-
-#bloc_admin {
-    background-color: $colorB;
-    width: 25%;
-    height: 100vh;
-    float: left;
-}
 /*==============  End of TESTS  =============*/

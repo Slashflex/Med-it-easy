@@ -131,6 +131,11 @@ class App
                 elseif ($_GET['action'] == 'cancelSuppressionPraticien') {
                     require('app\view\connectedPatient.php');
                 }
+                // COOKIE TO DO...a mettre dans elseif connexionPrat
+                elseif ($_GET['action'] == 'rememberMe') {
+                    setcookie( 'id','pseudo', time() + 365243600, null, null, false, true);
+                    require('app\view\connectedPatient.php');
+                }
                 /*=========== End of Section Doctor =========*/
                 elseif ($_GET['action'] == 'mentionsLegales') {
                     require('app\view\mentionsLegales.php');
