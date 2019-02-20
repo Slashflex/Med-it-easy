@@ -748,10 +748,13 @@ pre {
 
 
 .menu {
-    margin-top: 15rem;
+    margin-top: 7rem;
     li {
         margin: 0 auto;       
     }
+}
+.menu > li:nth-child(1) {
+    color: $color1;
 }
 #menu-trigger {
 	display: none;
@@ -778,7 +781,7 @@ pre {
 	}
 	&:checked {
 		+ #label {
-			transform: translateX(60px);
+			transform: translateX(65px);
 		}
 		~ #test {
 			transform: translateX(0);
@@ -808,17 +811,25 @@ pre {
 }
 
 ul.menu > li > a {
-	color: $color3;
+	color: $color1;
 	text-decoration: none;
 	padding-top: 25px;
     display: block;
     font-weight: bold;
     z-index: 10000;
 	&:hover {
-        background-color: $color3;
-        color: $color2;
+        //background-color: $color3;
+        color: $color3;
         z-index: 10000;
 	}
+}
+.date {
+    margin-top: 146px;
+    text-align: center;
+    width: 100%;
+    color: $color1;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 /*==== End of Section Off Menu Canva connectedPraticien.php  ===*/
