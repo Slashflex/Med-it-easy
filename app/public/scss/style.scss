@@ -385,8 +385,7 @@ footer {
     background: $color3;
     text-align: center;
     border-radius: 0 0 45px 45px;
-    border-bottom: none;
-    //border-radius: 20px;
+    border-bottom: none; //border-radius: 20px;
     padding: 10px;
     box-shadow: 0px 4px 10px $color4;
 }
@@ -728,101 +727,88 @@ pre {
     line-height: 60px;
 }
 
-
-
-
-
-
-
-
-
-
-
 /*================================================================
 =          Section Off Menu Canva connectedPraticien.php         =
 ================================================================*/
 
-
-
-
-
-
 .menu {
-    margin-top: 7rem;
+    margin-top: 4rem;
     li {
-        margin: 0 auto;       
+        margin: 0 auto;
     }
 }
-.menu > li:nth-child(1) {
+
+.menu>li:nth-child(1) {
     color: $color1;
 }
+
 #menu-trigger {
-	display: none;
-	+ #label {
-		background-color: $color3;
-		color: #FFF;
-		cursor: pointer;
-		padding: 10px 10px;
-		margin: 10px;
-		position: fixed;
-		top: 70px;
-		left: 0;
-		z-index: 1;
-		border-radius: 3px;
-		transition: transform .3s ease;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-o-user-select: none;
-		user-select: none;
-		&:hover {
-			background-color: $colorC;
-		}
-	}
-	&:checked {
-		+ #label {
-			transform: translateX(65px);
-		}
-		~ #test {
-			transform: translateX(0);
-		}
-		~ #content {
-			transform: translateX(200px);
-		}
-	}
+    display: none;
+    +#label {
+        background-color: $color3;
+        color: #FFF;
+        cursor: pointer;
+        padding: 10px 10px;
+        margin: 10px;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        z-index: 1;
+        border-radius: 3px;
+        transition: transform .3s ease;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+        &:hover {
+            background-color: $colorC;
+        }
+    }
+    &:checked {
+        +#label {
+            transform: translateX(65px);
+        }
+        ~#test {
+            transform: translateX(0);
+        }
+        ~#content {
+            transform: translateX(200px);
+        }
+    }
 }
 
 #content {
-	transition: transform .3s ease;
+    transition: transform .3s ease;
 }
 
-
 #test {
-	background-color: $color2;
-	height: 100%;
-	width: 200px;
-	overflow: auto;
-	position: fixed;
-	top: 0;
-	left: 0;
-	transform: translateX(-220px);
+    background-color: $color2;
+    height: 100%;
+    width: 200px;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-220px);
     transition: transform .3s ease;
     box-shadow: 9px 8px 15px $color4;
 }
 
-ul.menu > li > a {
-	color: $color1;
-	text-decoration: none;
-	padding-top: 25px;
+ul.menu>li>a {
+    color: $color1;
+    text-decoration: none;
+    padding-top: 12px;
     display: block;
     font-weight: bold;
     z-index: 10000;
-	&:hover {
+    &:hover {
         //background-color: $color3;
         color: $color3;
         z-index: 10000;
-	}
+    }
 }
+
 .date {
     margin-top: 146px;
     text-align: center;
@@ -834,5 +820,48 @@ ul.menu > li > a {
 
 /*==== End of Section Off Menu Canva connectedPraticien.php  ===*/
 
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: hsl(0, 0%, 100%);
+    font-size: 1rem;
+    padding: .5rem;
+    opacity: 0;
+    transform: translate3d(-340px, -48px, 0) scale(0);
+    transition: .4s .3s all;
+}
+
+#offCanva.open .menu a {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+#offCanva.open .menu li:nth-child(0) a {
+    transition: 0.2s 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+
+#offCanva.open .menu li:nth-child(1) a {
+    transition: 0.6s 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+
+#offCanva.open .menu li:nth-child(2) a {
+    transition: 0.4s 0.0s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+
+#offCanva.open .menu li:nth-child(3) a {
+    transition: 0.6s 0.0s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+
+#offCanva.open .menu li:nth-child(4) a {
+    transition: 0.8s 0.0s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+
+#offCanva.open .menu li:nth-child(5) a {
+    transition: 1.0s 0.0s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+
+#offCanva.open .menu li:nth-child(6) a {
+    transition: 1.2s 0.0s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
 
 /*=========================  End of TESTS  =====================*/

@@ -233,15 +233,5 @@ $(function () {
 ==========================  TESTS   ===========================
 =============================================================*/
 
-// function openNav() {
-//     document.getElementById("mySidenav").style.width = "250px";
-//     document.getElementById("main1").style.marginLeft = "250px";
-// }
-  
-// function closeNav() {
-//     document.getElementById("mySidenav").style.width = "0";
-//     document.getElementById("main1").style.marginLeft= "0";
-// }
-
 
 /*======================  End of TESTS  =====================*/
