@@ -15,14 +15,14 @@
 </div>
 
 <nav id="test">
-    <div class="date mx-auto"><?php setlocale(LC_ALL, 'fr_FR'); ?><?=  ucfirst(strftime("%A %e %B %Y", mktime())) . '<br>' . strftime("%I : %M", mktime());?>
+    <div class="date mx-auto"><?php setlocale(LC_ALL, 'fr_FR'); ?><?=  ucfirst(strftime("%A %e %B %Y", mktime())) . '<br>' . strftime("%H : %M", mktime());?>
     </div>
     <ul class="menu mx-auto">
         <li></li>
         <li><a href="#"><i class="far fa-calendar-alt fa-2x"></i> Agenda</a></li>
         <li><a href="#"><i class="fas fa-hand-holding-usd fa-2x"></i> Tarifs</a></li>
         <li><a href="#"><i class="fas fa-search fa-2x"></i> Recherche</a></li>
-        <li><a href="#"> Lien</a></li>
+        <li><a href="#"><i class="far fa-clock fa-2x"></i> Horaires</a></li>
         <li><a href="#"> Lien</a></li>
     </ul>
 </nav>
