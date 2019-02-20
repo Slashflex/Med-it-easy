@@ -29,7 +29,7 @@ class Controller
         {
             throw new Exception("les deux mots de passe ne correspondent pas");
         } else {
-            $passHash = password_hash($password_1, PASSWORD_BCRYPT);
+            $passHash = password_hash($password_1, PASSWORD_DEFAULT);
             $this->patientManager->createPatient($patientPrenom, $patientNom, $patientDate, $email, $passHash);
             //todo tester le fonctionnement
         }
@@ -84,7 +84,7 @@ class Controller
         {
             throw new Exception("les deux mots de passe ne correspondent pas");
         } else {
-            $passHash = password_hash($password_1, PASSWORD_BCRYPT);
+            $passHash = password_hash($password_1, PASSWORD_DEFAULT);
             $this->praticienManager->createPraticien($praticienPrenom, $praticienNom, $praticienDate, $praticienEmail, $passHash, $specialite);
             //todo tester le fonctionnement
         }
