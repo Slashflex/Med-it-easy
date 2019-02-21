@@ -6,21 +6,24 @@
     <title><?= $title ?>
     </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app\public\css\style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="app\public\css\style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
     <script src="app\public\js\script.js"></script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top " style="background-color: #353c3f;">
         <a class="navbar-brand" href="index.php">MED <span class="separator">IT</span> EASY</a>
-        <button class="navbar-toggler" id="nav_toggler" type="button" data-toggle="collapse"
-            data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"
-            aria-label="Toggle navigation">
+        <button class="navbar-toggler" id="nav_toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""><i class="fa fa-navicon"></i></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarToggler">
@@ -37,15 +40,15 @@
             </ul>
         </div>
         <div class="float-right hideLogBtn">
-            <a class="nav-link btn-footer" id="connexionBtn" data-toggle="modal" data-target="#exampleModalCenter"
-                href="#">Espace utilisateurs</a>
+            <a class="nav-link btn-footer" id="connexionBtn" data-toggle="modal" data-target="#exampleModalCenter" href="#">Espace
+                utilisateurs</a>
         </div>
     </nav>
 
     <!-- Modal brings up two blocks => Patient user space and Doctor user space,
     who will redirect to their dedicated Creation / Account Login pages -->
-    <div class="modal closeModal" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal closeModal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <header class="container justify-content-center">
@@ -53,17 +56,21 @@
                         <!-- Left block offering the user to register or log in -->
                         <div class="card text-center" id="leftCard">
                             <img src="app\public\images\patient.png" class="card-img-top" alt="Lien vers l'espace de connexion du patient">
-                                <div class="card-body">
-                                    <a href="index.php?action=addPatient" class="col-md-12 btn btn-primary">Inscription patient</a>
-                                    <a href="index.php?action=connexionPatient" class="col-md-12 btn btn-primary">Connexion patient</a>
-                                </div>
-                            </div>
-                            <!-- Right block proposing to the user to register or to connect -->
-                            <div class="card text-center" id="RightCard">
-                                <img src="app\public\images\docteur.png" class="card-img-top" alt="Lien vers l'espace de connexion du medecin">
                             <div class="card-body">
-                                <a href="index.php?action=addPraticien" class="col-md-12 btn btn-primary">Inscription praticien</a>
-                                <a href="index.php?action=connexionPraticien" class="col-md-12 btn btn-primary">Connexion praticien</a>
+                                <a href="index.php?action=addPatient" class="col-md-12 btn btn-primary">Inscription
+                                    patient</a>
+                                <a href="index.php?action=connexionPatient" class="col-md-12 btn btn-primary">Connexion
+                                    patient</a>
+                            </div>
+                        </div>
+                        <!-- Right block proposing to the user to register or to connect -->
+                        <div class="card text-center" id="RightCard">
+                            <img src="app\public\images\docteur.png" class="card-img-top" alt="Lien vers l'espace de connexion du medecin">
+                            <div class="card-body">
+                                <a href="index.php?action=addPraticien" class="col-md-12 btn btn-primary">Inscription
+                                    praticien</a>
+                                <a href="index.php?action=connexionPraticien" class="col-md-12 btn btn-primary">Connexion
+                                    praticien</a>
                             </div>
                         </div>
                     </div>
@@ -89,8 +96,7 @@
                 <div class="col-4 liens_utiles borderLeft">
                     <ul>
                         <li><a href="https://www.ameli.fr/">Assurance Maladie</a></li>
-                        <li><a
-                                href="https://www.tabac-info-service.fr/?gclid=EAIaIQobChMInNTWrcKg2QIVzr3tCh1LyQXmEAAYASAAEgI4PvD_BwE#xtor=SEC-12-GOO-[Marque%20Pure]--S-[tabac%20info%20service]">Tabac
+                        <li><a href="https://www.tabac-info-service.fr/?gclid=EAIaIQobChMInNTWrcKg2QIVzr3tCh1LyQXmEAAYASAAEgI4PvD_BwE#xtor=SEC-12-GOO-[Marque%20Pure]--S-[tabac%20info%20service]">Tabac
                                 Info Services</a></li>
                         <li><a href="http://invs.santepubliquefrance.fr/">Santé publique France</a></li>
                         <li><a href="https://www.diplomatie.gouv.fr/fr/conseils-aux-voyageurs/">Conseil
@@ -114,15 +120,12 @@
                 <div class="row footer_height">
                     <div class="col-md-12 bloc_reseaux">
                         <div class="col-md-6 offset-md-4 col-sm-6 offset-sm-4 reseaux">
-                            <a href="#" class="btn-footer"><img data-alt-src="app\public\images\mail.png"
-                                    src="app\public\images\mail_orange.png" class="icon_color img-fluid"
-                                    alt="contact par mail"></a>
-                            <a href="#" class="btn-footer"><img data-alt-src="app\public\images\Linkedin.png"
-                                    src="app\public\images\Linkedin_orange.png" class="icon_color img-fluid"
-                                    alt="lien vers profil Med It Easy via Linkedin"></a>
-                            <a href="#" class="btn-footer"><img data-alt-src="app\public\images\Twitter.png"
-                                    src="app\public\images\Twitter_orange.png" class="icon_color img-fluid"
-                                    alt="Lien vers profil Med It Easy via twitter"></a>
+                            <a href="#" class="btn-footer"><img data-alt-src="app\public\images\mail.png" src="app\public\images\mail_orange.png"
+                                    class="icon_color img-fluid" alt="contact par mail"></a>
+                            <a href="#" class="btn-footer"><img data-alt-src="app\public\images\Linkedin.png" src="app\public\images\Linkedin_orange.png"
+                                    class="icon_color img-fluid" alt="lien vers profil Med It Easy via Linkedin"></a>
+                            <a href="#" class="btn-footer"><img data-alt-src="app\public\images\Twitter.png" src="app\public\images\Twitter_orange.png"
+                                    class="icon_color img-fluid" alt="Lien vers profil Med It Easy via twitter"></a>
                         </div>
                     </div>
                 </div>
@@ -132,8 +135,7 @@
                                 EASY
                                 2019 <a href="index.php?action=mentionsLegales" class="space">Mentions
                                     légales</a></span></p>
-                        <a href="tel:+33637888061"><span class="fas fa-phone"><span
-                                    class="phone">06.37.88.80.61</span></span></a>
+                        <a href="tel:+33637888061"><span class="fas fa-phone"><span class="phone">06.37.88.80.61</span></span></a>
                     </div>
                 </div>
             </div>
