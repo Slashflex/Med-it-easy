@@ -2,6 +2,7 @@
 namespace Projet\app\model;
 
 use \Projet\app\model\Manager;
+use \Exception;
 
 class PraticienManager extends Manager
 {
@@ -16,7 +17,7 @@ class PraticienManager extends Manager
     public function createPraticien($praticienPrenom, $praticienNom, $praticienDate, $praticienEmail, $password_1, $specialite)
     {
         $db = $this->dbConnect();
-        $email = htmlspecialchars($_POST['email']);
+        $email = htmlspecialchars($_POST['praticienEmail']);
         $req = $db->prepare("SELECT * FROM praticien WHERE praticienEmail = ?");
         $req->execute([$praticienEmail]);
         $praticien = $req->fetch();

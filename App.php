@@ -132,9 +132,13 @@ class App
                     require('app\view\connectedPatient.php');
                 }
                 // COOKIE TO DO...a mettre dans elseif connexionPrat
-                elseif (isset($_COOKIE['rememberMe'])) {
-                    setcookie( 'id_praticien','praticienEmail', time() + 365243600, null, null, false, true);
-                    require('app\view\connectedPatient.php');
+                // elseif (isset($_COOKIE['rememberMe'])) {
+                //     setcookie( 'id_praticien','praticienEmail', time() + 365243600, null, null, false, true);
+                //     require('app\view\connectedPatient.php');
+                // }
+                // Agenda.php view loaded on click
+                elseif ($_GET['action'] == 'agendaAdmin') {
+                    require('app\view\agendaAdmin.php');
                 }
                 /*=========== End of Section Doctor =========*/
                 elseif ($_GET['action'] == 'mentionsLegales') {

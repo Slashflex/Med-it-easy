@@ -1,4 +1,4 @@
-<?php $title = 'Med It Easy | Page de gestion du praticien'; ?>
+<?php $title = 'Med It Easy | Agenda'; ?>
 
 <?php ob_start(); ?>
 
@@ -13,7 +13,7 @@
         </div>
         <p class="text-center margin">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et gérer vos
             consultations.</p>
-            
+            <div id="calendar"></div>
     </div>
 
     <nav id="test">
@@ -31,7 +31,7 @@
     
 </div>
 
-
 <?php $content = ob_get_clean(); ?>
 
-<?php require 'app\view\template.php';
+<?php require('app\view\template.php');
+
