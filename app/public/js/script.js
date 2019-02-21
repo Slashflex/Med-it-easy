@@ -222,8 +222,13 @@ $(function () {
         //         $('#password_2').next('.error-message').fadeOut()
         //     }
         //     return false;
+
+
+
+
     });
 });
+
 
 /*==========  End of Section Form Errors Message  ==========*/
 

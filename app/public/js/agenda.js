@@ -10,7 +10,7 @@ $(function () {
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
         },
-        events: "app/public/json/events.php",
+        events: "app/model/EventManager.php",
         eventRender: function (event, element, view) {
             if (event.allDay === 'true') {
                 event.allDay = true;
@@ -26,7 +26,7 @@ $(function () {
                 let start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
                 let end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
                 $.ajax({
-                    url: 'app/public/json/add_events.php',
+                    url: 'app/model/EventManager.php',
                     data: 'title=' + title + '&start=' + start + '&end=' + end,
                     type: "POST",
                     success: function (json) {
@@ -49,7 +49,7 @@ $(function () {
             let start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
             let end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
             $.ajax({
-                url: 'app/public/json/update_events.php',
+                url: 'app/model/EventManager.php',
                 data: 'title=' + event.title + '&start=' + start + '&end=' + end + '&id=' + event.id,
                 type: "POST",
                 success: function (json) {
@@ -62,7 +62,7 @@ $(function () {
             if (decision) {
                 $.ajax({
                     type: "POST",
-                    url: "app/public/json/delete_event.php",
+                    url: "app/model/EventManager.php",
                     data: "&id=" + event.id,
                     success: function (json) {
                         $('#calendar').fullCalendar('removeEvents', event.id);
@@ -75,7 +75,7 @@ $(function () {
             let start = $.fullCalendar.formatDate(event.start, "yyyy-MM-dd HH:mm:ss");
             let end = $.fullCalendar.formatDate(event.end, "yyyy-MM-dd HH:mm:ss");
             $.ajax({
-                url: 'update_events.php',
+                url: 'app/model/EventManager.php',
                 data: 'title=' + event.title + '&start=' + start + '&end=' + end + '&id=' + event.id,
                 type: "POST",
                 success: function (json) {
