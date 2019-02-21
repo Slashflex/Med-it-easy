@@ -8,7 +8,7 @@ use \Exception;
 class EventManager extends Manager
 {
     // Add event and insert it into DataBase
-    public function addEvents()
+    public function addEvents($title, $start, $end)
     {
         $db = $this->dbConnect();
         $title = $_POST['title'];

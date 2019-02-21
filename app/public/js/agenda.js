@@ -4,9 +4,14 @@ $(function () {
     let m = date.getMonth();
     let y = date.getFullYear();
     let calendar = $('#calendar').fullCalendar({
+        locale: 'fr',
+        slotLabelFormat: ['H:mm'],
+        minTime: "08:00:00",
+    maxTime: "20:00:00",
+        defaultView: "agendaWeek",
         editable: true,
         header: {
-            left: 'prev,next today',
+            left: 'prev,next',
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
         },

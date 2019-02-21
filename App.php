@@ -157,6 +157,13 @@ class App
                 }
                 
                 /*=========== End of Section Doctor =========*/
+
+
+                /*=============== Section Agenda ============*/
+                
+
+
+                /*========== End of Section Agenda ==========*/
                 elseif ($_GET['action'] == 'mentionsLegales') {
                     require('app\view\mentionsLegales.php');
                 }

@@ -125,10 +125,10 @@ class Controller
 
     /*===================== Section Event =========================*/
     // Function to add event
-    public function addSingleEvent()
+    public function addSingleEvent($title, $start, $end)
     {
         $this->eventManager = new EventManager;
-        $event = $eventManager->addEvents();
+        $event = $eventManager->addEvents($title, $start, $end);
     }
 
     /*==================== Fin Section Event ======================*/
