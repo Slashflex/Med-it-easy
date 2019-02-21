@@ -5,6 +5,7 @@
 // require_once('app\model\Manager.php');
 namespace Projet\app\controller;
 
+use \Projet\app\model\EventManager;
 use \Projet\app\model\PatientManager;
 use \Projet\app\model\PraticienManager;
 use \Projet\app\model\Manager;
@@ -13,12 +14,14 @@ class Controller
 {
     private $patientManager;
     private $praticienManager;
+    private $eventManager;
 
     public function __construct()
     {
         // Création d'une instance de classe (objet)
         $this->patientManager = new PatientManager;
         $this->praticienManager = new PraticienManager;
+        $this->eventManager = new EventManager;
     }
     /*=================== Section Patient ======================*/
     // Appel d'une fonction de cet objet
@@ -71,12 +74,12 @@ class Controller
         $this->patientManager = new PatientManager;
         $patient = $patientManager->getPatient($deleteid);
     }
+    /*=================== Fin Section Patient ======================*/
 
 
 
 
-
-    /*=================== Section Praticien ======================*/
+    /*=================== Section Praticien =======================*/
     // Appel d'une fonction de cet objet
     public function formPraticien($praticienPrenom, $praticienNom, $praticienDate, $praticienEmail, $password_1, $password_2, $specialite)
     {
@@ -118,7 +121,7 @@ class Controller
             echo '<pre>MDP/Login incorrect</pre>';
         }
     }
-    function delPraticien($deleteid)
+    public function delPraticien($deleteid)
     {
         //$praticienManager = new PraticienManager();
         $this->praticienManager->deletePraticien($deleteid);
@@ -129,5 +132,14 @@ class Controller
         $this->praticienManager = new PraticienManager;
         $praticien = $praticienManager->getPraticien($deleteid);
     }
+    /*=================== Fin Section Patient =====================*/
 
+    /*===================== Section Event =========================*/
+    // Function to add event
+    public function addSingleEvent() {
+        $this->eventManager = new EventManager;
+        $event = $eventManager->addEvents();
+    }
+
+    /*==================== Fin Section Event ======================*/
 }
