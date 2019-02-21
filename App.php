@@ -73,7 +73,27 @@ class App
                 }
                 /*=========== End of Section Patient =========*/
 
-
+                elseif ($_GET['action'] == 'connected') {
+                    // If user with an email related to patients exist...
+                    // ...redirect to his account main view (connectedPatient.php)
+                    if (isset($_SESSION['patientEmail'])) {
+                        require('app\view\connectedPatient.php');
+                    }
+                    // If user with an email related to patients exist...
+                    // ...redirect to his account main view (connectedPraticien.php)
+                    elseif (isset($_SESSION['praticienEmail'])) {
+                        require('app\view\connectedPraticien.php');
+                    }
+                    else {
+                        throw new Exception ('Erreur');
+                    }
+                }
+                /* Deconnexion */
+                elseif ($_GET['action'] == 'disconnect') {
+                    unset($_SESSION['id']);
+                    session_destroy();
+                    header('Location: index.php');
+                }
 
 
                 /*=============================================
@@ -131,15 +151,11 @@ class App
                 elseif ($_GET['action'] == 'cancelSuppressionPraticien') {
                     require('app\view\connectedPatient.php');
                 }
-                // COOKIE TO DO...a mettre dans elseif connexionPrat
-                // elseif (isset($_COOKIE['rememberMe'])) {
-                //     setcookie( 'id_praticien','praticienEmail', time() + 365243600, null, null, false, true);
-                //     require('app\view\connectedPatient.php');
-                // }
                 // Agenda.php view loaded on click
                 elseif ($_GET['action'] == 'agendaAdmin') {
                     require('app\view\agendaAdmin.php');
                 }
+                
                 /*=========== End of Section Doctor =========*/
                 elseif ($_GET['action'] == 'mentionsLegales') {
                     require('app\view\mentionsLegales.php');

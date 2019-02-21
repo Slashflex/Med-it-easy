@@ -4,16 +4,18 @@
 
 <div id="offCanva">
     <input id="menu-trigger" type="checkbox">
-    <label id="label" for="menu-trigger" onclick="document.getElementById('offCanva').classList.toggle('open');"><i class="fas fa-tools fa-2x"></i></label>
+    <label id="label" for="menu-trigger" onclick="document.getElementById('offCanva').classList.toggle('open');"><i
+            class="fas fa-tools fa-2x"></i></label>
 
     <div id="content">
         <div class="header_connected">
             <h4>Bienvenue Docteur <?= ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['praticienNom']) . ' '; ?>
             </h4>
         </div>
-        <p class="text-center margin">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et gérer vos
+        <p class="text-center margin">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et
+            gérer vos
             consultations.</p>
-            
+        <div class="calendar"></div>
     </div>
 
     <nav id="test">
@@ -28,7 +30,7 @@
             <li><a href="index.php?action=adminActings"><i class="fas fa-notes-medical fa-1x"></i> Actes</a></li>
         </ul>
     </nav>
-    
+
 </div>
 
 

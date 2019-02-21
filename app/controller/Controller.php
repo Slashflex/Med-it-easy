@@ -48,6 +48,7 @@ class Controller
             $_SESSION['patientPrenom'] = $patientTest['patientPrenom'];
             $_SESSION['patientNom'] = $patientTest['patientNom'];
             $_SESSION['id'] = $patientTest['id_patient'];
+            $_SESSION['patientEmail'] = $patientTest['email'];
             
             require('app\view\connectedPatient.php');
 
@@ -103,7 +104,14 @@ class Controller
             $_SESSION['praticienPrenom'] = $praticienTest['praticienPrenom'];
             $_SESSION['praticienNom'] = $praticienTest['praticienNom'];
             $_SESSION['id'] = $praticienTest['id_praticien'];
-            
+            $_SESSION['praticienEmail'] = $praticienTest['praticienEmail'];
+            if (isset($_POST['rememberMe']) && $_POST['rememberMe'] == "on") {
+                // set cookie 
+                setcookie( 'id','praticienEmail', time() + 365243600, null, null, false, true);
+                $rememberMe = $_POST['rememberMe'];
+                // echo $rememberMe; 
+                //die;
+            }
             require('app\view\connectedPraticien.php');
 
         } else {
