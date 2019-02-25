@@ -41,7 +41,7 @@
             <span class=""><i class="fa fa-navicon"></i></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarToggler">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav nav">
                 <li class="nav-item">
                     <a class="nav-link" href="index.php#JQueryAnchor1" id="scrollToConcept">notre concept</a>
                 </li>

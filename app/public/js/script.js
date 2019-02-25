@@ -46,8 +46,8 @@ $(function () {
             900
         );
     });
-    // Permet le retour aux sections de la vue home.php...
-    //... depuis d'autres pages (comme inscription, connexion etc...)
+    // Allows the return to sections of the home.php view ...
+    //... from other pages (like registerPatient, connexionPatient etc ...)
     $("index.php#test").click(function () {
         $("html, body").animate({
                 scrollTop: $("#test1").offset().top
@@ -73,7 +73,7 @@ $(function () {
     /*============ End of Section Scroll on section  ==========*/
 
     /*===========================================================
-    ========== script pour swap icônes réseaux sociaux  =========
+    ============ Script to swap social network icons  ===========
     ===========================================================*/
     let sourceSwap = function () {
         let $this = $(this);
@@ -82,16 +82,16 @@ $(function () {
         $this.attr("src", newSource);
     };
     $("img.icon_color").hover(sourceSwap, sourceSwap);
-    /* change le background en hover */
+    /* Change background on hover */
     $(".icon_color").on("mouseenter", function () {
         $(this).css("background-color", "#dbae58");
     });
-    /* reinitialise le fond d'image par défaut */
+    /* Reset background to default one */
     $(".icon_color").on("mouseleave", function () {
         $(this).css("background-color", "#353c3f");
     });
 
-    /*===  End of script pour swap icônes réseaux sociaux  ===*/
+    /*=====  End of script to swap social network icons  =====*/
 
     /*==========================================================
     ===========       Section Word Swap            =============
@@ -126,11 +126,11 @@ $(function () {
     }
     wordSwap();
     /*===============  End of Section Word Swap  =================*/
-    /*==============================================================
-      ================   Section Form Errors Message  ================
-      ==============================================================*/
-    // TO DO
-    //$(function () {
+    
+
+    /*==========================================================
+    ===========  Section Reg EXp control on forms   ============
+    ==========================================================*/
     $('#first').keyup(function () {
         if (!$('#first').val().match(/^[A-Za-zéèêîïôüäë -]+$/i)) {
             $('#first').next('.error-message').show().text('Veuillez entrez un prénom valide');
@@ -158,7 +158,7 @@ $(function () {
         } else {
             $('#mail').next('.error-message').hide().text('');
         }
-    });
+    //});
     $('#mailLogin').keyup(function () { // 
         if (!$('#mailLogin').val().match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
             $('#mailLogin').next('.error-message').show().text('Veuillez entrez une adresse mail valide');
@@ -166,13 +166,13 @@ $(function () {
             $('#mailLogin').next('.error-message').hide().text('');
         }
         // });
-        // // $('#password_1').keyup(function () {
-        // //     if (!$('#password_1').val().match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-+(?:\.]*$/)) {
-        // //         $('#password_1').next('.error-message').show().text('Veuillez entrez un mot de passe valide');
-        // //     } else {
-        // //         $('#password_1').next('.error-message').hide().text('');
-        // //     }
-        // // });
+        // $('#password_1').keyup(function () {
+        //     if (!$('#password_1').val().match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-+(?:\.]{8,20}*$/)) {
+        //         $('#password_1').next('.error-message').show().text('Veuillez entrez un mot de passe valide');
+        //     } else {
+        //         $('#password_1').next('.error-message').hide().text('');
+        //     }
+        //});
         // $('#password_2').keyup(function () {
         //     if (!$('#password_2').val().match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-+(?:\.]*$/)) {
         //         $('#password_2').next('.error-message').show().text('Veuillez entrez un mot de passe valide');
@@ -222,19 +222,30 @@ $(function () {
         //         $('#password_2').next('.error-message').fadeOut()
         //     }
         //     return false;
-        
+/*=======  End of Section Reg EXp control on forms  =========*/
 
-       
-        //$('#step1').tooltip();   
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-          });
-          
+
+
+    
+
+        // $(document).ready(function () {
+        //     $('[data-toggle="tooltip"]').tooltip();
+         });
+        
     });
 });
+$(function(){
+    $('.nav a').filter(function(){return this.href==location.href}).parent().addClass('active').siblings().removeClass('active')
+    $('.nav a').click(function(){
+        $(this).parent().addClass('active').siblings().removeClass('active')	
+    })
+})
+
+/*========  End of Section Reg EXp control on forms  ========*/
 
 
-/*==========  End of Section Form Errors Message  ==========*/
+
+
 
 
 
