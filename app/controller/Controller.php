@@ -56,7 +56,7 @@ class Controller
             if (isset($_POST['rememberMe']) && $_POST['rememberMe'] == "on") {
                 // set cookie
                 setcookie('id', 'patientEmail', 'patientPrenom', 'patientNom', time() + 365243600, null, null, false, true);
-                $rememberMe = $_POST['rememberMe'];
+                $rememberMe = htmlspecialchars($_POST['rememberMe']);
             }
             require('app\view\connectedPatient.php');
         } else {
@@ -112,7 +112,7 @@ class Controller
             if (isset($_POST['rememberMe']) && $_POST['rememberMe'] == "on") {
                 // set cookie
                 setcookie('id', 'praticienEmail', time() + 365243600, null, null, false, true);
-                $rememberMe = $_POST['rememberMe'];
+                $rememberMe = htmlspecialchars($_POST['rememberMe']);
             }
             require('app\view\connectedPraticien.php');
         } else {
