@@ -116,7 +116,7 @@ class Controller
             }
             require('app\view\connectedPraticien.php');
         } else {
-            echo '<pre>MDP/Login incorrect</pre>';
+            throw new Exception('Mot de passe ou adresse email incorrect(e)');
         }
     }
     public function delPraticien($deleteid)
