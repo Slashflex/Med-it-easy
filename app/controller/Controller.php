@@ -6,6 +6,7 @@ use \Projet\app\model\EventManager;
 use \Projet\app\model\PatientManager;
 use \Projet\app\model\PraticienManager;
 use \Projet\app\model\Manager;
+use \Exception;
 
 class Controller
 {
@@ -59,7 +60,7 @@ class Controller
             }
             require('app\view\connectedPatient.php');
         } else {
-            echo '<pre>MDP/Login incorrect</pre>';
+            throw new Exception('Mot de passe ou adresse email incorrect(e)');
         }
     }
     public function delPatient($deleteid)
