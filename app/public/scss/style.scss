@@ -52,14 +52,9 @@ ul.nav a ~ a:hover {
 }
 
 a#connexionBtn:hover {
-    background-color: $color2;
     color: $color3;
 }
 
-//.nav-link:hover,
-//.nav-link:active,
-//.nav-item:nth-child(1)>a:nth-child(1),
-//.nav-link:focus,
 .separator {
     color: $color3 !important;
 }
