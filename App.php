@@ -77,6 +77,12 @@ class App
                 elseif ($_GET['action'] == 'rdvPatient') {
                     require('app\view\rdvPatientStep1.php');
                 }
+                elseif ($_GET['action'] == 'backToConnectedPatient') {
+                    require('app\view\connectedPatient.php');
+                }
+                elseif ($_GET['action'] == 'rdvStep1ToStep2') {
+                    require('app\view\rdvPatientStep2.php');
+                }
                 /*=========== End of Section Patient =========*/
 
                 elseif ($_GET['action'] == 'connected') {

@@ -48,7 +48,7 @@
         </div>
         <div class="container" id="prev_nextBtn">
             <div id="prev_nextButtons" class="text-center">
-                <a href="index.php?action=cancelSuppression" class="btn-update">Annuler</a>
+                <a href="index.php?action=backToConnectedPatient" class="btn-update">Annuler</a>
                 <a href="index.php?action=rdvStep1ToStep2" class="btn-update">Suivant</a>
             </div>
         </div>

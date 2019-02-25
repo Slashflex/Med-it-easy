@@ -573,7 +573,7 @@ option {
 #selectConsult {
     border: 0;
     width: 15rem;
-    height: 32px;
+    height: 39px;
     text-align: center;
     background-color: $color2;
     color: $color3;
@@ -598,7 +598,7 @@ option {
         margin-top: 7px;
         border: 3px solid $color3;
         #step1 {
-            color: $color2;
+            color: $color3;
             font-size: 18px;
             display: block;
             text-align: center;
@@ -625,7 +625,7 @@ option {
     height: 40px;
     width: 40px;
     float: left;
-    background: $color1;
+    background: $colorG;
     padding: 5px;
     margin-right: 10px;
     margin-top: 3px;
@@ -635,7 +635,7 @@ option {
 #selectPraticien {
     border: 0;
     width: 15rem;
-    height: 32px;
+    height: 39px;
     text-align: center;
     background-color: $color2;
     color: $color3;
@@ -940,7 +940,7 @@ ul.menu>li>a {
     }
 }
 
-.date {
+.dateDr {
     margin-top: 146px;
     text-align: center;
     width: 100%;
@@ -1013,5 +1013,12 @@ ul.menu>li>a {
 .form-horizontal {
     width: 60%;
 }
-
+#datetimepicker3 > input:nth-child(1) {
+    border: none;
+    text-align: center;
+}
+#datetimepicker4 > input:nth-child(1) {
+    border: none;
+    text-align: center;
+}
 /*=========================  End of TESTS  =====================*/
