@@ -81,7 +81,7 @@
             <div class="modal-content">
                 <header class="container justify-content-center">
                     <div class="row card-deck">
-                        <!-- Left block offering the user to register or log in -->
+                        <!-- Left block offering the user the choice to register or log in -->
                         <div class="card text-center" id="leftCard">
                             <img src="app\public\images\patient.png" class="card-img-top"
                                 alt="Lien vers l'espace de connexion du patient">
@@ -92,7 +92,7 @@
                                     patient</a>
                             </div>
                         </div>
-                        <!-- Right block proposing to the user to register or to connect -->
+                        <!-- Right block offering the user the choice to register or to log in -->
                         <div class="card text-center" id="RightCard">
                             <img src="app\public\images\docteur.png" class="card-img-top"
                                 alt="Lien vers l'espace de connexion du medecin">
@@ -108,7 +108,7 @@
                 </header>
             </div>
         </div>
-    </div>
+    </div><!-- /.Modal -->
     <main id="main">
         <?= $content ?>
     </main>
@@ -178,7 +178,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer><!-- /.Footer -->
     <!-- Button to go back to the top of the page -->
     <a id="buttonToTop"></a>
 </body>

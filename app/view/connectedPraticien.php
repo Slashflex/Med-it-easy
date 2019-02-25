@@ -22,7 +22,7 @@
         <div class="date mx-auto"><?php setlocale(LC_ALL, 'fr_FR'); ?><?=  ucfirst(strftime("%A %e %B %Y", mktime())) . '<br>' . strftime("%H : %M", mktime());?>
         </div>
         <ul class="menu mx-auto">
-            <li></li>
+            <li><a href="index.php?action=accueil"><i class="far fa-calendar-alt fa-1x"></i> Accueil</a></li>
             <li><a href="index.php?action=agendaAdmin"><i class="far fa-calendar-alt fa-1x"></i> Agenda</a></li>
             <li><a href="index.php?action=pricings"><i class="fas fa-hand-holding-usd fa-1x"></i> Tarifs</a></li>
             <li><a href="index.php?action=searchbarAdmin"><i class="fas fa-search fa-1x"></i> Recherche</a></li>

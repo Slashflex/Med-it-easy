@@ -22,16 +22,24 @@ class Controller
     }
     /*=================== Section Patient ======================*/
     // Call a function of this object
-    public function formPatient($patientPrenom, $patientNom, $patientDate, $email, $password_1, $password_2)
+    public function formPatient($patientPrenom, $patientNom, $patientDate, $email, $password_1, $password_2, $id_praticien)
     {
         if ($password_1 != $password_2) {
             throw new Exception("les deux mots de passe ne correspondent pas");
         } else {
             $passHash = password_hash($password_1, PASSWORD_DEFAULT);
-            $this->patientManager->createPatient($patientPrenom, $patientNom, $patientDate, $email, $passHash);
+            $this->patientManager->createPatient($patientPrenom, $patientNom, $patientDate, $email, $passHash, $id_praticien);
+            // TO DO...
         }
         require('app\view\connexionPatient.php');
     }
+    // TO DO ...
+    public function methodPatient() 
+    {   
+        $req = $this->praticienManager->getSubbedPraticien();
+        require('app\view\registerPatient.php');
+    }
+
     public function passVerify($password_1, $email)
     {
         // Calling the method of the model that will search in the database...
@@ -99,12 +107,11 @@ class Controller
             $_SESSION['praticienNom'] = $praticienTest['praticienNom'];
             $_SESSION['id'] = $praticienTest['id_praticien'];
             $_SESSION['praticienEmail'] = $praticienTest['praticienEmail'];
+            $_SESSION['specialite'] = $praticienTest['description'];
             if (isset($_POST['rememberMe']) && $_POST['rememberMe'] == "on") {
                 // set cookie
                 setcookie('id', 'praticienEmail', time() + 365243600, null, null, false, true);
                 $rememberMe = $_POST['rememberMe'];
-                // echo $rememberMe;
-                //die;
             }
             require('app\view\connectedPraticien.php');
         } else {
@@ -121,15 +128,27 @@ class Controller
     //     $this->praticienManager = new PraticienManager;
     //     $praticien = $praticienManager->getPraticien($deleteid);
     // }
-    /*=================== Fin Section Patient =====================*/
+    public function addPraticien()
+    {
+        $specialites = $this->praticienManager->getSpecialites();
+        // $_SESSION['id_spe'] = $specialites['description'];
+        require('app\view\registerPraticien.php');
+    }
+    /*=================== Fin Section Praticien =====================*/
 
     /*===================== Section Event =========================*/
     // Function to add event
-    public function addSingleEvent($title, $start, $end)
+    public function addEvent($title, $start, $id_patient)
     {
+        $title = $_POST['title'];        
+        $start = $_POST['start'];
+        $end = $_POST['end'];
         $this->eventManager = new EventManager;
-        $event = $eventManager->addEvents($title, $start, $end);
+        $event = $eventManager->addEvents($title, $start, $id_patient);
     }
 
     /*==================== Fin Section Event ======================*/
+
+
+
 }

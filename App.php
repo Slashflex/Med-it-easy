@@ -21,7 +21,9 @@ class App
                 =            Section Patient                  =
                 =============================================*/
                 if ($_GET['action'] == 'addPatient') {
-                    require('app\view\registerPatient.php');
+                    // TO DO...
+                    $this->controller->methodPatient();
+                    //require('app\view\registerPatient.php');
                 }
                 elseif ($_GET['action'] == 'registerPatient') {
                     // TO DO
@@ -31,7 +33,8 @@ class App
                     $email = htmlspecialchars($_POST['email']);
                     $password_1 = htmlspecialchars($_POST['password_1']);
                     $password_2 = htmlspecialchars($_POST['password_2']);
-                    $this->controller->formPatient($patientPrenom, $patientNom, $patientDate, $email, $password_1, $password_2);
+                    $id_praticien = htmlspecialchars($_POST['id_praticien']);
+                    $this->controller->formPatient($patientPrenom, $patientNom, $patientDate, $email, $password_1, $password_2, $id_praticien);
                 } 
                 elseif ($_GET['action'] == 'connexionPatient') {
                     require('app\view\connexionPatient.php');
@@ -71,6 +74,9 @@ class App
                 elseif ($_GET['action'] == 'cancelSuppression') {
                     require('app\view\connectedPatient.php');
                 }
+                elseif ($_GET['action'] == 'rdvPatient') {
+                    require('app\view\rdvPatientStep1.php');
+                }
                 /*=========== End of Section Patient =========*/
 
                 elseif ($_GET['action'] == 'connected') {
@@ -100,7 +106,7 @@ class App
                 =              Section Praticien              =
                 ==============================================*/
                 elseif ($_GET['action'] == 'addPraticien') {
-                    require('app\view\registerPraticien.php');
+                    $this->controller->addPraticien();
                 }
                 elseif ($_GET['action'] == 'registerPraticien') {
                     // TO DO
@@ -129,6 +135,9 @@ class App
                         echo '<pre class="mx-auto">Etes vous sûr de vouloir nous quitter ' . ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['patientNom']) . '</pre>';
                         require('app\view\confirmDeletePraticien.php');
                     }
+                }
+                elseif ($_GET['action'] == 'addEvent') {
+                    $this->controller->addEvent($title, $start, $id_patient);
                 }
                 // Ask for confirmation to doctor if he's sure to delete his account or cancel action
                 elseif ($_GET['action'] == 'confirmSuppressionPraticien') 

@@ -8,15 +8,11 @@ use \Exception;
 class EventManager extends Manager
 {
     // Add event and insert it into DataBase
-    public function addEvents($title, $start, $end)
+    public function addEvents($title, $start, $id_patient)
     {
         $db = $this->dbConnect();
-        $title = $_POST['title'];
-        $start = $_POST['start'];
-        $end = $_POST['end'];
-        $req = $db->prepare("INSERT INTO events (title, start, end) VALUES (:title, :start, :end )");
-        $req->execute(array(':title'=>$title, ':start'=>$start, ':end'=>$end));
-        //$patient = $req->fetch();
+        $req = $db->prepare("INSERT INTO events (id_type, start, id_patient) VALUES (:title, :start, :id_patient )");
+        $req->execute(array('title'=>$title, 'start'=>$start, 'id_patient'=>$id_patient));
     }
 
     public function getEvents()
@@ -31,18 +27,18 @@ class EventManager extends Manager
     public function updateEvent()
     {
         $db = $this->dbConnect();
-        $title = $_POST['title'];
-        $start = $_POST['start'];
-        $end = $_POST['end'];
+        $title = htmlspecialchars($_POST['title']);
+        $start = htmlspecialchars($_POST['start']);
+        $end = htmlspecialchars($_POST['end']);
         $req = $db->prepare("INSERT INTO events (title, start, end) VALUES (:title, :start, :end )");
-        $req->execute(array(':title'=>$title, ':start'=>$start, ':end'=>$end));
+        $req->execute(array('title'=>$title, 'start'=>$start, 'end'=>$end));
     }
     
     // Delete event that has this DataBase ID
     public function deleteEvent()
     {
         $db = $this->dbConnect();
-        $id = $_POST['id'];
+        $id = htmlspecialchars($_POST['id']);
         $req = $db->prepare("DELETE from events WHERE id = $id");
         $req->execute();
         return $req;

@@ -226,8 +226,11 @@ $(function () {
             locale: 'fr'
           });
 
-
-
+          
+        //$('#step1').tooltip();   
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+          });
     });
 });
 

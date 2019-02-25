@@ -21,7 +21,7 @@
     </div>
     <div class="input-group">
         <label for="birthDate">Date de naissance</label>
-        <input type="date" name="patientDate" id="birthDate"  required>
+        <input type="date" name="patientDate" id="birthDate" required>
         <span class="error-message mx-auto"></span>
     </div>
     <div class="input-group">
@@ -40,12 +40,26 @@
         <span class="error-message mx-auto"></span>
     </div>
     <div class="input-group">
+        <label for="id_praticien">Choisissez votre praticien</label>
+        <select name="id_praticien" class="mx-auto">Choisissez votre praticien
+            <!-- Loop recovering the id of the doctors as well as their name and first name -->
+            <?php while ($data = $req->fetch()): ?>
+            <option value="<?= $data['id_praticien']; ?>">
+                Dr. <?= ucfirst($data['praticienPrenom']) . ' ' . ucfirst($data['praticienNom']); ?>
+                - <?= $data['description']; ?>
+            </option>
+            <?php endwhile; ?>
+        </select>
+
+    </div>
+    <div class="input-group">
         <button type="submit" class="btn-form" id="send" name="registerPatient">Inscription</button>
     </div>
     <p>
         Déjà patient ? <a href="index.php?action=connexionPatient">Connectez-vous<i class="fas fa-sign-in-alt"></i></a>
     </p>
 </form>
+
 <?php $content = ob_get_clean(); ?>
 
-<?php require('app\view\template.php'); ?>
+<?php require('app\view\template.php');
