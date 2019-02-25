@@ -23,9 +23,9 @@
         <button type="submit" class="btn-form" id="send" name="registerPraticien">Connexion</button>
     </div>
     <div class="input-group">
-        <label class="wrapper"><a href="index.php?action=rememberMe">Se souvenir de moi
+        <label class="wrapper">Se souvenir de moi
                 <input type="checkbox" name="rememberMe">
-                <span class="checkmark"></span></a>
+                <span class="checkmark">
         </label>
     </div>
     <p>

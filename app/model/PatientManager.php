@@ -8,7 +8,7 @@ use \Exception;
 class PatientManager extends Manager
 {
     // Patient creation
-    public function createPatient($patientPrenom, $patientNom, $patientDate, $email, $password_1)
+    public function createPatient($patientPrenom, $patientNom, $patientDate, $email, $password_1, $id_praticien)
     {
         $db = $this->dbConnect();
         $email = htmlspecialchars($_POST['email']);
@@ -21,10 +21,10 @@ class PatientManager extends Manager
             throw new Exception ('Cet email existe déjà, veuillez réessayer avec une autre adresse email.');
             header('Location: app\view\registerPatient.php');
         // else, user is created
-        } else {
-            $patient = $db->prepare('INSERT INTO patient (patientPrenom, patientNom, patientDate, email, password_1) 
-            VALUES (?, ?, ?, ?, ?)');
-            $patient->execute(array($patientPrenom, $patientNom, $patientDate, $email, $password_1));
+        } else {//, id_praticien
+            $patient = $db->prepare('INSERT INTO patient (patientPrenom, patientNom, patientDate, email, password_1, id_praticien) 
+            VALUES (?, ?, ?, ?, ?, ?)');
+            $patient->execute(array($patientPrenom, $patientNom, $patientDate, $email, $password_1, $id_praticien));
             return $patient;
         } 
     }

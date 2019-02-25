@@ -5,14 +5,31 @@
     <meta charset="utf-8" />
     <title><?= $title ?>
     </title>
+    <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <!-- Custom CSS compiled using Ruby Sass -->
+    <link rel="stylesheet" href="app\public\css\style.css">
+    <!-- Font-Awesome Core CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="app\public\css\style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+    <!-- FullCalendar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+    <script src="app\public\js\agenda.js"></script>
+    <!-- FullCalendar localization -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/locale/fr.js"></script>
+    <!-- Custom Jquery -->
     <script src="app\public\js\script.js"></script>
+
 </head>
 
 <body>
@@ -24,7 +41,7 @@
             <span class=""><i class="fa fa-navicon"></i></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarToggler">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav nav">
                 <li class="nav-item">
                     <a class="nav-link" href="index.php#JQueryAnchor1" id="scrollToConcept">notre concept</a>
                 </li>
@@ -34,12 +51,30 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.php#JQueryAnchor3" id="scollToPricing">tarifs</a>
                 </li>
+                <?php if (isset($_SESSION['id'])) {
+    ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?action=connected" id="scollToPricing">Mon compte</a>
+                </li>
+                <?php } ?>
             </ul>
         </div>
+        <?php if (isset($_SESSION['id'])) {
+    ?>
+        <div class="float-right hideLogBtn">
+            <a class="nav-link btn-footer" id="connexionBtn" href="index.php?action=disconnect">Déconnexion</a>
+        </div>
+        <?php
+} else {
+        ?>
         <div class="float-right hideLogBtn">
             <a class="nav-link btn-footer" id="connexionBtn" data-toggle="modal" data-target="#exampleModalCenter"
-                href="#">Espace utilisateurs</a>
+                href="#">Espace
+                utilisateurs</a>
         </div>
+        <?php
+    }?>
+
     </nav>
 
     <!-- Modal brings up two blocks => Patient user space and Doctor user space,
@@ -50,27 +85,34 @@
             <div class="modal-content">
                 <header class="container justify-content-center">
                     <div class="row card-deck">
-                        <!-- Left block offering the user to register or log in -->
+                        <!-- Left block offering the user the choice to register or log in -->
                         <div class="card text-center" id="leftCard">
-                            <img src="app\public\images\patient.png" class="card-img-top" alt="Lien vers l'espace de connexion du patient">
-                                <div class="card-body">
-                                    <a href="index.php?action=addPatient" class="col-md-12 btn btn-primary">Inscription patient</a>
-                                    <a href="index.php?action=connexionPatient" class="col-md-12 btn btn-primary">Connexion patient</a>
-                                </div>
-                            </div>
-                            <!-- Right block proposing to the user to register or to connect -->
-                            <div class="card text-center" id="RightCard">
-                                <img src="app\public\images\docteur.png" class="card-img-top" alt="Lien vers l'espace de connexion du medecin">
+                            <img src="app\public\images\patient.png" class="card-img-top"
+                                alt="Lien vers l'espace de connexion du patient">
                             <div class="card-body">
-                                <a href="index.php?action=addPraticien" class="col-md-12 btn btn-primary">Inscription praticien</a>
-                                <a href="index.php?action=connexionPraticien" class="col-md-12 btn btn-primary">Connexion praticien</a>
+                                <a href="index.php?action=addPatient" class="col-md-12 btn btn-primary">Inscription
+                                    patient</a>
+                                <a href="index.php?action=connexionPatient" class="col-md-12 btn btn-primary">Connexion
+                                    patient</a>
+                            </div>
+                        </div>
+                        <!-- Right block offering the user the choice to register or to log in -->
+                        <div class="card text-center" id="RightCard">
+                            <img src="app\public\images\docteur.png" class="card-img-top"
+                                alt="Lien vers l'espace de connexion du medecin">
+                            <div class="card-body">
+                                <a href="index.php?action=addPraticien" class="col-md-12 btn btn-primary">Inscription
+                                    praticien</a>
+                                <a href="index.php?action=connexionPraticien"
+                                    class="col-md-12 btn btn-primary">Connexion
+                                    praticien</a>
                             </div>
                         </div>
                     </div>
                 </header>
             </div>
         </div>
-    </div>
+    </div><!-- /.Modal -->
     <main id="main">
         <?= $content ?>
     </main>
@@ -105,7 +147,9 @@
                         <li><a href="https://lecrat.fr/sommaireFR.php">Centre de Référence</a>
                         </li>
                         <li><a href="http://www.infofemmes.com/v2/accueil.html">Infos femmes</a></li>
-                        <li><a href="http://stop-violences-femmes.gouv.fr/Les-associations-de-soutien-aux.html">Associations</a></li>
+                        <li><a
+                                href="http://stop-violences-femmes.gouv.fr/Les-associations-de-soutien-aux.html">Associations</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -138,7 +182,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer><!-- /.Footer -->
     <!-- Button to go back to the top of the page -->
     <a id="buttonToTop"></a>
 </body>

@@ -1,0 +1,84 @@
+praticien working :
+
+public function createPraticien($praticienPrenom, $praticienNom, $praticienDate, $praticienEmail, $password_1, $id_spe)
+$praticien = $db->prepare('INSERT INTO praticien (praticienPrenom, praticienNom, praticienDate, praticienEmail, password_1, id_spe) 
+VALUES (?, ?, ?, ?, ?, ?)');
+$praticien->execute(array($praticienPrenom, $praticienNom, $praticienDate, $praticienEmail, $password_1, $id_spe));
+
+controller :
+
+public function formPraticien($praticienPrenom, $praticienNom, $praticienDate, $praticienEmail, $password_1, $password_2, $specialite)
+$this->praticienManager->createPraticien($praticienPrenom, $praticienNom, $praticienDate, $praticienEmail, $passHash, $specialite);
+
+/* ========================= */
+
+patient TBD :
+
+public function createPatient($patientPrenom, $patientNom, $patientDate, $email, $password_1, id_praticien)
+$patient = $db->prepare('INSERT INTO patient (patientPrenom, patientNom, patientDate, email, password_1, id_praticien) 
+VALUES (?, ?, ?, ?, ?)');
+$patient->execute(array($patientPrenom, $patientNom, $patientDate, $email, $password_1, id_praticien));
+
+controller :
+
+public function formPatient($patientPrenom, $patientNom, $patientDate, $email, $password_1, $password_2, $medecin)
+$this->patientManager->createPatient($patientPrenom, $patientNom, $patientDate, $email, $passHash, $medecin);
+
+
+If($_GET['action'] == "VoirLeFormulaireD'inscriptionDuPatientTMTC") {
+
+$this->controller->getFormSubPatient();
+}
+
+
+================== ça, dans le routeur. =============
+
+
+================= Ensuite on as le controller ===============
+
+public function getFormSubPatient(){
+
+$this->praticienManager->getPraticienAlreadySubscribed();
+
+require 'views/FormSubPatient'
+}
+
+==================== ça c'est donc ton controller BIATCH =============
+
+==================== Et là, là mon p'tit poulet, c'est ta requette SQL DE LA MORT. ==========
+
+
+public function getPraticienAlreadySubscribed(){
+
+$db = $this->dbConnect();
+
+$req= $db->query ('SELECT * from Praticien 
+INNER JOIN specialite 
+ON praticien.id_praticien = specialite.id_spe');
+
+return $req;
+
+}
+
+=========== ET LA S'EN SUIS LA CREATION DE LA LIST TIRé DE CES INFORMATIONS MYSTIQUE =================
+
+
+ DANS TA VUE TU AURA UN TRUC COMME CA 
+
+<?php while($donnees = $req ->fetch()) { ?>
+
+
+<form method="POST" action="index.php?action=patientSubscribing&praticien=<?= $donnees['id_praticien'] ?>">
+    <input>NOM
+    <input>PRENOM
+    <input>EMAIL
+    <input>PWD
+/** ET C'EST LA QUE CA DEVIENS MYSTIQUE **/
+
+    <select>
+          <?php while($donnees = $req ->fetch()) { ?>  
+                <option><?= $donnees['nom_praticien'] ?> -  <?= $donnees['specialite'] ?>     </select>
+
+</form>
+
+<?php $req->closeCursor(); ?>

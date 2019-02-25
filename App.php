@@ -21,7 +21,9 @@ class App
                 =            Section Patient                  =
                 =============================================*/
                 if ($_GET['action'] == 'addPatient') {
-                    require('app\view\registerPatient.php');
+                    // TO DO...
+                    $this->controller->methodPatient();
+                    //require('app\view\registerPatient.php');
                 }
                 elseif ($_GET['action'] == 'registerPatient') {
                     // TO DO
@@ -31,7 +33,8 @@ class App
                     $email = htmlspecialchars($_POST['email']);
                     $password_1 = htmlspecialchars($_POST['password_1']);
                     $password_2 = htmlspecialchars($_POST['password_2']);
-                    $this->controller->formPatient($patientPrenom, $patientNom, $patientDate, $email, $password_1, $password_2);
+                    $id_praticien = htmlspecialchars($_POST['id_praticien']);
+                    $this->controller->formPatient($patientPrenom, $patientNom, $patientDate, $email, $password_1, $password_2, $id_praticien);
                 } 
                 elseif ($_GET['action'] == 'connexionPatient') {
                     require('app\view\connexionPatient.php');
@@ -71,16 +74,45 @@ class App
                 elseif ($_GET['action'] == 'cancelSuppression') {
                     require('app\view\connectedPatient.php');
                 }
+                elseif ($_GET['action'] == 'rdvPatient') {
+                    require('app\view\rdvPatientStep1.php');
+                }
+                elseif ($_GET['action'] == 'backToConnectedPatient') {
+                    require('app\view\connectedPatient.php');
+                }
+                elseif ($_GET['action'] == 'rdvStep1ToStep2') {
+                    require('app\view\rdvPatientStep2.php');
+                }
                 /*=========== End of Section Patient =========*/
 
-
+                elseif ($_GET['action'] == 'connected') {
+                    // If user with an email related to patients exist...
+                    // ...redirect to his account main view (connectedPatient.php)
+                    if (isset($_SESSION['patientEmail'])) {
+                        require('app\view\connectedPatient.php');
+                    }
+                    // If user with an email related to patients exist...
+                    // ...redirect to his account main view (connectedPraticien.php)
+                    elseif (isset($_SESSION['praticienEmail'])) {
+                        require('app\view\connectedPraticien.php');
+                    }
+                    else {
+                        throw new Exception ('Erreur');
+                    }
+                }
+                /* Deconnexion */
+                elseif ($_GET['action'] == 'disconnect') {
+                    unset($_SESSION['id']);
+                    session_destroy();
+                    header('Location: index.php');
+                }
 
 
                 /*=============================================
                 =              Section Praticien              =
                 ==============================================*/
                 elseif ($_GET['action'] == 'addPraticien') {
-                    require('app\view\registerPraticien.php');
+                    $this->controller->addPraticien();
                 }
                 elseif ($_GET['action'] == 'registerPraticien') {
                     // TO DO
@@ -110,6 +142,9 @@ class App
                         require('app\view\confirmDeletePraticien.php');
                     }
                 }
+                elseif ($_GET['action'] == 'addEvent') {
+                    $this->controller->addEvent($title, $start, $id_patient);
+                }
                 // Ask for confirmation to doctor if he's sure to delete his account or cancel action
                 elseif ($_GET['action'] == 'confirmSuppressionPraticien') 
                 { 
@@ -131,12 +166,19 @@ class App
                 elseif ($_GET['action'] == 'cancelSuppressionPraticien') {
                     require('app\view\connectedPatient.php');
                 }
-                // COOKIE TO DO...a mettre dans elseif connexionPrat
-                elseif ($_GET['action'] == 'rememberMe') {
-                    setcookie( 'id','pseudo', time() + 365243600, null, null, false, true);
-                    require('app\view\connectedPatient.php');
+                // Agenda.php view loaded on click
+                elseif ($_GET['action'] == 'agendaAdmin') {
+                    require('app\view\agendaAdmin.php');
                 }
+                
                 /*=========== End of Section Doctor =========*/
+
+
+                /*=============== Section Agenda ============*/
+                
+
+
+                /*========== End of Section Agenda ==========*/
                 elseif ($_GET['action'] == 'mentionsLegales') {
                     require('app\view\mentionsLegales.php');
                 }

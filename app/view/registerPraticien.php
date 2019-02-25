@@ -25,7 +25,8 @@
     </div>
     <div class="input-group">
         <label for="email">Email</label>
-        <input type="email" name="praticienEmail" id="mail" placeholder="ex: chuck@norris.com" autocomplete="off" required>
+        <input type="email" name="praticienEmail" id="mail" placeholder="ex: chuck@norris.com" autocomplete="off"
+            required>
         <span class="error-message mx-auto"></span>
     </div>
     <div class="input-group">
@@ -41,23 +42,21 @@
     <div class="input-group">
         <label for="specialite">Choisissez votre spécialité</label>
         <select name="specialite" class="mx-auto">Choisissez votre spécialité
-            <option value="Médecin généraliste">Médecin généraliste</option>
-            <option value="Dentiste">Dentiste</option>
-            <option value="Dermatologue">Dermatologue</option>
-            <option value="Gynécologue">Gynécologue</option>
-            <option value="Médecin du travail">Médecin du travail</option>
-            <option value="Médecin du sport">Médecin du sport</option>
-            <option value="Ophtalmologue">Ophtalmologue</option>
-            <option value="Pédiatre">Pédiatre</option>
+            <?php while ($specialite = $specialites->fetch()) {
+    ?>
+            <option value="<?= $specialite['id_spe']; ?>"><?= $specialite['description']; ?>
+            </option>
+            <?php
+} ?>
         </select>
     </div>
     <div class="input-group">
         <button type="submit" class="btn-form" id="send" name="registerPraticien">Inscription</button>
     </div>
     <p>
-        Déjà praticien ? <a href="index.php?action=connexionPraticien">Connectez-vous<i class="fas fa-sign-in-alt"></i></a>
+        Déjà inscrit ? <a href="index.php?action=connexionPraticien">Connectez-vous<i class="fas fa-sign-in-alt"></i></a>
     </p>
 </form>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('app\view\template.php'); ?>
+<?php require('app\view\template.php');
