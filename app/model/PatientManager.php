@@ -45,14 +45,18 @@ class PatientManager extends Manager
 
 
     // TO DO...
-    public function getTypeActes($id_type)
+    public function getTypeActes()
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT * FROM typeActe WHERE id_type = ? LIMIT 0, 7');
-        $req->execute(array($id_type));
+        $req = $db->query('SELECT * FROM typeActe LIMIT 0, 7');
         return $req;
     }
-
+    public function getColorActes()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT couleur FROM typeActe');
+        return $req;
+    }
 
 
     // Delete patient account that has this DataBase ID 

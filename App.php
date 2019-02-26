@@ -69,7 +69,8 @@ class App
                 } elseif ($_GET['action'] == 'backToConnectedPatient') {
                     require('app\view\connectedPatient.php');
                 } elseif ($_GET['action'] == 'rdvPatient') {
-                    require('app\view\rdvPatientStep1.php');
+                    $coords = $this->controller->praticienCoords();
+                    $req = $this->controller->listTypeActes();
                 } elseif ($_GET['action'] == 'rdvStep1ToStep2') {
                     require('app\view\rdvPatientStep2.php');
                 } elseif ($_GET['action'] == 'rdvStep2ToStep3') {
@@ -98,7 +99,6 @@ class App
                     require('app\view\connectedPraticien.php');
                 } elseif ($_GET['action'] == 'rdvStep1') {
                     $req = $this->controller->listTypeActes($id_type);
-                    require('app\view\rdvPatientStep1.php');
                 }
                 /* Deconnexion */
                 elseif ($_GET['action'] == 'disconnect') {
@@ -138,8 +138,9 @@ class App
                         echo '<pre class="mx-auto">Etes vous sûr de vouloir nous quitter ' . ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['patientNom']) . '</pre>';
                         require('app\view\confirmDeletePraticien.php');
                     }
+                
                 } elseif ($_GET['action'] == 'addEvent') {
-                    $this->controller->addEvent($title, $start, $id_patient);
+                    $this->controller->addEvent($id_event, $start, $id_type, $id_patient);
                 }
                 // Ask for confirmation to doctor if he's sure to delete his account or cancel action
                 elseif ($_GET['action'] == 'confirmSuppressionPraticien') {

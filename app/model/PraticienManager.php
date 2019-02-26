@@ -39,7 +39,7 @@ class PraticienManager extends Manager
         $db = $this->dbConnect();
         $req = $db->query('SELECT * FROM praticien 
                            INNER JOIN specialite 
-                           ON praticien.id_praticien = specialite.id_spe');
+                           ON praticien.id_spe = specialite.id_spe ORDER BY description');
                            return $req;
     }
     // Praticien connexion
@@ -68,6 +68,16 @@ class PraticienManager extends Manager
         $db = $this->dbConnect();
         $req = $db->prepare("SELECT * FROM specialite");
         $req->execute();
+        return $req;
+    }
+
+
+
+
+    public function getPraticienCoords()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query("SELECT praticienPrenom, praticienNom, specialite.description FROM praticien INNER JOIN specialite ON praticien.id_spe = specialite.id_spe");
         return $req;
     }
 }

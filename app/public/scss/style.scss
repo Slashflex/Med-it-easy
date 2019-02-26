@@ -290,7 +290,7 @@ footer {
 
 .liens_utiles {
     margin: auto;
-    
+
     a {
         color: $color1;
         font-weight: bold;
@@ -596,7 +596,6 @@ option {
     width: 15rem;
     height: 39px;
     text-align: center;
-    background-color: $color2;
     color: $color3;
 }
 
@@ -644,6 +643,7 @@ option {
     display: block;
     text-align: center;
 }
+
 #step3 {
     color: $color3;
     display: block;
@@ -667,7 +667,6 @@ option {
     width: 15rem;
     height: 39px;
     text-align: center;
-    background-color: $color2;
     color: $color3;
 }
 
@@ -993,7 +992,7 @@ pre {
     box-shadow: 9px 8px 15px $color4;
 }
 
-ul.menu > li > a {
+ul.menu>li>a {
     color: $color1;
     text-decoration: none;
     padding-top: 12px;
