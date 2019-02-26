@@ -6,6 +6,7 @@ use \Projet\app\model\EventManager;
 use \Projet\app\model\PatientManager;
 use \Projet\app\model\PraticienManager;
 use \Projet\app\model\Manager;
+use \Exception;
 
 class Controller
 {
@@ -29,13 +30,24 @@ class Controller
         } else {
             $passHash = password_hash($password_1, PASSWORD_DEFAULT);
             $this->patientManager->createPatient($patientPrenom, $patientNom, $patientDate, $email, $passHash, $id_praticien);
-            // TO DO...
+            
         }
+        // TO DO... Sending mail confirmation
+        $to = $email;
+        $subject = 'Med It Easy | Confirmation de compte';
+        $message = 'Bonjour ! '. ucfirst($patientPrenom)  . ' ' . ucfirst($patientNom) . '<br> 
+        Afin de confirmer votre inscription sur le site Med It Easy, 
+        merci de cliquer sur le lien ci-dessous. <br>
+        <a href="action">Confirmez votre inscription</a>';
+        $headers = 'From: admin@med-it-easy.com' . "\r\n" .
+        'Reply-To: admin@med-it-easy.com' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+        mail($to, $subject, $message, $headers);
         require('app\view\connexionPatient.php');
     }
     // TO DO ...
-    public function methodPatient() 
-    {   
+    public function methodPatient()
+    {
         $req = $this->praticienManager->getSubbedPraticien();
         require('app\view\registerPatient.php');
     }
@@ -55,17 +67,34 @@ class Controller
             if (isset($_POST['rememberMe']) && $_POST['rememberMe'] == "on") {
                 // set cookie
                 setcookie('id', 'patientEmail', 'patientPrenom', 'patientNom', time() + 365243600, null, null, false, true);
-                $rememberMe = $_POST['rememberMe'];
+                $rememberMe = htmlspecialchars($_POST['rememberMe']);
             }
             require('app\view\connectedPatient.php');
         } else {
-            echo '<pre>MDP/Login incorrect</pre>';
+            throw new Exception('Mot de passe ou adresse email incorrect(e)');
         }
     }
     public function delPatient($deleteid)
     {
         $this->patientManager->deletePatient($deleteid);
     }
+
+
+
+
+    // TO DO...
+    public function listTypeActes()
+    {
+        $req = $this->patientManager->getTypeActes();
+        $color = $this->patientManager->getColorActes();
+        require('app\view\rdvPatientStep1.php');
+    }
+    public function praticienCoords()
+    {
+        $coords = $this->praticienManager->getPraticienCoords();
+    }
+
+
     // Display of legal notices
     public function displayLegalNotice()
     {
@@ -90,8 +119,19 @@ class Controller
         } else {
             $passHash = password_hash($password_1, PASSWORD_DEFAULT);
             $this->praticienManager->createPraticien($praticienPrenom, $praticienNom, $praticienDate, $praticienEmail, $passHash, $specialite);
-            //todo tester le fonctionnement
+            
         }
+        // TO DO... Sending mail confirmation
+        $to = $praticienEmail;
+        $subject = 'Med It Easy | Confirmation de compte';
+        $message = 'Bonjour ! '. ucfirst($praticienPrenom)  . ' ' . ucfirst($praticienNom) . '<br> 
+        Afin de confirmer votre inscription sur le site Med It Easy, 
+        merci de cliquer sur le lien ci-dessous. <br>
+        <a href="action">Confirmez votre inscription</a>';
+        $headers = 'From: admin@med-it-easy.com' . "\r\n" .
+        'Reply-To: admin@med-it-easy.com' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+        mail($to, $subject, $message, $headers);
         require('app\view\connexionPraticien.php');
     }
     public function passVerif($password_1, $praticienEmail)
@@ -111,11 +151,11 @@ class Controller
             if (isset($_POST['rememberMe']) && $_POST['rememberMe'] == "on") {
                 // set cookie
                 setcookie('id', 'praticienEmail', time() + 365243600, null, null, false, true);
-                $rememberMe = $_POST['rememberMe'];
+                $rememberMe = htmlspecialchars($_POST['rememberMe']);
             }
             require('app\view\connectedPraticien.php');
         } else {
-            echo '<pre>MDP/Login incorrect</pre>';
+            throw new Exception('Mot de passe ou adresse email incorrect(e)');
         }
     }
     public function delPraticien($deleteid)
@@ -138,17 +178,15 @@ class Controller
 
     /*===================== Section Event =========================*/
     // Function to add event
-    public function addEvent($title, $start, $id_patient)
+    public function addEvent($id_event, $start, $id_type, $id_patient)
     {
-        $title = $_POST['title'];        
-        $start = $_POST['start'];
-        $end = $_POST['end'];
+        $title = htmlspecialchars($_POST['id_event']);
+        $start = htmlspecialchars($_POST['start']);
+        $type = htmlspecialchars($_POST['id_type']);
+        $id = htmlspecialchars($_POST['id_patient']);
         $this->eventManager = new EventManager;
-        $event = $eventManager->addEvents($title, $start, $id_patient);
+        $event = $eventManager->addEvents($title, $start, $type, $id);
     }
 
     /*==================== Fin Section Event ======================*/
-
-
-
 }

@@ -126,7 +126,7 @@ $(function () {
     }
     wordSwap();
     /*===============  End of Section Word Swap  =================*/
-    
+
 
     /*==========================================================
     ===========  Section Reg EXp control on forms   ============
@@ -137,111 +137,42 @@ $(function () {
         } else {
             $('#first').next('.error-message').hide().text('');
         }
+        $('#last').keyup(function () {
+            if (!$('#last').val().match(/^[A-Za-zéèêîïôüäë -]+$/i)) {
+                $('#last').next('.error-message').show().text('Veuillez entrez un nom valide');
+            } else {
+                $('#last').next('.error-message').hide().text('');
+            }
+            $('#mail').keyup(function () { // 
+                if (!$('#mail').val().match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
+                    $('#mail').next('.error-message').show().text('Veuillez entrez une adresse mail valide');
+                } else {
+                    $('#mail').next('.error-message').hide().text('');
+                }
+                // $('#mailLogin').keyup(function () { // 
+                //     if (!$('#mailLogin').val().match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
+                //         $('#mailLogin').next('.error-message').show().text('Veuillez entrez une adresse mail valide');
+                //     } else {
+                //         $('#mailLogin').next('.error-message').hide().text('');
+                //     }
+                    /*=======  End of Section Reg EXp control on forms  =========*/
+                });
+            });
+        });
     });
-    $('#last').keyup(function () {
-        if (!$('#last').val().match(/^[A-Za-zéèêîïôüäë -]+$/i)) {
-            $('#last').next('.error-message').show().text('Veuillez entrez un nom valide');
-        } else {
-            $('#last').next('.error-message').hide().text('');
-        }
-    });
-    // $('#birthDate').keyup(function () {
-    //     if (!$('#birthDate').val().match(/^[0-9/]+$/)) {
-    //         $('#birthDate').next('.error-message').show().text('Veuillez entrez une date valide');
-    //     } else {
-    //         $('#birthDate').next('.error-message').hide().text('');
-    //     }
-    // });
-    $('#mail').keyup(function () { // 
-        if (!$('#mail').val().match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
-            $('#mail').next('.error-message').show().text('Veuillez entrez une adresse mail valide');
-        } else {
-            $('#mail').next('.error-message').hide().text('');
-        }
-    //});
-    $('#mailLogin').keyup(function () { // 
-        if (!$('#mailLogin').val().match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
-            $('#mailLogin').next('.error-message').show().text('Veuillez entrez une adresse mail valide');
-        } else {
-            $('#mailLogin').next('.error-message').hide().text('');
-        }
-        // });
-        // $('#password_1').keyup(function () {
-        //     if (!$('#password_1').val().match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-+(?:\.]{8,20}*$/)) {
-        //         $('#password_1').next('.error-message').show().text('Veuillez entrez un mot de passe valide');
-        //     } else {
-        //         $('#password_1').next('.error-message').hide().text('');
-        //     }
-        //});
-        // $('#password_2').keyup(function () {
-        //     if (!$('#password_2').val().match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-+(?:\.]*$/)) {
-        //         $('#password_2').next('.error-message').show().text('Veuillez entrez un mot de passe valide');
-        //     } else {
-        //         $('#password_2').next('.error-message').hide().text('');
-        //     }
-        // });
-
-        // $("#send").click(function () {
-        //     valid = true;
-        //     if ($('#first').val() == '') {
-        //         $('#first').next('.error-message').fadeIn().text('Veuillez entrez votre prénom');
-        //         valid = false;
-        //     } else if (!$('#first').val().match(/^[a-zA-Z-]+$/i)) {
-        //         $('#first').next('.error-message').fadeIn().text('Veuillez entrez un prénom valide');
-        //     } else {
-        //         $('#first').next('.error-message').fadeOut()
-        //     }
-        //     if ($('#last').val() == '') {
-        //         $('#last').next('.error-message').fadeIn().text('Veuillez entrez votre nom');
-        //         valid = false;
-        //     } else {
-        //         $('#last').next('.error-message').fadeOut()
-        //     }
-        //     if ($('#birthDate').val() == '') {
-        //         $('#birthDate').next('.error-message').fadeIn().text('Veuillez entrez votre date de naissance');
-        //         valid = false;
-        //     } else {
-        //         $('#birthDate').next('.error-message').fadeOut()
-        //     }
-        //     if ($('#mail').val() == '') {
-        //         $('#mail').next('.error-message').fadeIn().text('Veuillez entrez une adresse e-mail');
-        //         valid = false;
-        //     } else {
-        //         $('#mail').next('.error-message').fadeOut()
-        //     }
-        //     if ($('#password_1').val() == '') {
-        //         $('#password_1').next('.error-message').fadeIn().text('Veuillez entrez votre mot de passe');
-        //         valid = false;
-        //     } else {
-        //         $('#password_1').next('.error-message').fadeOut()
-        //     }
-        //     if ($('#password_2').val() == '') {
-        //         $('#password_2').next('.error-message').fadeIn().text('Veuillez confirmer votre mot de passe');
-        //         valid = false;
-        //     } else {
-        //         $('#password_2').next('.error-message').fadeOut()
-        //     }
-        //     return false;
-/*=======  End of Section Reg EXp control on forms  =========*/
-
-
-
-    
-
-        // $(document).ready(function () {
-        //     $('[data-toggle="tooltip"]').tooltip();
-         });
-        
+//});
+// Add active class on nav-link when clicked, remove it on other link click...
+// ...remove class on other views when loaded (once they have no link to the 3 main nav-links)
+$(function () {
+    $('.nav a').filter(function () {
+        return this.href == location.href
+    }).parent().addClass('active').siblings().removeClass('active')
+    $('.nav a').click(function () {
+        $(this).parent().addClass('active').siblings().removeClass('active')
     });
 });
-$(function(){
-    $('.nav a').filter(function(){return this.href==location.href}).parent().addClass('active').siblings().removeClass('active')
-    $('.nav a').click(function(){
-        $(this).parent().addClass('active').siblings().removeClass('active')	
-    })
-})
 
-/*========  End of Section Reg EXp control on forms  ========*/
+
 
 
 

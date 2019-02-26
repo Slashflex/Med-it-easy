@@ -10,7 +10,7 @@
 
     <div class="input-group">
         <label for="email">Email</label>
-        <input type="email" name="email" id="mailLogin" value="" autocomplete="off" required>
+        <input type="email" name="email" id="mail" value="" autocomplete="off" required>
         <span class="error-message mx-auto"></span>
     </div>
     <div class="input-group">

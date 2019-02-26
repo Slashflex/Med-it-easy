@@ -30,24 +30,19 @@ nav {
     }
 }
 
-/*=============================================
-=            Section comment block            =
-=============================================*/
-.navbar-light .navbar-nav .active > .nav-link, 
-.navbar-light .navbar-nav .nav-link.active, 
-.navbar-light .navbar-nav .nav-link.show, 
-.navbar-light .navbar-nav .show > .nav-link {
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
     color: $color3 !important;
 }
-.navbar-light .navbar-nav .nav-link:focus, 
+
+.navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
     color: $color3;
 }
 
-/*=====  End of Section comment block  ======*/
-
-
-ul.nav a ~ a:hover {
+ul.nav a~a:hover {
     cursor: pointer;
 }
 
@@ -72,6 +67,262 @@ a#connexionBtn:hover {
 
 .navbar-light .navbar-toggler {
     border-color: $color3 !important;
+}
+
+/*================== End of Navigation Bar =====================*/
+
+/*================================================================
+=                              Header                            =
+================================================================*/
+
+.card {
+    box-shadow: 0px 8px 15px $color4;
+    background-color: $color2;
+}
+
+.btn-primary {
+    background-color: $color2;
+    color: $color3;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    text-transform: uppercase;
+}
+
+.btn-primary:hover {
+    background-color: $color3;
+    color: $color2;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Pop-up Modal on click from User space link (top-right) */
+
+// .modal-open .container {
+//     /* blur effect on Modal pop */
+//     filter: blur(10px);
+// }
+
+.modal-content {
+    background-color: transparent;
+    border: none !important;
+    width: 50em;
+    margin: 0 auto;
+}
+
+.modal-dialog {
+    max-width: none !important;
+    border: initial;
+}
+
+.modal-footer {
+    border: none !important;
+}
+
+/*======================= End of Header =========================*/
+
+/*=================================================================
+=                        Main Content Page                        =
+=================================================================*/
+
+#main {
+    min-height: 800px;
+    margin-top: 0;
+}
+
+#placeholder {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Block "Notre concept" */
+
+.concept_height {
+    height: 100vh;
+    padding-top: 6rem;
+    background-color: rgb(215, 226, 222); //background-image: linear-gradient(335deg, $color6, $color7);
+}
+
+/* Block "Notre solution" */
+
+.solution_height {
+    height: 100vh;
+    padding-top: 6rem;
+    background-image: linear-gradient(335deg, $color6, $color7);
+}
+
+/* Block "Tarifs" */
+
+.pricing_height {
+    height: 100vh;
+    padding-top: 6rem;
+    background-color: rgb(215, 226, 222);
+}
+
+.mentions_legales {
+    margin-top: 100px;
+    margin-bottom: 50px;
+
+    .h2_title {
+        background-color: $color2;
+        padding: 10px 10px;
+        border-radius: 45px;
+        color: $color3;
+    }
+
+    p {
+        color: $color5;
+
+        a {
+            color: $color2;
+
+            strong {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.h3_titles {
+    color: $color3;
+    text-decoration: underline;
+}
+
+#bg_word_swap {
+    background-color: $color3;
+    padding: 3px;
+    border-radius: 45px;
+    text-align: center;
+    width: 16rem;
+}
+
+#word_swap {
+    color: $color2;
+    margin-bottom: auto;
+}
+
+.h1-mb {
+    margin-bottom: -20px;
+}
+
+.margin {
+    margin-top: -44px;
+    margin-bottom: 28px;
+}
+
+/*=================  End of Main Content Page  ==================*/
+
+/*=================================================================
+=                              Footer                             =
+=================================================================*/
+
+footer {
+    background-color: $color2; //min-height: 200px;
+    box-shadow: 0px -8px 15px $color4;
+}
+
+.bloc_gauche {
+    p {
+        color: $color1;
+        text-align: center;
+    }
+}
+
+/* Social networks icons */
+
+.icon_color {
+    width: 20%;
+    background-color: $color2;
+    border-radius: 50%;
+}
+
+.btn-footer {
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 1rem;
+    color: $color2;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: $color3;
+    border-radius: 20px;
+}
+
+.btn-footer:hover {
+    text-decoration: none;
+    background-color: $color2;
+}
+
+/* Copyright */
+
+.navbar-brandFooter {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: $color1;
+}
+
+/* Legal notice */
+
+.bloc_mid {
+    margin-top: 3%;
+
+    a {
+        color: $color3;
+        text-decoration: none;
+
+        a:hover {
+            color: $color1;
+        }
+    }
+}
+
+.fa-phone {
+    color: $color3;
+}
+
+.phone {
+    color: $color1;
+    margin-left: 10px;
+}
+
+.footer_height {
+    max-height: 80px;
+}
+
+.liens_utiles {
+    margin: auto;
+
+    a {
+        color: $color1;
+        font-weight: bold;
+    }
+}
+
+.liens_utiles ul li a:hover {
+    color: $color3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.space {
+    padding-left: 10px;
+}
+
+.bloc_reseaux {
+    margin-top: 20px;
+}
+
+.border-left {
+    border-left: 1px solid $color1;
+}
+
+.borderLeft {
+    border-left: 1px solid $color1;
+}
+
+#hr {
+    margin-top: 15px;
+    border: 1px solid $color1;
+    width: 100%;
 }
 
 /*================================================================
@@ -127,266 +378,6 @@ a#connexionBtn:hover {
 }
 
 /*===============  End of Section Back To Top  =================*/
-
-/*================== End of Navigation Bar =====================*/
-
-/*================================================================
-=                              Header                            =
-================================================================*/
-
-.card {
-    box-shadow: 0px 8px 15px $color4;
-    background-color: $color2;
-}
-
-.btn-primary {
-    background-color: $color2;
-    color: $color3; //width: 35%;
-    font-weight: bold;
-    border: none;
-    border-radius: 15px;
-    text-transform: uppercase;
-}
-
-.btn-primary:hover {
-    background-color: $color3;
-    color: $color2;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* Pop-up Modal on click from User space link (top-right) */
-
-.modal-open .container-fluid {
-    /* blur effect on Modal pop */
-    filter: blur(15px);
-}
-
-.modal-content {
-    background-color: transparent;
-    border: none !important;
-    width: 50em;
-    margin: 0 auto;
-}
-
-.modal-dialog {
-    max-width: none !important;
-    border: initial;
-}
-
-.modal-footer {
-    border: none !important;
-}
-
-/*======================= End of Header =========================*/
-
-/*=================================================================
-=                        Main Content Page                        =
-=================================================================*/
-
-#main {
-    min-height: 800px;
-    margin-top: 0;
-}
-
-#placeholder {
-    width: 100%;
-    margin: 0 auto;
-}
-
-/* Bloc "Notre concept" */
-
-.concept_height {
-    height: 100vh;
-    padding-top: 6rem;
-    background-color: rgb(215, 226, 222); //background-image: linear-gradient(335deg, $color6, $color7);
-}
-
-/* Bloc "Notre solution" */
-
-.solution_height {
-    height: 100vh;
-    padding-top: 6rem; //background-color: rgb(241, 239, 204);
-    background-image: linear-gradient(335deg, $color6, $color7);
-}
-
-/* Bloc "Notre Tarifs" */
-
-.pricing_height {
-    height: 100vh;
-    padding-top: 6rem;
-    background-color: rgb(215, 226, 222);
-}
-
-.mentions_legales {
-    margin-top: 100px;
-    margin-bottom: 50px;
-
-    .h2_title {
-        background-color: $color2;
-        padding: 10px 10px;
-        border-radius: 45px;
-        color: $color3;
-    }
-
-    p {
-        color: $color5;
-
-        a {
-            color: $color2;
-
-            strong {
-                text-decoration: underline;
-
-                a {
-                    color: $color2;
-                }
-            }
-        }
-    }
-}
-
-.h3_titles {
-    color: $color3;
-    text-decoration: underline;
-}
-
-#bg_word_swap {
-    background-color: $color3;
-    padding: 3px;
-    border-radius: 45px;
-    text-align: center;
-    width: 16rem;
-}
-
-#word_swap {
-    color: $color2;
-    margin-bottom: auto;
-}
-
-.h1-mb {
-    margin-bottom: -20px;
-}
-
-.margin {
-    margin-top: -44px;
-    margin-bottom: 28px;
-}
-
-/*=================  End of Main Content Page  ==================*/
-
-/*=================================================================
-=                              Footer                             =
-=================================================================*/
-
-footer {
-    background-color: $color2; //min-height: 200px;
-    box-shadow: 0px -8px 15px $color4;
-}
-
-.bloc_gauche {
-    p {
-        color: $color1;
-        text-align: center;
-    }
-}
-
-/* Réseaux sociaux */
-
-.icon_color {
-    width: 20%;
-    background-color: $color2;
-    border-radius: 50%;
-}
-
-.btn-footer {
-    text-decoration: none;
-    border-radius: 50%;
-    font-size: 1rem;
-    color: $color2;
-    text-transform: uppercase;
-    font-weight: bold;
-    background-color: $color3;
-    border-radius: 20px;
-}
-
-.btn-footer:hover {
-    text-decoration: none;
-    background-color: $color2; //font-size: 1rem;
-}
-
-/* Copyright */
-
-.navbar-brandFooter {
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: $color1;
-}
-
-/* Mentions légales */
-
-.bloc_mid {
-    margin-top: 3%;
-}
-
-.bloc_mid a {
-    color: $color3;
-    text-decoration: none;
-}
-
-.bloc_mid a:hover {
-    color: $color1;
-}
-
-.fa-phone {
-    color: $color3;
-}
-
-.phone {
-    color: $color1;
-    margin-left: 10px;
-}
-
-.footer_height {
-    max-height: 80px;
-}
-
-.liens_utiles {
-    margin: auto;
-
-    a {
-        color: $color1;
-        font-weight: bold;
-    }
-}
-
-.liens_utiles ul li a:hover {
-    color: $color3;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.space {
-    padding-left: 10px;
-}
-
-.bloc_reseaux {
-    margin-top: 20px;
-}
-
-.border-left {
-    border-left: 1px solid $color1;
-}
-
-.borderLeft {
-    border-left: 1px solid $color1;
-}
-
-#hr {
-    margin-top: 15px;
-    border: 1px solid $color1;
-    width: 100%;
-}
 
 /*=====================  End of Footer ==========================*/
 
@@ -547,7 +538,7 @@ option {
     position: relative;
     padding-left: 35px;
     margin-bottom: 12px;
-    cursor: pointer; //font-size: 22px;
+    cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -567,7 +558,7 @@ option {
 /*============== End of Section Form inscription ===============*/
 
 /*================================================================
-=                  Section rdvPatient step 1-3                   =
+=                  Section rdvPatient step 1 to 3                   =
 ================================================================*/
 
 #headerRdv {
@@ -605,7 +596,6 @@ option {
     width: 15rem;
     height: 39px;
     text-align: center;
-    background-color: $color2;
     color: $color3;
 }
 
@@ -654,6 +644,12 @@ option {
     text-align: center;
 }
 
+#step3 {
+    color: $color3;
+    display: block;
+    text-align: center;
+}
+
 #steps .active-step {
     display: inline-block;
     height: 40px;
@@ -671,11 +667,10 @@ option {
     width: 15rem;
     height: 39px;
     text-align: center;
-    background-color: $color2;
     color: $color3;
 }
 
-/*============ End of Section rdvPatient step 1-3 ==============*/
+/*============ End of Section rdvPatient step 1 to 3 ==============*/
 
 /*================================================================
 =                     Section Media Queries                      =
@@ -847,13 +842,13 @@ option {
     }
 
     #main {
-        margin-top: -81px;
+        margin-top: 10px;
     }
 }
 
 @media screen and (max-width: 415px) {
     #main {
-        margin-top: -41px;
+        margin-top: 40px;
     }
 
     #offCanva label#label {
@@ -1074,6 +1069,8 @@ ul.menu>li>a {
 #calendar {
     width: 60%;
     margin: 0 auto;
+    //background-color: $color2;
+    //border-radius: 12px
 }
 
 .fc-toolbar {
@@ -1082,9 +1079,9 @@ ul.menu>li>a {
 
 /*==================  End of Section Agenda  ===================*/
 
-.form-horizontal {
-    width: 60%;
-}
+// .form-horizontal {
+//     width: 60%;
+// }
 
 #datetimepicker3>input:nth-child(1) {
     border: none;

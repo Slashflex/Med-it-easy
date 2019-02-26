@@ -1,6 +1,6 @@
 
-
 sass --watch public/scss/style.scss:public/css/style.css --style compressed
+
 
 
 SELECT patientPrenom, patientNom, start, description, duree, couleur
