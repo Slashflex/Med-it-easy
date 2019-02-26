@@ -15,8 +15,7 @@ body {
 nav {
     box-shadow: 0px 8px 15px $color4;
     position: fixed;
-    height: auto; //background-color: $colorD !important;
-    //background-image: linear-gradient(335deg, $color6, $color7);
+    height: auto; 
 }
 
 .navbar-nav {
@@ -96,13 +95,6 @@ a#connexionBtn:hover {
     text-transform: uppercase;
 }
 
-/* Pop-up Modal on click from User space link (top-right) */
-
-// .modal-open .container {
-//     /* blur effect on Modal pop */
-//     filter: blur(10px);
-// }
-
 .modal-content {
     background-color: transparent;
     border: none !important;
@@ -140,7 +132,7 @@ a#connexionBtn:hover {
 .concept_height {
     height: 100vh;
     padding-top: 6rem;
-    background-color: rgb(215, 226, 222); //background-image: linear-gradient(335deg, $color6, $color7);
+    background-color: rgb(215, 226, 222);
 }
 
 /* Block "Notre solution" */
@@ -217,7 +209,7 @@ a#connexionBtn:hover {
 =================================================================*/
 
 footer {
-    background-color: $color2; //min-height: 200px;
+    background-color: $color2;
     box-shadow: 0px -8px 15px $color4;
 }
 
@@ -411,7 +403,7 @@ footer {
     background: $color3;
     text-align: center;
     border-radius: 0 0 45px 45px;
-    border-bottom: none; //border-radius: 20px;
+    border-bottom: none; 
     padding: 10px;
     box-shadow: 0px 4px 10px $color4;
 }
@@ -531,8 +523,6 @@ option {
     background-color: $color5;
 }
 
-/* The container */
-
 .wrapper {
     display: block;
     position: relative;
@@ -630,7 +620,6 @@ option {
 
 #prev_nextBtn {
     width: 50%;
-    //margin: auto 0;
 }
 
 #prev_nextButtons {
@@ -751,7 +740,6 @@ option {
 
     .liens_utiles {
         display: none;
-        /* cache les blocs liens utiles du footer */
     }
 
     .reseaux {
@@ -802,7 +790,6 @@ option {
 
     .liens_utiles {
         display: none;
-        /* cache les blocs liens utiles du footer */
     }
 
     .reseaux {
@@ -866,16 +853,12 @@ option {
 
 /*==============  End of Section Media Queries  ================*/
 
-/*================================================================
-=                            TESTS                               =
-================================================================*/
-
 pre {
     background-color: $color3;
     width: 50%;
     border-radius: 45px;
     margin-top: 100px;
-    padding: 20px 10px; //font-weight: 600;
+    padding: 20px 10px;
     font-size: 1rem;
     color: $color2;
     text-align: center;
@@ -886,9 +869,9 @@ pre {
     width: 50%;
     border-radius: 45px;
     margin-top: 100px;
-    padding: 20px 10px; //font-weight: 600;
+    padding: 20px 10px;
     font-size: 1rem;
-    color: $color2; //text-align: center;
+    color: $color2;
 }
 
 .btn-update {
@@ -1001,7 +984,6 @@ ul.menu>li>a {
     z-index: 10000;
 
     &:hover {
-        //background-color: $color3;
         color: $color3;
         z-index: 10000;
     }
@@ -1062,27 +1044,9 @@ ul.menu>li>a {
 
 /*==== End of Section Off Menu Canva connectedPraticien.php  ===*/
 
-/*================================================================
-=                       Section Agenda                           =
-================================================================*/
-
-#calendar {
-    width: 60%;
-    margin: 0 auto;
-    //background-color: $color2;
-    //border-radius: 12px
-}
-
-.fc-toolbar {
-    color: $color2;
-}
-
-/*==================  End of Section Agenda  ===================*/
-
-// .form-horizontal {
-//     width: 60%;
-// }
-
+/*===============================================================
+=     Section Appointment booking (rdvPatientStep1 to 3.php)    =
+===============================================================*/
 #datetimepicker3>input:nth-child(1) {
     border: none;
     text-align: center;
@@ -1092,5 +1056,26 @@ ul.menu>li>a {
     border: none;
     text-align: center;
 }
+/* End of Section Appointment booking (rdvPatientStep1 to 3.php) */
+
+/*================================================================
+=                       Section Agenda                           =
+================================================================*/
+
+#calendar {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.fc-toolbar {
+    color: $color2;
+}
+
+/*==================  End of Section Agenda  ===================*/
+
+/*================================================================
+=                            TESTS                               =
+================================================================*/
+
 
 /*=========================  End of TESTS  =====================*/
