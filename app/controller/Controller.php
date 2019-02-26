@@ -30,13 +30,23 @@ class Controller
         } else {
             $passHash = password_hash($password_1, PASSWORD_DEFAULT);
             $this->patientManager->createPatient($patientPrenom, $patientNom, $patientDate, $email, $passHash, $id_praticien);
-            // TO DO...
+            // TO DO... Sending mail confirmation
         }
+        $to = $email;
+        $subject = 'Med It Easy | Confirmation de compte';
+        $message = 'Bonjour ! '. $patientPrenom  .'<br> 
+        Afin de confirmer votre inscription sur le site Med It Easy, 
+        merci de cliquer sur le lien ci-dessous. <br>
+        <a href="confirmationMail">Confirmez votre inscription</a>';
+        $headers = 'From: admin@med-it-easy.com' . "\r\n" .
+        'Reply-To: admin@med-it-easy.com' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+        mail($to, $subject, $message, $headers);
         require('app\view\connexionPatient.php');
     }
     // TO DO ...
-    public function methodPatient() 
-    {   
+    public function methodPatient()
+    {
         $req = $this->praticienManager->getSubbedPraticien();
         require('app\view\registerPatient.php');
     }
@@ -141,7 +151,7 @@ class Controller
     // Function to add event
     public function addEvent($title, $start, $id_patient)
     {
-        $title = $_POST['title'];        
+        $title = $_POST['title'];
         $start = $_POST['start'];
         $end = $_POST['end'];
         $this->eventManager = new EventManager;
@@ -149,7 +159,4 @@ class Controller
     }
 
     /*==================== Fin Section Event ======================*/
-
-
-
 }
