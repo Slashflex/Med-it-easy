@@ -30,14 +30,15 @@ class Controller
         } else {
             $passHash = password_hash($password_1, PASSWORD_DEFAULT);
             $this->patientManager->createPatient($patientPrenom, $patientNom, $patientDate, $email, $passHash, $id_praticien);
-            // TO DO... Sending mail confirmation
+            
         }
+        // TO DO... Sending mail confirmation
         $to = $email;
         $subject = 'Med It Easy | Confirmation de compte';
-        $message = 'Bonjour ! '. $patientPrenom  .'<br> 
+        $message = 'Bonjour ! '. $patientPrenom  . $patientNom . '<br> 
         Afin de confirmer votre inscription sur le site Med It Easy, 
         merci de cliquer sur le lien ci-dessous. <br>
-        <a href="confirmationMail">Confirmez votre inscription</a>';
+        <a href="action">Confirmez votre inscription</a>';
         $headers = 'From: admin@med-it-easy.com' . "\r\n" .
         'Reply-To: admin@med-it-easy.com' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
@@ -77,6 +78,20 @@ class Controller
     {
         $this->patientManager->deletePatient($deleteid);
     }
+
+
+
+
+    // TO DO...
+    public function listTypeActes($id_type)
+    {
+        $req = $this->patientManager->getTypeActes($id_type);
+        require('app\view\rdvPatientStep1.php');
+    }
+
+
+
+
     // Display of legal notices
     public function displayLegalNotice()
     {

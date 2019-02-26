@@ -644,6 +644,11 @@ option {
     display: block;
     text-align: center;
 }
+#step3 {
+    color: $color3;
+    display: block;
+    text-align: center;
+}
 
 #steps .active-step {
     display: inline-block;
@@ -1065,6 +1070,8 @@ ul.menu > li > a {
 #calendar {
     width: 60%;
     margin: 0 auto;
+    //background-color: $color2;
+    //border-radius: 12px
 }
 
 .fc-toolbar {

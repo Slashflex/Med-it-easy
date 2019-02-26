@@ -149,18 +149,18 @@ $(function () {
                 } else {
                     $('#mail').next('.error-message').hide().text('');
                 }
-                $('#mailLogin').keyup(function () { // 
-                    if (!$('#mailLogin').val().match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
-                        $('#mailLogin').next('.error-message').show().text('Veuillez entrez une adresse mail valide');
-                    } else {
-                        $('#mailLogin').next('.error-message').hide().text('');
-                    }
+                // $('#mailLogin').keyup(function () { // 
+                //     if (!$('#mailLogin').val().match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
+                //         $('#mailLogin').next('.error-message').show().text('Veuillez entrez une adresse mail valide');
+                //     } else {
+                //         $('#mailLogin').next('.error-message').hide().text('');
+                //     }
                     /*=======  End of Section Reg EXp control on forms  =========*/
                 });
             });
         });
     });
-});
+//});
 // Add active class on nav-link when clicked, remove it on other link click...
 // ...remove class on other views when loaded (once they have no link to the 3 main nav-links)
 $(function () {

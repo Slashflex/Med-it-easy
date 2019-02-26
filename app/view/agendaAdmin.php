@@ -18,7 +18,7 @@
 
     <nav id="test">
         <!-- Displaying the time and date in the off-canva menu -->
-        <div class="date mx-auto"><?php setlocale(LC_ALL, 'fr_FR'); ?><?=  ucfirst(strftime("%A %e %B %Y", mktime())) . '<br>' . strftime("%H : %M", mktime());?>
+        <div class="dateDr mx-auto"><?php setlocale(LC_ALL, 'fr_FR'); ?><?=  ucfirst(strftime("%A %e %B %Y", mktime())) . '<br>' . strftime("%H : %M", mktime());?>
         </div>
         <ul class="menu mx-auto">
             <li><a href="index.php?action=accueil"><i class="far fa-calendar-alt fa-1x"></i> Accueil</a></li>

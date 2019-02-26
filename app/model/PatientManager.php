@@ -40,6 +40,21 @@ class PatientManager extends Manager
         return $patient;
     }
 
+
+
+
+
+    // TO DO...
+    public function getTypeActes($id_type)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT * FROM typeActe WHERE id_type = ? LIMIT 0, 7');
+        $req->execute(array($id_type));
+        return $req;
+    }
+
+
+
     // Delete patient account that has this DataBase ID 
     public function deletePatient($deleteid)
     {

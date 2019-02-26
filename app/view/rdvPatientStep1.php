@@ -9,20 +9,19 @@
             <div id="steps">
                 <div class="book-step active-step">
                     <div class="tooltipPop">
-                        <a href="" data-toggle="tooltip" data-placement="bottom" title="Etape 1/3 :  choix type de consultation et praticien"><strong
+                        <a href="index.php?action=rdvStep1" data-toggle="tooltip" data-placement="bottom" title="Etape 1/3 :  choix type de consultation et praticien"><strong
                                 id="step1">1</strong></a>
                     </div>
-
                 </div>
                 <div class="book-step">
                     <div class="tooltipPop">
-                        <a href="" data-toggle="tooltip" data-placement="bottom" title="Etape 2/3 :  date et heure souhaitée"><strong
+                        <a href="index.php?action=rdvStep1ToStep2" data-toggle="tooltip" data-placement="bottom" title="Etape 2/3 :  date et heure souhaitée"><strong
                                 id="step2">2</strong></a>
                     </div>
-
                 </div>
                 <div class="book-step">
-                    <strong id="step3">3</strong>
+                <a href="index.php?action=rdvStep2ToStep3" data-toggle="tooltip" data-placement="bottom" title="Etape 3/3 : confirmation des informations"><strong
+                                id="step3">3</strong></a>
                 </div>
             </div>
         </div>
@@ -34,8 +33,13 @@
             <div class="form-group">
                 <label for="selectConsult"><strong class="selectType">Type de consultation</strong></label>
                 <select id="selectConsult" class="col-md-4 form-control">
-                    <option value="Urgence">Urgence</option>
-                    <option value="Visite à domicile">Visite à domicile</option>
+                
+                    <!-- <option value="Urgence">Urgence</option>
+                    <option value="Visite à domicile">Visite à domicile</option> -->
+                    <?php while ($data = $req->fetch($id_type)): ?>
+                    <option value="<?= ucfirst($data['description']); ?>"></option>
+                    <?php endwhile; ?> 
+
                 </select>
                 <!-- Doctor's choice -->
                 <label for="selectPraticien"><strong class="selectType">Choix du praticien</strong></label>
@@ -43,6 +47,7 @@
                     <option value="Docteur machin bidule - Médecin généraliste">Docteur machin bidule - Médecin
                         généraliste</option>
                     <option value="Docteur trucmuche - Ophtalmologue">Docteur trucmuche - Ophtalmologue</option>
+
                 </select>
             </div>
         </div>
@@ -53,7 +58,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 
