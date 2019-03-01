@@ -1,10 +1,10 @@
-/** Urgence : #ff0000 => red
+/** Urgence: #ff0000 => red
 	Consultation: #7c7c7c => gray
 	Gynécologie: #ff72db => pink
 	Pediatrie: #6280ef => blue
 	Certificat: #f3ff59 => yellow
 	Visite à domicile: #85ff59 => green
-	Suivi psychologique: #5800a0 => purple
+	Suivi psychologique: #bf49ff => purple
 */
 
 $(function() {
@@ -76,7 +76,7 @@ $(function() {
             title: "Suivi psychologique",
             start: "2019-02-26 12:10:00",
             end: "2019-02-26 12:40:00",
-            color: "#5800a0",
+            color: "#bf49ff",
             textColor: "#000000"
 		  },
 		  {

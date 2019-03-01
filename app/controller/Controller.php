@@ -81,18 +81,38 @@ class Controller
 
 
 
-
-    // TO DO...
-    public function listTypeActes()
+    public function rdvStep1() 
     {
-        $req = $this->patientManager->getTypeActes();
-        $color = $this->patientManager->getColorActes();
+        $typeActes = $this->patientManager->getTypeActes();
+        $duplicate = $this->praticienManager->removeDuplicatesSpe();
+        $coords = $this->praticienManager->getPraticienCoords();
         require('app\view\rdvPatientStep1.php');
     }
-    public function praticienCoords()
+
+
+
+
+    // TO DO...
+    public function testJson($param1, $param2)
     {
-        $coords = $this->praticienManager->getPraticienCoords();
+        $donneesArray = array($param1, $param2);
+        $fichierOpen = fopen('app\public\json\testJson.json', 'w');
+        $fichierWrite = fwrite($fichierOpen, json_encode($donneesArray));
     }
+    public function testJson2($param1, $param2)
+    {
+        $donneesArray = array($param1, $param2);
+        $fichierOpen = fopen('app\public\json\testJson2.json', 'w');
+        $fichierWrite = fwrite($fichierOpen, json_encode($donneesArray));
+
+    }
+
+    public function testAddEvent($param1, $param2, $param3, $param4) 
+    {
+        $this->eventManager->testEvent($param1, $param2, $param3, $param4);
+        require('app\view\connectedPatient.php');
+    }
+    
 
 
     // Display of legal notices
@@ -100,11 +120,6 @@ class Controller
     {
         header('Location: app\view\mentionsLegales.php');
     }
-    // public function patient($id)
-    // {
-    //     $this->patientManager = new PatientManager;
-    //     $patient = $patientManager->getPatient($deleteid);
-    // }
     /*=================== Fin Section Patient ======================*/
 
 

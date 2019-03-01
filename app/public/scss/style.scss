@@ -1,7 +1,10 @@
 @import 'variables';
-
 * {
     list-style-type: none;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 body {
@@ -15,7 +18,7 @@ body {
 nav {
     box-shadow: 0px 8px 15px $color4;
     position: fixed;
-    height: auto; 
+    height: auto;
 }
 
 .navbar-nav {
@@ -154,20 +157,16 @@ a#connexionBtn:hover {
 .mentions_legales {
     margin-top: 100px;
     margin-bottom: 50px;
-
     .h2_title {
         background-color: $color2;
         padding: 10px 10px;
         border-radius: 45px;
         color: $color3;
     }
-
     p {
         color: $color5;
-
         a {
             color: $color2;
-
             strong {
                 text-decoration: underline;
             }
@@ -256,11 +255,9 @@ footer {
 
 .bloc_mid {
     margin-top: 3%;
-
     a {
         color: $color3;
         text-decoration: none;
-
         a:hover {
             color: $color1;
         }
@@ -282,7 +279,6 @@ footer {
 
 .liens_utiles {
     margin: auto;
-
     a {
         color: $color1;
         font-weight: bold;
@@ -387,7 +383,6 @@ footer {
     border-radius: 10px 10px 0px 0px;
     padding: 20px;
     box-shadow: 0px 8px 15px $color4;
-
     h4 {
         font-weight: bold;
         display: inline-block;
@@ -403,17 +398,12 @@ footer {
     background: $color3;
     text-align: center;
     border-radius: 0 0 45px 45px;
-    border-bottom: none; 
+    border-bottom: none;
     padding: 10px;
     box-shadow: 0px 4px 10px $color4;
 }
 
-form {
-    box-shadow: 0px 8px 15px $color4;
-}
-
-form,
-.content {
+.patientForm {
     width: 30%;
     margin: 0px auto 60px auto;
     padding: 20px;
@@ -422,21 +412,19 @@ form,
     background-color: $color2;
     color: $color2;
     font-weight: 500;
-}
-
-form p {
-    color: $color1;
-    margin: 0 auto;
-    text-align: center;
-}
-
-form a {
-    color: $color3;
-}
-
-form a:hover {
-    color: $color1;
-    text-decoration: none;
+    box-shadow: 0px 8px 15px $color4;
+    p {
+        color: $color1;
+        margin: 0 auto;
+        text-align: center;
+        a {
+            color: $color3;
+            a:hover {
+                color: $color1;
+                text-decoration: none;
+            }
+        }
+    }
 }
 
 .fa-sign-in-alt {
@@ -456,7 +444,7 @@ form a:hover {
 .input-group label {
     display: block;
     align-items: center;
-    margin: 3px auto;
+    margin: 0px auto;
     color: $color1;
 }
 
@@ -552,8 +540,8 @@ option {
 ================================================================*/
 
 #headerRdv {
-    margin-top: 100px;
-    width: 100%;
+    margin: 0px auto 0px auto;
+    width: 80%;
     height: 80px;
     background-color: $color2;
     padding: 5px;
@@ -565,8 +553,9 @@ option {
 
 #contentStep1 {
     margin-top: 3px;
+    margin: 3px auto;
     height: 500px;
-    width: 100%;
+    width: 80%;
     background-color: $color3;
 }
 
@@ -575,6 +564,7 @@ option {
     padding-top: 28px;
     color: $color2;
     font-weight: bold;
+    margin-bottom: 50px;
 }
 
 .selectType {
@@ -583,22 +573,36 @@ option {
 
 #selectConsult {
     border: 0;
-    width: 15rem;
-    height: 39px;
+    width: 80%;
+    border-radius: 45px;
     text-align: center;
     color: $color3;
+    background-color: $color2;
+    margin: auto;
 }
 
-.form-group {
-    padding: 50px;
+#selectPraticien {
+    border: 0;
+    width: 80%;
+    border-radius: 45px;
+    text-align: center;
+    color: $color3;
+    background-color: $color2;
+    margin: auto;
 }
+
+.formRdv {
+    margin-top: 140px;
+}
+// .form-group {
+//     padding: 50px;
+// }
 
 #steps {
     width: 140px;
     display: inline-block;
     float: right;
     margin-top: 14px;
-
     .book-step {
         display: inline-block;
         height: 30px;
@@ -608,7 +612,6 @@ option {
         margin-right: 10px;
         margin-top: 7px;
         border: 3px solid $color3;
-
         #step1 {
             color: $color3;
             font-size: 18px;
@@ -618,13 +621,9 @@ option {
     }
 }
 
-#prev_nextBtn {
-    width: 50%;
-}
-
 #prev_nextButtons {
     margin: auto 0;
-    padding-top: 50px;
+    padding-top: 8em;
 }
 
 #step2 {
@@ -651,14 +650,6 @@ option {
     border: 3px solid $color3;
 }
 
-#selectPraticien {
-    border: 0;
-    width: 15rem;
-    height: 39px;
-    text-align: center;
-    color: $color3;
-}
-
 /*============ End of Section rdvPatient step 1 to 3 ==============*/
 
 /*================================================================
@@ -672,7 +663,6 @@ option {
         width: 30%;
         text-align: center;
         margin: 0 auto;
-
         a {
             img {
                 text-align: 1;
@@ -688,11 +678,9 @@ option {
         width: 30%;
         text-align: center;
     }
-
     .patientForm {
         width: 40%;
     }
-
     .header {
         width: 40%;
     }
@@ -704,24 +692,19 @@ option {
     .navbar-nav {
         text-align: center;
     }
-
     .reseaux {
         width: 30%;
         text-align: center;
     }
-
     .logo-part {
         margin-bottom: 2%;
     }
-
     .patientForm {
         width: 40%;
     }
-
     .header {
         width: 40%;
     }
-
     .header_connected {
         width: 50%;
     }
@@ -733,45 +716,35 @@ option {
     .navbar-nav {
         text-align: center;
     }
-
     .bloc_gauche {
         border: none;
     }
-
     .liens_utiles {
         display: none;
     }
-
     .reseaux {
         text-align: center;
         width: 34%;
     }
-
     .space {
         display: block;
     }
-
     .logo-part {
         margin-bottom: 2%;
     }
-
     .card-deck .card {
         margin-bottom: 21px;
     }
-
     .card-deck {
         width: 90%;
         margin: 0 auto;
     }
-
     .patientForm {
         width: 40%;
     }
-
     .header {
         width: 40%;
     }
-
     .header_connected {
         width: 70%;
     }
@@ -783,51 +756,40 @@ option {
     .navbar-nav {
         text-align: center;
     }
-
     .bloc_gauche {
         border: none;
     }
-
     .liens_utiles {
         display: none;
     }
-
     .reseaux {
         width: 50%;
         text-align: center;
         margin: 0 auto;
     }
-
     .space {
         display: block;
     }
-
     .logo-part {
         margin-bottom: 2%;
     }
-
     .card-deck {
         width: 70%;
         margin: 0 auto;
     }
-
     .patientForm {
         width: 50%;
     }
-
     .header {
         width: 50%;
-
         h2 {
             font-size: 1.4rem;
         }
     }
-
     .header_connected {
         margin-top: 150px;
         width: 70%;
     }
-
     #main {
         margin-top: 10px;
     }
@@ -837,7 +799,6 @@ option {
     #main {
         margin-top: 40px;
     }
-
     #offCanva label#label {
         margin-top: 50px;
         margin-left: 5px;
@@ -845,9 +806,26 @@ option {
         height: 50px;
         font-size: 1em;
     }
-
     .fas {
         top: 400;
+    }
+    .headerLogo {
+        display: none;
+    }
+    #steps {
+        margin: auto 0;
+    }
+    #selectConsult {
+        width: 90%;
+    }
+    #selectPraticien {
+        width: 90%;
+    }
+    .frame-title {
+        margin-bottom: 50px;
+    }
+    .formRdv {
+        margin-top: 140px;
     }
 }
 
@@ -907,7 +885,6 @@ pre {
 
 .menu {
     margin-top: 4rem;
-
     li {
         margin: 0 auto;
     }
@@ -919,7 +896,6 @@ pre {
 
 #menu-trigger {
     display: none;
-
     +#label {
         background-color: $color3;
         color: #FFF;
@@ -937,21 +913,17 @@ pre {
         -moz-user-select: none;
         -o-user-select: none;
         user-select: none;
-
         &:hover {
             background-color: $colorC;
         }
     }
-
     &:checked {
         +#label {
             transform: translateX(65px);
         }
-
         ~#test {
             transform: translateX(0);
         }
-
         ~#content {
             transform: translateX(200px);
         }
@@ -982,7 +954,6 @@ ul.menu>li>a {
     display: block;
     font-weight: bold;
     z-index: 10000;
-
     &:hover {
         color: $color3;
         z-index: 10000;
@@ -1047,15 +1018,45 @@ ul.menu>li>a {
 /*===============================================================
 =     Section Appointment booking (rdvPatientStep1 to 3.php)    =
 ===============================================================*/
+
 #datetimepicker3>input:nth-child(1) {
     border: none;
     text-align: center;
+    background-color: $color2;
+    color: $color3;
 }
 
 #datetimepicker4>input:nth-child(1) {
     border: none;
     text-align: center;
+    background-color: $color2;
+    color: $color3;
 }
+
+#datetimepicker3>div:nth-child(2)>div:nth-child(1) {
+    border: none;
+    background-color: $color2;
+}
+
+.fa.fa-clock-o {
+    color: $color3;
+}
+
+#datetimepicker4>div:nth-child(2)>div:nth-child(1) {
+    border: none;
+    background-color: $color2;
+}
+
+.fa.fa-calendar {
+    color: $color3;
+}
+
+optgroup {
+    background-color: $color3;
+    color: $color2;
+    height: 10px;
+}
+
 /* End of Section Appointment booking (rdvPatientStep1 to 3.php) */
 
 /*================================================================
