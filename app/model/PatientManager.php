@@ -45,16 +45,11 @@ class PatientManager extends Manager
 
 
     // TO DO...
+    // Request to get all types of acts
     public function getTypeActes()
     {
         $db = $this->dbConnect();
         $req = $db->query('SELECT * FROM typeActe LIMIT 0, 7');
-        return $req;
-    }
-    public function getColorActes()
-    {
-        $db = $this->dbConnect();
-        $req = $db->query('SELECT couleur FROM typeActe');
         return $req;
     }
 

@@ -19,7 +19,7 @@ class PraticienManager extends Manager
     {
         $db = $this->dbConnect();
         $email = htmlspecialchars($_POST['praticienEmail']);
-        $req = $db->prepare("SELECT * FROM praticien WHERE praticienEmail = ?");
+        $req = $db->prepare('SELECT * FROM praticien WHERE praticienEmail = ?');
         $req->execute([$praticienEmail]);
         $praticien = $req->fetch();
         // If user mail already exist, return an error
@@ -54,30 +54,54 @@ class PraticienManager extends Manager
         return $praticien;
     }
 
+    // TO DO ..
+    // public function getDescription()
+    // {
+    //     $db = $this->dbConnect();
+    //     $req = $db->prepare('SELECT praticienPrenom, praticienNom, description, dureeConsultation, couleur FROM praticien INNER JOIN typeacte ON praticien.id_spe = typeacte.id_type');
+    //     $req->execute();
+    //     $description = $req->fetch();
+    //     return $description;
+    // }
+
+
+
+
+
+
+
     // Deleting the praticien account with this ID in the DB
     public function deletePraticien($deleteid)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare("DELETE FROM praticien WHERE id_praticien = (:deleteid)");
-        $req->execute(array("deleteid" => $deleteid));
+        $req = $db->prepare('DELETE FROM praticien WHERE id_praticien = (:deleteid)');
+        $req->execute(array('deleteid' => $deleteid));
         return $req;
     }
-    // retrieve all datas from the "specialite" table
+    // retrieve all datas from the 'specialite' table
     public function getSpecialites()
     {
         $db = $this->dbConnect();
-        $req = $db->prepare("SELECT * FROM specialite");
+        $req = $db->prepare('SELECT * FROM specialite');
         $req->execute();
         return $req;
     }
 
 
-
-
+    
+    // Request to display the doctor's information on the patient registration form...
+    // ...so patient can choose his doctor
     public function getPraticienCoords()
     {
         $db = $this->dbConnect();
-        $req = $db->query("SELECT praticienPrenom, praticienNom, specialite.description FROM praticien INNER JOIN specialite ON praticien.id_spe = specialite.id_spe");
+        $req = $db->query('SELECT praticienPrenom, praticienNom, id_praticien, specialite.description FROM praticien INNER JOIN specialite ON praticien.id_spe = specialite.id_spe ');
+        return $req;
+    }
+    // Removes duplicate from 'specialite' table
+    public function removeDuplicatesSpe()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT DISTINCT description FROM specialite');
         return $req;
     }
 }

@@ -4,8 +4,14 @@
     list-style-type: none;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 body {
     background-color: $color1;
+    //position: relative;
+    //padding-top: 100px;
 }
 
 /*================================================================
@@ -14,9 +20,7 @@ body {
 
 nav {
     box-shadow: 0px 8px 15px $color4;
-    position: fixed;
-    height: auto; //background-color: $colorD !important;
-    //background-image: linear-gradient(335deg, $color6, $color7);
+    height: auto;
 }
 
 .navbar-nav {
@@ -37,6 +41,10 @@ nav {
     color: $color3 !important;
 }
 
+// .nav-link:last-child {
+//     color: $color2;
+// }
+
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
     color: $color3;
@@ -46,8 +54,23 @@ ul.nav a~a:hover {
     cursor: pointer;
 }
 
-a#connexionBtn:hover {
-    color: $color3;
+.btn-nav {
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 1rem;
+    color: $color2 !important;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: $color3;
+    border-radius: 20px;
+    // width: 25%;
+    // margin: 0 auto;
+}
+
+.btn-nav:hover {
+    text-decoration: none;
+    background-color: $color2;
+    color: $color3 !important;
 }
 
 .separator {
@@ -65,8 +88,80 @@ a#connexionBtn:hover {
     color: $color3 !important;
 }
 
-.navbar-light .navbar-toggler {
-    border-color: $color3 !important;
+// .navbar-light .navbar-toggler {
+//     border-color: $color3 !important;
+// }
+/* Hamburger Nav Menu */
+
+.animated-icon1 {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    margin: 0px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.animated-icon1 span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+.animated-icon1 span {
+    background: $color3;
+}
+
+.animated-icon1 span:nth-child(1) {
+    top: 0px;
+}
+
+.animated-icon1 span:nth-child(2) {
+    top: 10px;
+}
+
+.animated-icon1 span:nth-child(3) {
+    top: 20px;
+}
+
+.animated-icon1.open span:nth-child(1) {
+    top: 11px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+.animated-icon1.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+.animated-icon1.open span:nth-child(3) {
+    top: 11px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
 }
 
 /*================== End of Navigation Bar =====================*/
@@ -95,13 +190,6 @@ a#connexionBtn:hover {
     font-weight: bold;
     text-transform: uppercase;
 }
-
-/* Pop-up Modal on click from User space link (top-right) */
-
-// .modal-open .container {
-//     /* blur effect on Modal pop */
-//     filter: blur(10px);
-// }
 
 .modal-content {
     background-color: transparent;
@@ -140,7 +228,7 @@ a#connexionBtn:hover {
 .concept_height {
     height: 100vh;
     padding-top: 6rem;
-    background-color: rgb(215, 226, 222); //background-image: linear-gradient(335deg, $color6, $color7);
+    background-color: rgb(215, 226, 222);
 }
 
 /* Block "Notre solution" */
@@ -217,7 +305,7 @@ a#connexionBtn:hover {
 =================================================================*/
 
 footer {
-    background-color: $color2; //min-height: 200px;
+    background-color: $color2;
     box-shadow: 0px -8px 15px $color4;
 }
 
@@ -411,17 +499,12 @@ footer {
     background: $color3;
     text-align: center;
     border-radius: 0 0 45px 45px;
-    border-bottom: none; //border-radius: 20px;
+    border-bottom: none;
     padding: 10px;
     box-shadow: 0px 4px 10px $color4;
 }
 
-form {
-    box-shadow: 0px 8px 15px $color4;
-}
-
-form,
-.content {
+.patientForm {
     width: 30%;
     margin: 0px auto 60px auto;
     padding: 20px;
@@ -430,21 +513,22 @@ form,
     background-color: $color2;
     color: $color2;
     font-weight: 500;
-}
+    box-shadow: 0px 8px 15px $color4;
 
-form p {
-    color: $color1;
-    margin: 0 auto;
-    text-align: center;
-}
+    p {
+        color: $color1;
+        margin: 0 auto;
+        text-align: center;
 
-form a {
-    color: $color3;
-}
+        a {
+            color: $color3;
 
-form a:hover {
-    color: $color1;
-    text-decoration: none;
+            a:hover {
+                color: $color1;
+                text-decoration: none;
+            }
+        }
+    }
 }
 
 .fa-sign-in-alt {
@@ -464,7 +548,7 @@ form a:hover {
 .input-group label {
     display: block;
     align-items: center;
-    margin: 3px auto;
+    margin: 0px auto;
     color: $color1;
 }
 
@@ -497,7 +581,9 @@ option {
     border: none;
     border-radius: 45px;
 }
-
+.drill {
+    margin-bottom: -3.7em;
+}
 /* display errors messages on lack of inputs in register form */
 
 .error-message {
@@ -531,8 +617,6 @@ option {
     background-color: $color5;
 }
 
-/* The container */
-
 .wrapper {
     display: block;
     position: relative;
@@ -561,9 +645,9 @@ option {
 =                  Section rdvPatient step 1 to 3                   =
 ================================================================*/
 
-#headerRdv {
-    margin-top: 100px;
-    width: 100%;
+.headerRdv {
+    margin: 0px auto 0px auto;
+    width: 80%;
     height: 80px;
     background-color: $color2;
     padding: 5px;
@@ -573,10 +657,11 @@ option {
     padding: 5px 10px;
 }
 
-#contentStep1 {
+.contentStep1 {
     margin-top: 3px;
+    margin: 3px auto;
     height: 500px;
-    width: 100%;
+    width: 80%;
     background-color: $color3;
 }
 
@@ -585,23 +670,46 @@ option {
     padding-top: 28px;
     color: $color2;
     font-weight: bold;
+    margin-bottom: 50px;
 }
-
+.frame-titleStep2 {
+    text-align: center;
+    padding-top: 28px;
+    color: $color2;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
 .selectType {
     color: $color2;
 }
 
 #selectConsult {
     border: 0;
-    width: 15rem;
-    height: 39px;
+    width: 80%;
+    border-radius: 45px;
     text-align: center;
     color: $color3;
+    background-color: $color2;
+    margin: 0 auto;
 }
 
-.form-group {
-    padding: 50px;
+#selectPraticien {
+    border: 0;
+    width: 80%;
+    border-radius: 45px;
+    text-align: center;
+    color: $color3;
+    background-color: $color2;
+    margin: auto;
 }
+
+.formRdv {
+    margin-top: 140px;
+}
+
+// .form-group {
+//     padding: 50px;
+// }
 
 #steps {
     width: 140px;
@@ -628,14 +736,9 @@ option {
     }
 }
 
-#prev_nextBtn {
-    width: 50%;
-    //margin: auto 0;
-}
-
 #prev_nextButtons {
     margin: auto 0;
-    padding-top: 50px;
+    padding-top: 2em;
 }
 
 #step2 {
@@ -660,14 +763,6 @@ option {
     margin-right: 10px;
     margin-top: 3px;
     border: 3px solid $color3;
-}
-
-#selectPraticien {
-    border: 0;
-    width: 15rem;
-    height: 39px;
-    text-align: center;
-    color: $color3;
 }
 
 /*============ End of Section rdvPatient step 1 to 3 ==============*/
@@ -736,6 +831,19 @@ option {
     .header_connected {
         width: 50%;
     }
+
+    .btn-nav {
+        // text-decoration: none;
+        // border-radius: 50%;
+        // font-size: 1rem;
+        // color: $color2 !important;
+        // text-transform: uppercase;
+        // font-weight: bold;
+        // background-color: $color3;
+        // border-radius: 20px;
+        width: 25%;
+        margin: 0 auto;
+    }
 }
 
 /* Small screens */
@@ -751,7 +859,6 @@ option {
 
     .liens_utiles {
         display: none;
-        /* cache les blocs liens utiles du footer */
     }
 
     .reseaux {
@@ -787,6 +894,19 @@ option {
     .header_connected {
         width: 70%;
     }
+
+    .btn-nav {
+        // text-decoration: none;
+        // border-radius: 50%;
+        // font-size: 1rem;
+        // color: $color2 !important;
+        // text-transform: uppercase;
+        // font-weight: bold;
+        // background-color: $color3;
+        // border-radius: 20px;
+        width: 32%;
+        margin: 0 auto;
+    }
 }
 
 /* Extra Small screens */
@@ -802,7 +922,6 @@ option {
 
     .liens_utiles {
         display: none;
-        /* cache les blocs liens utiles du footer */
     }
 
     .reseaux {
@@ -844,6 +963,19 @@ option {
     #main {
         margin-top: 10px;
     }
+
+    .btn-nav {
+        // text-decoration: none;
+        // border-radius: 50%;
+        // font-size: 1rem;
+        // color: $color2 !important;
+        // text-transform: uppercase;
+        // font-weight: bold;
+        // background-color: $color3;
+        // border-radius: 20px;
+        width: 48%;
+        margin: 0 auto;
+    }
 }
 
 @media screen and (max-width: 415px) {
@@ -862,20 +994,53 @@ option {
     .fas {
         top: 400;
     }
+
+    .headerLogo {
+        display: none;
+    }
+
+    #steps {
+        margin: auto 0;
+    }
+
+    #selectConsult {
+        width: 90%;
+    }
+
+    #selectPraticien {
+        width: 90%;
+    }
+
+    .frame-title {
+        margin-bottom: 50px;
+    }
+
+    .formRdv {
+        margin-top: 140px;
+    }
+
+    .btn-nav {
+        // text-decoration: none;
+        // border-radius: 50%;
+        // font-size: 1rem;
+        // color: $color2 !important;
+        // text-transform: uppercase;
+        // font-weight: bold;
+        // background-color: $color3;
+        // border-radius: 20px;
+        width: 60%;
+        margin: 0 auto;
+    }
 }
 
 /*==============  End of Section Media Queries  ================*/
-
-/*================================================================
-=                            TESTS                               =
-================================================================*/
 
 pre {
     background-color: $color3;
     width: 50%;
     border-radius: 45px;
     margin-top: 100px;
-    padding: 20px 10px; //font-weight: 600;
+    padding: 20px 10px;
     font-size: 1rem;
     color: $color2;
     text-align: center;
@@ -886,9 +1051,9 @@ pre {
     width: 50%;
     border-radius: 45px;
     margin-top: 100px;
-    padding: 20px 10px; //font-weight: 600;
+    padding: 20px 10px;
     font-size: 1rem;
-    color: $color2; //text-align: center;
+    color: $color2;
 }
 
 .btn-update {
@@ -898,7 +1063,7 @@ pre {
     padding: 10px;
     font-weight: bold;
     border: none;
-    width: 20%;
+    width: 17%;
     margin-top: 100px;
 }
 
@@ -907,7 +1072,7 @@ pre {
     color: $color2;
     border-radius: 45px;
     padding: 10px;
-    transform: translateY(-5px);
+    //transform: translateY(-5px);
     box-shadow: 0px 8px 15px $color4;
     font-weight: bold;
     border: none;
@@ -1001,7 +1166,6 @@ ul.menu>li>a {
     z-index: 10000;
 
     &:hover {
-        //background-color: $color3;
         color: $color3;
         z-index: 10000;
     }
@@ -1010,10 +1174,11 @@ ul.menu>li>a {
 .dateDr {
     margin-top: 146px;
     text-align: center;
-    width: 100%;
+    width: 60%;
     color: $color1;
     font-size: 14px;
     font-weight: bold;
+    margin: 52px auto;
 }
 
 .menu a {
@@ -1062,6 +1227,57 @@ ul.menu>li>a {
 
 /*==== End of Section Off Menu Canva connectedPraticien.php  ===*/
 
+/*===============================================================
+=     Section Appointment booking (rdvPatientStep1 to 3.php)    =
+===============================================================*/
+
+#datetimepicker3>input:nth-child(1) {
+    border: none;
+    text-align: center;
+    background-color: $color2;
+    color: $color3;
+}
+
+#datetimepicker4>input:nth-child(1) {
+    border: none;
+    text-align: center;
+    background-color: $color2;
+    color: $color3;
+    height: 39px;
+}
+#datetimepicker3>input:nth-child(1) {
+    border: none;
+    text-align: center;
+    background-color: $color2;
+    color: $color3;
+    height: 39px;
+}
+#datetimepicker3>div:nth-child(2)>div:nth-child(1) {
+    border: none;
+    background-color: $color2;
+}
+
+.fa.fa-clock-o {
+    color: $color3;
+}
+
+#datetimepicker4>div:nth-child(2)>div:nth-child(1) {
+    border: none;
+    background-color: $color2;
+}
+
+.fa.fa-calendar {
+    color: $color3;
+}
+
+optgroup {
+    background-color: $color3;
+    color: $color2;
+    height: 10px;
+}
+
+/* End of Section Appointment booking (rdvPatientStep1 to 3.php) */
+
 /*================================================================
 =                       Section Agenda                           =
 ================================================================*/
@@ -1069,8 +1285,6 @@ ul.menu>li>a {
 #calendar {
     width: 60%;
     margin: 0 auto;
-    //background-color: $color2;
-    //border-radius: 12px
 }
 
 .fc-toolbar {
@@ -1079,18 +1293,10 @@ ul.menu>li>a {
 
 /*==================  End of Section Agenda  ===================*/
 
-// .form-horizontal {
-//     width: 60%;
-// }
+/*================================================================
+=                            TESTS                               =
+================================================================*/
 
-#datetimepicker3>input:nth-child(1) {
-    border: none;
-    text-align: center;
-}
 
-#datetimepicker4>input:nth-child(1) {
-    border: none;
-    text-align: center;
-}
 
 /*=========================  End of TESTS  =====================*/

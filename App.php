@@ -69,13 +69,46 @@ class App
                 } elseif ($_GET['action'] == 'backToConnectedPatient') {
                     require('app\view\connectedPatient.php');
                 } elseif ($_GET['action'] == 'rdvPatient') {
-                    $coords = $this->controller->praticienCoords();
-                    $req = $this->controller->listTypeActes();
-                } elseif ($_GET['action'] == 'rdvStep1ToStep2') {
+                    $this->controller->rdvStep1();
+                } elseif ($_GET['action'] == 'testJson2') {
+                    $date = $_POST['date'];
+                    $hour = $_POST['hour'];
+                    $test = $this->controller->testJson2($date, $hour);
+                    require('app\view\rdvPatientStep3.php');
+                    
+                // require('app\view\decodeJson.php');
+                } elseif ($_GET['action'] == 'testJson') {
+                    $consult = $_POST['test'];
+                    $prat = $_POST['id_praticien'];
+
+                    $test = $this->controller->testJson($consult, $prat);
                     require('app\view\rdvPatientStep2.php');
-                } elseif ($_GET['action'] == 'rdvStep2ToStep3') {
+                } 
+                elseif ($_GET['action'] == 'rdvStep1ToStep2') 
+                {
+                    require('app\view\rdvPatientStep2.php');
+                }
+                elseif ($_GET['action'] == 'rdvStep2ToStep3') 
+                {
                     require('app\view\rdvPatientStep3.php');
                 }
+                elseif ($_GET['action'] == 'testEvent') {
+                    $json = fopen('app\public\json\testJson.json', 'r');
+                    $jsonRead = fread($json, 2000);
+                    $decode = json_decode($jsonRead);
+                    $json2 = fopen('app\public\json\testJson2.json', 'r');
+                    $jsonRead2 = fread($json2, 2000);
+                    $decode2 = json_decode($jsonRead2);
+                    $this->controller->testAddEvent($decode['0'], $decode2['0'], $decode2['1'], $_SESSION['id']);
+                    
+                }
+
+
+                
+
+
+
+
                 /*=========== End of Section Patient =========*/
 
                 elseif ($_GET['action'] == 'connected') {
@@ -97,9 +130,9 @@ class App
                 // ...returns to the main doctor's page
                 elseif ($_GET['action'] == 'accueil') {
                     require('app\view\connectedPraticien.php');
-                } elseif ($_GET['action'] == 'rdvStep1') {
-                    $req = $this->controller->listTypeActes($id_type);
-                }
+                } //elseif ($_GET['action'] == 'rdvStep1') {
+                //$req = $this->controller->listTypeActes($id_type);
+                //}
                 /* Deconnexion */
                 elseif ($_GET['action'] == 'disconnect') {
                     unset($_SESSION['id']);
@@ -138,7 +171,6 @@ class App
                         echo '<pre class="mx-auto">Etes vous sûr de vouloir nous quitter ' . ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['patientNom']) . '</pre>';
                         require('app\view\confirmDeletePraticien.php');
                     }
-                
                 } elseif ($_GET['action'] == 'addEvent') {
                     $this->controller->addEvent($id_event, $start, $id_type, $id_patient);
                 }
