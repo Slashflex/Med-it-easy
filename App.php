@@ -83,7 +83,16 @@ class App
 
                     $test = $this->controller->testJson($consult, $prat);
                     require('app\view\rdvPatientStep2.php');
-                } elseif ($_GET['action'] == 'testEvent') {
+                } 
+                elseif ($_GET['action'] == 'rdvStep1ToStep2') 
+                {
+                    require('app\view\rdvPatientStep2.php');
+                }
+                elseif ($_GET['action'] == 'rdvStep2ToStep3') 
+                {
+                    require('app\view\rdvPatientStep3.php');
+                }
+                elseif ($_GET['action'] == 'testEvent') {
                     $json = fopen('app\public\json\testJson.json', 'r');
                     $jsonRead = fread($json, 2000);
                     $decode = json_decode($jsonRead);
@@ -91,7 +100,7 @@ class App
                     $jsonRead2 = fread($json2, 2000);
                     $decode2 = json_decode($jsonRead2);
                     $this->controller->testAddEvent($decode['0'], $decode2['0'], $decode2['1'], $_SESSION['id']);
-
+                    
                 }
 
 

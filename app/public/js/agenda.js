@@ -107,15 +107,13 @@ $(function() {
     selectable: true,
     selectHelper: true,
     select: function(start, end, allDay) {
-      $("#ModalAdd #start").val(moment(start).format("YYYY-MM-DD HH:mm:ss"));
-      $("#ModalAdd #end").val(moment(end).format("YYYY-MM-DD HH:mm:ss"));
-      $("#ModalAdd").modal("show");
       if (title) {
         let start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
         let end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
         $.ajax({
           url: "app/model/EventManager.php",
-          data: "title=" + title + "&start=" + start + "&end=" + end,
+          //data: "title=" + title + "&start=" + start + "&end=" + end,
+          data: "start" + start + "&id_type" + id_type + "&id_patient" + id_patient + "&hour" + hour,
           type: "POST",
           success: function(json) {
             alert("Added Successfully");
@@ -124,9 +122,13 @@ $(function() {
         calendar.fullCalendar(
           "renderEvent",
           {
-            title: title,
-            start: start,
-            end: end,
+            // title: title,
+            // start: start,
+            // end: end,
+            start: $param2,
+            id_type: $param1,
+            id_patient: $param4,
+            hour: $param3,
             allDay: allDay
           },
           true

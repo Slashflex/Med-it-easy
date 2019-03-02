@@ -6,7 +6,7 @@
     <div class="row">
         <form action="index.php?action=testEvent" class="mx-auto" method="post">
 
-            <header id="headerRdv">
+            <header class="headerRdv">
                 <div class="head">
                     <a class="navbar-brand headerLogo" href="index.php">MED <span class="separator">IT</span> EASY</a>
                     <div id="steps">
@@ -29,7 +29,7 @@
                     </div>
                 </div>
             </header>
-            <div id="contentStep1">
+            <div class="contentStep1">
                 <h3 class="frame-title">Veuillez confirmer vos informations</h3>
                 <p class="text-center bold">Un email contenant un récapitulatif ainsi que la confirmation de votre
                     rendez-vous vous sera envoyé</p>
@@ -46,14 +46,15 @@
                         </div>
                     </div>
                 </div>
-                <input type="submit" class="btn-form" id="send">
+                <div class="container" id="prev_nextBtn">
+                    <div id="prev_nextButtons" class="text-center">
+                        <a href="index.php?action=rdvStep1ToStep2" class="btn-update">Retour</a>
+                        <!-- <a href="index.php?action=confirmRdvPatient" class="btn-update">Confirmer</a> -->
+                        <input type="submit" class="btn-update" id="send">
+                    </div>
+                </div>
         </form>
-        <div class="container" id="prev_nextBtn">
-            <div id="prev_nextButtons" class="text-center">
-                <a href="index.php?action=rdvStep1ToStep2" class="btn-update">Retour</a>
-                <!-- <a href="index.php?action=confirmRdvPatient" class="btn-update">Confirmer</a> -->
-            </div>
-        </div>
+
     </div>
 </div>
 

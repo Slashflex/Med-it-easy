@@ -5,7 +5,7 @@
 <div class="container formRdv">
     <div class="row">
         <form action="index.php?action=testJson" class="mx-auto" method="post">
-            <header id="headerRdv">
+            <header class="headerRdv">
                 <div class="head">
                     <a class="navbar-brand headerLogo" href="index.php">MED <span class="separator">IT</span> EASY</a>
                     <div id="steps">
@@ -28,27 +28,24 @@
                     </div>
                 </div>
             </header>
-            <div id="contentStep1">
+            <div class="contentStep1">
                 <h3 class="frame-title">Choisissez un type de consultation et un praticien</h3>
                 <div id="typeConsult">
                     <!-- Appointment's choice -->
-                    <div class="form-group drill">
+                    <div class="form-group">
                         <!-- Type of acte -->
                         <div class="text-center">
                             <label for="selectConsult"><strong class="selectType ">Type de consultation</strong></label>
                         </div>
-
-                        <select id="selectConsult" name="test" class="col-xs-12 form-control">
-
+                        <select id="selectConsult" name="test" class="col-xs-12 form-control select">
                             <?php while ($data = $typeActes->fetch()): ?>
                             <option style="color: <?= ucfirst($data['couleur']); ?>"
                                 value="<?= $data['id_type']; ?>"><?= ucfirst($data['description']) . ' ' . ucfirst($data['dureeConsultation']); ?>
                             </option>
                             <?php endwhile; ?>
                         </select>
-
                     </div>
-                    <div class="form-group drill">
+                    <div class="form-group">
                         <!-- Doctor's choice -->
                         <div class="text-center">
                             <label for="selectPraticien"><strong class="selectType">Choix du praticien<br></strong></label>
@@ -61,31 +58,20 @@
                                 </optgroup>
                                 <?php endwhile; ?>
                             </select>
-
                         </div>
                     </div>
                 </div>
                 <div class="container" id="prev_nextBtn">
-            <div id="prev_nextButtons" class="text-center">
-                <a href="index.php?action=backToConnectedPatient" class="btn-update">Annuler</a>
-                <!-- <a href="index.php?action=testJson" name="next" class="btn-update">Suivant</a> -->
-            <input type="submit" class="btn-update" id="send">
+                    <div id="prev_nextButtons" class="text-center">
+                        <a href="index.php?action=backToConnectedPatient" class="btn-update">Retour</a>
+                        <!-- <a href="index.php?action=testJson" name="next" class="btn-update">Suivant</a> -->
+                        <input type="submit" class="btn-update" value="Suivant">
+                    </div>
+                </div>
             </div>
-        </div>
-                
         </form>
-
-
-        
     </div>
 </div>
-
-
-
-
-
-
-
 
 <?php $content = ob_get_clean(); ?>
 

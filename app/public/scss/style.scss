@@ -1,4 +1,5 @@
 @import 'variables';
+
 * {
     list-style-type: none;
 }
@@ -9,6 +10,8 @@ a:hover {
 
 body {
     background-color: $color1;
+    //position: relative;
+    //padding-top: 100px;
 }
 
 /*================================================================
@@ -17,7 +20,6 @@ body {
 
 nav {
     box-shadow: 0px 8px 15px $color4;
-    position: fixed;
     height: auto;
 }
 
@@ -39,6 +41,10 @@ nav {
     color: $color3 !important;
 }
 
+// .nav-link:last-child {
+//     color: $color2;
+// }
+
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
     color: $color3;
@@ -48,8 +54,23 @@ ul.nav a~a:hover {
     cursor: pointer;
 }
 
-a#connexionBtn:hover {
-    color: $color3;
+.btn-nav {
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 1rem;
+    color: $color2 !important;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: $color3;
+    border-radius: 20px;
+    // width: 25%;
+    // margin: 0 auto;
+}
+
+.btn-nav:hover {
+    text-decoration: none;
+    background-color: $color2;
+    color: $color3 !important;
 }
 
 .separator {
@@ -67,8 +88,80 @@ a#connexionBtn:hover {
     color: $color3 !important;
 }
 
-.navbar-light .navbar-toggler {
-    border-color: $color3 !important;
+// .navbar-light .navbar-toggler {
+//     border-color: $color3 !important;
+// }
+/* Hamburger Nav Menu */
+
+.animated-icon1 {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    margin: 0px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.animated-icon1 span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+.animated-icon1 span {
+    background: $color3;
+}
+
+.animated-icon1 span:nth-child(1) {
+    top: 0px;
+}
+
+.animated-icon1 span:nth-child(2) {
+    top: 10px;
+}
+
+.animated-icon1 span:nth-child(3) {
+    top: 20px;
+}
+
+.animated-icon1.open span:nth-child(1) {
+    top: 11px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+.animated-icon1.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+.animated-icon1.open span:nth-child(3) {
+    top: 11px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
 }
 
 /*================== End of Navigation Bar =====================*/
@@ -157,16 +250,20 @@ a#connexionBtn:hover {
 .mentions_legales {
     margin-top: 100px;
     margin-bottom: 50px;
+
     .h2_title {
         background-color: $color2;
         padding: 10px 10px;
         border-radius: 45px;
         color: $color3;
     }
+
     p {
         color: $color5;
+
         a {
             color: $color2;
+
             strong {
                 text-decoration: underline;
             }
@@ -255,9 +352,11 @@ footer {
 
 .bloc_mid {
     margin-top: 3%;
+
     a {
         color: $color3;
         text-decoration: none;
+
         a:hover {
             color: $color1;
         }
@@ -279,6 +378,7 @@ footer {
 
 .liens_utiles {
     margin: auto;
+
     a {
         color: $color1;
         font-weight: bold;
@@ -383,6 +483,7 @@ footer {
     border-radius: 10px 10px 0px 0px;
     padding: 20px;
     box-shadow: 0px 8px 15px $color4;
+
     h4 {
         font-weight: bold;
         display: inline-block;
@@ -413,12 +514,15 @@ footer {
     color: $color2;
     font-weight: 500;
     box-shadow: 0px 8px 15px $color4;
+
     p {
         color: $color1;
         margin: 0 auto;
         text-align: center;
+
         a {
             color: $color3;
+
             a:hover {
                 color: $color1;
                 text-decoration: none;
@@ -477,7 +581,9 @@ option {
     border: none;
     border-radius: 45px;
 }
-
+.drill {
+    margin-bottom: -3.7em;
+}
 /* display errors messages on lack of inputs in register form */
 
 .error-message {
@@ -539,7 +645,7 @@ option {
 =                  Section rdvPatient step 1 to 3                   =
 ================================================================*/
 
-#headerRdv {
+.headerRdv {
     margin: 0px auto 0px auto;
     width: 80%;
     height: 80px;
@@ -551,7 +657,7 @@ option {
     padding: 5px 10px;
 }
 
-#contentStep1 {
+.contentStep1 {
     margin-top: 3px;
     margin: 3px auto;
     height: 500px;
@@ -566,7 +672,13 @@ option {
     font-weight: bold;
     margin-bottom: 50px;
 }
-
+.frame-titleStep2 {
+    text-align: center;
+    padding-top: 28px;
+    color: $color2;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
 .selectType {
     color: $color2;
 }
@@ -578,7 +690,7 @@ option {
     text-align: center;
     color: $color3;
     background-color: $color2;
-    margin: auto;
+    margin: 0 auto;
 }
 
 #selectPraticien {
@@ -594,6 +706,7 @@ option {
 .formRdv {
     margin-top: 140px;
 }
+
 // .form-group {
 //     padding: 50px;
 // }
@@ -603,6 +716,7 @@ option {
     display: inline-block;
     float: right;
     margin-top: 14px;
+
     .book-step {
         display: inline-block;
         height: 30px;
@@ -612,6 +726,7 @@ option {
         margin-right: 10px;
         margin-top: 7px;
         border: 3px solid $color3;
+
         #step1 {
             color: $color3;
             font-size: 18px;
@@ -623,7 +738,7 @@ option {
 
 #prev_nextButtons {
     margin: auto 0;
-    padding-top: 8em;
+    padding-top: 2em;
 }
 
 #step2 {
@@ -663,6 +778,7 @@ option {
         width: 30%;
         text-align: center;
         margin: 0 auto;
+
         a {
             img {
                 text-align: 1;
@@ -678,9 +794,11 @@ option {
         width: 30%;
         text-align: center;
     }
+
     .patientForm {
         width: 40%;
     }
+
     .header {
         width: 40%;
     }
@@ -692,21 +810,39 @@ option {
     .navbar-nav {
         text-align: center;
     }
+
     .reseaux {
         width: 30%;
         text-align: center;
     }
+
     .logo-part {
         margin-bottom: 2%;
     }
+
     .patientForm {
         width: 40%;
     }
+
     .header {
         width: 40%;
     }
+
     .header_connected {
         width: 50%;
+    }
+
+    .btn-nav {
+        // text-decoration: none;
+        // border-radius: 50%;
+        // font-size: 1rem;
+        // color: $color2 !important;
+        // text-transform: uppercase;
+        // font-weight: bold;
+        // background-color: $color3;
+        // border-radius: 20px;
+        width: 25%;
+        margin: 0 auto;
     }
 }
 
@@ -716,37 +852,60 @@ option {
     .navbar-nav {
         text-align: center;
     }
+
     .bloc_gauche {
         border: none;
     }
+
     .liens_utiles {
         display: none;
     }
+
     .reseaux {
         text-align: center;
         width: 34%;
     }
+
     .space {
         display: block;
     }
+
     .logo-part {
         margin-bottom: 2%;
     }
+
     .card-deck .card {
         margin-bottom: 21px;
     }
+
     .card-deck {
         width: 90%;
         margin: 0 auto;
     }
+
     .patientForm {
         width: 40%;
     }
+
     .header {
         width: 40%;
     }
+
     .header_connected {
         width: 70%;
+    }
+
+    .btn-nav {
+        // text-decoration: none;
+        // border-radius: 50%;
+        // font-size: 1rem;
+        // color: $color2 !important;
+        // text-transform: uppercase;
+        // font-weight: bold;
+        // background-color: $color3;
+        // border-radius: 20px;
+        width: 32%;
+        margin: 0 auto;
     }
 }
 
@@ -756,42 +915,66 @@ option {
     .navbar-nav {
         text-align: center;
     }
+
     .bloc_gauche {
         border: none;
     }
+
     .liens_utiles {
         display: none;
     }
+
     .reseaux {
         width: 50%;
         text-align: center;
         margin: 0 auto;
     }
+
     .space {
         display: block;
     }
+
     .logo-part {
         margin-bottom: 2%;
     }
+
     .card-deck {
         width: 70%;
         margin: 0 auto;
     }
+
     .patientForm {
         width: 50%;
     }
+
     .header {
         width: 50%;
+
         h2 {
             font-size: 1.4rem;
         }
     }
+
     .header_connected {
         margin-top: 150px;
         width: 70%;
     }
+
     #main {
         margin-top: 10px;
+    }
+
+    .btn-nav {
+        // text-decoration: none;
+        // border-radius: 50%;
+        // font-size: 1rem;
+        // color: $color2 !important;
+        // text-transform: uppercase;
+        // font-weight: bold;
+        // background-color: $color3;
+        // border-radius: 20px;
+        width: 48%;
+        margin: 0 auto;
     }
 }
 
@@ -799,6 +982,7 @@ option {
     #main {
         margin-top: 40px;
     }
+
     #offCanva label#label {
         margin-top: 50px;
         margin-left: 5px;
@@ -806,26 +990,46 @@ option {
         height: 50px;
         font-size: 1em;
     }
+
     .fas {
         top: 400;
     }
+
     .headerLogo {
         display: none;
     }
+
     #steps {
         margin: auto 0;
     }
+
     #selectConsult {
         width: 90%;
     }
+
     #selectPraticien {
         width: 90%;
     }
+
     .frame-title {
         margin-bottom: 50px;
     }
+
     .formRdv {
         margin-top: 140px;
+    }
+
+    .btn-nav {
+        // text-decoration: none;
+        // border-radius: 50%;
+        // font-size: 1rem;
+        // color: $color2 !important;
+        // text-transform: uppercase;
+        // font-weight: bold;
+        // background-color: $color3;
+        // border-radius: 20px;
+        width: 60%;
+        margin: 0 auto;
     }
 }
 
@@ -859,7 +1063,7 @@ pre {
     padding: 10px;
     font-weight: bold;
     border: none;
-    width: 20%;
+    width: 17%;
     margin-top: 100px;
 }
 
@@ -868,7 +1072,7 @@ pre {
     color: $color2;
     border-radius: 45px;
     padding: 10px;
-    transform: translateY(-5px);
+    //transform: translateY(-5px);
     box-shadow: 0px 8px 15px $color4;
     font-weight: bold;
     border: none;
@@ -885,6 +1089,7 @@ pre {
 
 .menu {
     margin-top: 4rem;
+
     li {
         margin: 0 auto;
     }
@@ -896,6 +1101,7 @@ pre {
 
 #menu-trigger {
     display: none;
+
     +#label {
         background-color: $color3;
         color: #FFF;
@@ -913,17 +1119,21 @@ pre {
         -moz-user-select: none;
         -o-user-select: none;
         user-select: none;
+
         &:hover {
             background-color: $colorC;
         }
     }
+
     &:checked {
         +#label {
             transform: translateX(65px);
         }
+
         ~#test {
             transform: translateX(0);
         }
+
         ~#content {
             transform: translateX(200px);
         }
@@ -954,6 +1164,7 @@ ul.menu>li>a {
     display: block;
     font-weight: bold;
     z-index: 10000;
+
     &:hover {
         color: $color3;
         z-index: 10000;
@@ -963,10 +1174,11 @@ ul.menu>li>a {
 .dateDr {
     margin-top: 146px;
     text-align: center;
-    width: 100%;
+    width: 60%;
     color: $color1;
     font-size: 14px;
     font-weight: bold;
+    margin: 52px auto;
 }
 
 .menu a {
@@ -1031,8 +1243,15 @@ ul.menu>li>a {
     text-align: center;
     background-color: $color2;
     color: $color3;
+    height: 39px;
 }
-
+#datetimepicker3>input:nth-child(1) {
+    border: none;
+    text-align: center;
+    background-color: $color2;
+    color: $color3;
+    height: 39px;
+}
 #datetimepicker3>div:nth-child(2)>div:nth-child(1) {
     border: none;
     background-color: $color2;
@@ -1077,6 +1296,7 @@ optgroup {
 /*================================================================
 =                            TESTS                               =
 ================================================================*/
+
 
 
 /*=========================  End of TESTS  =====================*/

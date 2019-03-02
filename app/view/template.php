@@ -18,7 +18,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js">
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
     <!-- FullCalendar -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
@@ -31,12 +32,17 @@
 </head>
 
 <body>
+    <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top " style="background-color: #353c3f;">
+        <!-- Navbar brand -->
         <a class="navbar-brand" href="index.php">MED <span class="separator">IT</span> EASY</a>
-        <button class="navbar-toggler" id="nav_toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+        <!-- Collapse button -->
+        <button class="navbar-toggler first-button" id="nav_toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
             aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""><i class="fa fa-navicon"></i></span>
+            <!-- <span class=""><i class="fa fa-navicon"></i></span> -->
+            <div class="animated-icon1"><span></span><span></span><span></span></div>
         </button>
+        <!-- Collapsible content -->
         <div class="collapse navbar-collapse justify-content-center" id="navbarToggler">
             <ul class="navbar-nav nav">
                 <li class="nav-item">
@@ -55,28 +61,32 @@
                 </li>
                 <?php
 } ?>
-            </ul>
-        </div>
-        <?php if (isset($_SESSION['id'])) {
+                <li>
+                    <?php if (isset($_SESSION['id'])) {
         ?>
-        <div class="float-right hideLogBtn">
-            <a class="nav-link btn-footer" id="connexionBtn" href="index.php?action=disconnect">Déconnexion</a>
-        </div>
-        <?php
+                    <div class="hideLogBtn">
+                        <a class="nav-link btn-nav" id="connexionBtn" href="index.php?action=disconnect">Déconnexion</a>
+                    </div>
+                    <?php
     } else {
         ?>
-        <div class="float-right hideLogBtn">
-            <a class="nav-link btn-footer" id="connexionBtn" data-toggle="modal" data-target="#exampleModalCenter" href="#">Espace
-                utilisateurs</a>
-        </div>
-        <?php
+                    <div class="hideLogBtn">
+                        <a class="nav-link btn-nav" id="connexionBtn" data-toggle="modal" data-target="#modal_register_login"
+                            href="#">Espace
+                            utilisateurs</a>
+                    </div>
+                    <?php
     }?>
+                </li>
+            </ul>
+        </div>
+
 
     </nav>
 
     <!-- Modal brings up two blocks => Patient user space and Doctor user space,
     who will redirect to their dedicated Creation / Account Login pages -->
-    <div class="modal closeModal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    <div class="modal closeModal" id="modal_register_login" tabindex="-1" role="dialog" aria-labelledby="modal_register_loginTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">

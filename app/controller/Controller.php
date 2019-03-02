@@ -30,7 +30,6 @@ class Controller
         } else {
             $passHash = password_hash($password_1, PASSWORD_DEFAULT);
             $this->patientManager->createPatient($patientPrenom, $patientNom, $patientDate, $email, $passHash, $id_praticien);
-            
         }
         // TO DO... Sending mail confirmation
         $to = $email;
@@ -81,7 +80,7 @@ class Controller
 
 
 
-    public function rdvStep1() 
+    public function rdvStep1()
     {
         $typeActes = $this->patientManager->getTypeActes();
         $duplicate = $this->praticienManager->removeDuplicatesSpe();
@@ -104,12 +103,21 @@ class Controller
         $donneesArray = array($param1, $param2);
         $fichierOpen = fopen('app\public\json\testJson2.json', 'w');
         $fichierWrite = fwrite($fichierOpen, json_encode($donneesArray));
-
     }
 
-    public function testAddEvent($param1, $param2, $param3, $param4) 
+    public function testAddEvent($param1, $param2, $param3, $param4)
     {
         $this->eventManager->testEvent($param1, $param2, $param3, $param4);
+        // TO DO... Sending mail confirmation
+        $to = $_SESSION['patientEmail'];
+        $subject = 'Med It Easy | Confirmation de compte';
+        $message = 'Bonjour ! ' . ucfirst($_SESSION['patientPrenom'])  . ' ' . ucfirst($_SESSION['patientNom']) . '<br> 
+        Votre rendez-vous a bien été pris en compte, pour le ' . $param2 . ' à ' . $param3 . 
+        ' avec le Docteur ' . $param1 . ', pour un(e) ' . $param4;
+        $headers = 'From: admin@med-it-easy.com' . "\r\n" .
+        'Reply-To: admin@med-it-easy.com' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+        mail($to, $subject, $message, $headers);
         require('app\view\connectedPatient.php');
     }
     
@@ -134,7 +142,6 @@ class Controller
         } else {
             $passHash = password_hash($password_1, PASSWORD_DEFAULT);
             $this->praticienManager->createPraticien($praticienPrenom, $praticienNom, $praticienDate, $praticienEmail, $passHash, $specialite);
-            
         }
         // TO DO... Sending mail confirmation
         $to = $praticienEmail;
