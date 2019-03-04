@@ -17,9 +17,20 @@
             </div>
             <p class="text-center margin">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et
                 gérer votre patientèle.</p>
+            <p>Prénoms<span class="lol">Noms</span><span class="lol">Dates de naissances</span><span class="lol">Emails</span></p>
+
+            <?php while ($data = $praticien->fetch()): ?>
+            <div class="row">
+                <p><?= '<p class="lol">' . ucfirst($data['patientPrenom'] . '</p>' .
+               '<p class="lol">' . $data['patientNom'] . '</p>' .
+               '<p class="lol">' . $data['patientDate'] . '</p>' .
+               '<p class="lol">' . $data['email'] . '</p>'); ?>
+                </p>
+            </div>
+            <?php endwhile; ?>
         </div>
 
-        <nav id="offCanva">
+        <nav id="offCanvaNav">
             <!-- Displaying the time and date in the off-canva menu -->
             <div class="dateNav mx-auto">
                 <?php setlocale(LC_ALL, 'fr_FR'); ?><?=  ucfirst(strftime("%A %e %B %Y", mktime())) . '<br>' . strftime("%H : %M", mktime());?>
@@ -36,15 +47,10 @@
     </div>
 
 </div>
-<div class="container"><h5>Prénom du patient</h5>
-<?php while($data = $praticien->fetch()): ?>
-<div class="row">
 
-<p><?= ucfirst($data['patientPrenom']); ?></p>
-</div>
 
-<?php endwhile; ?>
-</div>
+
+
 
 
 <?php $content = ob_get_clean(); ?>

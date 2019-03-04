@@ -18,7 +18,7 @@
         <div class="calendar"></div>
     </div>
 
-    <nav id="offCanva">
+    <nav id="offCanvaNav">
         <div class="dateNav mx-auto"><?php setlocale(LC_ALL, 'fr_FR'); ?><?=  ucfirst(strftime("%A %e %B %Y", mktime())) . '<br>' . strftime("%H : %M", mktime());?>
         </div>
         <ul class="menu mx-auto">
