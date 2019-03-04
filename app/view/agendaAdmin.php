@@ -26,7 +26,7 @@
             <li><a href="index.php?action=pricings"><i class="fas fa-hand-holding-usd fa-1x"></i> Tarifs</a></li>
             <li><a href="index.php?action=searchbarAdmin"><i class="fas fa-search fa-1x"></i> Recherche</a></li>
             <li><a href="index.php?action=adminSchedule"><i class="far fa-clock fa-1x"></i> Horaires</a></li>
-            <li><a href="index.php?action=adminActings"><i class="fas fa-notes-medical fa-1x"></i> Actes</a></li>
+            <li><a href="index.php?action=patientBase"><i class="fas fa-users"></i> Patientèle</a></li>
         </ul>
     </nav>
 </div>
