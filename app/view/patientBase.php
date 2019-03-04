@@ -17,14 +17,14 @@
             </div>
             <p class="text-center margin">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et
                 gérer votre patientèle.</p>
-            <p>Prénoms<span class="lol">Noms</span><span class="lol">Dates de naissances</span><span class="lol">Emails</span></p>
+            <p class="toDo">Prénoms<span class="toDo">Noms</span><span class="toDo">Dates de naissances</span><span class="toDo">Emails</span></p>
 
             <?php while ($data = $praticien->fetch()): ?>
             <div class="row">
-                <p><?= '<p class="lol">' . ucfirst($data['patientPrenom'] . '</p>' .
-               '<p class="lol">' . $data['patientNom'] . '</p>' .
-               '<p class="lol">' . $data['patientDate'] . '</p>' .
-               '<p class="lol">' . $data['email'] . '</p>'); ?>
+                <p><?= '<p class="toDo">' . ucfirst($data['patientPrenom'] . '</p>' .
+               '<p class="toDo">' . $data['patientNom'] . '</p>' .
+               '<p class="toDo">' . $data['patientDate'] . '</p>' .
+               '<p class="toDo">' . $data['email'] . '</p>'); ?>
                 </p>
             </div>
             <?php endwhile; ?>
