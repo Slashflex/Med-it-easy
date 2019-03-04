@@ -82,8 +82,11 @@ class Controller
 
     public function rdvStep1()
     {
+        // List all types of actes on patient's booking form
         $typeActes = $this->patientManager->getTypeActes();
         $duplicate = $this->praticienManager->removeDuplicatesSpe();
+        // Request to display the doctor's informations on the patient registration form...
+        // ...so patient can choose his doctor
         $coords = $this->praticienManager->getPraticienCoords();
         require('app\view\rdvPatientStep1.php');
     }
@@ -191,6 +194,11 @@ class Controller
         $specialites = $this->praticienManager->getSpecialites();
         // $_SESSION['id_spe'] = $specialites['description'];
         require('app\view\registerPraticien.php');
+    }
+    public function listAllPatients($id)
+    {
+        $praticien = $this->praticienManager->getAllPatients($id);
+        require('app\view\patientBase.php');
     }
     /*=================== Fin Section Praticien =====================*/
 
