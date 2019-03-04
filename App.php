@@ -166,9 +166,11 @@ class App
                         echo '<pre class="mx-auto">Etes vous sûr de vouloir nous quitter ' . ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['patientNom']) . '</pre>';
                         require('app\view\confirmDeletePraticien.php');
                     }
-                } elseif ($_GET['action'] == 'addEvent') {
-                    $this->controller->addEvent($id_event, $start, $id_type, $id_patient);
-                }
+                } 
+                //elseif ($_GET['action'] == 'addEvent') {
+                //     $this->controller->addEvent($id_event, $start, $id_type, $id_patient);
+                // }
+                
                 // Ask for confirmation to doctor if he's sure to delete his account or cancel action
                 elseif ($_GET['action'] == 'confirmSuppressionPraticien') {
                     if (isset($_SESSION['id']) && $_SESSION['id'] > 0) {

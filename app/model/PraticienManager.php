@@ -66,7 +66,6 @@ class PraticienManager extends Manager
         $req = $db->prepare('SELECT patientPrenom, patientNom, patientDate, email, id_praticien FROM patient INNER JOIN specialite ON specialite.id_spe = patient.id_praticien WHERE patient.id_praticien = (:id)');
         $req->execute(array('id' => $id));
         //$praticien = $req->fetch();
-    
         return $req;
     }
     // TO DO ..
