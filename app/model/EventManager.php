@@ -46,15 +46,15 @@ class EventManager extends Manager
         return $req;
     }
 
-    public function testEvent($param1, $param2, $param3, $param4)
+    public function testEvent($start, $id_type, $id_patient, $hour)
     {
         $db = $this->dbConnect();
         $req = $db->prepare('INSERT INTO events (start, id_type, id_patient, hour) VALUES (:start, :id_type, :id_patient, :hour);');
         $req->execute(array(
             'start' => $start,
             'id_type' => $id_type,
-            'id_patient' => $param4,
-            'hour' => $param3
+            'id_patient' => $id_patient,
+            'hour' => $hour
         ));
         return $req;
     }
