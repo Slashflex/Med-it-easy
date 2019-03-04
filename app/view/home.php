@@ -19,15 +19,17 @@
         </div>
     </div>
 </section>
-
+<div class="parallax1"></div>
 <!-- Block "Notre solution" -->
 <section id="JQueryAnchor2" class="container-fluid solution_height">
     section 2
 </section>
+<div class="parallax2"></div>
 <!-- Block "Tarifs" -->
 <section id="JQueryAnchor3" class="container-fluid pricing_height">
     section 3
 </section>
+<div class="parallax3"></div>
 
 
 

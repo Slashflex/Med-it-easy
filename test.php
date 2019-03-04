@@ -3,14 +3,13 @@ sass --watch public/scss/style.scss:public/css/style.css --style compressed
 
 
 
-SELECT patientPrenom, patientNom, start, description, duree, couleur
+SELECT patientPrenom, patientNom, start, description, dureeConsultation, couleur
 FROM patient 
 INNER JOIN events ON patient.id_patient = events.id_patient
 INNER JOIN typeActe ON events.id_type = typeActe.id_type
-WHERE id_praticien = :prat AND DATEDIFF (NOW(), start) 
+WHERE id_praticien = 2 AND DATEDIFF (NOW(), start) 
 BETWEEN -30 AND 30
 ORDER BY start
-
 
 
 SELECT praticienNom, praticienPrenom, praticienEmail, id_spe FROM praticien 

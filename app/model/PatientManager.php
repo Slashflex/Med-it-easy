@@ -13,28 +13,33 @@ class PatientManager extends Manager
         $db = $this->dbConnect();
         $email = htmlspecialchars($_POST['email']);
         $req = $db->prepare("SELECT * FROM patient WHERE email = ?");
-        $req->execute([$email]); 
+        $req->execute([$email]);
         $patient = $req->fetch();
         // If user mail already exist, return an error
         if ($patient) {
-            
-            throw new Exception ('Cet email existe déjà, veuillez réessayer avec une autre adresse email.');
+            throw new Exception('Cet email existe déjà, veuillez réessayer avec une autre adresse email.');
             header('Location: app\view\registerPatient.php');
         // else, user is created
-        } else {//, id_praticien
+        } else {
             $patient = $db->prepare('INSERT INTO patient (patientPrenom, patientNom, patientDate, email, password_1, id_praticien) 
-            VALUES (?, ?, ?, ?, ?, ?)');
-            $patient->execute(array($patientPrenom, $patientNom, $patientDate, $email, $password_1, $id_praticien));
+            VALUES (:patientPrenom, :patientNom, :patientDate, :email, :password_1, :id_praticien)');
+            $patient->execute(array(
+                'patientPrenom' => $patientPrenom,
+                'patientNom' => $patientNom,
+                'patientDate' => $patientDate,
+                'email' => $email,
+                'password_1' => $password_1,
+                'id_praticien' => $id_praticien));
             return $patient;
-        } 
+        }
     }
     
     // Patient connexion
     public function connectPatient($email)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT * FROM patient WHERE email = ?');
-        $req->execute(array($email));
+        $req = $db->prepare('SELECT * FROM patient WHERE email = (:email)');
+        $req->execute(array('email' => $email));
         $patient = $req->fetch();
         $req->closeCursor();
         return $patient;
@@ -45,21 +50,19 @@ class PatientManager extends Manager
 
 
     // TO DO...
-    // Request to get all types of acts
+    // Request to get all types of actes
     public function getTypeActes()
     {
         $db = $this->dbConnect();
         $req = $db->query('SELECT * FROM typeActe LIMIT 0, 7');
         return $req;
     }
-
-
-    // Delete patient account that has this DataBase ID 
+    // Delete patient account that has this DataBase ID
     public function deletePatient($deleteid)
     {
         $db = $this->dbConnect();
         $req = $db->prepare("DELETE FROM patient WHERE id_patient = (:deleteid)");
-        $req->execute(array("deleteid" => $deleteid));
+        $req->execute(array('deleteid' => $deleteid));
         return $req;
     }
 }

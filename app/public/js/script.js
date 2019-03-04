@@ -156,22 +156,29 @@ $(function () {
                 //     }
                 /*=======  End of Section Reg EXp control on forms  =========*/
             });
-            // Add active class on nav-link when clicked, remove it on other link click...
-            // ...remove class on other views when loaded (once they have no link to the 3 main nav-links)
-            $('.nav a').filter(function () {
-                return this.href == location.href
-            }).parent().addClass('active').siblings().removeClass('active')
-            $('.nav a').click(function () {
-                $(this).parent().addClass('active').siblings().removeClass('active')
-            });
-            // Hamburger Navigation button (responsive)
-            $('.first-button').on('click', function () {
-                $('.animated-icon1').toggleClass('open');
-            });
+
+
         });
     });
 });
 
+// Add active class on nav-link when clicked, remove it on other link click...
+// ...remove class on other views when loaded (once they have no link to the 3 main nav-links)
+$(function () {
+    $('.nav a').filter(function () {
+        return this.href == location.href
+    }).parent().addClass('active').siblings().removeClass('active')
+    $('.nav a').click(function () {
+        $(this).parent().addClass('active').siblings().removeClass('active')
+    });
+});
+
+$(function () {
+    // Hamburger Navigation button (responsive)
+    $('.first-button').on('click', function () {
+        $('.animated-icon1').toggleClass('open');
+    });
+});
 
 
 
