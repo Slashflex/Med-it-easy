@@ -960,7 +960,7 @@ option {
     }
 
     .header_connected {
-        margin-top: 150px;
+        margin-top: 69px;
         width: 70%;
     }
 
@@ -980,6 +980,7 @@ option {
         width: 48%;
         margin: 0 auto;
     }
+    
 }
 
 @media screen and (max-width: 415px) {
@@ -988,7 +989,7 @@ option {
     }
 
     #offCanva label#label {
-        margin-top: 50px;
+        margin-top: 6px;
         margin-left: 5px;
         width: 50px;
         height: 50px;
@@ -1092,7 +1093,7 @@ pre {
 ================================================================*/
 
 .menu {
-    margin-top: 4rem;
+    margin-top: -4rem;
 
     li {
         margin: 0 auto;
@@ -1134,7 +1135,7 @@ pre {
             transform: translateX(65px);
         }
 
-        ~#offCanva {
+        ~#offCanvaNav {
             transform: translateX(0);
         }
 
@@ -1148,7 +1149,7 @@ pre {
     transition: transform .3s ease;
 }
 
-#offCanva {
+#offCanvaNav {
     background-color: $color2;
     height: 100%;
     width: 200px;
@@ -1359,3 +1360,6 @@ optgroup {
   }
 
 /*=========================  End of TESTS  =====================*/
+.lol {
+    margin: 0 auto;
+}
