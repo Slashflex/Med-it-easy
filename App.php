@@ -125,11 +125,7 @@ class App
                         throw new Exception('Erreur');
                     }
                 }
-                // On click on "Accueil" from off canva menu (connectedPraticien.php)...
-                // ...returns to the main doctor's page
-                elseif ($_GET['action'] == 'accueil') {
-                    require('app\view\connectedPraticien.php');
-                } //elseif ($_GET['action'] == 'rdvStep1') {
+                 //elseif ($_GET['action'] == 'rdvStep1') {
                 //$req = $this->controller->listTypeActes($id_type);
                 //}
                 /* Deconnexion */
@@ -190,12 +186,20 @@ class App
                 elseif ($_GET['action'] == 'cancelSuppressionPraticien') {
                     require('app\view\connectedPatient.php');
                 }
+                // On click on "Accueil" from off canva menu (connectedPraticien.php)...
+                // ...returns to the main doctor's page
+                elseif ($_GET['action'] == 'accueil') {
+                    require('app\view\connectedPraticien.php');
+                }
                 // Agenda.php view loaded on click
                 elseif ($_GET['action'] == 'agendaAdmin') {
                     require('app\view\agendaAdmin.php');
                 }
                 elseif ($_GET['action'] == 'pricings') {
                     require('app\view\tarifs.php');
+                }
+                elseif ($_GET['action'] == 'patientBase') {
+                    $this->controller->listAllPatients($_SESSION['id']);
                 }
                 
                 /*=========== End of Section Doctor =========*/
