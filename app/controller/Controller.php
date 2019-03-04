@@ -82,8 +82,11 @@ class Controller
 
     public function rdvStep1()
     {
+        // List all types of actes on patient's booking form
         $typeActes = $this->patientManager->getTypeActes();
         $duplicate = $this->praticienManager->removeDuplicatesSpe();
+        // Request to display the doctor's informations on the patient registration form...
+        // ...so patient can choose his doctor
         $coords = $this->praticienManager->getPraticienCoords();
         require('app\view\rdvPatientStep1.php');
     }
@@ -108,19 +111,15 @@ class Controller
     public function testAddEvent($param1, $param2, $param3, $param4)
     {
         $this->eventManager->testEvent($param1, $param2, $param3, $param4);
-        // TO DO... Sending mail confirmation
-        $to = $_SESSION['patientEmail'];
-        $subject = 'Med It Easy | Confirmation de compte';
-        $message = 'Bonjour ! ' . ucfirst($_SESSION['patientPrenom'])  . ' ' . ucfirst($_SESSION['patientNom']) . '<br> 
-        Votre rendez-vous a bien été pris en compte, pour le ' . $param2 . ' à ' . $param3 . 
-        ' avec le Docteur ' . $param1 . ', pour un(e) ' . $param4;
-        $headers = 'From: admin@med-it-easy.com' . "\r\n" .
-        'Reply-To: admin@med-it-easy.com' . "\r\n" .
-        'X-Mailer: PHP/' . phpversion();
-        mail($to, $subject, $message, $headers);
         require('app\view\connectedPatient.php');
     }
     
+    // TO DO ...
+    // public function getPatientRdv()
+    // {
+    //     $this->eventManager->getPatientEvents();
+    //     require('app\view\agendaAdmin.php');
+    // }
 
 
     // Display of legal notices
@@ -195,6 +194,11 @@ class Controller
         $specialites = $this->praticienManager->getSpecialites();
         // $_SESSION['id_spe'] = $specialites['description'];
         require('app\view\registerPraticien.php');
+    }
+    public function listAllPatients($id)
+    {
+        $praticien = $this->praticienManager->getAllPatients($id);
+        require('app\view\patientBase.php');
     }
     /*=================== Fin Section Praticien =====================*/
 

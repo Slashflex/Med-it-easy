@@ -11,7 +11,8 @@
                     <div id="steps">
                         <div class="book-step active-step">
                             <div class="tooltipPop">
-                                <a href="index.php?action=rdvStep1" data-toggle="tooltip" data-placement="bottom" title="Etape 1/3 :  choix type de consultation et praticien"><strong
+                                <a href="index.php?action=rdvStep1" data-toggle="tooltip" data-placement="bottom"
+                                    title="Etape 1/3 :  choix type de consultation et praticien"><strong
                                         id="step1">1</strong></a>
                             </div>
                         </div>
@@ -39,8 +40,8 @@
                         </div>
                         <select id="selectConsult" name="test" class="col-xs-12 form-control select">
                             <?php while ($data = $typeActes->fetch()): ?>
-                            <option style="color: <?= ucfirst($data['couleur']); ?>"
-                                value="<?= $data['id_type']; ?>"><?= ucfirst($data['description']) . ' ' . ucfirst($data['dureeConsultation']); ?>
+                            <option style="color: <?= ucfirst($data['couleur']); ?>" value="<?= $data['id_type']; ?>">
+                                <?= ucfirst($data['description']) . ' ' . ucfirst($data['dureeConsultation']); ?>
                             </option>
                             <?php endwhile; ?>
                         </select>
@@ -48,15 +49,31 @@
                     <div class="form-group">
                         <!-- Doctor's choice -->
                         <div class="text-center">
-                            <label for="selectPraticien"><strong class="selectType">Choix du praticien<br></strong></label>
+                            <label for="selectPraticien"><strong class="selectType">Choix du
+                                    praticien<br></strong></label>
                             <select id="selectPraticien" name="id_praticien" class="col-xs-12 form-control">
-                                <?php while ($data = $coords->fetch()): ?>
+                                <?php $previousCat = ""; ?>
+                                <?php $i = 0; ?>
+
+                                <?php while ($data = $coords->fetch()) { ?>
+
+                                <?php if ($data['description'] !== $previousCat) { ?>
+                                <?php $previousCat = $data['description']; ?>
+                                <?php if ($i !== 0) { ?>
+                                    </optgroup>
+                                <?php } ?>
+                                <?php $i += 1; ?>
                                 <optgroup label="<?= $data['description']; ?>">
                                     <option value="<?= $data['id_praticien']; ?>">
                                         Dr.<?= ' ' . ucfirst($data['praticienNom']) . ' ' . ucfirst($data['praticienPrenom']) ; ?>
                                     </option>
-                                </optgroup>
-                                <?php endwhile; ?>
+                                    <?php } else { ?>
+                                    <option value="<?= $data['id_praticien']; ?>">
+                                        Dr.<?= ' ' . ucfirst($data['praticienNom']) . ' ' . ucfirst($data['praticienPrenom']) ; ?>
+                                    </option>
+                                    <?php } ?>
+                                    <?php }; ?>
+                                    </optgroup>
                             </select>
                         </div>
                     </div>

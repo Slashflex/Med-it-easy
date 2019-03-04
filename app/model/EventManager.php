@@ -20,7 +20,7 @@ class EventManager extends Manager
     {
         $db = $this->dbConnect();
         $json = array();
-        $req = $db->query('SELECT * FROM events ORDER BY id');
+        $req = $db->query('SELECT * FROM events ORDER BY id_event');
         $resultat = $db->query($req) or die(print_r($db->errorInfo()));
         echo json_encode($resultat->fetchAll(PDO::FETCH_ASSOC));
     }
@@ -46,18 +46,27 @@ class EventManager extends Manager
         return $req;
     }
 
-    public function testEvent($param1, $param2, $param3, $param4)
+    public function testEvent($start, $id_type, $id_patient, $hour)
     {
         $db = $this->dbConnect();
         $req = $db->prepare('INSERT INTO events (start, id_type, id_patient, hour) VALUES (:start, :id_type, :id_patient, :hour);');
         $req->execute(array(
-            'start' => $param2,
-            'id_type' => $param1,
-            'id_patient' => $param4,
-            'hour' => $param3
+            'start' => $start,
+            'id_type' => $id_type,
+            'id_patient' => $id_patient,
+            'hour' => $hour
         ));
         return $req;
     }
 
-    
+    // TO DO ...
+    // public function getPatientEvents()
+    // {
+    //     $db = $this->dbConnect();
+    //     $req = $db->prepare('SELECT * FROM praticien, patient INNER JOIN events ON events.id_type = patient.id_praticien;');
+    //     $req->execute();
+    //     return $req;
+    // }
+
+
 }

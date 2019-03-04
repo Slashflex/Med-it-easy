@@ -19,8 +19,8 @@ class PraticienManager extends Manager
     {
         $db = $this->dbConnect();
         $email = htmlspecialchars($_POST['praticienEmail']);
-        $req = $db->prepare('SELECT * FROM praticien WHERE praticienEmail = ?');
-        $req->execute([$praticienEmail]);
+        $req = $db->prepare('SELECT * FROM praticien WHERE praticienEmail = (:praticienEmail)');
+        $req->execute(array('praticienEmail' => $praticienEmail));
         $praticien = $req->fetch();
         // If user mail already exist, return an error
         if ($praticien) {
@@ -28,8 +28,14 @@ class PraticienManager extends Manager
         // else, user is created
         } else {
             $praticien = $db->prepare('INSERT INTO praticien (praticienPrenom, praticienNom, praticienDate, praticienEmail, password_1, id_spe) 
-            VALUES (?, ?, ?, ?, ?, ?)');
-            $praticien->execute(array($praticienPrenom, $praticienNom, $praticienDate, $praticienEmail, $password_1, $id_spe));
+            VALUES (:praticienPrenom, :praticienNom, :praticienDate, :praticienEmail, :password_1, :id_spe)');
+            $praticien->execute(array(
+                'praticienPrenom' => $praticienPrenom,
+                'praticienNom' => $praticienNom,
+                'praticienDate' => $praticienDate,
+                'praticienEmail' => $praticienEmail, 
+                'password_1' => $password_1, 
+                'id_spe' => $id_spe));
             return $praticien;
         }
     }
@@ -47,13 +53,22 @@ class PraticienManager extends Manager
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT * FROM praticien 
-        INNER JOIN specialite ON specialite.id_spe = praticien.id_spe WHERE praticienEmail = ?');
-        $req->execute(array($praticienEmail));
+        INNER JOIN specialite ON specialite.id_spe = praticien.id_spe WHERE praticienEmail = (:praticienEmail)');
+        $req->execute(array('praticienEmail' => $praticienEmail));
         $praticien = $req->fetch();
         $req->closeCursor();
         return $praticien;
     }
 
+    public function getAllPatients($id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT patientPrenom, patientNom, patientDate, email, id_praticien FROM patient INNER JOIN specialite ON specialite.id_spe = patient.id_praticien WHERE patient.id_praticien = (:id)');
+        $req->execute(array('id' => $id));
+        //$praticien = $req->fetch();
+    
+        return $req;
+    }
     // TO DO ..
     // public function getDescription()
     // {
@@ -78,6 +93,10 @@ class PraticienManager extends Manager
         $req->execute(array('deleteid' => $deleteid));
         return $req;
     }
+
+
+
+    
     // retrieve all datas from the 'specialite' table
     public function getSpecialites()
     {
@@ -89,12 +108,12 @@ class PraticienManager extends Manager
 
 
     
-    // Request to display the doctor's information on the patient registration form...
+    // Request to display the doctor's informations on the patient registration form...
     // ...so patient can choose his doctor
     public function getPraticienCoords()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT praticienPrenom, praticienNom, id_praticien, specialite.description FROM praticien INNER JOIN specialite ON praticien.id_spe = specialite.id_spe ');
+        $req = $db->query('SELECT praticienPrenom, praticienNom, id_praticien, specialite.description FROM praticien INNER JOIN specialite ON praticien.id_spe = specialite.id_spe ORDER BY description');
         return $req;
     }
     // Removes duplicate from 'specialite' table

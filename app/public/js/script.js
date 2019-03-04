@@ -24,7 +24,6 @@ $(function () {
     /*==========================================================
     ========  Section Scroll on Section (from navLinks)  =======
     ==========================================================*/
-    // $(function () {
     $("#scrollToConcept").click(function () {
         $("html, body").animate({
                 scrollTop: $(".concept_height").offset().top
@@ -155,12 +154,14 @@ $(function () {
                 //     } else {
                 //         $('#mailLogin').next('.error-message').hide().text('');
                 //     }
-                    /*=======  End of Section Reg EXp control on forms  =========*/
-                });
+                /*=======  End of Section Reg EXp control on forms  =========*/
             });
+
+
         });
     });
-//});
+});
+
 // Add active class on nav-link when clicked, remove it on other link click...
 // ...remove class on other views when loaded (once they have no link to the 3 main nav-links)
 $(function () {
@@ -172,21 +173,13 @@ $(function () {
     });
 });
 
-$(document).ready(function () {
-
+$(function () {
+    // Hamburger Navigation button (responsive)
     $('.first-button').on('click', function () {
-  
-      $('.animated-icon1').toggleClass('open');
+        $('.animated-icon1').toggleClass('open');
     });
-    // $('.second-button').on('click', function () {
-  
-    //   $('.animated-icon2').toggleClass('open');
-    // });
-    // $('.third-button').on('click', function () {
-  
-    //   $('.animated-icon3').toggleClass('open');
-    // });
-  });
+});
+
 
 
 
