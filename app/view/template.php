@@ -35,7 +35,7 @@
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top " style="background-color: #353c3f;">
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="index.php">MED <span class="separator">IT</span> EASY</a>
+        <a class="navbar-brand" href="index.php">MED <span class="separator">IT</span> EASY </a>
         <!-- Collapse button -->
         <button class="navbar-toggler first-button" id="nav_toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
             aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">

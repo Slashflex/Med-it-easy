@@ -19,6 +19,7 @@
         </div>
     </div>
 </section>
+
 <!-- Block "Notre solution" -->
 <section id="JQueryAnchor2" class="container-fluid solution_height">
     section 2

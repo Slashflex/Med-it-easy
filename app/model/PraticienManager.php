@@ -54,6 +54,7 @@ class PraticienManager extends Manager
         return $praticien;
     }
 
+    
     // TO DO ..
     // public function getDescription()
     // {

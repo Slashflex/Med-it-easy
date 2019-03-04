@@ -99,8 +99,7 @@ class App
                     $json2 = fopen('app\public\json\testJson2.json', 'r');
                     $jsonRead2 = fread($json2, 2000);
                     $decode2 = json_decode($jsonRead2);
-                    $this->controller->testAddEvent($decode['0'], $decode2['0'], $decode2['1'], $_SESSION['id']);
-                    
+                    $this->controller->testAddEvent($decode['0'], $decode2['0'], $decode2['1'], $_SESSION['id']);    
                 }
 
 
@@ -194,6 +193,9 @@ class App
                 // Agenda.php view loaded on click
                 elseif ($_GET['action'] == 'agendaAdmin') {
                     require('app\view\agendaAdmin.php');
+                }
+                elseif ($_GET['action'] == 'pricings') {
+                    require('app\view\tarifs.php');
                 }
                 
                 /*=========== End of Section Doctor =========*/

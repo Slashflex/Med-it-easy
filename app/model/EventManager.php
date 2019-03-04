@@ -20,7 +20,7 @@ class EventManager extends Manager
     {
         $db = $this->dbConnect();
         $json = array();
-        $req = $db->query('SELECT * FROM events ORDER BY id');
+        $req = $db->query('SELECT * FROM events ORDER BY id_event');
         $resultat = $db->query($req) or die(print_r($db->errorInfo()));
         echo json_encode($resultat->fetchAll(PDO::FETCH_ASSOC));
     }
@@ -59,5 +59,14 @@ class EventManager extends Manager
         return $req;
     }
 
-    
+    // TO DO ...
+    // public function getPatientEvents()
+    // {
+    //     $db = $this->dbConnect();
+    //     $req = $db->prepare('SELECT * FROM praticien, patient INNER JOIN events ON events.id_type = patient.id_praticien;');
+    //     $req->execute();
+    //     return $req;
+    // }
+
+
 }
