@@ -18,7 +18,7 @@
             
     </div>
 
-    <nav id="offCanva">
+    <nav id="offCanvaNav">
         <!-- Displaying the time and date in the off-canva menu -->
         <div class="dateNav mx-auto"><?php setlocale(LC_ALL, 'fr_FR'); ?><?=  ucfirst(strftime("%A %e %B %Y", mktime())) . '<br>' . strftime("%H : %M", mktime());?>
         </div>
