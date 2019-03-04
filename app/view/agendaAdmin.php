@@ -4,19 +4,21 @@
 
 <div id="offCanva">
     <input id="menu-trigger" type="checkbox">
-    <label id="label" for="menu-trigger" onclick="document.getElementById('offCanva').classList.toggle('open');"><i class="fas fa-tools fa-2x"></i></label>
+    <label id="label" for="menu-trigger" onclick="document.getElementById('offCanva').classList.toggle('open');"><i
+            class="fas fa-tools fa-2x"></i></label>
 
     <div id="content">
         <div class="header_connected">
             <h4>Bienvenue Docteur <?= ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['praticienNom']) . ' '. $_SESSION['specialite']; ?>
             </h4>
         </div>
-        <p class="text-center margin">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et gérer vos
+        <p class="text-center margin">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et
+            gérer vos
             consultations.</p>
-            <div id="calendar"></div>
+        <div id="calendar"></div>
     </div>
 
-    <nav id="offCanva">
+    <nav id="offCanvaNav">
         <!-- Displaying the time and date in the off-canva menu -->
         <div class="dateNav mx-auto"><?php setlocale(LC_ALL, 'fr_FR'); ?><?=  ucfirst(strftime("%A %e %B %Y", mktime())) . '<br>' . strftime("%H : %M", mktime());?>
         </div>
@@ -34,4 +36,3 @@
 <?php $content = ob_get_clean(); ?>
 
 <?php require('app\view\template.php');
-
