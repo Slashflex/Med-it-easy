@@ -9,7 +9,7 @@
 
     <div id="content">
         <div class="header_connected">
-            <h4>Bienvenue Docteur <?= ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['praticienNom']) . ' '; ?>
+            <h4>Bienvenue Docteur <?= ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['praticienNom']) . ' '. $_SESSION['specialite']; ?>
             </h4>
         </div>
         <p class="text-center margin">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et
@@ -18,7 +18,7 @@
         <div class="calendar"></div>
     </div>
 
-    <nav id="test">
+    <nav id="offCanva">
         <div class="dateNav mx-auto"><?php setlocale(LC_ALL, 'fr_FR'); ?><?=  ucfirst(strftime("%A %e %B %Y", mktime())) . '<br>' . strftime("%H : %M", mktime());?>
         </div>
         <ul class="menu mx-auto">
@@ -27,7 +27,7 @@
             <li><a href="index.php?action=pricings"><i class="fas fa-hand-holding-usd fa-1x"></i> Tarifs</a></li>
             <li><a href="index.php?action=searchbarAdmin"><i class="fas fa-search fa-1x"></i> Recherche</a></li>
             <li><a href="index.php?action=adminSchedule"><i class="far fa-clock fa-1x"></i> Horaires</a></li>
-            <li><a href="index.php?action=adminActings"><i class="fas fa-notes-medical fa-1x"></i> Actes</a></li>
+            <li><a href="index.php?action=patientBase"><i class="fas fa-users"></i> Patientèle</a></li>
         </ul>
     </nav>
 
