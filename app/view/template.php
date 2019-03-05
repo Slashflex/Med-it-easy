@@ -4,6 +4,23 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags -->
+    <meta name="Content-Type" content="UTF-8">
+    <meta name="Content-Language" content="fr">
+    <meta name="Description"
+        content="Plateforme de mise en relation praticien - patient, afin de facilité la prise - gestion de rendez-vous">
+    <meta name="Keywords"
+        content="médecine consultation rendez-vous télé-secrétariat patient praticien médecin urgence agenda gestion patientèle santé">
+    <meta name="Subject" content="Télésecrétariat médical">
+    <meta name="Copyright" content="Slashflex">
+    <meta name="Author" content="David Saoud">
+    <meta name="Publisher" content="David Saoud">
+    <meta name="Revisit-After" content="15 days">
+    <meta name="Robots" content="all">
+    <meta name="Rating" content="general">
+    <meta name="Distribution" content="global">
+    <meta name="Category" content="health">
+
     <title><?= $title ?>
     </title>
     <!-- Bootstrap Core CSS -->
@@ -14,23 +31,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <!-- JQuery / Moment Core -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <!-- Bootstrap Core Css / JS -->
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js">
     </script>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
-    <!-- FullCalendar -->
+    <!-- FullCalendar Plugin -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
-    <script src="app\public\js\agenda.js"></script>
     <!-- FullCalendar localization -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/locale/fr.js"></script>
     <!-- Custom Jquery -->
     <script src="app\public\js\script.js"></script>
+    <script src="app\public\js\agenda.js"></script>
 </head>
 
 <body>
@@ -123,7 +142,7 @@
     <main id="main">
         <?= $content ?>
     </main>
-    
+
     <footer class="container-fluid py-4">
         <div class="container">
             <div class="row">
