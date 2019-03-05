@@ -9,18 +9,21 @@ class PraticienManager extends Manager
 {
     public function getPraticien($deletedid)
     {
+        // prepare execute
         $db = $this->dbConnect();
-        $req = $db->query('SELECT * FROM praticien WHERE id_praticien = $deletedid');
+        $req = $db->prepare('SELECT * FROM praticien WHERE id_praticien = $deletedid');
+        $req->execute();
         return $req;
     }
 
     // Praticien creation
     public function createPraticien($praticienPrenom, $praticienNom, $praticienDate, $praticienEmail, $password_1, $id_spe)
     {
+        // TO DO...
         $db = $this->dbConnect();
         $email = htmlspecialchars($_POST['praticienEmail']);
         $req = $db->prepare('SELECT * FROM praticien WHERE praticienEmail = (:praticienEmail)');
-        $req->execute(array('praticienEmail' => $praticienEmail));
+        $req->execute(array('praticienEmail' => $email));
         $praticien = $req->fetch();
         // If user mail already exist, return an error
         if ($praticien) {
@@ -53,7 +56,9 @@ class PraticienManager extends Manager
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT * FROM praticien 
-        INNER JOIN specialite ON specialite.id_spe = praticien.id_spe WHERE praticienEmail = (:praticienEmail)');
+                             INNER JOIN specialite 
+                             ON specialite.id_spe = praticien.id_spe 
+                             WHERE praticienEmail = (:praticienEmail)');
         $req->execute(array('praticienEmail' => $praticienEmail));
         $praticien = $req->fetch();
         $req->closeCursor();
@@ -112,7 +117,11 @@ class PraticienManager extends Manager
     public function getPraticienCoords()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT praticienPrenom, praticienNom, id_praticien, specialite.description FROM praticien INNER JOIN specialite ON praticien.id_spe = specialite.id_spe ORDER BY description');
+        $req = $db->query('SELECT praticienPrenom, praticienNom, id_praticien, specialite.description 
+                           FROM praticien 
+                           INNER JOIN specialite 
+                           ON praticien.id_spe = specialite.id_spe 
+                           ORDER BY description');
         return $req;
     }
     // Removes duplicate from 'specialite' table
