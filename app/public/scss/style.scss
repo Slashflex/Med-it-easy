@@ -228,7 +228,7 @@ ul.nav a~a:hover {
 .concept_height {
     height: 100vh;
     padding-top: 6rem;
-    background-image: linear-gradient(335deg, $color5, $colorB);
+    background-image: linear-gradient(335deg, $color6, $color7);
 }
 
 /* Block "Notre solution" */
@@ -236,7 +236,7 @@ ul.nav a~a:hover {
 .solution_height {
     height: 100vh;
     padding-top: 6rem;
-    background-image: linear-gradient(335deg, $color6, $color7);
+    background-image: linear-gradient(335deg, $color5, $colorB);
 }
 
 /* Block "Tarifs" */
@@ -244,7 +244,7 @@ ul.nav a~a:hover {
 .pricing_height {
     height: 100vh;
     padding-top: 6rem;
-    background-color: rgb(215, 226, 222);
+    background-image: linear-gradient(335deg, $color6, $color7);
 }
 
 .mentions_legales {
@@ -711,10 +711,6 @@ option {
     margin-top: 140px;
 }
 
-// .form-group {
-//     padding: 50px;
-// }
-
 #steps {
     width: 140px;
     display: inline-block;
@@ -770,6 +766,7 @@ option {
 }
 
 /*============ End of Section rdvPatient step 1 to 3 ==============*/
+
 
 /*================================================================
 =                     Section Media Queries                      =
@@ -980,7 +977,7 @@ option {
         width: 48%;
         margin: 0 auto;
     }
-    
+
 }
 
 @media screen and (max-width: 415px) {
@@ -1310,56 +1307,59 @@ optgroup {
 
 /*==================  End of Section Agenda  ===================*/
 
+
+/*===============================================================
+=                  Section Parallax index.php                   =
+===============================================================*/
+.parallax1 {
+    /* The image used */
+    background-image: url("/app/public/images/parallax1.jpg");
+    /* Set a specific height */
+    height: 40vh;
+    opacity: 0.7;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax2 {
+    background-image: url("/app/public/images/parallax2.jpg");
+    height: 40vh;
+    opacity: 0.7;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax3 {
+    background-image: url("/app/public/images/parallax3.jpg");
+    height: 40vh;
+    opacity: 0.7;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/*===========  End of Section Parallax index.php   =============*/
+
+
 /*================================================================
 =                            TESTS                               =
 ================================================================*/
 
-.parallax1 {
-    /* The image used */
-    background-image: url("/app/public/images/parallax1.jpg");
-  
-    /* Set a specific height */
-    height: 500px;
-    opacity: 0.7;
-  
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  .parallax2 {
-    /* The image used */
-    background-image: url("/app/public/images/parallax2.jpg");
-  
-    /* Set a specific height */
-    height: 500px;
-    opacity: 0.7;
-  
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  .parallax3 {
-    /* The image used */
-    background-image: url("/app/public/images/parallax3.jpg");
-  
-    /* Set a specific height */
-    height: 500px;
-    opacity: 0.7;
-  
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-/*=========================  End of TESTS  =====================*/
-.lol {
+.toDo {
     margin: 0 auto;
 }
+
+.toDo1 {
+    color: $color2;
+    font-weight: bold;
+    //margin-right: 14em;
+}
+
+/*=========================  End of TESTS  =====================*/

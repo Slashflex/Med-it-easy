@@ -8,7 +8,6 @@
 
 <!-- Patient registration form-->
 <form class="patientForm" name="patientForm" method="post" action="index.php?action=registerPatient">
-    <span></span>
     <div class="input-group">
         <label for="prenom">Prenom</label>
         <input type="text" name="patientPrenom" id="first" placeholder="ex: Chuck" autocomplete="off" required>

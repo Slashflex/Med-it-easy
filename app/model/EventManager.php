@@ -4,6 +4,7 @@ namespace Projet\app\model;
 
 use \Projet\app\model\Manager;
 use \Exception;
+use \PDO;
 
 class EventManager extends Manager
 {
@@ -21,8 +22,8 @@ class EventManager extends Manager
         $db = $this->dbConnect();
         $json = array();
         $req = $db->query('SELECT * FROM events ORDER BY id_event');
-        $resultat = $db->query($req) or die(print_r($db->errorInfo()));
-        echo json_encode($resultat->fetchAll(PDO::FETCH_ASSOC));
+        
+        return json_encode($req->fetchAll(PDO::FETCH_ASSOC));
     }
 
     public function updateEvent()
@@ -46,15 +47,15 @@ class EventManager extends Manager
         return $req;
     }
 
-    public function testEvent($start, $id_type, $id_patient, $hour)
+    public function testEvent($param1, $param2, $param3, $param4)
     {
         $db = $this->dbConnect();
         $req = $db->prepare('INSERT INTO events (start, id_type, id_patient, hour) VALUES (:start, :id_type, :id_patient, :hour);');
         $req->execute(array(
-            'start' => $start,
-            'id_type' => $id_type,
-            'id_patient' => $id_patient,
-            'hour' => $hour
+            'start' => $param2,
+            'id_type' => $param1,
+            'id_patient' => $param4,
+            'hour' => $param3
         ));
         return $req;
     }

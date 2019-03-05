@@ -10,7 +10,7 @@
 
     <div id="content">
         <div class="header_connected">
-            <h4>Bienvenue Docteur <?= ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['praticienNom']) . ' '. $_SESSION['specialite']; ?>
+            <h4>Bienvenue Docteur <?= ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['praticienNom']); ?>
             </h4>
         </div>
         <p class="text-center margin">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et gérer vos

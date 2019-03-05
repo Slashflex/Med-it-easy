@@ -12,19 +12,24 @@
         <div id="content">
             <div class="header_connected">
                 <h4>Bienvenue Docteur
-                    <?= ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['praticienNom']) . ' '. $_SESSION['specialite']; ?>
+                    <?= ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['praticienNom']); ?>
                 </h4>
             </div>
             <p class="text-center margin">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et
                 gérer votre patientèle.</p>
-            <p>Prénoms<span class="lol">Noms</span><span class="lol">Dates de naissances</span><span class="lol">Emails</span></p>
-
+            <div class="row justify-content-between">
+                <span class="toDo1 col-sm-3">Prénoms</span>
+                <span class="toDo1 col-sm-3">Noms</span>
+                <span class="toDo1 col-sm-3">Dates de naissances</span>
+                <span class="toDo1 col-sm-3">Emails</span>
+            </div>
+            <hr>
             <?php while ($data = $praticien->fetch()): ?>
-            <div class="row">
-                <p><?= '<p class="lol">' . ucfirst($data['patientPrenom'] . '</p>' .
-               '<p class="lol">' . $data['patientNom'] . '</p>' .
-               '<p class="lol">' . $data['patientDate'] . '</p>' .
-               '<p class="lol">' . $data['email'] . '</p>'); ?>
+            <div class="row  justify-content-between">
+                <p><?= '<p class="toDo col-sm-3">' . ucfirst($data['patientPrenom'] . '</p>' .
+               '<p class="toDo col-sm-3">' . $data['patientNom'] . '</p>' .
+               '<p class="toDo  col-sm-3">' . $data['patientDate'] . '</p>' .
+               '<p class="toDo col-sm-3">' . $data['email'] . '</p>'); ?>
                 </p>
             </div>
             <?php endwhile; ?>

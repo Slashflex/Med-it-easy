@@ -90,8 +90,13 @@ class Controller
         $coords = $this->praticienManager->getPraticienCoords();
         require('app\view\rdvPatientStep1.php');
     }
-
-
+    // Update patient informations
+    public function updatePatientInfos($email, $password_1, $id_patient)
+    {
+        $passHash = password_hash($password_1, PASSWORD_DEFAULT);
+        $req = $this->patientManager->updatePatient($email, $passHash, $id_patient);
+    }
+    
 
 
     // TO DO...
@@ -115,11 +120,11 @@ class Controller
     }
     
     // TO DO ...
-    // public function getPatientRdv()
-    // {
-    //     $this->eventManager->getPatientEvents();
-    //     require('app\view\agendaAdmin.php');
-    // }
+    public function getPatientRdv()
+    {
+        $save = $this->eventManager->getEvents();
+        echo $save;
+    }
 
 
     // Display of legal notices
