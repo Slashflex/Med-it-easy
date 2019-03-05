@@ -80,7 +80,6 @@ class App
                 } elseif ($_GET['action'] == 'testJson') {
                     $consult = $_POST['test'];
                     $prat = $_POST['id_praticien'];
-
                     $test = $this->controller->testJson($consult, $prat);
                     require('app\view\rdvPatientStep2.php');
                 } 
@@ -92,7 +91,8 @@ class App
                 {
                     require('app\view\rdvPatientStep3.php');
                 }
-                elseif ($_GET['action'] == 'testEvent') {
+                elseif ($_GET['action'] == 'testEvent') 
+                {
                     $json = fopen('app\public\json\testJson.json', 'r');
                     $jsonRead = fread($json, 2000);
                     $decode = json_decode($jsonRead);
@@ -101,9 +101,26 @@ class App
                     $decode2 = json_decode($jsonRead2);
                     $this->controller->testAddEvent($decode['0'], $decode2['0'], $decode2['1'], $_SESSION['id']);    
                 }
-
-
+                // Update patient informations
+                elseif ($_GET['action'] == 'updatePatient') 
+                {
+                    if (isset($_POST['updateInfos'])) {
+                        $email = htmlspecialchars($_POST['email']);
+                        $password_1 = htmlspecialchars($_POST['password_1']);
+                        $id_patient = $_SESSION['id'];
+                        $this->controller->updatePatientInfos($email, $password_1, $id_patient);
+                        unset($_SESSION['id']);
+                        session_destroy();
+                        header('Location: index.php');
+                    } 
+                }
                 
+
+                // Displaying events
+                elseif ($_GET['action'] == 'displayEvents') 
+                {
+                    $this->controller->getPatientRdv();
+                }
 
 
 
