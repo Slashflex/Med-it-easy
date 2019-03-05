@@ -4,6 +4,7 @@ namespace Projet\app\model;
 
 use \Projet\app\model\Manager;
 use \Exception;
+use \PDO;
 
 class EventManager extends Manager
 {
@@ -21,8 +22,8 @@ class EventManager extends Manager
         $db = $this->dbConnect();
         $json = array();
         $req = $db->query('SELECT * FROM events ORDER BY id_event');
-        $resultat = $db->query($req) or die(print_r($db->errorInfo()));
-        echo json_encode($resultat->fetchAll(PDO::FETCH_ASSOC));
+        
+        return json_encode($req->fetchAll(PDO::FETCH_ASSOC));
     }
 
     public function updateEvent()
