@@ -44,7 +44,19 @@ class PatientManager extends Manager
         $req->closeCursor();
         return $patient;
     }
-
+    // Update patient informations
+    public function updatePatient($email, $password_1, $id_patient)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE patient SET email = :email, password_1 = :password_1 WHERE id_patient = :id_patient');
+        $req->execute(array(
+            'email' => $email,
+            'password_1' => $password_1,
+            'id_patient' => $id_patient));
+        // $patient = $req->fetch();
+        // $req->closeCursor();
+        return $req;
+    }
 
 
 
