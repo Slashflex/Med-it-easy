@@ -21,9 +21,16 @@ class EventManager extends Manager
     {
         $db = $this->dbConnect();
         $json = array();
-        $req = $db->query('SELECT * FROM events ORDER BY id_event');
-        
-        return json_encode($req->fetchAll(PDO::FETCH_ASSOC));
+        $req = $db->query('SELECT description, dureeConsultation, couleur,  patientNom, patientPrenom, start, hour
+        FROM praticien 
+        INNER JOIN typeacte 
+        ON praticien.id_spe = typeacte.id_type 
+        INNER JOIN patient 
+        ON patient.id_praticien = typeacte.id_type
+        INNER JOIN events 
+        ON events.id_patient = patient.id_patient
+        WHERE praticien.id_praticien = 8');
+        return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function updateEvent()
