@@ -29,7 +29,7 @@ class EventManager extends Manager
         ON patient.id_praticien = typeacte.id_type
         INNER JOIN events 
         ON events.id_patient = patient.id_patient
-        WHERE praticien.id_praticien = 8');
+        WHERE praticien.id_praticien = 2');
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -56,6 +56,10 @@ class EventManager extends Manager
 
     public function testEvent($param1, $param2, $param3, $param4)
     {
+        $exp = explode('/', $param2);
+        $param2 = $exp[2] . '-' . $exp[1] . '-' . $exp[0];
+        // var_dump($param2);
+        // die;
         $db = $this->dbConnect();
         $req = $db->prepare('INSERT INTO events (start, id_type, id_patient, hour) VALUES (:start, :id_type, :id_patient, :hour);');
         $req->execute(array(
