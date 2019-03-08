@@ -34,23 +34,23 @@
                     <!-- Appointment's choice -->
                     <div class="form-group drill">
                         <!-- Type of acte -->
-                        
-                        <div class="input-group dateDr" id="datetimepicker4" data-target-input="nearest">
-                                        <input type="text" name="date" class="form-control col-xs-12 datetimepicker-input"
-                                            data-target="#datetimepicker4" required/>
-                                        <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
-                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                        </div>
-                                    </div>
 
-                                
-                                    <div class="input-group dateDr" id="datetimepicker3" data-target-input="nearest">
-                                        <input type="text" name="hour" class="form-control col-xs-12 datetimepicker-input"
-                                            data-target="#datetimepicker3" />
-                                        <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
-                                            <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
-                                        </div>
-                                    </div>
+                        <div class="input-group dateDr" id="datetimepicker4" data-target-input="nearest">
+                            <input type="text" name="date" class="form-control col-xs-12 datetimepicker-input"
+                                data-target="#datetimepicker4" required />
+                            <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+
+
+                        <div class="input-group dateDr" id="datetimepicker3" data-target-input="nearest">
+                            <input type="text" name="hour" class="form-control col-xs-12 datetimepicker-input"
+                                data-target="#datetimepicker3" />
+                            <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="container" id="prev_nextBtn">
