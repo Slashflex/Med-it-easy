@@ -4,7 +4,7 @@
 
 <div class="container formRdv">
     <div class="row">
-        <form action="index.php?action=testJson" class="mx-auto" method="post">
+        <form action="index.php?action=testJson" class="mx-auto multiStep" method="post">
             <header class="headerRdv">
                 <div class="head">
                     <a class="navbar-brand headerLogo" href="index.php">MED <span class="separator">IT</span> EASY</a>
@@ -30,7 +30,7 @@
                 </div>
             </header>
             <div class="contentStep1">
-                <h3 class="frame-title">Choisissez un type de consultation et un praticien</h3>
+                <h3 class="frame-title">Choisissez un type de consultation <br>et un praticien</h3>
                 <div id="typeConsult">
                     <!-- Appointment's choice -->
                     <div class="form-group">
@@ -50,7 +50,7 @@
                         <!-- Doctor's choice -->
                         <div class="text-center">
                             <label for="selectPraticien"><strong class="selectType">Choix du
-                                    praticien<br></strong></label>
+                                    praticien</strong></label>
                             <select id="selectPraticien" name="id_praticien" class="col-xs-12 form-control">
                                 <?php $previousCat = ""; ?>
                                 <?php $i = 0; ?>
@@ -92,4 +92,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('app\view\template.php');
+<?php require('app\views\template.php');

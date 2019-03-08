@@ -49,12 +49,12 @@ class PatientController
         'Reply-To: admin@med-it-easy.com' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
         mail($to, $subject, $message, $headers);
-        require('app\view\connexionPatient.php');
+        require('app\views\patients\connexionPatient.php');
     }
     public function methodPatient()
     {
         $req = $this->praticienManager->getSubbedPraticien();
-        require('app\view\registerPatient.php');
+        require('app\views\patients\registerPatient.php');
     }
     public function passVerify($password_1, $email)
     {
@@ -73,7 +73,7 @@ class PatientController
                 setcookie('id', 'patientEmail', 'patientPrenom', 'patientNom', time() + 365243600, null, null, false, true);
                 $rememberMe = htmlspecialchars($_POST['rememberMe']);
             }
-            require('app\view\connectedPatient.php');
+            require('app\views\patients\connectedPatient.php');
         } else {
             throw new Exception('Mot de passe ou adresse email incorrect(e)');
         }
@@ -90,7 +90,7 @@ class PatientController
         // Request to display the doctor's informations on the patient registration form...
         // ...so patient can choose his doctor
         $coords = $this->praticienManager->getPraticienCoords();
-        require('app\view\rdvPatientStep1.php');
+        require('app\views\patients\rdvPatientStep1.php');
     }
     // Update patient informations
     public function updatePatientInfos()
@@ -112,9 +112,9 @@ class PatientController
     }
     public function testJson2()
     {
-        $start = htmlspecialchars($_POST['start']);
+        $date = htmlspecialchars($_POST['date']);
         $hour = htmlspecialchars($_POST['hour']);
-        $donneesArray = array($start, $hour);
+        $donneesArray = array($date, $hour);
         $fichierOpen = fopen('app\public\json\testJson2.json', 'w');
         $fichierWrite = fwrite($fichierOpen, json_encode($donneesArray));
     }
@@ -122,7 +122,7 @@ class PatientController
     public function testAddEvent($param1, $param2, $param3, $param4)
     {
         $this->eventManager->testEvent($param1, $param2, $param3, $param4);
-        require('app\view\connectedPatient.php');
+        require('app\views\patients\connectedPatient.php');
     }
     
     // // TO DO ...
@@ -149,6 +149,6 @@ class PatientController
     // Display of legal notices
     public function displayLegalNotice()
     {
-        header('Location: app\view\mentionsLegales.php');
+        header('Location: app\views\mentionsLegales.php');
     }
 }

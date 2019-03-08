@@ -18,7 +18,7 @@ class PatientManager extends Manager
         // If user mail already exist, return an error
         if ($patient) {
             throw new Exception('Cet email existe déjà, veuillez réessayer avec une autre adresse email.');
-            header('Location: app\view\registerPatient.php');
+            header('Location: app\views\patients\registerPatient.php');
         // else, user is created
         } else {
             $patient = $db->prepare('INSERT INTO patient (patientPrenom, patientNom, patientDate, email, password_1, id_praticien) 
@@ -57,10 +57,6 @@ class PatientManager extends Manager
         // $req->closeCursor();
         return $req;
     }
-
-
-
-
     // TO DO...
     // Request to get all types of actes
     public function getTypeActes()

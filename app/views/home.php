@@ -35,11 +35,9 @@
                         </a>
                     </li>
                 </ul>
-
             </div>
             <div class="col-lg-6">
                 <img id="placeholder" class="imgSpin img-fluid" src="app\public\images\placeholder.png" alt="placeholder image">
-
             </div>
         </div>
     </div>
@@ -51,16 +49,14 @@
 <section id="JQueryAnchor2" class="container-fluid solution_height">
     section 2
 </section>
+
 <div class="parallax3 img-fluid"></div>
+
 <!-- Block "Tarifs" -->
 <section id="JQueryAnchor3" class="container-fluid pricing_height">
     section 3
 </section>
 
-
-
-
-
 <?php $content = ob_get_clean(); ?>
 
-<?php require('app\view\template.php');
+<?php require('app\views\template.php');

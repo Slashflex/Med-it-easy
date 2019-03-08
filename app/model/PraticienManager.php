@@ -82,13 +82,6 @@ class PraticienManager extends Manager
     //     $description = $req->fetch();
     //     return $description;
     // }
-
-
-
-
-
-
-
     // Deleting the praticien account with this ID in the DB
     public function deletePraticien($deleteid)
     {
@@ -97,10 +90,6 @@ class PraticienManager extends Manager
         $req->execute(array('deleteid' => $deleteid));
         return $req;
     }
-
-
-
-    
     // retrieve all datas from the 'specialite' table
     public function getSpecialites()
     {
@@ -109,9 +98,6 @@ class PraticienManager extends Manager
         $req->execute();
         return $req;
     }
-
-
-    
     // Request to display the doctor's informations on the patient registration form...
     // ...so patient can choose his doctor
     public function getPraticienCoords()

@@ -43,7 +43,7 @@ class PraticienController
         'Reply-To: admin@med-it-easy.com' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
         mail($to, $subject, $message, $headers);
-        require('app\view\connexionPraticien.php');
+        require('app\views\praticiens\connexionPraticien.php');
     }
     public function passVerif($password_1, $praticienEmail)
     {
@@ -64,7 +64,7 @@ class PraticienController
                 setcookie('id', 'praticienEmail', time() + 365243600, null, null, false, true);
                 $rememberMe = htmlspecialchars($_POST['rememberMe']);
             }
-            require('app\view\connectedPraticien.php');
+            require('app\views\praticiens\connectedPraticien.php');
         } else {
             throw new Exception('Mot de passe ou adresse email incorrect(e)');
         }
@@ -83,11 +83,11 @@ class PraticienController
     {
         $specialites = $this->praticienManager->getSpecialites();
         // $_SESSION['id_spe'] = $specialites['description'];
-        require('app\view\registerPraticien.php');
+        require('app\views\praticiens\registerPraticien.php');
     }
     public function listAllPatients($id)
     {
         $praticien = $this->praticienManager->getAllPatients($id);
-        require('app\view\patientBase.php');
+        require('app\views\praticiens\patientBase.php');
     }
 }

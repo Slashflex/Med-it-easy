@@ -35,7 +35,7 @@ class App
                 elseif ($_GET['action'] == 'registerPatient') {
                     $this->patientController->registerPatient();
                 } elseif ($_GET['action'] == 'connexionPatient') {
-                    require('app\view\connexionPatient.php');
+                    require('app\views\patients\connexionPatient.php');
                 }
                 // Displaying the ConnectedPatient View Once the Patient Connected
                 elseif ($_GET['action'] == 'connectedPatient') {
@@ -47,7 +47,7 @@ class App
                     if (isset($_SESSION['id']) && $_SESSION['id'] > 0) {
                         $suppressId = $_SESSION['id'];
                         echo '<pre class="mx-auto">Etes vous sûr de vouloir nous quitter ' . ucfirst($_SESSION['patientPrenom']) . ' ' . ucfirst($_SESSION['patientNom']) . '</pre>';
-                        require('app\view\confirmDeletePatient.php');
+                        require('app\views\patients\confirmDeletePatient.php');
                     }
                 }
                 // Confirmation request to the patient to delete his account or cancel the action
@@ -65,11 +65,11 @@ class App
                 // Action of button "cancelSuppression" from view (confirmDeletePatient.php)...
                 // ...allows the return to the profile page in case of cancellation
                 elseif ($_GET['action'] == 'cancelSuppression') {
-                    require('app\view\connectedPatient.php');
+                    require('app\views\patients\connectedPatient.php');
                 }
                 // On click returns to main Patient view
                 elseif ($_GET['action'] == 'backToConnectedPatient') {
-                    require('app\view\connectedPatient.php');
+                    require('app\views\patients\connectedPatient.php');
                 }
                 // On click, leads to booking form's first step
                 elseif ($_GET['action'] == 'rdvPatient') {
@@ -78,16 +78,16 @@ class App
                 // Write datas from rdvPatientStep1 view into a JSON file (app\public\json\testJson.json)
                 elseif ($_GET['action'] == 'testJson') {
                     $test = $this->patientController->testJson();
-                    require('app\view\rdvPatientStep2.php');
+                    require('app\views\patients\rdvPatientStep2.php');
                 }
                 // Write datas from rdvPatientStep2 view into a JSON file (app\public\json\testJson2.json)
                 elseif ($_GET['action'] == 'testJson2') {
                     $test = $this->patientController->testJson2();
-                    require('app\view\rdvPatientStep3.php');
+                    require('app\views\patients\rdvPatientStep3.php');
                 } elseif ($_GET['action'] == 'rdvStep1ToStep2') {
-                    require('app\view\rdvPatientStep2.php');
+                    require('app\views\patients\rdvPatientStep2.php');
                 } elseif ($_GET['action'] == 'rdvStep2ToStep3') {
-                    require('app\view\rdvPatientStep3.php');
+                    require('app\views\patients\rdvPatientStep3.php');
                 }
                 
                 // Update patient informations
@@ -97,7 +97,7 @@ class App
                         $this->patientController->updatePatientInfos();
                         unset($_SESSION['id']);
                         session_destroy();
-                        require('app\view\connexionPatient.php');
+                        require('app\views\patients\connexionPatient.php');
                         echo('<p class="displayChanges text-center mx-auto">Vos changements ont bien été pris en compte, veuillez vous reconnecter' . ' ' . $_POST['email'] . ' ' . $_POST['password_1'].'</p>');
                     }
                 }
@@ -108,8 +108,6 @@ class App
                 //$req = $this->controller->listTypeActes($id_type);
                 //}
                 
-
-
                 /*=============================================
                 =              Section Praticien              =
                 ==============================================*/
@@ -123,7 +121,7 @@ class App
                 }
                 // Connexion form for Doctors only
                 elseif ($_GET['action'] == 'connexionPraticien') {
-                    require('app\view\connexionPraticien.php');
+                    require('app\views\praticiens\connexionPraticien.php');
                 }
                 // Displaying the ConnectedPraticien.php View Once the Doctor is Connected
                 elseif ($_GET['action'] == 'connectedPraticien') {
@@ -133,15 +131,15 @@ class App
                 // On click on "Accueil" from off canva menu (connectedPraticien.php)...
                 // ...returns to the main doctor's page
                 elseif ($_GET['action'] == 'accueil') {
-                    require('app\view\connectedPraticien.php');
+                    require('app\views\praticiens\connectedPraticien.php');
                 }
                 // Agenda.php (FullCalendar plugin) view loaded on click
                 elseif ($_GET['action'] == 'agendaAdmin') {
-                    require('app\view\agendaAdmin.php');
+                    require('app\views\praticiens\agendaAdmin.php');
                 }
                 // Nav-link on connectedPraticien view to list pricings of actes
                 elseif ($_GET['action'] == 'pricings') {
-                    require('app\view\tarifs.php');
+                    require('app\views\praticiens\tarifs.php');
                 }
                 // Nav-link on connectedPraticien view to list all patients bind to this doctor
                 elseif ($_GET['action'] == 'patientBase') {
@@ -152,7 +150,7 @@ class App
                     if (isset($_SESSION['id']) && $_SESSION['id'] > 0) {
                         $suppressId = $_SESSION['id'];
                         echo '<pre class="mx-auto">Etes vous sûr de vouloir nous quitter ' . ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['patientNom']) . '</pre>';
-                        require('app\view\confirmDeletePraticien.php');
+                        require('app\views\praticiens\confirmDeletePraticien.php');
                     }
                 }
                 // Ask for confirmation to doctor if he's sure to delete his account or cancel action
@@ -170,7 +168,7 @@ class App
                 // Action of button "cancelSuppressionPraticien" from view (confirmDeletePraticien.php)...
                 // ...allows the return to the profile page in case of cancellation
                 elseif ($_GET['action'] == 'cancelSuppressionPraticien') {
-                    require('app\view\connectedPatient.php');
+                    require('app\views\praticiens\connectedPraticien.php');
                 }
                 /*=========== End of Section Praticien =========*/
 
@@ -197,13 +195,13 @@ class App
                     // If user with an email related to patients exist...
                     // ...redirect to his account main view (connectedPatient.php)
                     if (isset($_SESSION['patientEmail'])) {
-                        require('app\view\connectedPatient.php');
+                        require('app\views\patients\connectedPatient.php');
                     }
                     
                     // If user with an email related to patients exist...
                     // ...redirect to his account main view (connectedPraticien.php)
                     elseif (isset($_SESSION['praticienEmail'])) {
-                        require('app\view\connectedPraticien.php');
+                        require('app\views\praticiens\connectedPraticien.php');
                     } else {
                         throw new Exception('Erreur');
                     }
@@ -216,14 +214,14 @@ class App
                 }
                 // Legal notices display
                 elseif ($_GET['action'] == 'mentionsLegales') {
-                    require('app\view\mentionsLegales.php');
+                    require('app\views\mentionsLegales.php');
                 }
             } else {
-                require('app\view\home.php');
+                require('app\views\home.php');
             }
         } catch (Exception $e) {
             $errors = $e->getMessage();
-            require('app\view\errors.php');
+            require('app\views\errors.php');
         }
     }
 }
