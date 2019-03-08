@@ -6,15 +6,40 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <h1 class="h1-mb">Le secrétariat médical </h1><br>
-                <div id="bg_word_swap">
+                <h1 class="h1-mb">Le secrétariat médical <br><span id="spin"></span></h1>
+                <!-- <div id="bg_word_swap">
                     <p class="h1" id="word_swap">réinventé</p>
-                </div>
-                <p>Conciliez le besoin d’être toujours joignable avec la nécessité de préserver le confort
-                    d’exercice de votre cabinet médical.</p>
+                </div> -->
+                <p>Moderniser la gestion des interactions avec vos patients, c’est notre mission. La relation de
+                    confiance que vous avez construite avec eux doit être préservée, et conservé au niveau de votre
+                    cabinet.</p>
+                <ul class="container thumbnails row">
+                    <li class="col-6 col-sm-3 col-lg-3">
+                        <a href="#">
+                            <div class="blockDesc"><img src="app\public\images\consultation.png" alt=""></div>
+                        </a>
+                    </li>
+                    <li class="col-6 col-sm-3 col-lg-3">
+                        <a href="#">
+                            <div class="blockDesc"><img class="mx-auto" src="app\public\images\suiviPsy.png" alt=""></div>
+                        </a>
+                    </li>
+                    <li class="col-6 col-sm-3 col-lg-3">
+                        <a href="#">
+                            <div class="blockDesc"><img src="app\public\images\consultation.png" alt=""></div>
+                        </a>
+                    </li>
+                    <li class="col-6 col-sm-3 col-lg-3">
+                        <a href="#">
+                            <div class="blockDesc"><img src="app\public\images\consultation.png" alt=""></div>
+                        </a>
+                    </li>
+                </ul>
+
             </div>
             <div class="col-lg-6">
-                <img id="placeholder" src="app\public\images\video.PNG" alt="placeholder image">
+                <img id="placeholder" class="imgSpin img-fluid" src="app\public\images\placeholder.png" alt="placeholder image">
+
             </div>
         </div>
     </div>
