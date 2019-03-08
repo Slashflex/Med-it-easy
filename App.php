@@ -111,8 +111,9 @@ class App
                         $this->controller->updatePatientInfos($email, $password_1, $id_patient);
                         unset($_SESSION['id']);
                         session_destroy();
-                        header('Location: index.php');
-                    } 
+                        require('app\view\connexionPatient.php');
+                        echo ('<p class="displayChanges text-center mx-auto">Vos changements ont bien été pris en compte, veuillez vous reconnecter' . ' ' . $_POST['email'] . ' ' . $_POST['password_1'].'</p>');
+                    }
                 }
                 
 
