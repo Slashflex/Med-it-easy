@@ -1,21 +1,20 @@
-<?php $title = 'Med It Easy | Agenda'; ?>
+<?php $title = 'Med It Easy | Tarifs'; ?>
 
 <?php ob_start(); ?>
 
+<div class="container">
+
 <div id="offCanva">
     <input id="menu-trigger" type="checkbox">
-    <label id="label" for="menu-trigger" onclick="document.getElementById('offCanva').classList.toggle('open');"><i
-            class="fas fa-tools fa-2x"></i></label>
+    <label id="label" for="menu-trigger" onclick="document.getElementById('offCanva').classList.toggle('open');"><i class="fas fa-tools fa-2x"></i></label>
 
     <div id="content">
         <div class="header_connected">
             <h4>Bienvenue Docteur <?= ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['praticienNom']); ?>
             </h4>
         </div>
-        <p class="text-center margin">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et
-            gérer vos
-            consultations.</p>
-        <div id="calendar"></div>
+        <p class="text-center margin">Vous êtes sur la page listant les tarifs de vos consultations.</p>
+            
     </div>
 
     <nav id="offCanvaNav">
@@ -33,6 +32,8 @@
     </nav>
 </div>
 
+</div>
+
 <?php $content = ob_get_clean(); ?>
 
-<?php require('app\view\template.php');
+<?php require('app\views\template.php');

@@ -15,16 +15,17 @@ $(function () {
 			console.log(eventsServer);
 		});
 	let calendar = $("#calendar").fullCalendar({
-		locale: "fr",
-		slotLabelFormat: ["H:mm"],
-		slotDuration: '00:15:00',
-		minTime: "08:00:00",
-		maxTime: "19:30:00",
-		defaultView: "agendaDay",
+		locale: "fr", // Localisation
+		slotLabelFormat: ["H:mm"], // Time displayed on the vertical axis (left)
+		slotDuration: '00:15:00', // 
+		minTime: "08:00:00", // Start of a day
+		maxTime: "19:30:00", // End of a day
+		defaultView: "agendaDay", // Default view => Day
 		editable: true,
 		eventLimit: true,
 		selectable: true,
 		selectHelper: true,
+		timeFormat: 'H:mm', // Time from AM-PM to a 24h format
 		header: {
 			left: "prev,next today",
 			center: "title",
@@ -32,10 +33,11 @@ $(function () {
 		},
 		eventSources: [{
 
-			events: function (start, end, timezone, callback) {
+			events: 
+			function (start, end, timezone, callback) {
 				$.getJSON('index.php?action=displayEvents')
 					.done(function (doc) {
-						var events = [];
+						let events = [];
 						$(doc).each(function () {
 							events.push({
 								title: $(this).attr('title'),

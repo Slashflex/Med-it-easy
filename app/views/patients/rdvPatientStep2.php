@@ -4,14 +4,14 @@
 
 <div class="container formRdv">
     <div class="row">
-        <form action="index.php?action=testJson2" class="mx-auto" method="post">
+        <form action="index.php?action=testJson2" class="mx-auto multiStep" method="post">
             <header class="headerRdv">
                 <div class="head">
                     <a class="navbar-brand headerLogo" href="index.php">MED <span class="separator">IT</span> EASY</a>
                     <div id="steps">
                         <div class="book-step">
                             <div class="tooltipPop">
-                                <a href="index.php?action=rdvStep1" data-toggle="tooltip" data-placement="bottom" title="Etape 1/3 :  choix type de consultation et praticien"><strong
+                                <a href="index.php?action=rdvPatient" data-toggle="tooltip" data-placement="bottom" title="Etape 1/3 :  choix type de consultation et praticien"><strong
                                         id="step1">1</strong></a>
                             </div>
                         </div>
@@ -29,12 +29,12 @@
                 </div>
             </header>
             <div class="contentStep1">
-                <h3 class="frame-titleStep2">Choisissez un type de consultation et un praticien</h3>
+                <h3 class="frame-titleStep2">Choisissez une date et une heure</h3>
                 <div id="typeConsult">
                     <!-- Appointment's choice -->
                     <div class="form-group drill">
-                        <!-- Type of acte -->
 
+                        <!-- Date -->
                         <div class="input-group dateDr" id="datetimepicker4" data-target-input="nearest">
                             <input type="text" name="date" class="form-control col-xs-12 datetimepicker-input"
                                 data-target="#datetimepicker4" required />
@@ -42,8 +42,7 @@
                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                             </div>
                         </div>
-
-
+                        <!-- Date -->
                         <div class="input-group dateDr" id="datetimepicker3" data-target-input="nearest">
                             <input type="text" name="hour" class="form-control col-xs-12 datetimepicker-input"
                                 data-target="#datetimepicker3" />
@@ -65,12 +64,12 @@
     </div>
 </div>
 
-<!-- Datetime picker used on view rdvPatientStep2 -->
+<!-- Datetime picker used on views rdvPatientStep2 -->
 <script type="text/javascript">
     $(function() {
         $('#datetimepicker4').datetimepicker({
             format: 'L',
-            //locale: 'fr'
+            locale: 'fr'
         });
         $('#datetimepicker3').datetimepicker({
             format: 'LT',
@@ -81,11 +80,6 @@
     });
 </script>
 
-
-
-
-
-
 <?php $content = ob_get_clean(); ?>
 
-<?php require('app\view\template.php');
+<?php require('app\views\template.php');

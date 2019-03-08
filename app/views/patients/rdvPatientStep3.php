@@ -4,7 +4,7 @@
 
 <div class="container formRdv">
     <div class="row">
-        <form action="index.php?action=testEvent" class="mx-auto" method="post">
+        <form action="index.php?action=testEvent" class="mx-auto multiStep" method="post">
 
             <header class="headerRdv">
                 <div class="head">
@@ -60,4 +60,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('app\view\template.php');
+<?php require('app\views\template.php');
