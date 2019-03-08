@@ -122,3 +122,6 @@ $(function () {
         
     });
 });
+
+<!-- 
+[{"description":"visite \u00e0 domicile","dureeConsultation":"00:30:00","couleur":"#85ff59","patientNom":"jack","patientPrenom":"jack","start":"0000-00-00"},{"description":"visite \u00e0 domicile","dureeConsultation":"00:30:00","couleur":"#85ff59","patientNom":"jack","patientPrenom":"jack","start":"0000-00-00"},{"description":"visite \u00e0 domicile","dureeConsultation":"00:30:00","couleur":"#85ff59","patientNom":"jack","patientPrenom":"jack","start":"0000-00-00"},{"description":"visite \u00e0 domicile","dureeConsultation":"00:30:00","couleur":"#85ff59","patientNom":"test","patientPrenom":"paul","start":"0000-00-00"},{"description":"visite \u00e0 domicile","dureeConsultation":"00:30:00","couleur":"#85ff59","patientNom":"test","patientPrenom":"paul","start":"0000-00-00"},{"description":"visite \u00e0 domicile","dureeConsultation":"00:30:00","couleur":"#85ff59","patientNom":"test","patientPrenom":"paul","start":"0000-00-00"},{"description":"visite \u00e0 domicile","dureeConsultation":"00:30:00","couleur":"#85ff59","patientNom":"test","patientPrenom":"paul","start":"0000-00-00"},{"description":"visite \u00e0 domicile","dureeConsultation":"00:30:00","couleur":"#85ff59","patientNom":"test","patientPrenom":"paul","start":"0000-00-00"}] -->

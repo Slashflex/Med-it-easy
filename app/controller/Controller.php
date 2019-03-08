@@ -123,7 +123,22 @@ class Controller
     public function getPatientRdv()
     {
         $save = $this->eventManager->getEvents();
-        echo $save;
+        $events = $this->convert($save);
+        echo $events;
+    }
+    private function convert($events)
+    {
+        $formatedEvents = [];
+        foreach ($events as $event) {
+            $formatedEvent['title'] = $event['patientNom'] . ' ' . $event['patientPrenom'] . ' ' . $event['description'];
+            $formatedEvent['start'] = $event['start'] . ' ' . $event['hour'];
+            $dateSrc = strtotime($formatedEvent['start']);           
+            $interval = 30 * 60;
+            $formatedEvent['end'] = date("Y-m-d H:i:s", $dateSrc + $interval);
+            $formatedEvent['color'] = $event['couleur'];
+            $formatedEvents[] = $formatedEvent;
+        }
+        return json_encode($formatedEvents);
     }
 
 

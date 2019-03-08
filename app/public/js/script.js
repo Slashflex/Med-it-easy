@@ -95,35 +95,35 @@ $(function () {
     /*==========================================================
     ===========       Section Word Swap            =============
     ==========================================================*/
-    function wordSwap() {
-        $("#word_swap").delay(2000)
-            .animate({
-                opacity: 0
-            }, function () {
-                $(this).text("innovant").animate({
-                    opacity: 1
-                }, function () {
-                    $(this).delay(2000).animate({
-                        opacity: 0
-                    }, function () {
-                        $(this).text("rapide").animate({
-                            opacity: 1
-                        }, function () {
-                            $(this).delay(2000).animate({
-                                opacity: 0
-                            }, function () {
-                                $(this).text("économique").animate({
-                                    opacity: 1
-                                }, function () {
-                                    wordSwap();
-                                });
-                            });
-                        });
-                    });
-                });
-            });
-    }
-    wordSwap();
+     //function wordSwap() {
+    //     $("#word_swap").delay(2000)
+    //         .animate({
+    //             opacity: 0
+    //         }, function () {
+    //             $(this).text("innovant").animate({
+    //                 opacity: 1
+    //             }, function () {
+    //                 $(this).delay(2000).animate({
+    //                     opacity: 0
+    //                 }, function () {
+    //                     $(this).text("rapide").animate({
+    //                         opacity: 1
+    //                     }, function () {
+    //                         $(this).delay(2000).animate({
+    //                             opacity: 0
+    //                         }, function () {
+    //                             $(this).text("économique").animate({
+    //                                 opacity: 1
+    //                             }, function () {
+    //                                 wordSwap();
+    //                             });
+    //                         });
+    //                     });
+    //                 });
+    //             });
+    //         });
+    // }
+    // wordSwap();
     /*===============  End of Section Word Swap  =================*/
 
 
