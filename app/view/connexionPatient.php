@@ -7,7 +7,6 @@
 
 <!-- Patient connexion form -->
 <form class="patientForm" name="patientForm" method="post" action="index.php?action=connectedPatient">
-
     <div class="input-group">
         <label for="email">Email</label>
         <input type="email" name="email" id="mail" value="" autocomplete="off" required>
@@ -18,7 +17,6 @@
         <input type="password" id="password_1" name="password_1" required>
         <span class="error-message mx-auto"></span>
     </div>
-
     <div class="input-group">
         <button type="submit" class="btn-form" id="send" name="registerPatient">Connexion</button>
     </div>
