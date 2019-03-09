@@ -287,19 +287,19 @@ ul.nav a~a:hover {
     }
 }
 
-/* Blocs */
+/* Blocks */
 .blockDesc {
     width: 80%;
     height: 140px;
     background-color: $color9;
     border-radius: 15px; //box-shadow: 0px 8px 24px;
     margin: 20px auto;
-
 }
 
 .blockDesc:hover {
     box-shadow: 0px 8px 24px black !important;
-    transform: scale(1.1); //scaleX(1.2)
+    transform: scale(1.1);
+    transform: skewX(50px);
 }
 
 .blockDesc>img:nth-child(1) {
