@@ -95,7 +95,7 @@ $(function () {
     /*==========================================================
     ===========       Section Word Swap            =============
     ==========================================================*/
-     //function wordSwap() {
+    //function wordSwap() {
     //     $("#word_swap").delay(2000)
     //         .animate({
     //             opacity: 0
@@ -130,34 +130,26 @@ $(function () {
     /*==========================================================
     ===========  Section Reg EXp control on forms   ============
     ==========================================================*/
-    $('#first').keyup(function () {
+    $('#first').keyup(function () { // First name reg exp check
         if (!$('#first').val().match(/^[A-Za-zéèêîïôüäë -]+$/i)) {
             $('#first').next('.error-message').show().text('Veuillez entrez un prénom valide');
         } else {
             $('#first').next('.error-message').hide().text('');
         }
-        $('#last').keyup(function () {
+        $('#last').keyup(function () { // Last name reg exp check
             if (!$('#last').val().match(/^[A-Za-zéèêîïôüäë -]+$/i)) {
                 $('#last').next('.error-message').show().text('Veuillez entrez un nom valide');
             } else {
                 $('#last').next('.error-message').hide().text('');
             }
-            $('#mail').keyup(function () { // 
+            $('#mail').keyup(function () { // Email reg exp check
                 if (!$('#mail').val().match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
                     $('#mail').next('.error-message').show().text('Veuillez entrez une adresse mail valide');
                 } else {
                     $('#mail').next('.error-message').hide().text('');
                 }
-                // $('#mailLogin').keyup(function () { // 
-                //     if (!$('#mailLogin').val().match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
-                //         $('#mailLogin').next('.error-message').show().text('Veuillez entrez une adresse mail valide');
-                //     } else {
-                //         $('#mailLogin').next('.error-message').hide().text('');
-                //     }
                 /*=======  End of Section Reg EXp control on forms  =========*/
             });
-
-
         });
     });
 });
@@ -173,8 +165,8 @@ $(function () {
     });
 });
 
+// Hamburger Navigation button (responsive)
 $(function () {
-    // Hamburger Navigation button (responsive)
     $('.first-button').on('click', function () {
         $('.animated-icon1').toggleClass('open');
     });
