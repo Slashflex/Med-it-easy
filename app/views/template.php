@@ -76,6 +76,17 @@
     ?>
                 <li class="nav-item">
                     <a class="nav-link" href="index.php?action=connected" id="scollToPricing">Mon compte</a>
+                    <script>
+                        // Script to add active class to 4th button (this button appears once SESSiON is created
+                        $(function() {
+                            $('.nav a:lt(4)').filter(function() {
+                                return this.href == location.href
+                            }).parent().addClass('active').siblings().removeClass('active')
+                            $('.nav a:lt(4)').click(function() {
+                                $(this).parent().addClass('active').siblings().removeClass('active')
+                            });
+                        });
+                    </script>
                 </li>
                 <?php
 } ?>
@@ -176,12 +187,13 @@
                 <div class="row footer_height">
                     <div class="col-md-12 bloc_reseaux">
                         <div class="col-md-6 offset-md-4 col-sm-6 offset-sm-4 reseaux">
-                            <a href="#" class="btn-footer"><img data-alt-src="app\public\images\mail.png" src="app\public\images\mail_orange.png"
-                                    class="icon_color img-fluid" alt="contact par mail"></a>
-                            <a href="#" class="btn-footer"><img data-alt-src="app\public\images\Linkedin.png" src="app\public\images\Linkedin_orange.png"
+                            <a href="mailto: pro.davidsaoud@gmail.com" class="btn-footer"><img data-alt-src="app\public\images\mail.png"
+                                    src="app\public\images\mail_orange.png" class="icon_color img-fluid" alt="contact par mail"></a>
+                            <a href="https://www.linkedin.com/in/david-saoud-775624174/" class="btn-footer"><img
+                                    data-alt-src="app\public\images\Linkedin.png" src="app\public\images\Linkedin_orange.png"
                                     class="icon_color img-fluid" alt="lien vers profil Med It Easy via Linkedin"></a>
-                            <a href="#" class="btn-footer"><img data-alt-src="app\public\images\Twitter.png" src="app\public\images\Twitter_orange.png"
-                                    class="icon_color img-fluid" alt="Lien vers profil Med It Easy via twitter"></a>
+                            <a href="https://twitter.com/saoud_david" class="btn-footer"><img data-alt-src="app\public\images\Twitter.png"
+                                    src="app\public\images\Twitter_orange.png" class="icon_color img-fluid" alt="Lien vers profil Med It Easy via twitter"></a>
                         </div>
                     </div>
                 </div>
