@@ -93,71 +93,28 @@ $(function () {
     /*=====  End of script to swap social network icons  =====*/
 
     /*==========================================================
-    ===========       Section Word Swap            =============
-    ==========================================================*/
-     //function wordSwap() {
-    //     $("#word_swap").delay(2000)
-    //         .animate({
-    //             opacity: 0
-    //         }, function () {
-    //             $(this).text("innovant").animate({
-    //                 opacity: 1
-    //             }, function () {
-    //                 $(this).delay(2000).animate({
-    //                     opacity: 0
-    //                 }, function () {
-    //                     $(this).text("rapide").animate({
-    //                         opacity: 1
-    //                     }, function () {
-    //                         $(this).delay(2000).animate({
-    //                             opacity: 0
-    //                         }, function () {
-    //                             $(this).text("économique").animate({
-    //                                 opacity: 1
-    //                             }, function () {
-    //                                 wordSwap();
-    //                             });
-    //                         });
-    //                     });
-    //                 });
-    //             });
-    //         });
-    // }
-    // wordSwap();
-    /*===============  End of Section Word Swap  =================*/
-
-
-    /*==========================================================
     ===========  Section Reg EXp control on forms   ============
     ==========================================================*/
-    $('#first').keyup(function () {
+    $('#first').keyup(function () { // First name reg exp check
         if (!$('#first').val().match(/^[A-Za-zéèêîïôüäë -]+$/i)) {
             $('#first').next('.error-message').show().text('Veuillez entrez un prénom valide');
         } else {
             $('#first').next('.error-message').hide().text('');
         }
-        $('#last').keyup(function () {
+        $('#last').keyup(function () { // Last name reg exp check
             if (!$('#last').val().match(/^[A-Za-zéèêîïôüäë -]+$/i)) {
                 $('#last').next('.error-message').show().text('Veuillez entrez un nom valide');
             } else {
                 $('#last').next('.error-message').hide().text('');
             }
-            $('#mail').keyup(function () { // 
+            $('#mail').keyup(function () { // Email reg exp check
                 if (!$('#mail').val().match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
                     $('#mail').next('.error-message').show().text('Veuillez entrez une adresse mail valide');
                 } else {
                     $('#mail').next('.error-message').hide().text('');
                 }
-                // $('#mailLogin').keyup(function () { // 
-                //     if (!$('#mailLogin').val().match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
-                //         $('#mailLogin').next('.error-message').show().text('Veuillez entrez une adresse mail valide');
-                //     } else {
-                //         $('#mailLogin').next('.error-message').hide().text('');
-                //     }
                 /*=======  End of Section Reg EXp control on forms  =========*/
             });
-
-
         });
     });
 });
@@ -165,16 +122,16 @@ $(function () {
 // Add active class on nav-link when clicked, remove it on other link click...
 // ...remove class on other views when loaded (once they have no link to the 3 main nav-links)
 $(function () {
-    $('.nav a').filter(function () {
+    $('.nav a:lt(3)').filter(function () {
         return this.href == location.href
     }).parent().addClass('active').siblings().removeClass('active')
-    $('.nav a').click(function () {
+    $('.nav a:lt(3)').click(function () {
         $(this).parent().addClass('active').siblings().removeClass('active')
     });
 });
 
+// Hamburger Navigation button (appears on medium screen viewport)
 $(function () {
-    // Hamburger Navigation button (responsive)
     $('.first-button').on('click', function () {
         $('.animated-icon1').toggleClass('open');
     });

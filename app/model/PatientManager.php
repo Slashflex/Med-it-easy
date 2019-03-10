@@ -13,7 +13,7 @@ class PatientManager extends Manager
         $db = $this->dbConnect();
         $email = htmlspecialchars($_POST['email']);
         $req = $db->prepare("SELECT * FROM patient WHERE email = ?");
-        $req->execute([$email]);
+        $req->execute(array($email));
         $patient = $req->fetch();
         // If user mail already exist, return an error
         if ($patient) {

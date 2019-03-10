@@ -48,9 +48,8 @@
                 </div>
                 <div class="container" id="prev_nextBtn">
                     <div id="prev_nextButtons" class="text-center">
-                        <a href="index.php?action=rdvStep1ToStep2" class="btn-update">Retour</a>
-                        <!-- <a href="index.php?action=confirmRdvPatient" class="btn-update">Confirmer</a> -->
-                        <input type="submit" class="btn-update" id="send">
+                        <a href="index.php?action=rdvStep1ToStep2" class="btnMultiStepForm">Retour</a>
+                        <input type="submit" class="btnMultiStepForm">
                     </div>
                 </div>
         </form>

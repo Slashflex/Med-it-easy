@@ -149,7 +149,7 @@ class App
                 elseif ($_GET['action'] == 'deletePraticien') {
                     if (isset($_SESSION['id']) && $_SESSION['id'] > 0) {
                         $suppressId = $_SESSION['id'];
-                        echo '<pre class="mx-auto">Etes vous sûr de vouloir nous quitter ' . ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['patientNom']) . '</pre>';
+                        echo '<pre class="mx-auto">Etes vous sûr de vouloir nous quitter ' . ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['praticienNom']) . '</pre>';
                         require('app\views\praticiens\confirmDeletePraticien.php');
                     }
                 }
