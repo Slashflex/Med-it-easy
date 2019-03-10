@@ -93,41 +93,6 @@ $(function () {
     /*=====  End of script to swap social network icons  =====*/
 
     /*==========================================================
-    ===========       Section Word Swap            =============
-    ==========================================================*/
-    //function wordSwap() {
-    //     $("#word_swap").delay(2000)
-    //         .animate({
-    //             opacity: 0
-    //         }, function () {
-    //             $(this).text("innovant").animate({
-    //                 opacity: 1
-    //             }, function () {
-    //                 $(this).delay(2000).animate({
-    //                     opacity: 0
-    //                 }, function () {
-    //                     $(this).text("rapide").animate({
-    //                         opacity: 1
-    //                     }, function () {
-    //                         $(this).delay(2000).animate({
-    //                             opacity: 0
-    //                         }, function () {
-    //                             $(this).text("économique").animate({
-    //                                 opacity: 1
-    //                             }, function () {
-    //                                 wordSwap();
-    //                             });
-    //                         });
-    //                     });
-    //                 });
-    //             });
-    //         });
-    // }
-    // wordSwap();
-    /*===============  End of Section Word Swap  =================*/
-
-
-    /*==========================================================
     ===========  Section Reg EXp control on forms   ============
     ==========================================================*/
     $('#first').keyup(function () { // First name reg exp check
@@ -157,15 +122,15 @@ $(function () {
 // Add active class on nav-link when clicked, remove it on other link click...
 // ...remove class on other views when loaded (once they have no link to the 3 main nav-links)
 $(function () {
-    $('.nav a').filter(function () {
+    $('.nav a:lt(3)').filter(function () {
         return this.href == location.href
     }).parent().addClass('active').siblings().removeClass('active')
-    $('.nav a').click(function () {
+    $('.nav a:lt(3)').click(function () {
         $(this).parent().addClass('active').siblings().removeClass('active')
     });
 });
 
-// Hamburger Navigation button (responsive)
+// Hamburger Navigation button (appears on medium screen viewport)
 $(function () {
     $('.first-button').on('click', function () {
         $('.animated-icon1').toggleClass('open');
