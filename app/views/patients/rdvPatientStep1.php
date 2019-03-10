@@ -80,9 +80,8 @@
                 </div>
                 <div class="container" id="prev_nextBtn">
                     <div id="prev_nextButtons" class="text-center">
-                        <a href="index.php?action=backToConnectedPatient" class="btn-update">Retour</a>
-                        <!-- <a href="index.php?action=testJson" name="next" class="btn-update">Suivant</a> -->
-                        <input type="submit" class="btn-update" value="Suivant">
+                        <a href="index.php?action=backToConnectedPatient" class="btnMultiStepForm">Retour</a>
+                        <input type="submit" class="btnMultiStepForm" value="Suivant">
                     </div>
                 </div>
             </div>
