@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 
 <div class="container">
-
+    <!-- OffMenu Canva -->
     <div id="offCanva">
         <input id="menu-trigger" type="checkbox">
         <label id="label" for="menu-trigger" onclick="document.getElementById('offCanva').classList.toggle('open');"><i
@@ -41,12 +41,12 @@
                 <?php setlocale(LC_ALL, 'fr_FR'); ?><?=  ucfirst(strftime("%A %e %B %Y", mktime())) . '<br>' . strftime("%H : %M", mktime());?>
             </div>
             <ul class="menu mx-auto">
-                <li><a href="index.php?action=accueil"><i class="fas fa-home"></i> Accueil</a></li>
-                <li><a href="index.php?action=agendaAdmin"><i class="far fa-calendar-alt fa-1x"></i> Agenda</a></li>
-                <li><a href="index.php?action=pricings"><i class="fas fa-hand-holding-usd fa-1x"></i> Tarifs</a></li>
-                <li><a href="index.php?action=searchbarAdmin"><i class="fas fa-search fa-1x"></i> Recherche</a></li>
-                <li><a href="index.php?action=adminSchedule"><i class="far fa-clock fa-1x"></i> Horaires</a></li>
-                <li><a href="index.php?action=patientBase"><i class="fas fa-users"></i> Patientèle</a></li>
+            <li><a href="index.php?action=accueil"><i class="fas fa-home fa-1x"></i> Accueil</a></li>
+            <li><a href="index.php?action=agendaAdmin"><i class="far fa-calendar-alt fa-1x"></i> Agenda</a></li>
+            <li><a href="index.php?action=pricings"><i class="fas fa-hand-holding-usd fa-1x"></i> Tarifs</a></li>
+            <li><a href="index.php?action=adminSchedule"><i class="far fa-clock fa-1x"></i> Horaires</a></li>
+            <li><a href="index.php?action=patientBase"><i class="fas fa-users"></i> Patientèle</a></li>
+            <li><a href="index.php?action=deletePraticien"><i class="fas fa-sign-out-alt"></i> Supprimer mon compte</a></li>
             </ul>
         </nav>
     </div>
