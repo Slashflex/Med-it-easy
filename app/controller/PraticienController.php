@@ -15,7 +15,7 @@ class PraticienController
     public function __construct()
     {
         // Creating class instance (object)
-        $this->praticienManager = new praticienManager;
+        $this->praticienManager = new PraticienManager;
     }
     public function registerPraticien()
     {
@@ -69,25 +69,25 @@ class PraticienController
             throw new Exception('Mot de passe ou adresse email incorrect(e)');
         }
     }
-    public function delPraticien($deleteid)
+    //
+    public function delPraticien($id_praticien)
     {
-        $this->praticienManager->deletePraticien($deleteid);
+        $this->praticienManager->upBeforeDelete($id_praticien);
+        $this->praticienManager->deletePraticien($id_praticien);
     }
-    
-    // public function praticien($id)
-    // {
-    //     $this->praticienManager = new PraticienManager;
-    //     $praticien = $praticienManager->getPraticien($deleteid);
-    // }
     public function addPraticien()
     {
         $specialites = $this->praticienManager->getSpecialites();
-        // $_SESSION['id_spe'] = $specialites['description'];
         require('app\views\praticiens\registerPraticien.php');
     }
+    // Listing of all patients bound to this Doctor (PatientBase view)
     public function listAllPatients($id)
     {
         $praticien = $this->praticienManager->getAllPatients($id);
         require('app\views\praticiens\patientBase.php');
+    }
+    public function doctorsList()
+    {
+        $this->praticienManager->getSubbedPraticien();
     }
 }
