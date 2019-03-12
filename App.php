@@ -23,13 +23,11 @@ class App
     {
         try {
             if (isset($_GET['action'])) {
-                
                 /*=============================================
                 =            Section Patient                  =
                 =============================================*/
                 if ($_GET['action'] == 'addPatient') {
                     $this->patientController->methodPatient();
-                //require('app\view\registerPatient.php');
                 }
                 // Register Patient
                 elseif ($_GET['action'] == 'registerPatient') {
@@ -92,8 +90,14 @@ class App
                 
                 // Update patient informations
                 elseif ($_GET['action'] == 'updatePatient') {
-                    // TO DO...
-                    if (isset($_POST['updateInfos'])) {
+                    // IF empty fields, returns an error
+                    if (isset($_POST['updateInfos']) && empty($_POST['email'])) {
+                        throw new Exception('vous devez remplir tout les champs');
+                    } elseif (isset($_POST['updateInfos']) && empty($_POST['password_1'])) {
+                        throw new Exception('vous devez remplir tout les champs');
+                    } 
+                    // else, update worked
+                    else {
                         $this->patientController->updatePatientInfos();
                         unset($_SESSION['id']);
                         session_destroy();
@@ -101,17 +105,17 @@ class App
                         echo('<p class="displayChanges text-center mx-auto">Vos changements ont bien été pris en compte, veuillez vous reconnecter' . ' ' . $_POST['email'] . ' ' . $_POST['password_1'].'</p>');
                     }
                 }
-                
+                // Form to choose a Doctor, if the patients' doctor chosen on patient registration, ...
+                //... deleted his account or doesn't want to use the website anymore
+                elseif ($_GET['action'] == 'choosePraticien') {
+                    $this->patientController->updatePratOfPatient($_POST['id_praticien'], $_SESSION['id']);
+                }
                 /*=========== End of Section Patient =========*/
-
-                //elseif ($_GET['action'] == 'rdvStep1') {
-                //$req = $this->controller->listTypeActes($id_type);
-                //}
                 
                 /*=============================================
                 =              Section Praticien              =
                 ==============================================*/
-                // Show list of doctor's specialities (<select> on registerPraticien view
+                // Show list of doctor's specialities (<select> on registerPraticien view)
                 elseif ($_GET['action'] == 'addPraticien') {
                     $this->praticienController->addPraticien();
                 }
@@ -153,11 +157,10 @@ class App
                         require('app\views\praticiens\confirmDeletePraticien.php');
                     }
                 }
-                // Ask for confirmation to doctor if he's sure to delete his account or cancel action
+                // Delete doctor into DataBase (via his profil page (connectedPraticien.php))
                 elseif ($_GET['action'] == 'confirmSuppressionPraticien') {
                     if (isset($_SESSION['id']) && $_SESSION['id'] > 0) {
-                        $deleteid = $_SESSION['id'];
-                        $this->praticienController->delPraticien($deleteid);
+                        $this->praticienController->delPraticien($_SESSION['id']);
                         session_unset();
                         session_destroy();
                         header('Location: index.php');
