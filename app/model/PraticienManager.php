@@ -48,8 +48,10 @@ class PraticienManager extends Manager
         $db = $this->dbConnect();
         $req = $db->query('SELECT * FROM praticien 
                            INNER JOIN specialite 
-                           ON praticien.id_spe = specialite.id_spe ORDER BY description');
-                           return $req;
+                           ON praticien.id_spe = specialite.id_spe 
+                           WHERE id_praticien < 1000 
+                           ORDER BY description');
+        return $req;
     }
     // Praticien connexion
     public function connectPraticien($praticienEmail)
@@ -68,7 +70,11 @@ class PraticienManager extends Manager
     public function getAllPatients($id)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT patientPrenom, patientNom, patientDate, email, id_praticien FROM patient INNER JOIN specialite ON specialite.id_spe = patient.id_praticien WHERE patient.id_praticien = (:id)');
+        $req = $db->prepare('SELECT patientPrenom, patientNom, patientDate, email, id_praticien 
+                             FROM patient 
+                             INNER JOIN specialite 
+                             ON specialite.id_spe = patient.id_praticien 
+                             WHERE patient.id_praticien = (:id)');
         $req->execute(array('id' => $id));
         //$praticien = $req->fetch();
         return $req;
@@ -82,14 +88,9 @@ class PraticienManager extends Manager
     //     $description = $req->fetch();
     //     return $description;
     // }
-    // Deleting the praticien account with this ID in the DB
-    public function deletePraticien($deleteid)
-    {
-        $db = $this->dbConnect();
-        $req = $db->prepare('DELETE FROM praticien WHERE id_praticien = (:deleteid)');
-        $req->execute(array('deleteid' => $deleteid));
-        return $req;
-    }
+
+
+
     // retrieve all datas from the 'specialite' table
     public function getSpecialites()
     {
@@ -107,6 +108,7 @@ class PraticienManager extends Manager
                            FROM praticien 
                            INNER JOIN specialite 
                            ON praticien.id_spe = specialite.id_spe 
+                           WHERE id_praticien < 1000
                            ORDER BY description');
         return $req;
     }
@@ -117,4 +119,31 @@ class PraticienManager extends Manager
         $req = $db->query('SELECT DISTINCT description FROM specialite');
         return $req;
     }
+    // Updates Patients bound to this Default praticien
+    public function upBeforeDelete($id_praticien) 
+    {
+        $db = $this->dbConnect();
+        $req = $db->query("UPDATE patient SET id_praticien = 1000 WHERE id_praticien = $id_praticien");
+        return $req;
+    }
+    // Deleting the praticien account with this ID in the DB
+    public function deletePraticien($id_praticien)
+    {
+        $db = $this->dbConnect();
+        $req = $db->query("DELETE FROM praticien WHERE id_praticien = $id_praticien");
+        return $req;
+    }
+
+
+    
+
+
+
+
+
+
+
+
+    
+    
 }

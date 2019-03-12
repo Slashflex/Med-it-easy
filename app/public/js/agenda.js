@@ -16,6 +16,7 @@ $(function () {
 		});
 	let calendar = $("#calendar").fullCalendar({
 		locale: "fr", // Localisation
+		columnFormat: 'dddd DD',
 		slotLabelFormat: ["H:mm"], // Time displayed on the vertical axis (left)
 		slotDuration: '00:15:00', // 
 		minTime: "08:00:00", // Start of a day

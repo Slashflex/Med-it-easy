@@ -6,6 +6,18 @@
     <h2>Inscription <br>praticien</h2>
 </div>
 
+<!-- Information icon -->
+<div class="btnInfos mx-auto" id="hideInfos">
+    <div class="bgInfos text-center"><i class="fas fa-info"></i></div>
+</div>
+<!-- Left side information panel, appears only on mouseenter...
+...on "information icon" inside form -->
+<div class="toggleInfos">
+    <h4 class="text-center">Caractères autorisés</h4>
+    <p class="text-center"><span class="regExpList">Prénom et Nom : </span><br>A-Za-zéèêîïôüäë -</p>
+    <p class="text-center"><span class="regExpList">Email: </span><br>Tous exceptés celui-ci : <</p>
+    <p class="text-center"><span class="regExpList">Mot de passe : </span><br>Majuscule obligatoire en premier, suivie de a-zA-Z0-9_-</p>
+</div>
 <!-- Doctor registration form -->
 <form class="patientForm" name="praticienForm" method="post" action="index.php?action=registerPraticien">
     <div class="input-group">

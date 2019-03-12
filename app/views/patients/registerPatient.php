@@ -3,7 +3,19 @@
 <?php ob_start(); ?>
 
 <div class="header">
-    <h2>Inscription <br>patient</h2>
+    <h2 class="">Inscription <br>patient</h2>
+</div>
+<!-- Information icon -->
+<div class="btnInfos mx-auto" id="hideInfos">
+    <div class="bgInfos text-center"><i class="fas fa-info"></i></div>
+</div>
+<!-- Left side information panel, appears only on mouseenter...
+...on "information icon" inside form -->
+<div class="toggleInfos">
+    <h4 class="text-center">Caractères autorisés</h4>
+    <p class="text-center regExpcolor"><span class="regExpList">Prénom et Nom : </span><br>A-Za-zéèêîïôüäë -</p>
+    <p class="text-center regExpcolor"><span class="regExpList">Email: </span><br>Tous excepté celui-ci : <</p>
+    <p class="text-center regExpcolor"><span class="regExpList">Mot de passe : </span><br>Majuscule obligatoire en premier, suivie de a-zA-Z0-9_-</p>
 </div>
 
 <!-- Patient registration form-->
@@ -41,7 +53,7 @@
     <div class="input-group">
         <label for="id_praticien">Choisissez votre praticien</label>
         <select name="id_praticien" class="mx-auto">Choisissez votre praticien
-            <!-- Loop recovering the id of the doctors as well as their name and first name -->
+            <!-- Loop recovering the id of the doctors as well as their first and last names -->
             <?php while ($data = $req->fetch()): ?>
             <option value="<?= $data['id_praticien']; ?>">
                 Dr. <?= ucfirst($data['praticienPrenom']) . ' ' . ucfirst($data['praticienNom']); ?>

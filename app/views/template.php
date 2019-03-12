@@ -58,7 +58,7 @@
         <button class="navbar-toggler first-button" id="nav_toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
             aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <!-- <span class=""><i class="fa fa-navicon"></i></span> -->
-            <div class="animated-icon1"><span></span><span></span><span></span></div>
+            <div class="burgerNav"><span></span><span></span><span></span></div>
         </button>
         <!-- Collapsible content -->
         <div class="collapse navbar-collapse justify-content-center" id="navbarToggler">

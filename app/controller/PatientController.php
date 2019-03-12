@@ -11,10 +11,11 @@ use \Exception;
 class PatientController
 {
     private $patientManager;
+    private $eventManager;
 
     public function __construct()
     {
-        // Creating class instance (object)
+        // Creating class instances (object)
         $this->patientManager = new PatientManager;
         $this->praticienManager = new PraticienManager;
         $this->eventManager = new EventManager;
@@ -39,6 +40,7 @@ class PatientController
             $this->patientManager->createPatient($patientPrenom, $patientNom, $patientDate, $email, $passHash, $id_praticien);
         }
         // Sending mail confirmation on register
+        // TO DO... token
         $to = $email;
         $subject = 'Med It Easy | Confirmation de compte';
         $message = 'Bonjour ! '. ucfirst($patientPrenom)  . ' ' . ucfirst($patientNom) . '<br> 
@@ -62,12 +64,14 @@ class PatientController
         //... the user who has this email and stock it in the variable $patientTest
         $patientTest = $this->patientManager->connectPatient($email);
         $result = password_verify($password_1, $patientTest['password_1']);
+        $coords = $this->praticienManager->getPraticienCoords();
         
         if ($result) {
             $_SESSION['patientPrenom'] = $patientTest['patientPrenom'];
             $_SESSION['patientNom'] = $patientTest['patientNom'];
             $_SESSION['id'] = $patientTest['id_patient'];
             $_SESSION['patientEmail'] = $patientTest['email'];
+            $_SESSION['id_praticien'] = $patientTest['id_praticien'];
             if (isset($_POST['rememberMe']) && $_POST['rememberMe'] == "on") {
                 // set cookie
                 setcookie('id', 'patientEmail', 'patientPrenom', 'patientNom', time() + 365243600, null, null, false, true);
@@ -101,7 +105,7 @@ class PatientController
         $passHash = password_hash($password_1, PASSWORD_DEFAULT);
         $req = $this->patientManager->updatePatient($email, $passHash, $id_patient);
     }
-    // TO DO...
+    // Write datas from rdvPatientStep1 view into a JSON file (app\public\json\testJson.json)
     public function testJson()
     {
         $consult = htmlspecialchars($_POST['test']);
@@ -110,6 +114,7 @@ class PatientController
         $fichierOpen = fopen('app\public\json\testJson.json', 'w');
         $fichierWrite = fwrite($fichierOpen, json_encode($donneesArray));
     }
+    // Write datas from rdvPatientStep2 view into a JSON file (app\public\json\testJson2.json)
     public function testJson2()
     {
         $date = htmlspecialchars($_POST['date']);
@@ -126,29 +131,41 @@ class PatientController
     }
     
     // // TO DO ...
-    // public function getPatientRdv()
-    // {
-    //     $save = $this->eventManager->getEvents();
-    //     $events = $this->convert($save);
-    //     echo $events;
-    // }
-    // private function convert($events)
-    // {
-    //     $formatedEvents = [];
-    //     foreach ($events as $event) {
-    //         $formatedEvent['title'] = $event['patientNom'] . ' ' . $event['patientPrenom'] . ' ' . $event['description'];
-    //         $formatedEvent['start'] = $event['start'] . ' ' . $event['hour'];
-    //         $dateSrc = strtotime($formatedEvent['start']);
-    //         $interval = 30 * 60;
-    //         $formatedEvent['end'] = date("Y-m-d H:i:s", $dateSrc + $interval);
-    //         $formatedEvent['color'] = $event['couleur'];
-    //         $formatedEvents[] = $formatedEvent;
-    //     }
-    //     return json_encode($formatedEvents);
-    // }
+    public function getPatientRdv()
+    {
+        $save = $this->eventManager->getEvents();
+        $events = $this->convert($save);
+        echo $events;
+    }
+    private function convert($events)
+    {
+        $formatedEvents = [];
+        foreach ($events as $event) {
+            $formatedEvent['title'] = $event['patientNom'] . ' ' . $event['patientPrenom'] . ' ' . $event['description'];
+            $formatedEvent['start'] = $event['start'] . ' ' . $event['hour'];
+            $dateSrc = strtotime($formatedEvent['start']);
+            $interval = 30 * 60;
+            $formatedEvent['end'] = date("Y-m-d H:i:s", $dateSrc + $interval);
+            $formatedEvent['color'] = $event['couleur'];
+            $formatedEvents[] = $formatedEvent;
+        }
+        return json_encode($formatedEvents);
+    }
     // Display of legal notices
     public function displayLegalNotice()
     {
         header('Location: app\views\mentionsLegales.php');
+    }
+    // Updates Doctor's patient
+    public function updatePratOfPatient($id_praticien, $id_patient) 
+    {
+        $_SESSION['id_praticien'] = $id_praticien;
+        $this->patientManager->updatePraticienOfPatient($id_praticien, $id_patient);
+        require('app\views\patients\connectedPatient.php');
+    }
+    
+    public function delFk($id_prat, $id_patient)
+    {
+        $this->patientManager->delFkPraticien($id_prat, $id_patient);
     }
 }

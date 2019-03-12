@@ -1,6 +1,7 @@
 <?php $title = 'Med It Easy | Connexion en tant que patient'; ?>
 
 <?php ob_start(); ?>
+
 <div class="header">
     <h2>Connexion <br>patient</h2>
 </div>

@@ -4,6 +4,7 @@
 
 <div class="container">
     <form class="patientUpdateForm" name="patientForm" method="post" action="index.php?action=updatePatient">
+    
         <div class="input-group">
             <label for="email">Email</label>
             <input type="email" name="email" id="mail" value="<?= $_SESSION['patientEmail']; ?>"

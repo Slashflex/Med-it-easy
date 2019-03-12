@@ -120,7 +120,7 @@ ul.nav a~a:hover {
 
 // Hamburger Nav Menu 
 
-.animated-icon1 {
+.burgerNav {
     width: 30px;
     height: 20px;
     position: relative;
@@ -136,7 +136,7 @@ ul.nav a~a:hover {
     cursor: pointer;
 }
 
-.animated-icon1 span {
+.burgerNav span {
     display: block;
     position: absolute;
     height: 3px;
@@ -154,23 +154,23 @@ ul.nav a~a:hover {
     transition: .25s ease-in-out;
 }
 
-.animated-icon1 span {
+.burgerNav span {
     background: $color3;
 }
 
-.animated-icon1 span:nth-child(1) {
+.burgerNav span:nth-child(1) {
     top: 0px;
 }
 
-.animated-icon1 span:nth-child(2) {
+.burgerNav span:nth-child(2) {
     top: 10px;
 }
 
-.animated-icon1 span:nth-child(3) {
+.burgerNav span:nth-child(3) {
     top: 20px;
 }
 
-.animated-icon1.open span:nth-child(1) {
+.burgerNav.open span:nth-child(1) {
     top: 11px;
     -webkit-transform: rotate(135deg);
     -moz-transform: rotate(135deg);
@@ -178,12 +178,12 @@ ul.nav a~a:hover {
     transform: rotate(135deg);
 }
 
-.animated-icon1.open span:nth-child(2) {
+.burgerNav.open span:nth-child(2) {
     opacity: 0;
     left: -60px;
 }
 
-.animated-icon1.open span:nth-child(3) {
+.burgerNav.open span:nth-child(3) {
     top: 11px;
     -webkit-transform: rotate(-135deg);
     -moz-transform: rotate(-135deg);
@@ -246,10 +246,11 @@ ul.nav a~a:hover {
 }
 
 #placeholder {
-    width: 100%;
-    margin: 50px auto;
+    width: 60%;
+    margin: 0 auto;
     -webkit-animation: rotation 50s infinite linear;
     animation: rotation 50s linear infinite;
+    padding: 50px 0px;
 }
 
 // Image spinning 
@@ -266,40 +267,6 @@ ul.nav a~a:hover {
     to { transform: rotate(359deg); }
 }
 
-// Blocks
-.blockDesc {
-    width: 80%;
-    height: 140px;
-    background-color: $color9;
-    border-radius: 15px; 
-    margin: 20px auto;
-}
-
-.blockDesc:hover {
-    box-shadow: 0px 8px 24px black !important;
-    transform: scale(1.1);
-    transform: skewX(50px);
-}
-
-.blockDesc>img:nth-child(1) {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-}
-
-.thumbnails {
-    height: 200px;
-    width: 100%;
-    display: flex;
-
-    ul {
-        li {
-            flex-direction: row;
-        }
-    }
-}
-
 // Section "Notre concept"
 
 .concept_height {
@@ -309,6 +276,28 @@ ul.nav a~a:hover {
     box-shadow: 0px 8px 15px rgba(53, 60, 63, 0.5);
 }
 
+.cardBox {
+    margin: 15px;
+    border-radius: 20px;
+}
+
+.h5-mb {
+    color: $color1;
+    margin-bottom: 27px;
+    margin-top: 9px;
+    font-family: 'ubuntu_monoregular';
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.imgCard {
+    width: 40%;
+    text-align: center;
+}
+
+#blockCards {
+    margin: 10px;
+}
 // Section "Notre solution"
 
 .solution_height {
@@ -359,6 +348,7 @@ ul.nav a~a:hover {
     90% { content: "efficace"; }
     100% { content: "efficace"; }
 }
+
 .h1-mb {
     color: $color2;
     margin-bottom: 27px;
@@ -366,12 +356,6 @@ ul.nav a~a:hover {
     font-family: 'ubuntu_monobold';
     text-align: center;
     font-weight: bold;
-}
-
-p:nth-child(3) {
-    color: $color2;
-    font-size: 18px;
-    text-align: justify;
 }
 
 .margin {
@@ -615,7 +599,7 @@ footer {
 .patientForm {
     width: 30%;
     margin: 0px auto 60px auto;
-    padding: 20px;
+    padding: 1px 20px 20px 20px;
     background: $color2;
     border-radius: 0px 0px 10px 10px;
     background-color: $color2;
@@ -637,6 +621,49 @@ footer {
             }
         }
     }
+}
+
+// check up inputs
+.regExpOk {
+    box-shadow: 0 0 10px rgb(15, 238, 15);
+}
+
+.regExpFalse {
+    box-shadow: 0 0 10px rgb(255, 21, 21);
+}
+
+.btnInfos {
+    background: $color2;
+    width: 30%;
+    box-shadow: 0px 8px 15px $color4;
+    margin-top: -2px;
+    display: flex;
+    justify-content: end;
+    padding: -1px  10px 0  0;
+}
+
+.toggleInfos {
+    background-color: $color3;
+    border-radius: 0 20px 20px 0;
+    position: absolute;
+    padding: 10px;
+    left: 0;
+    top: 10em;
+    width: 25%;
+    box-shadow: 0px 8px 15px $color4;
+    display: none;
+}
+// information panel on left side of screen (appears on mouseenter on .bgInfos class)
+.regExpList {
+    color: $color2;
+    font-size: 20px;
+}
+h4.text-center {
+    color: $color2;
+    font-family: 'ubuntu_monobold';
+}
+.regExpcolor {
+    color: $colorH;
 }
 
 .fa-sign-in-alt {
@@ -1187,6 +1214,19 @@ div.fc-row > div > table > thead > tr > td > span {
     color: $color3;
 }
 
+.fa-info  {
+    color: $color2;
+    font-size: 28px;
+    margin: 12px;
+}
+
+.bgInfos {
+    width: 50px;
+    height: 50px;
+    background-color: #dbae58;
+    border-radius: 0 0 0 20px;
+    margin-top: -6px;
+}
 /*==================  End of Section Agenda  ===================*/
 
 /*===============================================================
@@ -1197,8 +1237,7 @@ div.fc-row > div > table > thead > tr > td > span {
     // The image used 
     background-image: url("/app/public/images/parallax1.jpg");
     // Set a specific height
-    height: 40vh;
-    opacity: 0.7;
+    height: 50vh;
     // Create the parallax scrolling effect
     background-attachment: fixed;
     background-position: center;
@@ -1261,12 +1300,27 @@ div.fc-row > div > table > thead > tr > td > span {
         width: 40%;
     }
 
+    .btnInfos {
+        width: 40%;
+    }
+
     .header {
         width: 40%;
     }
 
     .multiStep {
         width: 70%;
+    }
+    .parallax1 {
+        display: none;
+    }
+    // Hides information panel on Forms
+    .toggleInfos {
+        display: none;
+    }
+    // Hides information "button" (mouseenter Jquery script)
+    .bgInfos {
+        display: none;
     }
 }
 
@@ -1287,15 +1341,19 @@ div.fc-row > div > table > thead > tr > td > span {
     }
 
     .patientForm {
-        width: 40%;
+        width: 50%;
+    }
+
+    .btnInfos {
+        width: 50%;
     }
 
     .header {
-        width: 40%;
+        width: 50%;
     }
 
     .header_connected {
-        width: 50%;
+        width: 60%;
     }
 
     .btn-nav {
@@ -1306,10 +1364,18 @@ div.fc-row > div > table > thead > tr > td > span {
     .multiStep {
         width: 85%;
     }
-
-    #placeholder {
+    .parallax1 {
         display: none;
     }
+    // Hides information panel on Forms
+    .toggleInfos {
+        display: none;
+    }
+    // Hides information "button" (mouseenter Jquery script)
+    .bgInfos {
+        display: none;
+    }
+    
 }
 
 // Small screens 
@@ -1350,11 +1416,15 @@ div.fc-row > div > table > thead > tr > td > span {
     }
 
     .patientForm {
-        width: 40%;
+        width: 60%;
+    }
+
+    .btnInfos {
+        width: 60%;
     }
 
     .header {
-        width: 40%;
+        width: 60%;
     }
 
     .header_connected {
@@ -1369,8 +1439,15 @@ div.fc-row > div > table > thead > tr > td > span {
     .multiStep {
         width: 85%;
     }
-
-    #placeholder {
+    .parallax1 {
+        display: none;
+    }
+    // Hides information panel on Forms
+    .toggleInfos {
+        display: none;
+    }
+    // Hides information "button" (mouseenter Jquery script)
+    .bgInfos {
         display: none;
     }
 }
@@ -1414,11 +1491,15 @@ div.fc-row > div > table > thead > tr > td > span {
     }
 
     .patientForm {
-        width: 50%;
+        width: 60%;
+    }
+
+    .btnInfos {
+        width: 60%;
     }
 
     .header {
-        width: 50%;
+        width: 60%;
 
         h2 {
             font-size: 1.4rem;
@@ -1450,10 +1531,6 @@ div.fc-row > div > table > thead > tr > td > span {
         margin-top: 7px;
     }
 
-    #placeholder {
-        display: none;
-    }
-
     .blockDesc>img:nth-child(1) {
         width: 50%;
     }
@@ -1464,6 +1541,17 @@ div.fc-row > div > table > thead > tr > td > span {
         background-color: #dddeded7;
         border-radius: 15px;
         margin: 20px auto;
+    }
+    .parallax1 {
+        display: none;
+    }
+    // Hides information panel on Forms
+    .toggleInfos {
+        display: none;
+    }
+    // Hides information "button" (mouseenter Jquery script)
+    .bgInfos {
+        display: none;
     }
 }
 
@@ -1520,6 +1608,14 @@ div.fc-row > div > table > thead > tr > td > span {
     .multiStep {
         width: 95%;
     }
+    // Hides information panel on Forms
+    .toggleInfos {
+        display: none;
+    }
+    // Hides information "button" (mouseenter Jquery script)
+    .bgInfos {
+        display: none;
+    }
 }
 
 /*==============  End of Section Media Queries  ================*/
@@ -1548,3 +1644,4 @@ div.fc-row > div > table > thead > tr > td > span {
 }
 
 /*=======================  End of TESTS  =======================*/
+

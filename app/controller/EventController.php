@@ -26,18 +26,12 @@ class EventController
         $this->eventManager = new EventManager;
         $event = $eventManager->addEvents($title, $start, $type, $id);
     }
-    // TO DO ...
-    public function getPatientRdv()
-    {
-        $save = $this->eventManager->getEvents();
-        $events = $this->convert($save);
-        echo $events;
-    }
+    
     private function convert($events)
     {
         $formatedEvents = [];
         foreach ($events as $event) {
-            $formatedEvent['title'] = $event['patientNom'] . ' ' . $event['patientPrenom'] . ' ' . $event['description'];
+            $formatedEvent['title'] = ucfirst($event['patientNom']) . ' ' . ucfirst($event['patientPrenom']) . ' ' . 'Motif : ' . ucfirst($event['description']);
             $formatedEvent['start'] = $event['start'] . ' ' . $event['hour'];
             $dateSrc = strtotime($formatedEvent['start']);
             $interval = 30 * 60;
@@ -46,5 +40,12 @@ class EventController
             $formatedEvents[] = $formatedEvent;
         }
         return json_encode($formatedEvents);
+    }
+    // TO DO ...
+    public function getPatientRdv()
+    {
+        $save = $this->eventManager->getEvents();
+        $events = $this->convert($save);
+        echo $events;
     }
 }
