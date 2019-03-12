@@ -39,11 +39,13 @@
                             <label for="selectConsult"><strong class="selectType ">Type de consultation</strong></label>
                         </div>
                         <select id="selectConsult" name="test" class="col-xs-12 form-control select">
-                            <?php while ($data = $typeActes->fetch()): ?>
+                            <?php while ($data = $typeActes->fetch()) {
+                                ?>
                             <option style="color: <?= ucfirst($data['couleur']); ?>" value="<?= $data['id_type']; ?>">
                                 <?= ucfirst($data['description']) . ' ' . ucfirst($data['dureeConsultation']); ?>
                             </option>
-                            <?php endwhile; ?>
+                            <?php
+                            } ?>
                         </select>
                     </div>
                     <div class="form-group">
@@ -54,13 +56,11 @@
                             <select id="selectPraticien" name="id_praticien" class="col-xs-12 form-control">
                                 <?php $previousCat = ""; ?>
                                 <?php $i = 0; ?>
-
                                 <?php while ($data = $coords->fetch()) { ?>
-
                                 <?php if ($data['description'] !== $previousCat) { ?>
                                 <?php $previousCat = $data['description']; ?>
                                 <?php if ($i !== 0) { ?>
-                                    </optgroup>
+                                </optgroup>
                                 <?php } ?>
                                 <?php $i += 1; ?>
                                 <optgroup label="<?= $data['description']; ?>">
@@ -73,7 +73,7 @@
                                     </option>
                                     <?php } ?>
                                     <?php }; ?>
-                                    </optgroup>
+                                </optgroup>
                             </select>
                         </div>
                     </div>

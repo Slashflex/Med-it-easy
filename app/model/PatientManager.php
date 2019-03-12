@@ -53,8 +53,13 @@ class PatientManager extends Manager
             'email' => $email,
             'password_1' => $password_1,
             'id_patient' => $id_patient));
-        // $patient = $req->fetch();
-        // $req->closeCursor();
+        return $req;
+    }
+    public function updatePraticienOfPatient($id_praticien, $id_patient)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE patient SET id_praticien = :id_praticien WHERE id_patient = :id_patient');
+        $req->execute(array('id_praticien' => $id_praticien, 'id_patient' => $id_patient));
         return $req;
     }
     // TO DO...
@@ -71,6 +76,16 @@ class PatientManager extends Manager
         $db = $this->dbConnect();
         $req = $db->prepare("DELETE FROM patient WHERE id_patient = (:deleteid)");
         $req->execute(array('deleteid' => $deleteid));
+        return $req;
+    }
+
+    // Updates patients who have 
+    public function delFkPraticien($id_praticien, $id_patient)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE patient SET id_praticien = 1000 WHERE id_patient = :id_patient');
+        $req->execute(array('id_prat' => $id_praticien,
+                            'id_patient' => $id_patient));
         return $req;
     }
 }

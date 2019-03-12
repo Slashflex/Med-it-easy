@@ -25,7 +25,7 @@
             </div>
             <hr>
             <?php while ($data = $praticien->fetch()): ?>
-            <div class="row  justify-content-between">
+            <div class="row justify-content-between">
                 <p><?= '<p class="toDo col-sm-3"><a class="hover" href="index.php?action=fichePatient">' . ucfirst($data['patientPrenom'] . '</p>' .
                '<p class="toDo col-sm-3">' . ucfirst($data['patientNom']) . '</p>' .
                '<p class="toDo  col-sm-3">' . $data['patientDate'] . '</p>' .

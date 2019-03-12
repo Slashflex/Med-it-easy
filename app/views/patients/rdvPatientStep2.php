@@ -70,6 +70,7 @@
         $('#datetimepicker4').datetimepicker({
             // Saturday and Sunday disabled
             daysOfWeekDisabled: [0, 6],
+            minDate: new Date(),
             format: 'L',
             locale: 'fr'
         });
