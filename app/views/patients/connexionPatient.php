@@ -15,7 +15,7 @@
     </div>
     <div class="input-group">
         <label for="password_1">Mot de passe</label>
-        <input type="password" id="password_1" name="password_1" required>
+        <input type="password" name="password_1" required><!-- id="password_1" -->
         <span class="error-message mx-auto"></span>
     </div>
     <div class="input-group">

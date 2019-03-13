@@ -65,13 +65,30 @@ if ($_SESSION['id_praticien'] == 1000) {
         </div>
         <p class="text-center">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir vos
             consultations et gérer votre profil.</p>
+
+        <!-- <div class="row">
+            <h5 class="">Vos consultations à venir :</h5>
+            <p></p>
+            <p>Rendez-vous le :</p>
+            <?php foreach ($listRdv as $data): ?>
+
+            
+                <br><?= $data['start'] . ' à ' . $data['hour'] . ' avec le Docteur ' . $data['praticienPrenom'] . ' ' . $data['praticienNom']; ?>
+            
+
+            <?php endforeach; ?> -->
+
+
+
+        </div>
         <div class="row">
             <div class="text-center mt-3 mx-auto" id="btn-margin">
-                <a href="index.php?action=rdvPatient" class="btnMultiStepForm col-lg-4">Prendre rendez-vous</a><br>
-                <a href="index.php?action=updatePatient" class="btnMultiStepForm col-lg-4" data-toggle="modal"
+                <a href="index.php?action=rdvPatient" class="btnMultiStepForm col-lg-3">Prendre rendez-vous</a><br>
+                <a href="index.php?action=updatePatient" class="btnMultiStepForm col-lg-3" data-toggle="modal"
                     data-target="#modal_update">Mise
                     à jour du compte</a><br>
-                <a href="index.php?action=deletePatient" class="btnMultiStepForm col-lg-4">Supprimer mon compte</a>
+                <a href="index.php?action=listRdv" class="btnMultiStepForm col-lg-3">Vos rendez-vous</a>
+                <a href="index.php?action=deletePatient" class="btnMultiStepForm col-lg-3">Supprimer mon compte</a>
             </div>
         </div>
 

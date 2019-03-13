@@ -14,9 +14,9 @@
 ...on "information icon" inside form -->
 <div class="toggleInfos">
     <h4 class="text-center">Caractères autorisés</h4>
-    <p class="text-center"><span class="regExpList">Prénom et Nom : </span><br>A-Za-zéèêîïôüäë -</p>
-    <p class="text-center"><span class="regExpList">Email: </span><br>Tous exceptés celui-ci : <</p>
-    <p class="text-center"><span class="regExpList">Mot de passe : </span><br>Majuscule obligatoire en premier, suivie de a-zA-Z0-9_-</p>
+    <p class="text-center regExpcolor"><span class="regExpList">Prénom et Nom : </span><br>A-Za-zéèêîïôüäë -</p>
+    <p class="text-center regExpcolor"><span class="regExpList">Email: </span><br>Tous exceptés celui-ci : <</p>
+    <p class="text-center regExpcolor"><span class="regExpList">Mot de passe : </span><br>Majuscule obligatoire en premier, suivie de a-zA-Z0-9_-</p>
 </div>
 <!-- Doctor registration form -->
 <form class="patientForm" name="praticienForm" method="post" action="index.php?action=registerPraticien">

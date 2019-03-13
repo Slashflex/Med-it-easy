@@ -118,84 +118,94 @@ ul.nav a~a:hover {
     color: $color3 !important;
 }
 
-// Hamburger Nav Menu 
+// Hamburger Nav Menu
+    .burgerNav {
+        width: 30px;
+        height: 20px;
+        position: relative;
+        margin: 0px;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
+        cursor: pointer;
+    }
 
-.burgerNav {
-    width: 30px;
-    height: 20px;
-    position: relative;
-    margin: 0px;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-    -webkit-transition: .5s ease-in-out;
-    -moz-transition: .5s ease-in-out;
-    -o-transition: .5s ease-in-out;
-    transition: .5s ease-in-out;
-    cursor: pointer;
-}
+    .burgerNav span {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in-out;
+        -moz-transition: .25s ease-in-out;
+        -o-transition: .25s ease-in-out;
+        transition: .25s ease-in-out;
+    }
 
-.burgerNav span {
-    display: block;
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    border-radius: 9px;
-    opacity: 1;
-    left: 0;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-    -webkit-transition: .25s ease-in-out;
-    -moz-transition: .25s ease-in-out;
-    -o-transition: .25s ease-in-out;
-    transition: .25s ease-in-out;
-}
+    .burgerNav span {
+        background: $color3;
+    }
 
-.burgerNav span {
-    background: $color3;
-}
+    .burgerNav span:nth-child(1) {
+        top: 0px;
+    }
 
-.burgerNav span:nth-child(1) {
-    top: 0px;
-}
+    .burgerNav span:nth-child(2) {
+        top: 10px;
+    }
 
-.burgerNav span:nth-child(2) {
-    top: 10px;
-}
+    .burgerNav span:nth-child(3) {
+        top: 20px;
+    }
 
-.burgerNav span:nth-child(3) {
-    top: 20px;
-}
+    .burgerNav.open span:nth-child(1) {
+        top: 11px;
+        -webkit-transform: rotate(135deg);
+        -moz-transform: rotate(135deg);
+        -o-transform: rotate(135deg);
+        transform: rotate(135deg);
+    }
 
-.burgerNav.open span:nth-child(1) {
-    top: 11px;
-    -webkit-transform: rotate(135deg);
-    -moz-transform: rotate(135deg);
-    -o-transform: rotate(135deg);
-    transform: rotate(135deg);
-}
+    .burgerNav.open span:nth-child(2) {
+        opacity: 0;
+        left: -60px;
+    }
 
-.burgerNav.open span:nth-child(2) {
-    opacity: 0;
-    left: -60px;
-}
-
-.burgerNav.open span:nth-child(3) {
-    top: 11px;
-    -webkit-transform: rotate(-135deg);
-    -moz-transform: rotate(-135deg);
-    -o-transform: rotate(-135deg);
-    transform: rotate(-135deg);
-}
+    .burgerNav.open span:nth-child(3) {
+        top: 11px;
+        -webkit-transform: rotate(-135deg);
+        -moz-transform: rotate(-135deg);
+        -o-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+    }
 
 /*================== End of Navigation Bar =====================*/
 
 /*================================================================
 =                              Header                            =
 ================================================================*/
+.card-deck {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#leftCard img, #rightCard img {
+    padding-top: 1em;
+    width: 60%;
+    margin: 0 auto;
+}
+
 
 .card {
     box-shadow: 0px 8px 15px $color4;

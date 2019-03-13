@@ -102,54 +102,57 @@ $(function () {
             $('#first').next('.error-message').hide().text('');
         }
     });
-        $('#last').keyup(function () { // Last name reg exp check
-            if (!$('#last').val().match(/^[A-Za-zéèêîïôüäë -]+$/i)) {
-                $('#last').next('.error-message').show().text('Veuillez entrez un nom valide');
+    $('#last').keyup(function () { // Last name reg exp check
+        if (!$('#last').val().match(/^[A-Za-zéèêîïôüäë -]+$/i)) {
+            $('#last').next('.error-message').show().text('Veuillez entrez un nom valide');
+        } else {
+            $('#last').next('.error-message').hide().text('');
+        }
+    });
+    $('#mail').keyup(function () { // Email reg exp check
+        if (!$('#mail').val().match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
+            $('#mail').next('.error-message').show().text('Veuillez entrez une adresse mail valide');
+        } else {
+            $('#mail').next('.error-message').hide().text('');
+        }
+    });
+    $('#password_1').keyup(function () { // Password reg exp check
+        if (!$('#password_1').val().match(/^[A-Z][a-zA-Z0-9_-]{8,20}$/)) {
+            $('#password_1').next('.error-message').show().text('Votre mot de passe doit commencer par une majuscule et comporter au moins 8 caractères (e.g : Azerty_-1234)');
+        } else {
+            $('#password_1').next('.error-message').hide().text('');
+        }
+    });
+    $('#password_2').keyup(function () { // Password confirm reg exp check
+        if (!$('#password_2').val().match(/^[A-Z][a-zA-Z0-9_-]{8,20}$/)) {
+            $('#password_2').next('.error-message').show().text('Vos deux mots de passe ne correspondent pas');
+        } else {
+            $('#password_2').next('.error-message').hide().text('');
+        }
+    });
+    $(function () {
+        $('#password_2').blur(function () {
+            let pass = $('input[name=password_1]').val();
+            let repass = $('input[name=password_2]').val();
+            if (($('input[name=password_1]').val().length == 0) || ($('input[name=password_2]').val().length == 0)) {
+                $('#password_1').addClass('regExpFalse');
+            } else if (pass != repass) {
+                $('#password_1').addClass('regExpFalse');
+                $('#password_2').addClass('regExpFalse');
             } else {
-                $('#last').next('.error-message').hide().text('');
+                $('#password_1').removeClass().addClass('regExpOk');
+                $('#password_2').removeClass().addClass('regExpOk');
             }
         });
-            $('#mail').keyup(function () { // Email reg exp check
-                if (!$('#mail').val().match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
-                    $('#mail').next('.error-message').show().text('Veuillez entrez une adresse mail valide');
-                } else {
-                    $('#mail').next('.error-message').hide().text('');
-                }
-            });
-                $('#password_1').keyup(function () { // Password reg exp check
-                    if (!$('#password_1').val().match(/^[A-Z][a-zA-Z0-9_-]{8,20}$/)) {
-                        $('#password_1').next('.error-message').show().text('Votre mot de passe doit commencer par une majuscule et comporter au moins 8 caractères (e.g : Azerty_-1234)');
-                    } else {
-                        $('#password_1').next('.error-message').hide().text('');
-                    }
-                });
-                $('#password_2').keyup(function () { // Password confirm reg exp check
-                    if (!$('#password_2').val().match(/^[A-Z][a-zA-Z0-9_-]{8,20}$/)) {
-                        $('#password_2').next('.error-message').show().text('Vos deux mots de passe ne correspondent pas');
-                    } else {
-                        $('#password_2').next('.error-message').hide().text('');
-                    }
-                });
-                $(function () {
-                    $('#password_2').blur(function() {
-                        let pass = $('input[name=password_1]').val();
-                        let repass = $('input[name=password_2]').val();
-                        if (($('input[name=password_1]').val().length == 0) || ($('input[name=password_2]').val().length == 0)) {
-                            $('#password_1').addClass('regExpFalse');
-                        }
-                        else if (pass != repass) {
-                            $('#password_1').addClass('regExpFalse');
-                            $('#password_2').addClass('regExpFalse');
-                        }
-                        else {
-                            $('#password_1').removeClass().addClass('regExpOk');
-                            $('#password_2').removeClass().addClass('regExpOk');
-                        }
-                    });
-                    });
+    });
     /*=======  End of Section Reg EXp control on forms  =========*/
 });
-
+// Information panel on regExp to be used on registers forms (both patient and doctor)
+$(function () {
+    $('.bgInfos').mouseenter(function () {
+        $('.toggleInfos').toggle('slow');
+    });
+});
 // Add active class on nav-link when clicked, remove it on other link click...
 // ...remove class on other views when loaded (once they have no link to the 3 main nav-links)
 $(function () {
@@ -180,10 +183,5 @@ $(function () {
 =============================================================*/
 
 
-$(function() {
-    $('.bgInfos').mouseenter(function() {
-        $('.toggleInfos').toggle('slow');
-    });
-});
 
 /*======================  End of TESTS  =====================*/

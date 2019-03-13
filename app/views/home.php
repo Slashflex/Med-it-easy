@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 <!-- Block "Notre concept" -->
-<section id="JQueryAnchor1" class="container-fluid concept_height">
+<section id="JQueryAnchor1" class="container-fluid concept_height page_section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -43,7 +43,7 @@
 </div>
 
 <!-- Block "Notre solution" -->
-<section id="JQueryAnchor2" class="container-fluid solution_height">
+<section id="JQueryAnchor2" class="container-fluid solution_height page_section">
     section 2
 </section>
 
@@ -52,7 +52,7 @@
 </div>
 
 <!-- Block "Tarifs" -->
-<section id="JQueryAnchor3" class="container-fluid pricing_height">
+<section id="JQueryAnchor3" class="container-fluid pricing_height page_section">
     section 3
 </section>
 
