@@ -45,9 +45,9 @@
             return json_encode($formatedEvents);
         }
         // // TO DO ...
-        public function getPatientRdv()
+        public function getPatientRdv($id_praticien)
         {
-            $save = $this->eventManager->getEvents();
+            $save = $this->eventManager->getEvents($id_praticien);
             $events = $this->convert($save);
             echo $events;
         }
