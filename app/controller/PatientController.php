@@ -80,7 +80,6 @@
                     setcookie('id', 'patientEmail', 'patientPrenom', 'patientNom', time() + 365243600, null, null, false, true);
                     $rememberMe = htmlspecialchars($_POST['rememberMe']);
                 }
-                //$listRdv = $this->eventManager->patientListEvents();
                 require('app\views\patients\connectedPatient.php');
                 
             } else {
@@ -94,9 +93,14 @@
         require('app\views\patients\registerPatient.php');
     }
 // --- DELETE PATIENT
-        public function delPatient($deleteid)
+        public function delPatient($id_patient)
         {
-            $this->patientManager->deletePatient($deleteid);
+            // Delete events bound to patient
+            $this->patientManager->delPatientEvents($id_patient);
+            // Delete id_praticien bound to patient
+            $this->patientManager->delPraticienOfPatient($id_patient);
+            // Delete patient into DB
+            $this->patientManager->deletePatient($id_patient);
         }
 // --- LIST TYPE OF ACTES & LIST ALL DOCTORS BY SPECIALITIES    
         public function rdvStep1()
@@ -168,9 +172,9 @@
     }
     
 // --- SELECT ALL EVENTS BOOKED BY PATIENTS WITH HIS DOCTOR(S)
-        // public function getPatientRdv()
+        // public function getPatientRdv($id_praticien)
         // {
-        //     $save = $this->eventManager->getEvents();
+        //     $save = $this->eventManager->getEvents($id_praticien);
         //     $events = $this->convert($save);
         //     echo $events;
         // }
@@ -202,9 +206,9 @@
             $this->patientManager->delFkPraticien($id_prat, $id_patient);
         }
 // --- LIST ALL PATIENTS APPOINTMENTS
-        public function listingRDV()
+        public function listingRDV($id_praticien)
         {
-            $listRdv = $this->eventManager->patientListEvents();
+            $listRdv = $this->eventManager->patientListEvents($id_praticien);
             require('app\views\patients\listRdv.php');
         }
 }

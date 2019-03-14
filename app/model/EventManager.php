@@ -18,17 +18,18 @@
             return $req;
         }
 // --- SELECT ALL EVENTS BOOKED BY PATIENTS WITH HIS DOCTOR(S)
-        public function getEvents()
+        public function getEvents($id_praticien)
         {
             $db = $this->dbConnect();
             $json = array();
-            $req = $db->query('SELECT description, dureeConsultation, couleur,  patientNom, patientPrenom, start, hour
+            $req = $db->prepare('SELECT description, dureeConsultation, couleur, patientNom, patientPrenom, start, hour
                                FROM events
                                INNER JOIN patient 
                                ON patient.id_patient = events.id_patient
                                INNER JOIN typeacte
                                ON typeacte.id_type = events.id_type
-                               WHERE patient.id_praticien = 2');
+                               WHERE patient.id_praticien = :id_praticien');
+            $req->execute(array('id_praticien' => $id_praticien));
             return $req->fetchAll(PDO::FETCH_ASSOC);
         }
 // --- UPDATES EVENTS ON DRAG AND DROP ?????
@@ -70,19 +71,20 @@
         }
 
 // --- LIST ALL EVENTS BOUND TO PATIENT AND DOCTORS
-        public function patientListEvents()
+        public function patientListEvents($id_praticien)
             {
                 $db = $this->dbConnect();
                 // SELECT * FROM praticien, patient INNER JOIN events ON events.id_type = patient.id_praticien WHERE patient.id_patient = 1
-                $listRdv = $db->query('SELECT description, dureeConsultation, couleur, patientNom, patientPrenom, start, hour, praticienNom, praticienPrenom 
+                $listRdv = $db->prepare('SELECT description, dureeConsultation, couleur, patientNom, patientPrenom, start, hour, praticienNom, praticienPrenom 
                                        FROM events 
                                        INNER JOIN patient 
                                        ON patient.id_patient = events.id_patient 
-                                       INNER JOIN praticien ON praticien.id_spe = patient.id_praticien 
+                                       INNER JOIN praticien ON praticien.id_praticien = patient.id_praticien 
                                        INNER JOIN typeacte ON typeacte.id_type = events.id_type
-                                       WHERE patient.id_praticien = 2');
-                $save = $listRdv->fetchAll();
-                return $save;
+                                       WHERE patient.id_praticien = :id_praticien');
+                $listRdv->execute(array('id_praticien' => $id_praticien));                    
+                //$save = $listRdv->fetch();
+                return $listRdv;
             }
 
 }

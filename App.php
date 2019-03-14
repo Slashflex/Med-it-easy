@@ -55,8 +55,7 @@
                     // Confirmation request to the patient to delete his account or cancel the action
                     elseif ($_GET['action'] == 'confirmSuppression') {
                         if (isset($_SESSION['id']) && $_SESSION['id'] > 0) {
-                            $deleteid = $_SESSION['id'];
-                            $this->patientController->delPatient($deleteid);
+                            $this->patientController->delPatient($_SESSION['id']);
                             session_unset();
                             session_destroy();
                             header('Location: index.php');
@@ -110,7 +109,7 @@
                         }
                     }
                     elseif ($_GET['action'] == 'listRdv') {
-                        $this->patientController->listingRDV();
+                        $this->patientController->listingRDV($_SESSION['id_praticien']);
                     }
                     // Form to choose a Doctor, if the patients' doctor chosen on patient registration, ...
                     //... deleted his account or doesn't want to use the website anymore
@@ -147,6 +146,7 @@
                     }
                     // Agenda.php (FullCalendar plugin) view loaded on click
                     elseif ($_GET['action'] == 'agendaAdmin') {
+                        //$this->eventController->getPatientRdv($_SESSION['id']);
                         require('app\views\praticiens\agendaAdmin.php');
                     }
                     // Nav-link on connectedPraticien view to list pricings of actes

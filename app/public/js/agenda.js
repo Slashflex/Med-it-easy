@@ -22,7 +22,7 @@ $(function () {
 		minTime: "08:00:00", // Start of a day
 		maxTime: "19:30:00", // End of a day
 		defaultView: "agendaDay", // Default view => Day
-		editable: true,
+		editable: false,
 		eventLimit: true,
 		selectable: true,
 		selectHelper: true,
@@ -41,8 +41,9 @@ $(function () {
 						let events = [];
 						$(doc).each(function () {
 							events.push({
+								// will be parsed
 								title: $(this).attr('title'),
-								start: $(this).attr('start'), // will be parsed
+								start: $(this).attr('start'), 
 								end: $(this).attr('end'),
 								color: $(this).attr('color')
 							});

@@ -2,15 +2,6 @@
 
 <?php ob_start(); ?>
 
-<?php
-// if ($_SESSION['id_praticien'] == 1000) {
-?>
-<!-- <div class="container">
-    <div class="header_connected">
-        <h4>Bienvenue <?= ucfirst($_SESSION['patientPrenom']) . ' ' . ucfirst($_SESSION['patientNom']) . ' '; ?>
-</h4>
-</div> -->
-
 <div class="container">
     <div class="header_connected">
         <h4>Bienvenue <?= ucfirst($_SESSION['patientPrenom']) . ' ' . ucfirst($_SESSION['patientNom']) . ' '; ?>
@@ -21,16 +12,14 @@
 
     <div class="row">
         <h5 class="">Vos consultations à venir :</h5>
-        <p></p>
-        <p>Rendez-vous le :</p>
-        <?php foreach ($listRdv as $data): ?>
-        <p>
-            <?= ' ' . $data['start'] . ' à ' . $data['hour'] . ' avec le Docteur ' . $data['praticienPrenom'] . ' ' . $data['praticienNom']; ?><br>
+        <?php while ($data = $listRdv->fetch()): ?>
+        <p class="text-center" style="width: 100%">
+            <?= ' ' . $data['start'] . ' à ' . $data['hour'] . 
+                ' avec le Docteur ' . $data['praticienPrenom'] . 
+                ' ' . $data['praticienNom']. '</br>' ?>
         </p>
-        <?php endforeach; ?>
-        <?php
-   // }
-    ?>
+        <?php endwhile; ?>
+
     </div>
 </div>
 
