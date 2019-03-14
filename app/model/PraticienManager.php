@@ -105,7 +105,7 @@
             $req = $db->query("UPDATE patient SET id_praticien = 1 WHERE id_praticien = $id_praticien");
             return $req;
         }
-// Delete the praticien account with this ID in the DB
+// --- DELETE DOCTOR'S ACCOUNT 
         public function deletePraticien($id_praticien)
         {
             $db = $this->dbConnect();
