@@ -167,7 +167,7 @@ $(function () {
 // Hamburger Navigation button (appears on medium screen viewport)
 $(function () {
     $('.first-button').on('click', function () {
-        $('.navBurger').toggleClass('open');
+        $('.burgerNav').toggleClass('open');
     });
 });
 
