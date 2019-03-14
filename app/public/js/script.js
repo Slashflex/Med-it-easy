@@ -9,7 +9,7 @@ $(function () {
             btn.removeClass("show");
         }
     });
-    /* Back to top button */
+    // Back to top button
     let btn = $("#buttonToTop");
     btn.on("click", function (e) {
         e.preventDefault();
@@ -46,7 +46,7 @@ $(function () {
         );
     });
     // Allows the return to sections of the home.php view ...
-    //... from other pages (like registerPatient, connexionPatient etc ...)
+    //... from other views (like registerPatient, connexionPatient etc ...)
     $("index.php#test").click(function () {
         $("html, body").animate({
                 scrollTop: $("#test1").offset().top
@@ -81,11 +81,11 @@ $(function () {
         $this.attr("src", newSource);
     };
     $("img.icon_color").hover(sourceSwap, sourceSwap);
-    /* Change background on hover */
+    // Change background on hover
     $(".icon_color").on("mouseenter", function () {
         $(this).css("background-color", "#dbae58");
     });
-    /* Reset background to default one */
+    // Reset background to default one
     $(".icon_color").on("mouseleave", function () {
         $(this).css("background-color", "#353c3f");
     });
@@ -130,6 +130,7 @@ $(function () {
             $('#password_2').next('.error-message').hide().text('');
         }
     });
+    // --- PASSWORDS INPUTS CHECK (if OK, add box-shadow green around fields, else add a red one)
     $(function () {
         $('#password_2').blur(function () {
             let pass = $('input[name=password_1]').val();
@@ -147,14 +148,13 @@ $(function () {
     });
     /*=======  End of Section Reg EXp control on forms  =========*/
 });
-// Information panel on regExp to be used on registers forms (both patient and doctor)
+// --- INFORMATION PANEL ON REGEXEP TO BE USED (register forms)
 $(function () {
     $('.bgInfos').mouseenter(function () {
         $('.toggleInfos').toggle('slow');
     });
 });
-// Add active class on nav-link when clicked, remove it on other link click...
-// ...remove class on other views when loaded (once they have no link to the 3 main nav-links)
+// --- ADD ACTIVE CLASS ON NAV LINK WHEN CLiCKED
 $(function () {
     $('.nav a:lt(3)').filter(function () {
         return this.href == location.href
@@ -164,13 +164,21 @@ $(function () {
     });
 });
 
-// Hamburger Navigation button (appears on medium screen viewport)
+// --- HAMBURGER NAVIGATION BUTTON (appears on medium screen viewport)
 $(function () {
     $('.first-button').on('click', function () {
         $('.burgerNav').toggleClass('open');
     });
 });
-
+// --- EDIT BUTTON (app\views\patients\listRdv.php)
+$(function () {
+    $('.editBtn').mouseenter(function () {
+        $('.fa-edit').css('color', '#353c3f');
+    });
+    $('.editBtn').mouseleave(function () {
+        $('.fa-edit').css('color', '#dbae58');
+    });
+});
 
 
 
@@ -181,7 +189,6 @@ $(function () {
 /*=============================================================
 ==========================  TESTS   ===========================
 =============================================================*/
-
 
 
 /*======================  End of TESTS  =====================*/
