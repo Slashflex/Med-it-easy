@@ -71,11 +71,27 @@
             return $req;
         }
 // --- DELETE PATIENT
-        public function deletePatient($deleteid)
+        public function deletePatient($id_patient)
         {
             $db = $this->dbConnect();
-            $req = $db->prepare('DELETE FROM patient WHERE id_patient = (:deleteid)');
-            $req->execute(array('deleteid' => $deleteid));
+            $req = $db->prepare('DELETE FROM patient WHERE id_patient = (:id_patient)');
+            $req->execute(array('id_patient' => $id_patient));
+            return $req;
+        }
+// --- DELETE ALL EVENTS BOUND TO PATIENT
+        public function delPatientEvents($id_patient)
+        {
+            $db = $this->dbConnect();
+            $req = $db->prepare('DELETE FROM events WHERE id_patient = (:id_patient)');
+            $req->execute(array('id_patient' => $id_patient));
+            return $req;
+        }
+// --- DELETE DOCTOR'S ID BOUND TO PATIENT
+        public function delPraticienOfPatient($id_patient)
+        {
+            $db = $this->dbConnect();
+            $req = $db->prepare('DELETE FROM patient WHERE id_praticien = (:id_patient)');
+            $req->execute(array('id_patient' => $id_patient));
             return $req;
         }
 // --- IF PATIENT'S DOCTOR ACCOUNT IS NO MORE, ASK PATIENT TO CHOOSE A NEW ONE
