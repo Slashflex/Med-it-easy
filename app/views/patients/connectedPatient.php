@@ -3,8 +3,7 @@
 <?php ob_start(); ?>
 
 <?php
-if ($_SESSION['id_praticien'] == 1) {
-    ?>
+if ($_SESSION['id_praticien'] == 1): ?>
 <div class="container">
     <div class="header_connected">
         <h4>Bienvenue <?= ucfirst($_SESSION['patientPrenom']) . ' ' . ucfirst($_SESSION['patientNom']) . ' '; ?>
@@ -21,25 +20,21 @@ if ($_SESSION['id_praticien'] == 1) {
                 <?php $previousCat = ""; ?>
                 <?php $i = 0; ?>
                 <?php while ($data = $coords->fetch()): ?>
-
-                <?php if ($data['description'] !== $previousCat) {
-            ?>
-                <?php $previousCat = $data['description']; ?>
-                <?php if ($i !== 0) {
-                ?>
+                    <?php if ($data['description'] !== $previousCat): ?>
+                            <?php $previousCat = $data['description']; ?>
+                        <?php if ($i !== 0): ?>
                 </optgroup>
-                <?php
-            } ?>
+                    <?php endif; ?>
                 <?php $i += 1; ?>
                 <optgroup label="<?= $data['description']; ?>">
                     <option value="<?= $data['id_praticien']; ?>">
                         Dr.<?= ' ' . ucfirst($data['praticienNom']) . ' ' . ucfirst($data['praticienPrenom']) ; ?>
                     </option>
-                    <?php } else { ?>
+                    <?php else: ?>
                     <option value="<?= $data['id_praticien']; ?>">
                         Dr.<?= ' ' . ucfirst($data['praticienNom']) . ' ' . ucfirst($data['praticienPrenom']) ; ?>
                     </option>
-                    <?php } ?>
+                    <?php endif; ?>
                     <?php endwhile; ?>
                 </optgroup>
             </select>
@@ -49,44 +44,39 @@ if ($_SESSION['id_praticien'] == 1) {
         </div>
     </form>
 
-    <?php } else { ?>
+    <?php  else: ?>
     <div class="container">
         <div class="header_connected">
             <h4>Bienvenue <?= ucfirst($_SESSION['patientPrenom']) . ' ' . ucfirst($_SESSION['patientNom']) . ' '; ?>
             </h4>
         </div>
-        <p class="text-center">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir vos
+        <p class="text-center selectType">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir vos
             consultations et gérer votre profil.</p>
-<!-- 
         <div class="row">
-            <h5 class="">Vos consultations à venir :</h5>
-            <p></p>
-            <p>Rendez-vous le :</p>
-            <?php foreach ($listRdv as $data): ?>
-
-            
-                <br><?= $data['start'] . ' à ' . $data['hour'] . ' avec le Docteur ' . $data['praticienPrenom'] . ' ' . $data['praticienNom']; ?>
-            
-
-            <?php endforeach; ?>
-
- -->
-
-    </div>
-    <div class="row">
-        <div class="text-center mt-3 mx-auto" id="btn-margin">
-            <a href="index.php?action=rdvPatient" class="btnMultiStepForm col-lg-3">Prendre rendez-vous</a><br>
-            <a href="index.php?action=updatePatient" class="btnMultiStepForm col-lg-3" data-toggle="modal"
-                data-target="#modal_update">Mise
-                à jour du compte</a><br>
-            <a href="index.php?action=listRdv" class="btnMultiStepForm col-lg-3">Vos rendez-vous</a>
-            <a href="index.php?action=deletePatient" class="btnMultiStepForm col-lg-3">Supprimer mon compte</a>
+            <div class="text-center mx-auto" id="btn-margin">
+                <ul>
+                    <li>
+                        <a href="index.php?action=listRdv" class="btnMultiStepForm col-lg-3">Vos rendez-vous</a>
+                    </li>
+                    <li>
+                        <a href="index.php?action=rdvPatient" class="btnMultiStepForm col-lg-3">Prendre rendez-vous</a>
+                    </li>
+                    <li>
+                        <a href="index.php?action=updatePatient" class="btnMultiStepForm col-lg-3" data-toggle="modal"
+                            data-target="#modal_update">Mise
+                            à jour du compte</a>
+                    </li>
+                    <li>
+                        <a href="index.php?action=deletePatient" class="btnMultiStepForm col-lg-3">Supprimer mon
+                            compte</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
     <!-- Modal to update Patient email and password -->
-    <div class="modal fade" id="modal_update" tabindex="-1" role="dialog" aria-labelledby="modal_update"
-        aria-hidden="true">
+    <div class="modal fade" id="modal_update" tabindex="-1" role="dialog" aria-labelledby="modal_update" aria-hidden="true">
         <div class="header">
             <h2>Mise à jour de vos données</h2>
         </div>
@@ -111,9 +101,7 @@ if ($_SESSION['id_praticien'] == 1) {
         </div>
     </div>
 </div>
-<?php
-    }
-    ?>
+<?php endif; ?>
 
 <?php $content = ob_get_clean(); ?>
 

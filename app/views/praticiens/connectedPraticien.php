@@ -5,14 +5,14 @@
 <div id="offCanva">
     <input id="menu-trigger" type="checkbox">
     <label id="label" for="menu-trigger" onclick="document.getElementById('offCanva').classList.toggle('open');"><i
-            class="fas fa-tools fa-2x"></i></label>
-
+            class="fas fa-tools fa-2x"></i>
+    </label>
     <div id="content">
         <div class="header_connected">
             <h4>Bienvenue Docteur <?= ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['praticienNom']); ?>
             </h4>
         </div>
-        <p class="text-center margin">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et
+        <p class="text-center margin selectType">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et
             gérer vos
             consultations.</p>
         <div class="calendar"></div>

@@ -1,4 +1,4 @@
-<?php $title = 'Med It Easy | Réservation consultation - étape 2/4'; ?>
+<?php $title = 'Med It Easy | Réservation consultation - étape 3/3'; ?>
 
 <?php ob_start(); ?>
 

@@ -13,7 +13,7 @@
             <h4>Bienvenue Docteur <?= ucfirst($_SESSION['praticienPrenom']) . ' ' . ucfirst($_SESSION['praticienNom']); ?>
             </h4>
         </div>
-        <p class="text-center margin">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et
+        <p class="text-center margin selectType">Vous êtes sur la page de gestion de votre profil, d'ici vous pourrez voir et
             gérer vos
             consultations.</p>
         <div id="calendar"></div>
@@ -23,7 +23,7 @@
         <!-- Displaying the time and date in the off-canva menu -->
         <div class="dateNav mx-auto"><?php setlocale(LC_ALL, 'fr_FR'); ?><?=  ucfirst(strftime("%A %e %B %Y", mktime())) . '<br>' . strftime("%H : %M", mktime());?>
         </div>
-        <ul class="menu mx-auto">
+        <ul class="menu mx-auto offMenu">
         <li><a href="index.php?action=accueil"><i class="fas fa-home fa-1x"></i> Accueil</a></li>
             <li><a href="index.php?action=agendaAdmin"><i class="far fa-calendar-alt fa-1x"></i> Agenda</a></li>
             <li><a href="index.php?action=pricings"><i class="fas fa-hand-holding-usd fa-1x"></i> Tarifs</a></li>

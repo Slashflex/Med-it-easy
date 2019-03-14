@@ -2,6 +2,8 @@
 
 * {
     list-style-type: none;
+    margin: 0;
+    //padding: 0;
 }
 
 a:hover {
@@ -251,7 +253,7 @@ ul.nav a~a:hover {
 =================================================================*/
 
 #main {
-    min-height: 800px;
+    min-height: 950px;
     margin-top: 0;
 }
 
@@ -572,7 +574,7 @@ footer {
 /*=====================  End of Footer ==========================*/
 
 /*=================================================================
-=                    Section Form inscription                     =
+=                    Section Form Register                     =
 =================================================================*/
 
 .header {
@@ -672,6 +674,7 @@ h4.text-center {
     color: $color2;
     font-family: 'ubuntu_monobold';
 }
+
 .regExpcolor {
     color: $colorH;
 }
@@ -791,8 +794,10 @@ option {
     background-color: $color2;
     color: $color3 !important;
 }
-
-/*============== End of Section Form inscription ===============*/
+#btn-margin > ul:nth-child(1) {
+    padding: 0;
+}
+/*============== End of Section Form Register ===============*/
 
 /*================================================================
 =                  Section rdvPatient step 1 to 3                =
@@ -865,7 +870,7 @@ option {
 #steps {
     width: 140px;
     display: inline-block;
-    //float: right;
+    float: right;
     margin-top: 7px;
 
     .book-step {
@@ -916,8 +921,17 @@ option {
     margin-top: 3px;
     border: 3px solid $color3;
 }
-
+// app\views\patients\listRdv.php view
+#colorRdv {
+    border-radius: 45px;
+    padding: 5px; 
+    color: $color2;
+    font-weight: bold; 
+    margin-right: 11px;
+}
 /*============ End of Section rdvPatient step 1 to 3 ==============*/
+
+// --- errors
 pre {
     background-color: $color3;
     width: 50%;
@@ -1052,7 +1066,9 @@ pre {
     transition: transform .3s ease;
     box-shadow: 9px 8px 15px $color4;
 }
-
+.offMenu {
+    padding: 0 auto;
+}
 ul.menu>li>a {
     color: $color1;
     text-decoration: none;
@@ -1222,6 +1238,34 @@ div.fc-row > div > table > thead > tr > td > span {
 .fa-users,
 .fa-sign-out-alt {
     color: $color3;
+}
+
+.fa-edit {
+    color: $color3;
+    font-size: 20px;
+}
+
+.editBtn {
+    background-color: #353c3f;
+    height: 35px;
+    width: 8em;
+    padding: 5px 10px;
+    border-radius: 45px;
+    text-align: center;
+    color: #dbae58;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.editBtn:hover {
+    background-color: $color3;
+    height: 35px;
+    width: 8em;
+    padding: 5px 10px;
+    border-radius: 45px;
+    text-align: center;
+    color: $color2;
+    box-shadow: 0px 8px 15px $color4;
 }
 
 .fa-info  {
@@ -1654,4 +1698,3 @@ div.fc-row > div > table > thead > tr > td > span {
 }
 
 /*=======================  End of TESTS  =======================*/
-
