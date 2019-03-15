@@ -209,6 +209,8 @@
         public function listingRDV($id_praticien)
         {
             $listRdv = $this->eventManager->patientListEvents($id_praticien);
+            $typeActes = $this->patientManager->getTypeActes();
+            $coords = $this->praticienManager->getPraticienCoords();
             require('app\views\patients\listRdv.php');
         }
 }

@@ -926,8 +926,7 @@ option {
     border-radius: 45px;
     padding: 5px; 
     color: $color2;
-    font-weight: bold; 
-    margin-right: 11px;
+    font-weight: bold;
 }
 /*============ End of Section rdvPatient step 1 to 3 ==============*/
 
@@ -1014,7 +1013,7 @@ pre {
 
     +#label {
         background-color: $color3;
-        color: #FFF;
+        color: $color10;
         cursor: pointer;
         padding: 10px 10px;
         margin: 10px;
@@ -1240,24 +1239,20 @@ div.fc-row > div > table > thead > tr > td > span {
     color: $color3;
 }
 
-.fa-edit {
-    color: $color3;
-    font-size: 20px;
-}
 
-.editBtn {
-    background-color: #353c3f;
-    height: 35px;
-    width: 8em;
-    padding: 5px 10px;
+.btnBack {
+    background-color: $color2;
+    //height: 35px;
+    //width: 8em;
+    padding: 4px 10px;
     border-radius: 45px;
-    text-align: center;
-    color: #dbae58;
+    //text-align: center;
+    color: $color3;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-.editBtn:hover {
+.btnBack:hover {
     background-color: $color3;
     height: 35px;
     width: 8em;
@@ -1698,3 +1693,9 @@ div.fc-row > div > table > thead > tr > td > span {
 }
 
 /*=======================  End of TESTS  =======================*/
+.typeRdv {
+    width: 100%;
+}
+.concatRdv {
+    width: 75%;
+}
