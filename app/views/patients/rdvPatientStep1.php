@@ -39,13 +39,11 @@
                             <label for="selectConsult"><strong class="selectType ">Type de consultation</strong></label>
                         </div>
                         <select id="selectConsult" name="test" class="col-xs-12 form-control select">
-                            <?php while ($data = $typeActes->fetch()) {
-                                ?>
-                            <option style="color: <?= ucfirst($data['couleur']); ?>" value="<?= $data['id_type']; ?>">
-                                <?= ucfirst($data['description']) . ' ' . ucfirst($data['dureeConsultation']); ?>
-                            </option>
-                            <?php
-                            } ?>
+                            <?php while ($data = $typeActes->fetch()): ?>
+                                <option style="color: <?= ucfirst($data['couleur']); ?>" value="<?= $data['id_type']; ?>">
+                                    <?= ucfirst($data['description']) . ' ' . ucfirst($data['dureeConsultation']); ?>
+                                </option>
+                            <?php endwhile; ?>
                         </select>
                     </div>
                     <div class="form-group">
@@ -56,23 +54,23 @@
                             <select id="selectPraticien" name="id_praticien" class="col-xs-12 form-control">
                                 <?php $previousCat = ""; ?>
                                 <?php $i = 0; ?>
-                                <?php while ($data = $coords->fetch()) { ?>
-                                <?php if ($data['description'] !== $previousCat) { ?>
-                                <?php $previousCat = $data['description']; ?>
-                                <?php if ($i !== 0) { ?>
+                                <?php while ($data = $coords->fetch()): ?>
+                                    <?php if ($data['description'] !== $previousCat): ?>
+                                        <?php $previousCat = $data['description']; ?>
+                                    <?php if ($i !== 0): ?>
                                 </optgroup>
-                                <?php } ?>
-                                <?php $i += 1; ?>
+                                    <?php endif; ?>
+                                        <?php $i += 1; ?>
                                 <optgroup label="<?= $data['description']; ?>">
                                     <option value="<?= $data['id_praticien']; ?>">
                                         Dr.<?= ' ' . ucfirst($data['praticienNom']) . ' ' . ucfirst($data['praticienPrenom']) ; ?>
                                     </option>
-                                    <?php } else { ?>
+                                <?php else: ?>
                                     <option value="<?= $data['id_praticien']; ?>">
                                         Dr.<?= ' ' . ucfirst($data['praticienNom']) . ' ' . ucfirst($data['praticienPrenom']) ; ?>
                                     </option>
-                                    <?php } ?>
-                                    <?php }; ?>
+                                <?php endif; ?>
+                                    <?php endwhile; ?>
                                 </optgroup>
                             </select>
                         </div>
