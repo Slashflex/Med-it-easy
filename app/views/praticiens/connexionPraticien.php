@@ -4,7 +4,7 @@
 <div class="header">
     <h2>Connexion <br>praticien</h2>
 </div>
-<div class="btnInfos mx-auto"><a href=""><i class="fas fa-info"></i></a></div>
+
 <!-- Doctor connexion form -->
 <form class="patientForm" name="praticienForm" method="post" action="index.php?action=connectedPraticien">
 
