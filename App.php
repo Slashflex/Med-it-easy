@@ -90,10 +90,6 @@
                     } elseif ($_GET['action'] == 'rdvStep2ToStep3') {
                         require('app\views\patients\rdvPatientStep3.php');
                     }
-                    elseif ($_GET['action'] == 'updateRdv') {
-
-                        //require('app\views\patients\listRdv.php');
-                    }
                     
                     // Update patient informations
                     elseif ($_GET['action'] == 'updatePatient') {
