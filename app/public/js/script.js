@@ -28,21 +28,21 @@ $(function () {
         $("html, body").animate({
                 scrollTop: $(".concept_height").offset().top
             },
-            900
+            2000
         );
     });
     $("#scrollToSolution").click(function () {
         $("html, body").animate({
                 scrollTop: $(".solution_height").offset().top
             },
-            900
+            2000
         );
     });
     $("#scollToPricing").click(function () {
         $("html, body").animate({
                 scrollTop: $(".pricing_height").offset().top
             },
-            900
+            2000
         );
     });
     // Allows the return to sections of the home.php view ...
@@ -51,14 +51,14 @@ $(function () {
         $("html, body").animate({
                 scrollTop: $("#test1").offset().top
             },
-            900
+            2000
         );
     });
     $("index.php#scrollToSolution").click(function () {
         $("html, body").animate({
                 scrollTop: $("#test2").offset().top
             },
-            900
+            2000
         );
     });
     $("index.php#scollToPricing").click(function () {
@@ -96,35 +96,35 @@ $(function () {
     ===========  Section Reg EXp control on forms   ============
     ==========================================================*/
     $('#first').keyup(function () { // First name reg exp check
-        if (!$('#first').val().match(/^[A-Za-zéèêîïôüäë -]+$/i)) {
+        if (!$('#first').val().match(/^[a-zA-Zéèêîïôüùâàäë]+([\ \-]{0,1})[a-zA-Zéèêîïôüùâàäë]*$/i)) {
             $('#first').next('.error-message').show().text('Veuillez entrez un prénom valide');
         } else {
             $('#first').next('.error-message').hide().text('');
         }
     });
     $('#last').keyup(function () { // Last name reg exp check
-        if (!$('#last').val().match(/^[A-Za-zéèêîïôüäë -]+$/i)) {
+        if (!$('#last').val().match(/^[a-zA-Zéèêîïôüùâàäë]+([\ \-]{0,1})[a-zA-Zéèêîïôüùâàäë]*$/i)) {
             $('#last').next('.error-message').show().text('Veuillez entrez un nom valide');
         } else {
             $('#last').next('.error-message').hide().text('');
         }
     });
     $('#mail').keyup(function () { // Email reg exp check
-        if (!$('#mail').val().match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
+        if (!$('#mail').val().match(/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+.[a-z]{2,4}$/)) {
             $('#mail').next('.error-message').show().text('Veuillez entrez une adresse mail valide');
         } else {
             $('#mail').next('.error-message').hide().text('');
         }
     });
     $('#password_1').keyup(function () { // Password reg exp check
-        if (!$('#password_1').val().match(/^[A-Z][a-zA-Z0-9_-]{8,20}$/)) {
+        if (!$('#password_1').val().match(/^[A-Z][a-zA-Z0-9_-]{7,20}$/)) {
             $('#password_1').next('.error-message').show().text('Votre mot de passe doit commencer par une majuscule et comporter au moins 8 caractères (e.g : Azerty_-1234)');
         } else {
             $('#password_1').next('.error-message').hide().text('');
         }
     });
     $('#password_2').keyup(function () { // Password confirm reg exp check
-        if (!$('#password_2').val().match(/^[A-Z][a-zA-Z0-9_-]{8,20}$/)) {
+        if (!$('#password_2').val().match(/^[A-Z][a-zA-Z0-9_-]{7,20}$/)) {
             $('#password_2').next('.error-message').show().text('Vos deux mots de passe ne correspondent pas');
         } else {
             $('#password_2').next('.error-message').hide().text('');
