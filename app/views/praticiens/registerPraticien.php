@@ -19,7 +19,7 @@
     <p class="text-center regExpcolor"><span class="regExpList">Mot de passe : </span><br>Majuscule obligatoire en premier, suivie de a-zA-Z0-9_-</p>
 </div>
 <!-- Doctor registration form -->
-<form class="patientForm" name="praticienForm" method="post" action="index.php?action=registerPraticien">
+<form class="patientForm" name="praticienForm" method="post" action="fr/inscription_praticen">
     <div class="input-group">
         <label for="prenom">Prenom</label>
         <input type="text" name="praticienPrenom" id="first" placeholder="ex: Chuck" autocomplete="off" required>
@@ -64,7 +64,7 @@
         <button type="submit" class="btn-form" id="send" name="registerPraticien">Inscription</button>
     </div>
     <p>
-        Déjà inscrit ? <a href="index.php?action=connexionPraticien">Connectez-vous<i class="fas fa-sign-in-alt"></i></a>
+        Déjà inscrit ? <a href="fr/connexion-praticien">Connectez-vous<i class="fas fa-sign-in-alt"></i></a>
     </p>
 </form>
 <?php $content = ob_get_clean(); ?>

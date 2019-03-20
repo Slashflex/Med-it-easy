@@ -41,12 +41,12 @@
                 <?php setlocale(LC_ALL, 'fr_FR'); ?><?=  ucfirst(strftime("%A %e %B %Y", mktime())) . '<br>' . strftime("%H : %M", mktime());?>
             </div>
             <ul class="menu mx-auto offMenu">
-                <li><a href="index.php?action=accueil"><i class="fas fa-home fa-1x"></i> Accueil</a></li>
-                <li><a href="index.php?action=agendaAdmin"><i class="far fa-calendar-alt fa-1x"></i> Agenda</a></li>
-                <li><a href="index.php?action=pricings"><i class="fas fa-hand-holding-usd fa-1x"></i> Tarifs</a></li>
-                <li><a href="index.php?action=adminSchedule"><i class="far fa-clock fa-1x"></i> Horaires</a></li>
-                <li><a href="index.php?action=patientBase"><i class="fas fa-users"></i> Patientèle</a></li>
-                <li><a href="index.php?action=deletePraticien"><i class="fas fa-sign-out-alt"></i> Supprimer mon
+                <li><a href="fr/accueil"><i class="fas fa-home fa-1x"></i> Accueil</a></li>
+                <li><a href="fr/agenda"><i class="far fa-calendar-alt fa-1x"></i> Agenda</a></li>
+                <li><a href="fr/tarifs"><i class="fas fa-hand-holding-usd fa-1x"></i> Tarifs</a></li>
+                <li><a href="fr/horaires"><i class="far fa-clock fa-1x"></i> Horaires</a></li>
+                <li><a href="fr/patientele"><i class="fas fa-users"></i> Patientèle</a></li>
+                <li><a href="fr/suppression-du-compte"><i class="fas fa-sign-out-alt"></i> Supprimer mon
                         compte</a></li>
             </ul>
         </nav>

@@ -12,7 +12,7 @@ if ($_SESSION['id_praticien'] == 1): ?>
     <div class="header">
         <h2>Vous devez choisir un praticien</h2>
     </div>
-    <form class="patientForm" name="patientForm" method="post" action="index.php?action=choosePraticien">
+    <form class="patientForm" name="patientForm" method="post" action="fr/choix-praticien">
         <div class="text-center">
             <label for="selectPraticien"><strong class="selectType">Choix du
                     praticien</strong></label>
@@ -56,18 +56,18 @@ if ($_SESSION['id_praticien'] == 1): ?>
             <div class="text-center mx-auto" id="btn-margin">
                 <ul>
                     <li>
-                        <a href="index.php?action=listRdv" class="btnMultiStepForm col-lg-3">Vos rendez-vous</a>
+                        <a href="fr/liste-de-vos-rdv" class="btnMultiStepForm col-lg-3">Vos rendez-vous</a>
                     </li>
                     <li>
-                        <a href="index.php?action=rdvPatient" class="btnMultiStepForm col-lg-3">Prendre rendez-vous</a>
+                        <a href="fr/prendre-un-rendez-vous" class="btnMultiStepForm col-lg-3">Prendre rendez-vous</a>
                     </li>
                     <li>
-                        <a href="index.php?action=updatePatient" class="btnMultiStepForm col-lg-3" data-toggle="modal"
+                        <a href="fr/mise-a-jour-de-votre-compte" class="btnMultiStepForm col-lg-3" data-toggle="modal"
                             data-target="#modal_update">Mise
                             à jour du compte</a>
                     </li>
                     <li>
-                        <a href="index.php?action=deletePatient" class="btnMultiStepForm col-lg-3">Supprimer mon
+                        <a href="fr/supprimer-votre-compte" class="btnMultiStepForm col-lg-3">Supprimer mon
                             compte</a>
                     </li>
                 </ul>
@@ -81,7 +81,7 @@ if ($_SESSION['id_praticien'] == 1): ?>
             <h2>Mise à jour de vos données</h2>
         </div>
         <div class="body1">
-            <form class="patientForm" name="patientForm" method="post" action="index.php?action=updatePatient">
+            <form class="patientForm" name="patientForm" method="post" action="fr/mise-a-jour-de-votre-compte">
                 <div class="input-group">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="mail" value="" autocomplete="off" required>
@@ -94,7 +94,7 @@ if ($_SESSION['id_praticien'] == 1): ?>
                     <span class="error-message mx-auto"></span>
                 </div>
                 <div class="input-group">
-                    <a href="index.php?action=backToConnectedPatient" class="btn-form" id="send">Retour</a>
+                    <a href="fr/retour-sur-votre-profil" class="btn-form" id="send">Retour</a>
                     <button type="submit" class="btn-form" id="send" name="updateInfos">Valider</button>
                 </div>
             </form>

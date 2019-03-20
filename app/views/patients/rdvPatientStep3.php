@@ -4,7 +4,7 @@
 
 <div class="container formRdv">
     <div class="row">
-        <form action="index.php?action=testEvent" class="mx-auto multiStep" method="post">
+        <form action="fr/validation" class="mx-auto multiStep" method="post">
 
             <header class="headerRdv">
                 <div class="head">
@@ -12,18 +12,18 @@
                     <div id="steps">
                         <div class="book-step">
                             <div class="tooltipPop">
-                                <a href="index.php?action=rdvPatient" data-toggle="tooltip" data-placement="bottom"
+                                <a href="fr/prendre-un-rendez-vous" data-toggle="tooltip" data-placement="bottom"
                                     title="Etape 1/3 :  choix type de consultation et praticien"><strong id="step1">1</strong></a>
                             </div>
                         </div>
                         <div class="book-step">
                             <div class="tooltipPop">
-                                <a href="index.php?action=rdvStep1ToStep2" data-toggle="tooltip" data-placement="bottom"
+                                <a href="fr/etape-2" data-toggle="tooltip" data-placement="bottom"
                                     title="Etape 2/3 :  date et heure souhaitée"><strong id="step2">2</strong></a>
                             </div>
                         </div>
                         <div class="book-step active-step">
-                            <a href="index.php?action=rdvStep2ToStep3" data-toggle="tooltip" data-placement="bottom"
+                            <a href="fr/etape-3" data-toggle="tooltip" data-placement="bottom"
                                 title="Etape 3/3 : confirmation des informations"><strong id="step3">3</strong></a>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="container" id="prev_nextBtn">
                     <div id="prev_nextButtons" class="text-center">
-                        <a href="index.php?action=rdvStep1ToStep2" class="btnMultiStepForm">Retour</a>
+                        <a href="fr/etape-2" class="btnMultiStepForm">Retour</a>
                         <input type="submit" class="btnMultiStepForm">
                     </div>
                 </div>

@@ -25,7 +25,7 @@
                     style="background-color:<?= $data['couleur'] ?>"><?= $data['description'] ?></span>
             </div>
             <div class="concatRdv mx-auto" style="margin-top: 10px;">
-                <p class="text-center paragraph">Le <?= $data['start'] ?>
+                <p class="text-center paragraphList">Le <?= $data['start'] ?>
                     à <?=$data['hour'] ?>
                     avec le Docteur <?= ucfirst($data['praticienPrenom']) ?>
                     <?= ucfirst($data['praticienNom']) ?>
@@ -36,7 +36,7 @@
     </div>
 </div>
 <div class="float-left" id="backBtn">
-    <a href="index.php?action=backToConnectedPatient" class="btnBack p-2"><i class="fas fa-chevron-left"></i> Retour</a>
+    <a href="fr/retour-sur-votre-profil" class="btnBack p-2"><i class="fas fa-chevron-left"></i> Retour</a>
 </div>
 <?php $content = ob_get_clean(); ?>
 

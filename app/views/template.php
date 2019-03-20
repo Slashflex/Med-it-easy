@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <base href="http://localhost/Test-projet-perso-MVC/" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Meta Tags -->
@@ -41,6 +42,7 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js">
     </script>
+    <script src="app/public/js/jquery.cookie.js"></script>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
     <!-- FullCalendar Plugin -->
@@ -48,19 +50,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
     <!-- FullCalendar localization -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/locale/fr.js"></script>
-
-
-
-    <script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
-    <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
-    
-    
     <!-- Custom Jquery -->
     <script src="app/public/js/script.js"></script>
     <script src="app/public/js/agenda.js"></script>
 </head>
 
 <body>
+    <!-- GDPR Pop Up-->
+    <div id="message">
+        <div class="gdprMessage">
+            En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies notamment pour
+            réaliser des statistiques de visites afin d'optimiser la fonctionnalité du site.</div>
+        <div class="gdpr"><button class="buttons" onClick="hideMessage();">J'accepte</button></div>
+    </div><!-- /. GDPR Pop Up-->
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top " style="background-color: #353c3f;">
         <!-- Navbar brand -->
@@ -76,40 +78,39 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarToggler">
             <ul class="navbar-nav nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php#JQueryAnchor1" id="scrollToConcept">concept</a>
+                    <a class="nav-link" href="index.php#concept" id="scrollToConcept">concept</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php#JQueryAnchor2" id="scrollToSolution">solution</a>
+                    <a class="nav-link" href="index.php#solution" id="scrollToSolution">solution</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php#JQueryAnchor3" id="scollToPricing">tarifs</a>
+                    <a class="nav-link" href="index.php#tarification" id="scollToPricing">tarifs</a>
                 </li>
                 <?php if (isset($_SESSION['id'])): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=connected" id="scollToPricing">Mon compte</a>
+                    <a class="nav-link" href="fr/mon-compte" id="scollToPricing">Mon compte</a>
                     <script>
-                    // Script to add active class to 4th button (this button appears once SESSiON is created
-                    $(function() {
-                        $('.nav a:lt(4)').filter(function() {
-                            return this.href == location.href
-                        }).parent().addClass('active').siblings().removeClass('active')
-                        $('.nav a:lt(4)').click(function() {
-                            $(this).parent().addClass('active').siblings().removeClass('active')
+                        // Script to add active class to 4th button (this button appears once SESSiON is created
+                        $(function() {
+                            $('.nav a:lt(4)').filter(function() {
+                                return this.href == location.href
+                            }).parent().addClass('active').siblings().removeClass('active')
+                            $('.nav a:lt(4)').click(function() {
+                                $(this).parent().addClass('active').siblings().removeClass('active')
+                            });
                         });
-                    });
                     </script>
                 </li>
                 <?php endif; ?>
                 <li>
                     <?php if (isset($_SESSION['id'])): ?>
                     <div class="hideLogBtn">
-                        <a class="nav-link btn-nav" id="connexionBtn" href="index.php?action=disconnect">Déconnexion</a>
+                        <a class="nav-link btn-nav" id="connexionBtn" href="fr/deconnexion">Déconnexion</a>
                     </div>
                     <?php else: ?>
                     <div class="hideLogBtn">
                         <a class="nav-link btn-nav" id="connexionBtn" data-toggle="modal"
-                            data-target="#modal_register_login" href="#">Espace
-                            utilisateurs</a>
+                            data-target="#modal_register_login" href="#">Espace utilisateurs</a>
                     </div>
                     <?php endif; ?>
                 </li>
@@ -124,41 +125,42 @@
             <div class="modal-content">
                 <header class="container justify-content-center">
                     <div class="row card-deck">
-                        <!-- Left block offering the user the choice to register or log in -->
+                        <!-- Left block offering the Patient the choice to register or log in -->
                         <div class="card text-center" id="leftCard">
                             <img src="app/public/images/patient.png" class="card-img-top"
                                 alt="Lien vers l'espace de connexion du patient">
                             <div class="card-body">
-                                <a href="index.php?action=addPatient" class="col-md-12 btn btn-primary">Inscription
+                                <a href="fr/inscription-patient" class="col-md-12 btn btn-primary">Inscription
                                     patient</a>
-                                <a href="index.php?action=connexionPatient" class="col-md-12 btn btn-primary">Connexion
+                                <a href="fr/connexion-patient" class="col-md-12 btn btn-primary">Connexion
                                     patient</a>
                             </div>
                         </div>
-                        <!-- Right block offering the user the choice to register or to log in -->
+                        <!-- Right block offering the Doctor the choice to register or to log in -->
                         <div class="card text-center" id="rightCard">
                             <img src="app/public/images/docteur.png" class="card-img-top"
                                 alt="Lien vers l'espace de connexion du medecin">
                             <div class="card-body">
-                                <a href="index.php?action=addPraticien" class="col-md-12 btn btn-primary">Inscription
+                                <a href="fr/inscription-praticien" class="col-md-12 btn btn-primary">Inscription
                                     praticien</a>
-                                <a href="index.php?action=connexionPraticien"
-                                    class="col-md-12 btn btn-primary">Connexion
+                                <a href="fr/connexion-praticien" class="col-md-12 btn btn-primary">Connexion
                                     praticien</a>
                             </div>
                         </div>
                         <div id="backBtnModal">
-                            <a href="index.php" class="btnBackModal p-2"><i class="fas fa-chevron-left"></i> Retour</a>
+                            <a href="index.php" class="btnBackModal p-2"><i class="fas fa-chevron-left"></i> Fermer</a>
                         </div>
                     </div>
                 </header>
             </div>
         </div>
     </div><!-- /.Modal -->
+
     <!-- Main Content -->
     <main id="main">
         <?= $content ?>
     </main><!-- /.Main Content -->
+
     <!-- Footer -->
     <footer class="container-fluid py-4">
         <div class="container">
@@ -219,7 +221,7 @@
                     <div class="text-center">
                         <p><span class="navbar-brandFooter text-center">&copy MED <span class="separator">IT</span>
                                 EASY
-                                2019 <a href="index.php?action=mentionsLegales" class="space">Mentions
+                                2019 <a href="fr/mentionsLegales" class="space">Mentions
                                     légales</a></span></p>
                         <a href="tel:+33637888061"><span class="fas fa-phone"><span
                                     class="phone">06.37.88.80.61</span></span></a>
@@ -230,6 +232,10 @@
     </footer><!-- /.Footer -->
     <!-- Button to go back to the top of the page -->
     <a id="buttonToTop"></a>
+
 </body>
+
+
+
 
 </html>

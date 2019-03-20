@@ -6,7 +6,7 @@
 </div>
 
 <!-- Doctor connexion form -->
-<form class="patientForm" name="praticienForm" method="post" action="index.php?action=connectedPraticien">
+<form class="patientForm" name="praticienForm" method="post" action="fr/espace-pro">
 
     <div class="input-group">
         <label for="email">Email</label>
@@ -29,7 +29,7 @@
         </label>
     </div>
     <p>
-        Pas encore membre ? <a href="index.php?action=addPraticien">Inscrivez-vous<i class="fas fa-sign-in-alt"></i></a>
+        Pas encore membre ? <a href="fr/inscription-praticien">Inscrivez-vous<i class="fas fa-sign-in-alt"></i></a>
     </p>
 </form>
 

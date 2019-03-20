@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 
 <div class="container">
-    <form class="patientUpdateForm" name="patientForm" method="post" action="index.php?action=updatePatient">
+    <form class="patientUpdateForm" name="patientForm" method="post" action="fr/mise-a-jour-de-votre-compte">
     
         <div class="input-group">
             <label for="email">Email</label>

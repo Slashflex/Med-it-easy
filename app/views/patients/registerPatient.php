@@ -19,7 +19,7 @@
 </div>
 
 <!-- Patient registration form-->
-<form class="patientForm" name="patientForm" method="post" action="index.php?action=registerPatient">
+<form class="patientForm" name="patientForm" method="post" action="fr/inscription_patient">
     <div class="input-group">
         <label for="prenom">Prenom</label>
         <input type="text" name="patientPrenom" id="first" placeholder="ex: Chuck" autocomplete="off" required>
@@ -67,7 +67,7 @@
         <button type="submit" class="btn-form" id="send" name="registerPatient">Inscription</button>
     </div>
     <p>
-        Déjà patient ? <a href="index.php?action=connexionPatient">Connectez-vous<i class="fas fa-sign-in-alt"></i></a>
+        Déjà patient ? <a href="fr/inscription-patient">Connectez-vous<i class="fas fa-sign-in-alt"></i></a>
     </p>
 </form>
 
