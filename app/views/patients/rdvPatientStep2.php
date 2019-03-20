@@ -11,18 +11,18 @@
                     <div id="steps">
                         <div class="book-step">
                             <div class="tooltipPop">
-                                <a href="index.php?action=rdvPatient" data-toggle="tooltip" data-placement="bottom" title="Etape 1/3 :  choix type de consultation et praticien"><strong
+                                <a href="fr/prendre-un-rendez-vous" data-toggle="tooltip" data-placement="bottom" title="Etape 1/3 :  choix type de consultation et praticien"><strong
                                         id="step1">1</strong></a>
                             </div>
                         </div>
                         <div class="book-step active-step">
                             <div class="tooltipPop">
-                                <a href="index.php?action=rdvStep1ToStep2" data-toggle="tooltip" data-placement="bottom"
+                                <a href="fr/etape-2" data-toggle="tooltip" data-placement="bottom"
                                     title="Etape 2/3 :  date et heure souhaitée"><strong id="step2">2</strong></a>
                             </div>
                         </div>
                         <div class="book-step">
-                            <a href="index.php?action=rdvStep2ToStep3" data-toggle="tooltip" data-placement="bottom"
+                            <a href="fr/etape-3" data-toggle="tooltip" data-placement="bottom"
                                 title="Etape 3/3 : confirmation des informations"><strong id="step3">3</strong></a>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="container" id="prev_nextBtn">
                     <div id="prev_nextButtons" class="text-center">
-                        <a href="index.php?action=rdvPatient" class="btnMultiStepForm">Retour</a>
+                        <a href="fr/prendre-un-rendez-vous" class="btnMultiStepForm">Retour</a>
                         <input type="submit" class="btnMultiStepForm" value="Suivant">
                     </div>
                 </div>
@@ -85,4 +85,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('app\views\template.php');
+<?php require('app/views/template.php');

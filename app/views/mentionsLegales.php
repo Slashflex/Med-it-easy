@@ -9,7 +9,7 @@
         est précisé aux utilisateurs du site <a href="http://www.mediteasy.fr/">www.mediteasy.fr</a> l'identité des
         différents intervenants dans le cadre de sa réalisation et de son suivi :</p>
     <p><strong>Propriétaire</strong> : David Saoud – 058156644542 – 15a, rue de la voûte 56100, Lorient<br />
-        <strong>Créateur</strong> : <a href="www.mediteasy.fr">Mr. David Saoud</a><br />
+        <strong>Créateur</strong> : <a href="mailto: pro.davidsaoud@gmail.com">Mr. David Saoud</a><br />
         <strong>Responsable publication</strong> : Mr. David Saoud – pro.davidsaoud@gmail.com<br />
         Le responsable publication est une personne physique ou une personne morale.<br />
         <strong>Webmaster</strong> : Mr. David Saoud – 06.37.88.80.61<br />
@@ -129,4 +129,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('app\views\template.php');
+<?php require('app/views/template.php');

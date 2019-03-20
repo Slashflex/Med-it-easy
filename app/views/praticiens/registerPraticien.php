@@ -19,7 +19,7 @@
     <p class="text-center regExpcolor"><span class="regExpList">Mot de passe : </span><br>Majuscule obligatoire en premier, suivie de a-zA-Z0-9_-</p>
 </div>
 <!-- Doctor registration form -->
-<form class="patientForm" name="praticienForm" method="post" action="index.php?action=registerPraticien">
+<form class="patientForm" name="praticienForm" method="post" action="fr/inscription_praticen">
     <div class="input-group">
         <label for="prenom">Prenom</label>
         <input type="text" name="praticienPrenom" id="first" placeholder="ex: Chuck" autocomplete="off" required>
@@ -54,21 +54,19 @@
     <div class="input-group">
         <label for="specialite">Choisissez votre spécialité</label>
         <select name="specialite" class="mx-auto">Choisissez votre spécialité
-            <?php while ($specialite = $specialites->fetch()) {
-    ?>
-            <option value="<?= $specialite['id_spe']; ?>"><?= $specialite['description']; ?>
-            </option>
-            <?php
-} ?>
+        <?php while ($specialite = $specialites->fetch()): ?>
+                <option value="<?= $specialite['id_spe']; ?>"><?= $specialite['description']; ?>
+                </option>
+        <?php endwhile; ?>
         </select>
     </div>
     <div class="input-group">
         <button type="submit" class="btn-form" id="send" name="registerPraticien">Inscription</button>
     </div>
     <p>
-        Déjà inscrit ? <a href="index.php?action=connexionPraticien">Connectez-vous<i class="fas fa-sign-in-alt"></i></a>
+        Déjà inscrit ? <a href="fr/connexion-praticien">Connectez-vous<i class="fas fa-sign-in-alt"></i></a>
     </p>
 </form>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('app\views\template.php');
+<?php require('app/views/template.php');

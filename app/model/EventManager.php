@@ -71,20 +71,19 @@
         }
 
 // --- LIST ALL EVENTS BOUND TO PATIENT AND DOCTORS
-        public function patientListEvents($id_praticien)
-            {
-                $db = $this->dbConnect();
-                // SELECT * FROM praticien, patient INNER JOIN events ON events.id_type = patient.id_praticien WHERE patient.id_patient = 1
-                $listRdv = $db->prepare('SELECT description, dureeConsultation, couleur, patientNom, patientPrenom, start, hour, praticienNom, praticienPrenom 
-                                       FROM events 
-                                       INNER JOIN patient 
-                                       ON patient.id_patient = events.id_patient 
-                                       INNER JOIN praticien ON praticien.id_praticien = patient.id_praticien 
-                                       INNER JOIN typeacte ON typeacte.id_type = events.id_type
-                                       WHERE patient.id_praticien = :id_praticien');
-                $listRdv->execute(array('id_praticien' => $id_praticien));                    
-                //$save = $listRdv->fetch();
-                return $listRdv;
-            }
+        public function patientListEvents($id_patient)
+        {
+            $db = $this->dbConnect();
+            $listRdv = $db->prepare('SELECT description, dureeConsultation, couleur, patientNom, patientPrenom, start, hour, praticienNom, praticienPrenom 
+                                     FROM events 
+                                     INNER JOIN patient 
+                                     ON patient.id_patient = events.id_patient 
+                                     INNER JOIN praticien ON praticien.id_praticien = patient.id_praticien 
+                                     INNER JOIN typeacte ON typeacte.id_type = events.id_type
+                                     WHERE patient.id_patient = :id_patient
+                                     ORDER BY start, hour ASC');
+            $listRdv->execute(array('id_patient' => $id_patient));
+            return $listRdv;
+        }
 
 }

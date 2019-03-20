@@ -7,7 +7,7 @@
 </div>
 
 <!-- Patient connexion form -->
-<form class="patientForm" name="patientForm" method="post" action="index.php?action=connectedPatient">
+<form class="patientForm" name="patientForm" method="post" action="fr/espace-patient">
     <div class="input-group">
         <label for="email">Email</label>
         <input type="email" name="email" id="mail" value="" autocomplete="off" required>
@@ -28,10 +28,10 @@
         </label>
     </div>
     <p>
-        Pas encore patient ? <a href="index.php?action=addPatient">Inscrivez-vous<i class="fas fa-sign-in-alt"></i></a>
+        Pas encore patient ? <a href="fr/inscription-patient">Inscrivez-vous<i class="fas fa-sign-in-alt"></i></a>
     </p>
 </form>
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('app\views\template.php');
+<?php require('app/views/template.php');
