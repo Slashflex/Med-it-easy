@@ -105,4 +105,4 @@ if ($_SESSION['id_praticien'] == 1): ?>
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require 'app\views\template.php';
+<?php require 'app/views/template.php';

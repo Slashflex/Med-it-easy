@@ -54,12 +54,10 @@
     <div class="input-group">
         <label for="specialite">Choisissez votre spécialité</label>
         <select name="specialite" class="mx-auto">Choisissez votre spécialité
-            <?php while ($specialite = $specialites->fetch()) {
-    ?>
-            <option value="<?= $specialite['id_spe']; ?>"><?= $specialite['description']; ?>
-            </option>
-            <?php
-} ?>
+        <?php while ($specialite = $specialites->fetch()): ?>
+                <option value="<?= $specialite['id_spe']; ?>"><?= $specialite['description']; ?>
+                </option>
+        <?php endwhile; ?>
         </select>
     </div>
     <div class="input-group">
@@ -71,4 +69,4 @@
 </form>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('app\views\template.php');
+<?php require('app/views/template.php');

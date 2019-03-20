@@ -36,4 +36,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('app\views\template.php');
+<?php require('app/views/template.php');

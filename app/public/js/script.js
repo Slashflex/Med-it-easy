@@ -16,7 +16,7 @@ $(function () {
         $("html, body").animate({
                 scrollTop: 0
             },
-            "300"
+            "900"
         );
     });
     /*========== End of Back to top button script  ===========*/
@@ -97,21 +97,21 @@ $(function () {
     ==========================================================*/
     $('#first').keyup(function () { // First name reg exp check
         if (!$('#first').val().match(/^[a-zA-Zéèêîïôüùâàäë]+([\ \-]{0,1})[a-zA-Zéèêîïôüùâàäë]*$/i)) {
-            $('#first').next('.error-message').show().text('Veuillez entrez un prénom valide');
+            $('#first').next('.error-message').show().text('Veuillez entrer un prénom valide');
         } else {
             $('#first').next('.error-message').hide().text('');
         }
     });
     $('#last').keyup(function () { // Last name reg exp check
         if (!$('#last').val().match(/^[a-zA-Zéèêîïôüùâàäë]+([\ \-]{0,1})[a-zA-Zéèêîïôüùâàäë]*$/i)) {
-            $('#last').next('.error-message').show().text('Veuillez entrez un nom valide');
+            $('#last').next('.error-message').show().text('Veuillez entrer un nom valide');
         } else {
             $('#last').next('.error-message').hide().text('');
         }
     });
     $('#mail').keyup(function () { // Email reg exp check
         if (!$('#mail').val().match(/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+.[a-z]{2,4}$/)) {
-            $('#mail').next('.error-message').show().text('Veuillez entrez une adresse mail valide');
+            $('#mail').next('.error-message').show().text('Veuillez entrer une adresse mail valide');
         } else {
             $('#mail').next('.error-message').hide().text('');
         }
@@ -189,6 +189,10 @@ $(function () {
 /*=============================================================
 ==========================  TESTS   ===========================
 =============================================================*/
-
-
+$(function() {
+    $('a[href*=#]').on('click', function(e) {
+      e.preventDefault();
+      $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 2000, 'linear');
+    });
+  });
 /*======================  End of TESTS  =====================*/

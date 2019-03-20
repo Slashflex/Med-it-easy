@@ -50,7 +50,7 @@
             'Reply-To: admin@med-it-easy.com' . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
             mail($to, $subject, $message, $headers);
-            require('app\views\praticiens\connexionPraticien.php');
+            require('app/views/praticiens/connexionPraticien.php');
         }
 // --- PASSWORD VERIFICATION   
         public function passVerif($password_1, $praticienEmail)
@@ -74,7 +74,7 @@
                     setcookie('id', 'praticienEmail', time() + 365243600, null, null, false, true);
                     $rememberMe = htmlspecialchars($_POST['rememberMe']);
                 }
-                require('app\views\praticiens\connectedPraticien.php');
+                require('app/views/praticiens/connectedPraticien.php');
             } else {
                 // If passwords doesn't match, returns an error 
                 throw new Exception('Mot de passe ou adresse email incorrect(e)');
@@ -93,7 +93,7 @@
         {
             // Retrieve all datas from the 'specialite' table
             $specialites = $this->praticienManager->getSpecialites();
-            require('app\views\praticiens\registerPraticien.php');
+            require('app/views/praticiens/registerPraticien.php');
         }
 
 // --- LISTING OF ALL PATIENTS
@@ -101,7 +101,7 @@
         {
             // List patients bound to "this specific Doctor's ID" 
             $praticien = $this->praticienManager->getAllPatients($id);
-            require('app\views\praticiens\patientBase.php');
+            require('app/views/praticiens/patientBase.php');
         }
 // --- LISTING OF ALL DOCTORS 
         public function doctorsList()

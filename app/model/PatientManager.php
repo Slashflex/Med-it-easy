@@ -67,7 +67,7 @@
         public function getTypeActes()
         {
             $db = $this->dbConnect();
-            $req = $db->query('SELECT * FROM typeActe LIMIT 0, 7');
+            $req = $db->query('SELECT * FROM typeacte LIMIT 0, 7');
             return $req;
         }
 // --- DELETE PATIENT
