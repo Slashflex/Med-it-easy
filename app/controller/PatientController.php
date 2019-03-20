@@ -53,14 +53,22 @@
             // On Register complete, sends an email to Patient to confirm his sign up
             $to = $email;
             $subject = 'Med It Easy | Confirmation de compte';
-            $message = 'Bonjour ! '. ucfirst($patientPrenom)  . ' ' . ucfirst($patientNom) . '<br> 
+            $message = 'Bonjour ! '. ucfirst($patientPrenom)  . ' ' . ucfirst($patientNom)  . '\r\n' . ' 
             Afin de confirmer votre inscription sur le site Med It Easy, 
-            merci de cliquer sur le lien ci-dessous. <br>
+            merci de cliquer sur le lien ci-dessous.
             <a href="action">Confirmez votre inscription</a>';
-            $headers = 'From: admin@med-it-easy.com' . "\r\n" .
-            'Reply-To: admin@med-it-easy.com' . "\r\n" .
+            $message .= '</body></html>';
+            $headers = 'From: pro.davidsaoud@mediteasy.fr' . "\r\n" .
+            'Reply-To: pro.davidsaoud@mediteasy.fr' . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
                 mail($to, $subject, $message, $headers);
+            //      if(mail($to, $subject, $message, $headers)) { 
+            //          echo 'ok';
+            //    }
+            //    else {
+            //        throw new Exception('KO');
+            //    }
+
                 require('app/views/patients/connexionPatient.php');
             }
 // --- PASSWORD VERIFICATION
