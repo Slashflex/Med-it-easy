@@ -62,7 +62,7 @@
         public function getAllPatients($id)
         {
             $db = $this->dbConnect();
-            $req = $db->prepare('SELECT patientPrenom, patientNom, patientDate, email, id_praticien 
+            $req = $db->prepare('SELECT patientPrenom, patientNom, patientDate, email, id_patient, id_praticien 
                                 FROM patient 
                                 INNER JOIN specialite 
                                 ON specialite.id_spe = patient.id_praticien 
@@ -99,17 +99,19 @@
             return $req;
         }  
 // --- UPDATE PATIENTS HAVING DEFAULT DOCTOR (id -> 1)
-        public function upBeforeDelete($id_praticien) 
+        public function upBeforeDelete($id_patient) 
         {
             $db = $this->dbConnect();
-            $req = $db->query("UPDATE patient SET id_praticien = 1 WHERE id_praticien = $id_praticien");
+            $req = $db->prepare("UPDATE patient SET id_praticien = 1 WHERE id_patient = $id_patient");
+            $req->execute(array('id_patient' => $id_patient));
             return $req;
         }
 // --- DELETE DOCTOR'S ACCOUNT 
         public function deletePraticien($id_praticien)
         {
             $db = $this->dbConnect();
-            $req = $db->query("DELETE FROM praticien WHERE id_praticien = $id_praticien");
+            $req = $db->prepare("DELETE FROM praticien WHERE id_praticien = $id_praticien");
+            $req->execute(array('id_praticien' => $id_praticien));
             return $req;
         }
         // public function getPraticien($deletedid)
