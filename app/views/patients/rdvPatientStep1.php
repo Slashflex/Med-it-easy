@@ -48,9 +48,9 @@
                             <?php endwhile; ?>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <!-- Doctor's choice -->
-                        <div class="text-center">
+                        <!-- <div class="text-center">
                             <label for="selectPraticien"><strong class="selectType">Choix du
                                     praticien</strong></label>
                             <select id="selectPraticien" name="id_praticien" class="col-xs-12 form-control">
@@ -73,13 +73,13 @@
                                     <option
                                         value="<?= $data['id_praticien']; ?>">
                                         Dr.<?= ' ' . ucfirst($data['praticienNom']) . ' ' . ucfirst($data['praticienPrenom']) ; ?>
-                                    </option>
-                                    <?php endif; ?>
+                                    </option> -->
+                                    <!-- <?php endif; ?>
                                     <?php endwhile; ?>
                                 </optgroup>
                             </select>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="container" id="prev_nextBtn">
                     <div id="prev_nextButtons" class="text-center">
