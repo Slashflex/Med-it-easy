@@ -62,13 +62,6 @@
             'Reply-To: pro.davidsaoud@mediteasy.fr' . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
                 mail($to, $subject, $message, $headers);
-            //      if(mail($to, $subject, $message, $headers)) { 
-            //          echo 'ok';
-            //    }
-            //    else {
-            //        throw new Exception('KO');
-            //    }
-
                 require('app/views/patients/connexionPatient.php');
             }
 // --- PASSWORD VERIFICATION
@@ -81,7 +74,6 @@
             $result = password_verify($password_1, $data['password_1']);
             // Dropdown menu (<select></select>) displaying all Doctors registered
             $coords = $this->praticienManager->getPraticienCoords();
-
             // If true ...
             if ($result) {
                 // ...storing datas in super global variables
@@ -102,6 +94,7 @@
                 throw new Exception('Mot de passe ou adresse email incorrect(e)');
             }
         }
+// --- LIST OF DOCTORS ALREADY REGISTERED (<select></select>)
         public function methodPatient()
         {
             $req = $this->praticienManager->getSubbedPraticien();

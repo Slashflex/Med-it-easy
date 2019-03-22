@@ -1,14 +1,14 @@
 <?php
 // --- CLASS LOADING
     namespace Projet\app\model;
-
+    use \Exception;
     use \PDO;
 // --- CLASS MANAGING DATABASE
     class Manager
     {
 // --- DATABASE CONNEXION
 
-        // --- LOCAL
+        // --- LOCAL environment
         protected function dbConnect()
         { 
             $db = new PDO('mysql:host=localhost;dbname=v2;charset=utf8', 'root', '');
@@ -16,7 +16,7 @@
             return $db;
         }
 
-        // --- LIVE
+        // --- LIVE environment
         // protected function dbConnect()
         // { 
         //     $db = new PDO('mysql:host=db777810316.hosting-data.io;dbname=db777810316;charset=utf8', 'dbo777810316', 'SupralePGM2019.');

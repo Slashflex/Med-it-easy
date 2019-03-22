@@ -3,6 +3,7 @@
 
 <head>
     <base href="http://localhost/Test-projet-perso-MVC/" />
+    <!-- <base href="http://www.mediteasy.fr/"> -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Meta Tags -->
@@ -21,7 +22,6 @@
     <meta name="Rating" content="general">
     <meta name="Distribution" content="global">
     <meta name="Category" content="health">
-
     <title>
         <?= $title ?>
     </title>
@@ -36,10 +36,10 @@
     <!-- JQuery / Moment Core -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <!-- Bootstrap Core Css / JS -->
-    <script type="text/javascript"
+    <script
         src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js">
     </script>
     <script src="app/public/js/jquery.cookie.js"></script>
@@ -56,13 +56,6 @@
 </head>
 
 <body>
-    <!-- GDPR Pop Up-->
-    <div id="message">
-        <div class="gdprMessage">
-            En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies notamment pour
-            réaliser des statistiques de visites afin d'optimiser la fonctionnalité du site.</div>
-        <div class="gdpr"><button class="buttons" onClick="hideMessage();">J'accepte</button></div>
-    </div><!-- /. GDPR Pop Up-->
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top " style="background-color: #353c3f;">
         <!-- Navbar brand -->
@@ -117,6 +110,13 @@
             </ul>
         </div>
     </nav>
+    <!-- GDPR Pop Up-->
+    <!-- <div id="message">
+        <div class="gdprMessage">
+            En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies notamment pour
+            réaliser des statistiques de visites afin d'optimiser la fonctionnalité du site.</div>
+        <div class="gdpr"><button class="buttons" onClick="hideForever();">J'accepte</button></div>
+    </div>/. GDPR Pop Up -->
     <!-- Modal brings up two blocks => Patient user space and Doctor user space,
     who will redirect to their dedicated Creation / Account Login pages -->
     <div class="modal closeModal" id="modal_register_login" tabindex="-1" role="dialog"
@@ -176,8 +176,7 @@
                 <div class="col-4 liens_utiles borderLeft">
                     <ul>
                         <li><a href="https://www.ameli.fr/">Assurance Maladie</a></li>
-                        <li><a
-                                href="https://www.tabac-info-service.fr/?gclid=EAIaIQobChMInNTWrcKg2QIVzr3tCh1LyQXmEAAYASAAEgI4PvD_BwE#xtor=SEC-12-GOO-[Marque%20Pure]--S-[tabac%20info%20service]">Tabac
+                        <li><a href="https://www.tabac-info-service.fr/">Tabac
                                 Info Services</a></li>
                         <li><a href="http://invs.santepubliquefrance.fr/">Santé publique France</a></li>
                         <li><a href="https://www.diplomatie.gouv.fr/fr/conseils-aux-voyageurs/">Conseil
@@ -203,7 +202,7 @@
                 <div class="row footer_height">
                     <div class="col-md-12 bloc_reseaux">
                         <div class="col-md-6 offset-md-4 col-sm-6 offset-sm-4 reseaux">
-                            <a href="mailto: pro.davidsaoud@gmail.com" class="btn-footer"><img
+                            <a href="mailto:pro.davidsaoud@gmail.com" class="btn-footer"><img
                                     data-alt-src="app/public/images/mail.png" src="app/public/images/mail_orange.png"
                                     class="icon_color img-fluid" alt="contact par mail"></a>
                             <a href="https://www.linkedin.com/in/david-saoud-775624174/" class="btn-footer"><img

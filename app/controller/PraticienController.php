@@ -83,8 +83,11 @@
 // --- DELETE DOCTOR
         public function delPraticien($id_praticien)
         {   
-            // Update Patients bound to this Default praticien
-            $this->praticienManager->upBeforeDelete($id_praticien);
+            $patients = $this->praticienManager->getAllPatients($id_praticien);
+            while ($patient = $patients->fetch())  {
+                // Update Patients bound to this Default praticien
+                $this->praticienManager->upBeforeDelete($patient['id_patient']);
+            }
             // Delete the Doctor account with "this ID" in the DB
             $this->praticienManager->deletePraticien($id_praticien);
         }

@@ -67,7 +67,7 @@
         <button type="submit" class="btn-form" id="send" name="registerPatient">Inscription</button>
     </div>
     <p>
-        Déjà patient ? <a href="fr/inscription-patient">Connectez-vous<i class="fas fa-sign-in-alt"></i></a>
+        Déjà patient ? <a href="fr/connexion-patient">Connectez-vous<i class="fas fa-sign-in-alt"></i></a>
     </p>
 </form>
 
