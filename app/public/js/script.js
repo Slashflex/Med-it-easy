@@ -89,7 +89,6 @@ $(function () {
     $(".icon_color").on("mouseleave", function () {
         $(this).css("background-color", "#353c3f");
     });
-
     /*=====  End of script to swap social network icons  =====*/
 
     /*==========================================================
@@ -154,6 +153,8 @@ $(function () {
         $('.toggleInfos').toggle('slow');
     });
 });
+// --- /. INFORMATION PANEL ON REGEXEP TO BE USED (register forms)
+
 // --- ADD ACTIVE CLASS ON NAV LINK WHEN CLiCKED
 $(function () {
     $('.nav a:lt(3)').filter(function () {
@@ -163,6 +164,7 @@ $(function () {
         $(this).parent().addClass('active').siblings().removeClass('active')
     });
 });
+// --- /. ADD ACTIVE CLASS ON NAV LINK WHEN CLiCKED
 
 // --- HAMBURGER NAVIGATION BUTTON (appears on medium screen viewport)
 $(function () {
@@ -170,6 +172,8 @@ $(function () {
         $('.burgerNav').toggleClass('open');
     });
 });
+// --- /. HAMBURGER NAVIGATION BUTTON
+
 // --- EDIT BUTTON (app\views\patients\listRdv.php)
 $(function () {
     $('.editBtn').mouseenter(function () {
@@ -179,9 +183,40 @@ $(function () {
         $('.fa-edit').css('color', '#dbae58');
     });
 });
+// --- /. EDIT BUTTON
 
+// --- GDPR POP UP
+$(function () {
+    if ($.cookie('cookies_enable')) {
+        $("#message").css("display:", "none");
+    } else {
+        $('#message').delay(5000).slideDown(500);
+    }
+});
 
+// To hide the message but show it again on page reload
+function hideMessage() {
+    $('#message').delay().slideUp(500);
+}
 
+// To hide the message and set the cookie so when the page is reloaded the message does not appear
+function hideForever() {
+    $('#message').delay().slideUp(500);
+    $.cookie('cookies_enable', 'foo', {
+        expires: 180
+    });
+}
+
+// Optional function to show message manually on the demo page
+function showMessage() {
+    $('#message').delay().slideDown(500);
+}
+
+// Delete cookie
+function deleteCookie() {
+    $.removeCookie('cookies_enable');
+}
+// --- /. GDPR POP UP
 
 
 
@@ -189,32 +224,6 @@ $(function () {
 /*=============================================================
 ==========================  TESTS   ===========================
 =============================================================*/
-$(document).ready(function(){
-	if ($.cookie('cookies_enable')) {
-		$("#message").css("display:","none");
-    } else {
-		$('#message').delay(1000).slideDown(500);
-		}
-});
 
-// To hide the message but show it again on page reload
-function hideMessage(){
-  $('#message').delay().slideUp(500);
-}
 
-// To hide the message and set the cookie so when the page is reloaded the message does not appear
-function hideForever(){
-  $('#message').delay().slideUp(500);
-  $.cookie('cookies_enable', 'foo', { expires: 180 });
-}
-
-// Optional function to show message manually on the demo page
-function showMessage(){
-  $('#message').delay().slideDown(500);
-}
-
-// Delete cookie
-function deleteCookie() {
-  $.removeCookie('cookies_enable');
-}
 /*======================  End of TESTS  =====================*/
