@@ -195,9 +195,9 @@ $(function () {
 });
 
 // To hide the message but show it again on page reload
-// function hideMessage() {
-//     $('#message').delay().slideUp(500);
-// }
+function hideMessage() {
+    $('#message').delay().slideUp(500);
+}
 
 // To hide the message and set the cookie so when the page is reloaded the message does not appear
 function hideForever() {
@@ -208,14 +208,14 @@ function hideForever() {
 }
 
 // Optional function to show message manually on the demo page
-// function showMessage() {
-//     $('#message').delay().slideDown(500);
-// }
+function showMessage() {
+    $('#message').delay().slideDown(500);
+}
 
 // Delete cookie
-// function deleteCookie() {
-//     $.removeCookie('cookies_enable');
-// }
+function deleteCookie() {
+    $.removeCookie('cookies_enable');
+}
 // --- /. GDPR POP UP
 
 
