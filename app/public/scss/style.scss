@@ -202,15 +202,17 @@ ul.nav a~a:hover {
     background-color: $color2;
     color: $color3;
     font-weight: bold;
-    border: none;
+    border: none !important;
+    background-color: none !important;
     border-radius: 15px;
     text-transform: uppercase;
 }
 
 .btn-primary:hover {
-    background-color: $color3;
+    background-color: $color3 !important;
     color: $color2;
     font-weight: bold;
+    border: none;
     text-transform: uppercase;
 }
 
@@ -416,6 +418,67 @@ ul.nav a~a:hover {
     margin-bottom: 28px;
 }
 
+// GDPR Pop Up
+.cookie_title {
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: #EEE;
+    margin: 10px 0 20px 0;
+    border-right: 1px solid #ddd;
+    text-align: center;
+}
+
+.cookie_text {
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: $color2;
+    text-align: center;
+    padding-top: 8px;
+}
+
+#message {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    background: $color3;
+    display: none;
+    margin-top: 69px;
+}
+
+.cookie_link {
+    font-size: 16px;
+    color: $color11;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.buttons {
+    font: bold 0.9em arial;
+    color: $color3;
+    padding: 7px 10px;
+    background-color: $color2;
+    border: none;
+    border-radius: 45px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.buttons:hover {
+    background-color: $color3;
+    box-shadow: 0px 8px 15px $color4;
+    padding: 7px 10px;
+    color: $color2;
+    border: none;
+    border-radius: 45px;
+}
+
+.cookie_link:hover {
+    color: $color1;
+    text-decoration: underline;
+}
+// end: GDPR pop up 
+
 /*=================  End of Main Content Page  ==================*/
 
 /*=================================================================
@@ -450,7 +513,7 @@ footer {
     text-transform: uppercase;
     font-weight: bold;
     background-color: $color3;
-    border-radius: 20px;
+    border-radius: 45px;
 }
 
 .btn-footer:hover {
@@ -1819,59 +1882,9 @@ div.fc-row>div>table>thead>tr>td>span {
 }
 
 
-// .cc-grower {
-//     margin-top: 69px;
-// }
-
-
-.cookie_title {
-    font-size: 16px;
-    letter-spacing: 0px;
-    color: #EEE;
-    margin: 10px 0 20px 0;
-    border-right: 1px solid #ddd;
-    text-align: center;
-}
-
-.cookie_text {
-    font-size: 16px;
-    letter-spacing: 0px;
-    color: #EEE;
-    text-align: center;
-    margin-top: 10px;
-}
-
-#message {
-    width: 100%;
-    height: auto;
-    text-align: center;
-    background: $color3;
-    display: none;
-    margin-top: 69px;
-}
-
-.cookie_link {
-    font-size: 16px;
+// calendar event 
+.fc-event[href], .fc-event[href]:hover {
     color: $color2;
     font-weight: bold;
 }
 
-.buttons {
-    font: bold 0.9em arial;
-    color: $color3;
-    padding: 7px 10px;
-    background-color: $color2;
-    border: none;
-    border-radius: 45px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-.buttons:hover {
-    background-color: $color3;
-    box-shadow: 0px 8px 15px $color4;
-    padding: 7px 10px;
-    color: $color2;
-    border: none;
-    border-radius: 45px;
-}
