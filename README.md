@@ -4,7 +4,6 @@
 * [Features](#features)
 * [Setup](#setup)
 
-
 ## General info
 This project aims to facilitate the management of appointments between patients and doctors.
 	
