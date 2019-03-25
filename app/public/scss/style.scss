@@ -232,6 +232,11 @@ ul.nav a~a:hover {
     border: none !important;
 }
 
+#backBtnModal {
+    margin: 0 auto;
+    display: none;
+}
+
 // --------------------- End Modal (Register or Log in)
 
 /*======================= End of Header =========================*/
@@ -390,6 +395,7 @@ ul.nav a~a:hover {
     font-weight: 600;
     margin-bottom: 20px;
 }
+
 .paragraphList {
     color: $color2;
     font-weight: 600;
@@ -1477,6 +1483,10 @@ div.fc-row>div>table>thead>tr>td>span {
         display: none;
     }
 
+    #backBtnModal {
+        margin: 0 auto;
+        display: block;
+    }
 }
 
 // Small screens 
@@ -1553,6 +1563,11 @@ div.fc-row>div>table>thead>tr>td>span {
     // Hides information "button" (mouseenter Jquery script)
     .bgInfos {
         display: none;
+    }
+
+    #backBtnModal {
+        margin: 0 auto;
+        display: block;
     }
 }
 
@@ -1660,6 +1675,11 @@ div.fc-row>div>table>thead>tr>td>span {
     .bgInfos {
         display: none;
     }
+
+    #backBtnModal {
+        margin: 0 auto;
+        display: block;
+    }
 }
 
 @media screen and (max-width: 415px) {
@@ -1725,6 +1745,11 @@ div.fc-row>div>table>thead>tr>td>span {
     .bgInfos {
         display: none;
     }
+
+    #backBtnModal {
+        margin: 0 auto;
+        display: block;
+    }
 }
 
 /*==============  End of Section Media Queries  ================*/
@@ -1773,11 +1798,6 @@ div.fc-row>div>table>thead>tr>td>span {
 
 /*=======================  End of ListRdv.php  =======================*/
 
-
-#backBtnModal {
-    margin: 0 auto;
-}
-
 .btnBackModal {
     background-color: $color3;
     padding: 4px 10px;
@@ -1799,11 +1819,59 @@ div.fc-row>div>table>thead>tr>td>span {
 }
 
 
-.cc-grower {
+// .cc-grower {
+//     margin-top: 69px;
+// }
+
+
+.cookie_title {
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: #EEE;
+    margin: 10px 0 20px 0;
+    border-right: 1px solid #ddd;
+    text-align: center;
+}
+
+.cookie_text {
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: #EEE;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#message {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    background: $color3;
+    display: none;
     margin-top: 69px;
 }
 
+.cookie_link {
+    font-size: 16px;
+    color: $color2;
+    font-weight: bold;
+}
 
-
-
-
+.buttons {
+    font: bold 0.9em arial;
+    color: $color3;
+    padding: 7px 10px;
+    background-color: $color2;
+    border: none;
+    border-radius: 45px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.buttons:hover {
+    background-color: $color3;
+    box-shadow: 0px 8px 15px $color4;
+    padding: 7px 10px;
+    color: $color2;
+    border: none;
+    border-radius: 45px;
+}

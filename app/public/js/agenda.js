@@ -38,16 +38,18 @@ $(function () {
 
 			events: 
 			function (start, end, timezone, callback) {
-				$.getJSON('index.php?action=displayEvents')
+				$.getJSON("index.php?action=displayEvents")
 					.done(function (doc) {
 						let events = [];
 						$(doc).each(function () {
 							events.push({
 								// will be parsed
+								id: $(this).attr('id'),
 								title: $(this).attr('title'),
 								start: $(this).attr('start'), 
 								end: $(this).attr('end'),
-								color: $(this).attr('color')
+								color: $(this).attr('color'),
+								url: "index.php?action=displayEvents&id="+$(this).attr('id')
 							});
 						});
 						callback(events);

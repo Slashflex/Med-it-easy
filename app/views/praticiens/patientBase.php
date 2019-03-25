@@ -27,10 +27,10 @@
             <hr>
             <?php while ($data = $praticien->fetch()): ?>
             <div class="row justify-content-between">
-                <p class="toDo col-sm-12"><a class="hover" href="index.php?action=fichePatient"><?= ucfirst($data['patientPrenom']) ?></p>
+                <p class="toDo col-sm-3"><a class="hover" href="index.php?action=fichePatient"><?= ucfirst($data['patientPrenom']) ?></a></p>
                 <p class="toDo col-sm-3"><?= ucfirst($data['patientNom']) ?></p>
                 <p class="toDo  col-sm-3"><?= $data['patientDate'] ?></p>
-                <p class="toDo col-sm-3"><?= $data['email'] ?></a></p>
+                <p class="toDo col-sm-3"><?= $data['email'] ?></p>
             </div>
             <?php endwhile; ?>
         </div>

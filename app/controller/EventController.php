@@ -34,6 +34,7 @@
         {
             $formatedEvents = [];
             foreach ($events as $event) {
+                $formatedEvent['id'] = $event['id_event'];
                 $formatedEvent['title'] = ucfirst($event['patientNom']) . ' ' . ucfirst($event['patientPrenom']) . ' ' . 'Motif : ' . ucfirst($event['description']);
                 $formatedEvent['start'] = $event['start'] . ' ' . $event['hour'];
                 $dateSrc = strtotime($formatedEvent['start']);

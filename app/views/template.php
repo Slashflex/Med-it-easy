@@ -42,7 +42,7 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js">
     </script>
-    <script src="app/public/js/jquery.cookie.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
     <!-- FullCalendar Plugin -->
@@ -53,12 +53,15 @@
     <!-- Custom Jquery -->
     <script src="app/public/js/script.js"></script>
     <script src="app/public/js/agenda.js"></script>
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
-
+    <script src="app/public/js/jquery.cookie.js"></script>
+    
+    <!-- <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script> -->
+    
 </head>
 
 <body>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top " style="background-color: #353c3f;">
         <!-- Navbar brand -->
@@ -113,7 +116,6 @@
         </div>
     </nav><!-- end: Navbar -->
 
-
     <!-- Modal brings up two blocks => Patient user space and Doctor user space,
     who will redirect to their dedicated Creation / Account Login pages -->
     <div class="modal closeModal" id="modal_register_login" tabindex="-1" role="dialog"
@@ -152,6 +154,7 @@
             </div>
         </div>
     </div><!-- end: Modal -->
+
 
     <!-- Main Content -->
     <main id="main">
