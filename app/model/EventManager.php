@@ -22,12 +22,12 @@
         {
             $db = $this->dbConnect();
             $json = array();
-            $req = $db->prepare('SELECT description, dureeConsultation, couleur, patientNom, patientPrenom, start, hour
-                                 FROM events
+            $req = $db->prepare('SELECT e.id_event, description, dureeConsultation, couleur, patientNom, patientPrenom, start, hour
+                                 FROM events AS e
                                  INNER JOIN patient 
-                                 ON patient.id_patient = events.id_patient
+                                 ON patient.id_patient = e.id_patient
                                  INNER JOIN typeacte
-                                 ON typeacte.id_type = events.id_type
+                                 ON typeacte.id_type = e.id_type
                                  WHERE patient.id_praticien = :id_praticien');
             $req->execute(array('id_praticien' => $id_praticien));
             return $req->fetchAll(PDO::FETCH_ASSOC);
