@@ -5,9 +5,6 @@
 <div class="container">
 
     <div class="header_connected">
-        <!-- <div class="float-left">
-            <a href="index.php?action=backToConnectedPatient" class="btnBack ">Retour</a>
-        </div> -->
         <h4>Bienvenue <?= ucfirst($_SESSION['patientPrenom']) . ' ' . ucfirst($_SESSION['patientNom']) ?>
         </h4>
     </div>
@@ -32,7 +29,7 @@
                     <hr style="width: 65%; margin: 0 auto;">
                 </p>
             </div>
-        <?php endwhile; ?>
+            <?php endwhile; ?>
     </div>
 </div>
 <div class="float-left" id="backBtn">

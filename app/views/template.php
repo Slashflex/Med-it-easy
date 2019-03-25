@@ -53,10 +53,13 @@
     <!-- Custom Jquery -->
     <script src="app/public/js/script.js"></script>
     <script src="app/public/js/agenda.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+
 </head>
 
 <body>
-    <!--Navbar-->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top " style="background-color: #353c3f;">
         <!-- Navbar brand -->
         <a id="mainLogo" class="navbar-brand" href="index.php">MED <span class="separator">IT</span> EASY </a>
@@ -64,7 +67,6 @@
         <button class="navbar-toggler first-button" id="nav_toggler" type="button" data-toggle="collapse"
             data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"
             aria-label="Toggle navigation">
-            <!-- <span class=""><i class="fa fa-navicon"></i></span> -->
             <div class="burgerNav"><span></span><span></span><span></span></div>
         </button>
         <!-- Collapsible content -->
@@ -109,14 +111,9 @@
                 </li>
             </ul>
         </div>
-    </nav>
-    <!-- GDPR Pop Up-->
-    <!-- <div id="message">
-        <div class="gdprMessage">
-            En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies notamment pour
-            réaliser des statistiques de visites afin d'optimiser la fonctionnalité du site.</div>
-        <div class="gdpr"><button class="buttons" onClick="hideForever();">J'accepte</button></div>
-    </div>/. GDPR Pop Up -->
+    </nav><!-- end: Navbar -->
+
+
     <!-- Modal brings up two blocks => Patient user space and Doctor user space,
     who will redirect to their dedicated Creation / Account Login pages -->
     <div class="modal closeModal" id="modal_register_login" tabindex="-1" role="dialog"
@@ -154,12 +151,12 @@
                 </header>
             </div>
         </div>
-    </div><!-- /.Modal -->
+    </div><!-- end: Modal -->
 
     <!-- Main Content -->
     <main id="main">
         <?= $content ?>
-    </main><!-- /.Main Content -->
+    </main><!-- end: Main Content -->
 
     <!-- Footer -->
     <footer class="container-fluid py-4">
@@ -215,7 +212,8 @@
                                     alt="Lien vers profil Med It Easy via twitter"></a>
                         </div>
                     </div>
-                </div><!-- /.Social icons -->
+                </div><!-- end: Social icons -->
+
                 <div class="col-md-12 bloc_mid">
                     <div class="text-center">
                         <p><span class="navbar-brandFooter text-center">&copy MED <span class="separator">IT</span>
@@ -228,13 +226,10 @@
                 </div>
             </div>
         </div>
-    </footer><!-- /.Footer -->
+    </footer><!-- end: Footer -->
     <!-- Button to go back to the top of the page -->
     <a id="buttonToTop"></a>
 
 </body>
-
-
-
 
 </html>

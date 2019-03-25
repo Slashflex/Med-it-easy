@@ -99,7 +99,7 @@ if ($_SESSION['id_praticien'] == 1): ?>
                 </div>
             </form>
         </div>
-    </div>
+    </div><!-- end: Modal -->
 </div>
 <?php endif; ?>
 
