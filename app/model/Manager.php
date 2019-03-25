@@ -19,7 +19,7 @@
         // --- LIVE environment
         // protected function dbConnect()
         // { 
-        //     $db = new PDO('mysql:host=db777810316.hosting-data.io;dbname=db777810316;charset=utf8', 'dbo777810316', 'SupralePGM2019.');
+        //     $db = new PDO('mysql:host=db777810316.hosting-data.io;dbname=db777810316;charset=utf8', 'dbo777810316', '');
         //     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         //     return $db;
         // }
