@@ -30,7 +30,7 @@
     <p>
         Pas encore patient ? <a href="fr/inscription-patient">Inscrivez-vous<i class="fas fa-sign-in-alt"></i></a>
     </p>
-</form>
+</form><!-- end: Patient connexion form -->
 
 <?php $content = ob_get_clean(); ?>
 
