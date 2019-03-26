@@ -206,13 +206,19 @@
                   
                     /*=============== Section Events ============*/
 
-                    //elseif ($_GET['action'] == 'addEvent') {
-                    //     $this->controller->addEvent($id_event, $start, $id_type, $id_patient);
-                    // }
                     // Displaying events
                     elseif ($_GET['action'] == 'displayEvents') {
                         $this->eventController->getPatientRdv($_SESSION['id']);
                     }
+
+
+                    ////
+                    elseif ($_GET['action'] == 'test') {
+                        $id = $_GET['id'];
+                        $this->eventController->getPatientIdEvent($id);
+                    }
+                    ////
+
                     elseif ($_GET['action'] == 'validation') {
                         $json = fopen('app/public/json/testJson.json', 'r');
                         $jsonRead = fread($json, 2000);
