@@ -23,6 +23,9 @@ Project is created with:
 * Personnal files: app/public/css/style.css
 * CSS is compiled using SASS (app/public/scss/style.scss)
 
+### Common
+* MailDev
+
 ## Features
 ### As user
 You can navigate freely on the site, you can create an account as a patient or doctor.
@@ -46,7 +49,7 @@ The ability to update, delete and move appointments from the doctor's calendar i
 To run this project, install it locally using npm:
 
 ```
-$ cd ../lorem
 $ npm install jquery moment fullcalendar
-$ npm start
+$ npm install maildev
+$ maildev
 ```
