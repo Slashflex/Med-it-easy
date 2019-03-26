@@ -137,9 +137,9 @@ class PatientController
     public function testJson()
     {
         $consult = htmlspecialchars($_POST['test']);
-        $prat = htmlspecialchars($_POST['id_praticien']);
+        //$prat = htmlspecialchars($_POST['id_praticien']);
         //$pratPrenom = htmlspecialchars($_GET['praticienPrenom']);
-        $donneesArray = array($consult, $prat);
+        $donneesArray = array($consult);
         $fichierOpen = fopen('app/public/json/testJson.json', 'w');
         $fichierWrite = fwrite($fichierOpen, json_encode($donneesArray));
     }

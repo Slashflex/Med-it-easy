@@ -351,45 +351,16 @@ ul.nav a~a:hover {
 }
 
 @keyframes spin {
-    0% {
-        content: "innovant";
-    }
-
-    20% {
-        content: "innovant";
-    }
-
-    30% {
-        content: "rapide";
-    }
-
-    40% {
-        content: "rapide";
-    }
-
-    50% {
-        content: "réinventé";
-    }
-
-    60% {
-        content: "réinventé";
-    }
-
-    70% {
-        content: "accessible";
-    }
-
-    80% {
-        content: "accessible";
-    }
-
-    90% {
-        content: "efficace";
-    }
-
-    100% {
-        content: "efficace";
-    }
+    0% { content: "innovant"; }
+    20% { content: "innovant"; }
+    30% { content: "rapide"; }
+    40% { content: "rapide"; }
+    50% { content: "réinventé"; }
+    60% { content: "réinventé"; }
+    70% { content: "accessible"; }
+    80% { content: "accessible"; }
+    90% { content: "efficace"; }
+    100% { content: "efficace"; }
 }
 
 .paragraph {
@@ -759,7 +730,7 @@ footer {
 }
 
 .toggleInfos {
-    background-color: $color3;
+    background-color: $color2;
     border-radius: 0 20px 20px 0;
     position: absolute;
     padding: 10px;
@@ -772,18 +743,21 @@ footer {
 
 // information panel on left side of screen (appears on mouseenter on .bgInfos class)
 .regExpList {
-    color: $color2;
+    color: $color3;
     font-size: 20px;
 }
 
 h4.text-center {
-    color: $color2;
+    color: $color3;
     font-family: 'ubuntu_monobold';
 }
 
 .regExpcolor {
     color: $color9;
     font-weight: bold;
+}
+.txtShadow {
+    color: $color1;
 }
 
 .fa-sign-in-alt {
@@ -1331,6 +1305,11 @@ div.fc-row>div>table>thead>tr>td>span {
     font-family: 'ubuntu_monobold';
     color: $color2;
 }
+// calendar event 
+.fc-event[href], .fc-event[href]:hover {
+    color: $color2;
+    font-weight: 600;
+}
 
 // Default background of FullCalendar(active day only)
 .fc-unthemed td.fc-today {
@@ -1484,11 +1463,6 @@ div.fc-row>div>table>thead>tr>td>span {
     .toggleInfos {
         display: none;
     }
-
-    // Hides information "button" (mouseenter Jquery script)
-    .bgInfos {
-        display: none;
-    }
 }
 
 // Medium screens
@@ -1548,7 +1522,6 @@ div.fc-row>div>table>thead>tr>td>span {
 
     #backBtnModal {
         margin: 0 auto;
-        display: block;
     }
 }
 
@@ -1630,7 +1603,7 @@ div.fc-row>div>table>thead>tr>td>span {
 
     #backBtnModal {
         margin: 0 auto;
-        display: block;
+        //display: block;
     }
 }
 
@@ -1882,9 +1855,5 @@ div.fc-row>div>table>thead>tr>td>span {
 }
 
 
-// calendar event 
-.fc-event[href], .fc-event[href]:hover {
-    color: $color2;
-    font-weight: bold;
-}
+
 
