@@ -52,4 +52,8 @@ To run this project, install it locally using npm:
 $ npm install jquery moment fullcalendar
 $ npm install maildev
 $ maildev
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> d70a7a5a5802a51036d5358a1a503f144d8e87cc

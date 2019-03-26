@@ -79,4 +79,8 @@ class EventManager extends Manager
         $listRdv->execute(array('id_patient' => $id_patient));
         return $listRdv;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d70a7a5a5802a51036d5358a1a503f144d8e87cc
