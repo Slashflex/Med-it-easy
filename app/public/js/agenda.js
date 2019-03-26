@@ -33,11 +33,8 @@ $(function () {
 			center: "title",
 			right: "month,agendaWeek,agendaDay"
 		},
-		
 		eventSources: [{
-
-			events: 
-			function (start, end, timezone, callback) {
+			events: function (start, end, timezone, callback) {
 				$.getJSON("index.php?action=displayEvents")
 					.done(function (doc) {
 						let events = [];
@@ -46,10 +43,10 @@ $(function () {
 								// will be parsed
 								id: $(this).attr('id'),
 								title: $(this).attr('title'),
-								start: $(this).attr('start'), 
+								start: $(this).attr('start'),
 								end: $(this).attr('end'),
 								color: $(this).attr('color'),
-								url: "index.php?action=displayEvents&id="+$(this).attr('id')
+								url: "index.php?action=test&id=" + $(this).attr('id')
 							});
 						});
 						callback(events);
