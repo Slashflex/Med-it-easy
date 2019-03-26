@@ -13,4 +13,4 @@ RewriteEngine On
 #####################
 RewriteBase /Test-projet-perso-MVC
 RewriteRule ^fr/(.*)$ index.php?action=$1
-#RewriteRule ^fr/(.*)$ index.php?action=$1&id=
+#RewriteRule ^fr/(.*)$ index.php?action=$1&id=$2
