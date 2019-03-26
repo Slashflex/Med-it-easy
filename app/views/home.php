@@ -5,7 +5,7 @@
 <!-- MESSAGE -->
 <div id="message">
     <div class="cookie_text">En poursuivant votre navigation sur le site, vous acceptez l’utilisation des cookies pour vous proposer des contenus et services adaptés à vos centres d’intérêt.
-        <a class="cookie_link" href="cookies_more.html">Plus d'infos</a>
+        <a class="cookie_link" href="fr/mentionsLegales">Plus d'infos</a>
     </div>
     <button class="buttons" onClick="hideMessage();">J'accepte</button><br />
 </div>
