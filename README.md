@@ -97,7 +97,7 @@ To run this project, install it locally using npm:
 
 ```
 $ npm install --save composer
-$ *composer* *require* *phpmailer/phpmailer*
+*composer* *require* *phpmailer/phpmailer*
 $ npm install jquery moment fullcalendar
 $ npm install maildev
 $ maildev
