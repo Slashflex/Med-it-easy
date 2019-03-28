@@ -8,6 +8,7 @@ use \Exception;
 // --- CLASS MANAGING PATIENTS
 class PatientManager extends Manager
 {
+    
 // --- REGISTER PATIENT
     public function createPatient($patientPrenom, $patientNom, $patientDate, $email, $password_1, $id_praticien)
     {
@@ -20,10 +21,11 @@ class PatientManager extends Manager
         if ($patient) {
             throw new Exception('Cet email existe déjà, veuillez réessayer avec une autre adresse email.');
             header('Location: app\views\patients\registerPatient.php');
+            exit();
         //...else, patient is created
         } else {
             $patient = $db->prepare('INSERT INTO patient (patientPrenom, patientNom, patientDate, email, password_1, id_praticien) 
-            VALUES (:patientPrenom, :patientNom, :patientDate, :email, :password_1, :id_praticien)');
+                                     VALUES (:patientPrenom, :patientNom, :patientDate, :email, :password_1, :id_praticien)');
             $patient->execute(array(
                 'patientPrenom' => $patientPrenom,
                 'patientNom' => $patientNom,
@@ -34,6 +36,7 @@ class PatientManager extends Manager
             return $patient;
         }
     }
+
 // --- PATIENT CONNEXION
     public function connectPatient($email)
     {
@@ -44,6 +47,7 @@ class PatientManager extends Manager
         $req->closeCursor();
         return $patient;
     }
+
 // --- UPDATES PATIENT INFORMATIONS
     public function updatePatient($email, $password_1, $id_patient)
     {
@@ -55,6 +59,7 @@ class PatientManager extends Manager
             'id_patient' => $id_patient));
         return $req;
     }
+
 // --- UPDATES PATIENT'S DOCTOR ONCE THIS ONE DELETED HiS ACCOUNT
     public function updatePraticienOfPatient($id_praticien, $id_patient)
     {
@@ -63,6 +68,7 @@ class PatientManager extends Manager
         $req->execute(array('id_praticien' => $id_praticien, 'id_patient' => $id_patient));
         return $req;
     }
+
 // --- LISTING ALL TYPES OF ACTES     
     public function getTypeActes()
     {
@@ -70,6 +76,7 @@ class PatientManager extends Manager
         $req = $db->query('SELECT * FROM typeacte LIMIT 0, 7');
         return $req;
     }
+
 // --- DELETE PATIENT
     public function deletePatient($id_patient)
     {
@@ -78,6 +85,7 @@ class PatientManager extends Manager
         $req->execute(array('id_patient' => $id_patient));
         return $req;
     }
+
 // --- DELETE ALL EVENTS BOUND TO PATIENT
     public function delPatientEvents($id_patient)
     {
@@ -86,6 +94,7 @@ class PatientManager extends Manager
         $req->execute(array('id_patient' => $id_patient));
         return $req;
     }
+
 // --- DELETE DOCTOR'S ID BOUND TO PATIENT
     public function delPraticienOfPatient($id_patient)
     {
@@ -94,6 +103,7 @@ class PatientManager extends Manager
         $req->execute(array('id_patient' => $id_patient));
         return $req;
     }
+    
 // --- IF PATIENT'S DOCTOR ACCOUNT IS NO MORE, ASK PATIENT TO CHOOSE A NEW ONE
     public function delFkPraticien($id_praticien, $id_patient)
     {

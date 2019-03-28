@@ -21,6 +21,7 @@ class PatientController
         $this->praticienManager = new PraticienManager;
         $this->eventManager = new EventManager;
     }
+
 // --- REGISTER PATIENT
     public function registerPatient()
     {
@@ -52,18 +53,19 @@ class PatientController
             }
         // On Register complete, sends an email to Patient to confirm his sign up
         $to = $email;
+        $headers = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
         $subject = 'Med It Easy | Confirmation de compte';
-        $message = 'Bonjour ! '. ucfirst($patientPrenom)  . ' ' . ucfirst($patientNom)  . '\r\n' . ' 
-        Afin de confirmer votre inscription sur le site Med It Easy, 
+        $message = 'Bonjour ! '. ucfirst($patientPrenom)  . ' ' . ucfirst($patientNom) . '<br>' . 
+        'Afin de confirmer votre inscription sur le site Med It Easy, 
         merci de cliquer sur le lien ci-dessous.
         <a href="action">Confirmez votre inscription</a>';
-        $message .= '</body></html>';
-        $headers = 'From: pro.davidsaoud@mediteasy.fr' . "\r\n" .
+        $headers .= 'From: pro.davidsaoud@mediteasy.fr' . "\r\n" .
         'Reply-To: pro.davidsaoud@mediteasy.fr' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
-            mail($to, $subject, $message, $headers);
-            require('app/views/patients/connexionPatient.php');
-        }
+        mail($to, $subject, $message, $headers);
+        require('app/views/patients/connexionPatient.php');
+    }
+
 // --- PASSWORD VERIFICATION
     public function passVerify($password_1, $email)
     {
@@ -94,12 +96,14 @@ class PatientController
                 throw new Exception('Mot de passe ou adresse email incorrect(e)');
             }
         }
+
 // --- LIST OF DOCTORS ALREADY REGISTERED (<select></select>)
     public function methodPatient()
     {
         $req = $this->praticienManager->getSubbedPraticien();
         require('app/views/patients/registerPatient.php');
     }
+
 // --- DELETE PATIENT
     public function delPatient($id_patient)
     {
@@ -110,17 +114,18 @@ class PatientController
         // Delete patient into DB
         $this->patientManager->deletePatient($id_patient);
     }
+
 // --- LIST TYPE OF ACTES & LIST ALL DOCTORS BY SPECIALITIES
-        public function rdvStep1()
-        {
-            // List all types of actes on patient's booking form
-            $typeActes = $this->patientManager->getTypeActes();
-            $duplicate = $this->praticienManager->removeDuplicatesSpe();
-            // Request to display the doctor's informations on the patient registration form...
-            // ...so patient can choose his doctor
-            $coords = $this->praticienManager->getPraticienCoords();
-            require('app/views/patients/rdvPatientStep1.php');
-        }
+    public function rdvStep1()
+    {
+        // List all types of actes on patient's booking form
+        $typeActes = $this->patientManager->getTypeActes();
+        $duplicate = $this->praticienManager->removeDuplicatesSpe();
+        // Request to display the doctor's informations on the patient registration form...
+        // ...so patient can choose his doctor
+        $coords = $this->praticienManager->getPraticienCoords();
+        require('app/views/patients/rdvPatientStep1.php');
+    }
 
 // --- UPDATE PATIENT DATAS
     public function updatePatientInfos()
@@ -137,8 +142,6 @@ class PatientController
     public function testJson()
     {
         $consult = htmlspecialchars($_POST['test']);
-        //$prat = htmlspecialchars($_POST['id_praticien']);
-        //$pratPrenom = htmlspecialchars($_GET['praticienPrenom']);
         $donneesArray = array($consult);
         $fichierOpen = fopen('app/public/json/testJson.json', 'w');
         $fichierWrite = fwrite($fichierOpen, json_encode($donneesArray));
