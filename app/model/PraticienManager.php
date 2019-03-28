@@ -39,9 +39,9 @@ class PraticienManager extends Manager
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT * FROM praticien 
-                            INNER JOIN specialite 
-                            ON specialite.id_spe = praticien.id_spe 
-                            WHERE praticienEmail = (:praticienEmail)');
+                             INNER JOIN specialite 
+                             ON specialite.id_spe = praticien.id_spe 
+                             WHERE praticienEmail = (:praticienEmail)');
         $req->execute(array('praticienEmail' => $praticienEmail));
         $praticien = $req->fetch();
         $req->closeCursor();

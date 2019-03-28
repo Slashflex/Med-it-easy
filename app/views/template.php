@@ -39,7 +39,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <!-- Bootstrap Core Css / JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js">
+    </script>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
     <!-- FullCalendar Plugin -->
@@ -83,15 +85,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="fr/mon-compte" id="scollToPricing">Mon compte</a>
                     <script>
-                        // Script to add active class to 4th button (this button appears once SESSiON is created
-                        $(function() {
-                            $('.nav a:lt(4)').filter(function() {
-                                return this.href == location.href
-                            }).parent().addClass('active').siblings().removeClass('active')
-                            $('.nav a:lt(4)').click(function() {
-                                $(this).parent().addClass('active').siblings().removeClass('active')
-                            });
+                    // Script to add active class to 4th button (this button appears once SESSiON is created
+                    $(function() {
+                        $('.nav a:lt(4)').filter(function() {
+                            return this.href == location.href
+                        }).parent().addClass('active').siblings().removeClass('active')
+                        $('.nav a:lt(4)').click(function() {
+                            $(this).parent().addClass('active').siblings().removeClass('active')
                         });
+                    });
                     </script>
                 </li>
                 <?php endif; ?>

@@ -61,6 +61,7 @@
                             session_unset();
                             session_destroy();
                             header('Location: index.php');
+                            exit();
                         } else {
                             throw new Exception('Echec de la suppression de votre compte');
                         }
@@ -192,6 +193,7 @@
                             session_unset();
                             session_destroy();
                             header('Location: index.php');
+                            exit();
                         } else {
                             throw new Exception('Echec de la suppression de votre compte');
                         }
@@ -252,6 +254,7 @@
                         unset($_SESSION['id']);
                         session_destroy();
                         header('Location: ../index.php');
+                        exit();
                     }
         // --- DISPLAY
                     // Legal notices display
