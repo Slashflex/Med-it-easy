@@ -3,7 +3,7 @@
 * [Technologies](#technologies)
 * [Features](#features)
 * [Setup](#setup)
-* [TO DO](#to-do)
+* [To do](#to-do)
 
 ## General info
 This project aims to To connect the Doctors and Patients in order to relieve the workload of the Doctor at the secretarial level (booking management, follow-up ..) and facilitate appointment's booking for patients, via a simple form (SPEECH To TEXT to study).
