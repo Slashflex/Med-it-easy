@@ -53,7 +53,7 @@ You can :
 * Registration module: 
 This module must allow users (Patients / Doctors) to register independently through the website.
 
-* Connexion module:
+* Log in module:
 Allow both Patient/Doctor the ability to log in with informations given in registration form
 
 * Account Management Module: 
@@ -80,12 +80,12 @@ Patients can feed the system by appointment (consultation), they will have an in
 * List all your scheduled appointments
 * Update your information (email and password)
 * Delete your account.
-### Once your account is created as a doctor
+### Once an account is created as a doctor
 * You can see on a calendar the patients who have made an appointment with you, with the type of consultation (and its associated color code), and the desired date and time
 * List all your patients
 * Delete your account and reset the patient's doctor having the deleted ID, so once doctor's account is deleted, the patient has to choose a new doctor once patient is connected.
 
-### TO Do:
+### TO DO:
 * Add more content on the pages, especially on the homepage, a list of rates applied by this doctor depending on the type of consultation, a list of the hours applied by this doctor and the possibility of updating his account.
 The ability to update, delete and move appointments from the doctor's calendar is also under consideration.
 
