@@ -96,6 +96,8 @@ The ability to update, delete and move appointments from the doctor's calendar i
 To run this project, install it locally using npm:
 
 ```
+$ npm install --save composer
+_$ composer require phpmailer/phpmailer_
 $ npm install jquery moment fullcalendar
 $ npm install maildev
 $ maildev
