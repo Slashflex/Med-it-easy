@@ -35,9 +35,9 @@ You can :
 * register
 * login
 * book an appointment
-* cancel an appointment
+* cancel an appointment (later version)
 * update email and/or password
-* delete his account
+* delete your account
 
 ### As Doctor
 You can :
@@ -47,7 +47,7 @@ You can :
 * display patient(s) list (later : it'll be possible to access patient informations such as booked appointments...)
 * follow-up of consultations via the calendar with type of acte, scheduled time/hour and patient First and Last name
 * update a given appointment : to change scheduled date/time and sending an email to this patient with updated appointment
-* delete his account
+* delete your account
 
 ### The site is composed of these different modules
 * Registration module: 
