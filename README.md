@@ -25,7 +25,8 @@ Project is created with:
 * CSS is compiled using SASS (app/public/scss/style.scss)
 
 ### Common
-* MailDev (for local use: on terminal -> write 'maildev' then in your browser's url field write 'localhost:1080' 
+* MailDev (for local use: on terminal -> write 'maildev' then in your browser's url field write 'localhost:1080') to receive email once your account his created (later: once patient's appointment is booked)
+* (later: switch Maildev to PHPMailer)
 
 ## Features
 ### As user
