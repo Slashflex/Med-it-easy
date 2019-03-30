@@ -35,7 +35,7 @@ class EventController
         $formatedEvents = [];
         foreach ($events as $event) {
             $formatedEvent['id'] = $event['id_event'];
-            $formatedEvent['title'] = ucfirst($event['patientNom']) . ' ' . ucfirst($event['patientPrenom']) . ' ' . 'Motif : ' . ucfirst($event['description']);
+            $formatedEvent['title'] = ucfirst(htmlspecialchars($event['patientNom'])) . ' ' . ucfirst(htmlspecialchars($event['patientPrenom'])) . ' ' . 'Motif : ' . ucfirst(htmlspecialchars($event['description']));
             $formatedEvent['start'] = $event['start'] . ' ' . $event['hour'];
             $dateSrc = strtotime($formatedEvent['start']);
             $interval = 30 * 60;
