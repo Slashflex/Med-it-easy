@@ -37,7 +37,28 @@
         // --- REGISTER PATIENT
                     elseif ($_GET['action'] == 'inscription_patient') {
                         $this->patientController->registerPatient();
+                        
+                    }
+        // --- ACCOUNT CONFIRMATION WITH RANDOM TOKEN GENERATED 
+                    elseif ($_GET['action'] == 'confirmPatient') {
+                        $token = $_GET['token'];
+                        $this->patientController->confirmPatient($token);
+                        
                     } 
+        // --- AUTO LOGIN ONCE ACCOUNT IS CONFIRMED 
+                    elseif ($_GET['action'] == 'autoLogin') {
+                        $token = $_GET['token'];
+                        $this->patientController->autoLog($token);
+                    }
+        // --- SENDS NEW MAIL WITH LINK WITH RANDOM GENERATED TOKEN
+                    elseif ($_GET['action'] == 'sendNewConfirmMail') {
+                        $email = $_POST['email'];
+                        $this->patientController->getPatientMail($email);
+                    }
+        // --- ASKING USER TO ENTER HIS EMAIL THEN CHECKS IF IT EXISTS IN DATABASE     
+                    elseif ($_GET['action'] == 'requestNewMail') {
+                        require('app/views/newMailForm.php');
+                    }
         // --- PASSWORD VERIFY
                     // Displaying the ConnectedPatient View Once the Patient is Connected
                     elseif ($_GET['action'] == 'espace-patient') {

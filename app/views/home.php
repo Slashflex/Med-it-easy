@@ -4,18 +4,25 @@
 
 <!-- MESSAGE -->
 <div id="message">
-    <div class="cookie_text">En poursuivant votre navigation sur le site, vous acceptez l’utilisation des cookies pour vous proposer des contenus et services adaptés à vos centres d’intérêt.
+    <div class="cookie_text">En poursuivant votre navigation sur le site, vous acceptez l’utilisation des cookies pour
+        vous proposer des contenus et services adaptés à vos centres d’intérêt.
         <a class="cookie_link" href="fr/mentionsLegales">Plus d'infos</a>
     </div>
     <button class="buttons" onClick="hideMessage();">J'accepte</button><br />
 </div>
-<!-- end MESSAGE -->
+<!-- end: MESSAGE -->
+
+
 
 <!-- Block "Notre concept" -->
 <section id="concept" class="container-fluid concept_height page_section">
     <div class="container">
         <div class="row">
+
             <div class="col-lg-12">
+                <?php if (isset($_GET['infos']) && $_GET['infos'] == 'sended'): ?>
+                <p style='color: green; background-color: orange' class="text-center">Email envoyé</p>
+                <?php endif;?>
                 <h1 class="h1-mb">Le secrétariat médical <br><span id="spin"></span></h1>
                 <h5 class="text-center mx-auto col-sm-10 col-lg-12 paragraph">Nous œuvrons pour que chaque praticien
                     puisse
@@ -25,7 +32,6 @@
         </div>
         <!-- Blocks Promo -->
         <div class="row">
-            <!--id="blockCards"-->
             <div class="mx-auto col-xs-3 col-lg-3 cardBox">
                 <p class="text-center h5-mb">Lutter contre le travail empêché</p>
                 <p class="text-center paragraph">En étant bien pensée et respectueuse de vos intérêts, la technologie
@@ -42,11 +48,12 @@
             </div>
             <div class="mx-auto col-xs-3 col-lg-3 cardBox">
                 <p class="text-center h5-mb">Garantir les intérêts des praticiens</p>
-                <p class="text-center paragraph">MedItEasy est plus qu’une initiative créée pour les praticiens. Nous
+                <p class="text-center paragraph">Med It Easy est plus qu’une initiative créée pour les praticiens. Nous
                     voulons
                     grandir ensemble, dans le respect des valeurs de la profession.</p>
             </div>
-        </div><!-- /.Blocks Promo -->
+        </div><!-- end: Blocks Promo -->
+
         <div class="container">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae deleniti ipsam maxime ullam sit
             architecto laudantium modi, nulla magnam amet tempore placeat incidunt iste enim alias natus praesentium
@@ -100,18 +107,16 @@
             numquam esse incidunt distinctio veniam ea enim rem optio?
         </div>
     </div>
-</section><!-- /.Block "Notre concept" -->
+</section><!-- end: Block "Notre concept" -->
 
 <div class="parallax1 img-fluid">
-    <!-- <div class="row" id="placeholder">
-        <img src="app/public/images/placeholder.png" id="placeholder" alt="">
-    </div> -->
+
 </div>
 
 <!-- Block "Notre solution" -->
 <section id="solution" class="container-fluid solution_height page_section">
 
-</section>
+</section><!-- end: Block "Notre solution" -->
 
 <div class="parallax3 img-fluid">
 
@@ -120,7 +125,7 @@
 <!-- Block "Tarifs" -->
 <section id="tarification" class="container-fluid pricing_height page_section">
 
-</section>
+</section><!-- end: Block "Tarifs" -->
 
 <?php $content = ob_get_clean(); ?>
 
