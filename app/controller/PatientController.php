@@ -21,10 +21,11 @@ class PatientController
         $this->praticienManager = new PraticienManager;
         $this->eventManager = new EventManager;
     }
-
 // --- REGISTER PATIENT
     public function registerPatient()
     {
+        // Random generated token for email confirmation
+        $token = sha1(uniqid(rand()));
         // Convert special characters to HTML entities
         $patientPrenom = htmlspecialchars($_POST['patientPrenom']);
         $patientNom = htmlspecialchars($_POST['patientNom']);
@@ -47,7 +48,7 @@ class PatientController
                 // Else, password is hashed...
                 $passHash = password_hash($password_1, PASSWORD_DEFAULT);
                 // //...and Patient accound is created and his datas are stored into the database
-                $this->patientManager->createPatient($patientPrenom, $patientNom, $patientDate, $email, $passHash, $id_praticien);
+                $this->patientManager->createPatient($patientPrenom, $patientNom, $patientDate, $email, $passHash, $id_praticien, $token);
             } else {
                 throw new Exception('Vous devez respecter les caractères autorisés par le formulaire');
             }
@@ -55,17 +56,37 @@ class PatientController
         $to = $email;
         $headers = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
         $subject = 'Med It Easy | Confirmation de compte';
-        $message = 'Bonjour ! '. ucfirst($patientPrenom)  . ' ' . ucfirst($patientNom) . '<br>' . 
-        'Afin de confirmer votre inscription sur le site Med It Easy, 
+        $message = 'Bonjour ! '. ucfirst($patientPrenom)  . ' ' . ucfirst($patientNom) . ' 
+        Afin de confirmer votre inscription sur le site Med It Easy, 
         merci de cliquer sur le lien ci-dessous.
-        <a href="action">Confirmez votre inscription</a>';
+        <a href="http://localhost/Test-projet-perso-MVC/index.php?action=confirmPatient&token=' . $token .'">Confirmez votre inscription</a>';
         $headers .= 'From: pro.davidsaoud@mediteasy.fr' . "\r\n" .
         'Reply-To: pro.davidsaoud@mediteasy.fr' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
-        mail($to, $subject, $message, $headers);
-        require('app/views/patients/connexionPatient.php');
-    }
+            mail($to, $subject, $message, $headers);
+            require('app/views/infosConnexionPatient.php');
+        }
 
+// --- TOKEN CONFIRMATION
+        public function confirmPatient($token) 
+        {
+            $this->patientManager->updateToken($token);
+            require('app\views\registerConfirm.php');
+        }
+
+// --- AUTO LOGIN ONCE ACCOUNT IS CONFIRMED
+        public function autoLog($token)
+        {
+            $req = $this->patientManager->autoLog($token);
+            $data = $req->fetch();
+            $_SESSION['patientPrenom'] = $data['patientPrenom'];
+            $_SESSION['patientNom'] = $data['patientNom'];
+            $_SESSION['id'] = $data['id_patient'];
+            $_SESSION['patientEmail'] = $data['email'];
+            $_SESSION['id_praticien'] = $data['id_praticien'];
+            $_SESSION['confirmationToken'] = $data['confirmationToken'];
+            require ('app/views/patients/connectedPatient.php');
+        }
 // --- PASSWORD VERIFICATION
     public function passVerify($password_1, $email)
     {
@@ -76,26 +97,59 @@ class PatientController
         $result = password_verify($password_1, $data['password_1']);
         // Dropdown menu (<select></select>) displaying all Doctors registered
         $coords = $this->praticienManager->getPraticienCoords();
+
         // If true ...
         if ($result) {
-            // ...storing datas in super global variables
-            $_SESSION['patientPrenom'] = $data['patientPrenom'];
-            $_SESSION['patientNom'] = $data['patientNom'];
-            $_SESSION['id'] = $data['id_patient'];
-            $_SESSION['patientEmail'] = $data['email'];
-            $_SESSION['id_praticien'] = $data['id_praticien'];
-            // If checkbox "Remember me" is checked ...
-            if (isset($_POST['rememberMe']) && $_POST['rememberMe'] == "on") {
-                // set cookie with datas
-                setcookie('id', 'patientEmail', 'patientPrenom', 'patientNom', time() + 365243600, null, null, false, true);
-                $rememberMe = htmlspecialchars($_POST['rememberMe']);
-            }
+            if ($data['confirmed'] == 'true') {
+                // ...storing datas in super global variables
+                $_SESSION['patientPrenom'] = $data['patientPrenom'];
+                $_SESSION['patientNom'] = $data['patientNom'];
+                $_SESSION['id'] = $data['id_patient'];
+                $_SESSION['patientEmail'] = $data['email'];
+                $_SESSION['id_praticien'] = $data['id_praticien'];
+                // If checkbox "Remember me" is checked ...
+                if (isset($_POST['rememberMe']) && $_POST['rememberMe'] == "on") {
+                    // set cookie with datas
+                    setcookie('id', 'patientEmail', 'patientPrenom', 'patientNom', time() + 365243600, null, null, false, true);
+                    $rememberMe = htmlspecialchars($_POST['rememberMe']);
+                }
                 require('app/views/patients/connectedPatient.php');
             } else {
+                throw new Exception('Vous devez confirmez votre compte, si vous souhaitez que l\'on vous renvoie un email de confirmation, <a href="index.php?action=requestNewMail">veuillez cliquer ici</a>');
+            } 
+        } 
+            else {
                 // If passwords doesn't match, returns an error
                 throw new Exception('Mot de passe ou adresse email incorrect(e)');
             }
+    }
+
+
+// --- SEARCH INTO DATABASE IF THIS EMAIL EXIST
+    public function getPatientMail($email)
+    {
+        $req = $this->patientManager->checkPatientMail($email);
+        $count = $req->rowCount();
+        if ($count == 1) {
+            // Random token for email confirmation
+            $token = sha1(uniqid(rand()));
+            $this->patientManager->reSentMail($email, $token);
+            $to = $email;
+            $headers = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            $subject = 'Med It Easy | Confirmation de compte';
+            $message = 'Bonjour !  
+            Afin de confirmer votre inscription sur le site Med It Easy, 
+            merci de cliquer sur le lien ci-dessous.
+            <a href="http://localhost/Test-projet-perso-MVC/index.php?action=confirmPatient&token=' . $token .'">Confirmez votre inscription</a>';
+            $headers .= 'From: pro.davidsaoud@mediteasy.fr' . "\r\n" .
+            'Reply-To: pro.davidsaoud@mediteasy.fr' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+            mail($to, $subject, $message, $headers);
+            header('Location: index.php?infos=sended');
+        } else {
+            throw new Exception('Vous n\'avez pas de compte chez nous, veuillez cliquer ici pour vous <a href="fr/inscription-patient">inscrire</a>');
         }
+    }
 
 // --- LIST OF DOCTORS ALREADY REGISTERED (<select></select>)
     public function methodPatient()
@@ -142,6 +196,8 @@ class PatientController
     public function testJson()
     {
         $consult = htmlspecialchars($_POST['test']);
+        //$prat = htmlspecialchars($_POST['id_praticien']);
+        //$pratPrenom = htmlspecialchars($_GET['praticienPrenom']);
         $donneesArray = array($consult);
         $fichierOpen = fopen('app/public/json/testJson.json', 'w');
         $fichierWrite = fwrite($fichierOpen, json_encode($donneesArray));
