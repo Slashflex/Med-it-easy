@@ -71,7 +71,7 @@ class PatientController
         public function confirmPatient($token) 
         {
             $this->patientManager->updateToken($token);
-            require('app\views\registerConfirm.php');
+            require('app/views/registerConfirm.php');
         }
 
 // --- AUTO LOGIN ONCE ACCOUNT IS CONFIRMED
