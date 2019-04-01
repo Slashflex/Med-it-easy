@@ -3,7 +3,7 @@
 
 <head>
     <base href="http://localhost/Test-projet-perso-MVC/" />
-    <!-- <base href="http://www.mediteasy.fr/"> -->
+    <!-- <base href="https://www.mediteasy.fr/"> -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Meta Tags -->
