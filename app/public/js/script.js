@@ -28,21 +28,21 @@ $(function () {
         $("html, body").animate({
                 scrollTop: $(".concept_height").offset().top
             },
-            2000
+            900
         );
     });
     $("#scrollToSolution").click(function () {
         $("html, body").animate({
                 scrollTop: $(".solution_height").offset().top
             },
-            2000
+            900
         );
     });
     $("#scollToPricing").click(function () {
         $("html, body").animate({
                 scrollTop: $(".pricing_height").offset().top
             },
-            2000
+            900
         );
     });
     // Allows the return to sections of the home.php view ...
@@ -51,14 +51,14 @@ $(function () {
         $("html, body").animate({
                 scrollTop: $("#test1").offset().top
             },
-            2000
+            900
         );
     });
     $("index.php#scrollToSolution").click(function () {
         $("html, body").animate({
                 scrollTop: $("#test2").offset().top
             },
-            2000
+            900
         );
     });
     $("index.php#scollToPricing").click(function () {
