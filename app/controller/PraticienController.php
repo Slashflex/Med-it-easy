@@ -65,7 +65,7 @@ class PraticienController
             // ...storing datas in super global variables
             $_SESSION['praticienPrenom'] = $data['praticienPrenom'];
             $_SESSION['praticienNom'] = $data['praticienNom'];
-                $_SESSION['id'] = $data['id_praticien'];
+            $_SESSION['id'] = $data['id_praticien'];
             $_SESSION['praticienEmail'] = $data['praticienEmail'];
             $_SESSION['specialite'] = $data['description'];
             // If checkbox "Remember me" is checked ...

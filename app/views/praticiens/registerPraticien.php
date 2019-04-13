@@ -33,7 +33,7 @@
     </div>
     <div class="input-group">
         <label for="birthDate">Date de naissance</label>
-        <input type="date" name="praticienDate" id="birthDate" min="1930-01-01" max="2019-03-30" required>
+        <input type="date" name="praticienDate" id="birthDate" min="1930-01-01" max="2019-05-30" required>
         <span class="error-message mx-auto"></span>
     </div>
     <div class="input-group">
